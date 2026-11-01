@@ -1,0 +1,916 @@
+\chapter{金融的本质：摩擦、功能与金融体系}
+\label{chap:The_Essence_of_Finance_Frictions_Functions_and_the_Financial_System}
+
+\begin{openingcase}{项目有价值，为何融不到资金？}
+
+苏州工程师李伟开发了一套用于工业设备的节能控制系统。要建立生产线并将产品推向市场，他现在需要人民币 1,000 万元，但只能投入自己的 100 万元储蓄。
+
+另一边，王成女士有一笔近期不打算使用的储蓄。在没有摩擦的世界里，双方似乎很容易匹配：一方有资金，另一方能够将资金用于生产。然而，交易并不会自行达成。
+
+王成对这项技术的了解不如李伟。她无法观察项目的真实质量，无法核实李伟的所有预测，也无法预先知道他获得资金后会如何行动。项目本身也存在不确定性：需求可能不及预期，成本可能上升，也可能出现竞争性技术。双方偏好的期限也不同。李伟需要能够长期投入的资金，而王成可能希望更早动用自己的储蓄。
+
+即使王成愿意提供剩余的 900 万元，仍有许多问题需要解决：风险如何分配？李伟应披露哪些信息？王成应获得哪些权利？双方如何确信未来的义务会得到履行？如果项目预期在多年内产生现金流，这些不确定的未来现金流在今天究竟值多少钱？
+
+仅有储蓄和投资机会，并不能保证资金从储蓄者流向投资者。需要金融安排来促进跨期交易，并应对不确定性、信息不对称、激励与承诺带来的挑战。
+
+\end{openingcase}
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=FinanceBlue!6,
+  colframe=FinanceBlue,
+  boxrule=0.6pt,
+  sharp corners,
+  left=8pt,
+  right=8pt,
+  top=7pt,
+  bottom=7pt,
+  before skip=1em,
+  after skip=1.6em,
+  title=\textbf{核心问题},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  attach boxed title to top left={xshift=6pt,yshift=-2mm},
+  boxed title style={
+    boxrule=0pt,
+    sharp corners,
+    left=5pt,
+    right=5pt,
+    top=2pt,
+    bottom=2pt
+  }
+]
+\begin{enumerate}[
+  leftmargin=*,
+  label=\textcolor{FinanceBlue}{\textbf{\arabic*.}},
+  itemsep=0.55em,
+  topsep=0.2em
+]
+\item 哪些经济摩擦使金融成为必要？
+\item 要实现互利交换，金融体系必须履行哪些功能？
+\item 为什么货币、市场、机构和金融工具会采取不同形式？这些形式又为什么会随时间变化？
+\end{enumerate}
+\end{tcolorbox}
+
+\section{金融为何存在：从经济机会到金融摩擦}
+
+今天拥有资金的人，未必是能够最有效地使用这些资金的人。金融通过以当期资源交换未来支付的安排，将双方联系起来。由于这些支付取决于未来结果，不确定性不可避免。
+
+未来支付无法事先确定，因此不确定性使信息变得重要。参与者必须判断可能发生什么，以及承诺是否可能得到履行。然而，信息往往不完整，且分布不均，因此金融安排还必须明确各方享有哪些权利、承担哪些义务。这些承诺本身也必须可信，并能够得到执行。
+
+\subsection{时间：资源与机会的分离}
+
+经济活动中的现金流入与流出发生在不同时间。个人可能在某一时点获得收入，却希望在另一时点支出；企业也往往先承担成本，后通过销售获得现金。因此，资金可供使用的时间，与其潜在用途所需的时间不一定一致。
+
+这种分离使跨期交换（intertemporal exchange）能够带来收益。储蓄把购买力从现在转移到未来，借款则进行相反的转移。在一个简单的两期基准模型中，若个人能够按相同利率 $r$ 借入或贷出资金，其约束为
+
+\begin{equation}
+c_0+\frac{c_1}{1+r}=y_0+\frac{y_1}{1+r},
+\label{eq:ch1_intertemporal_budget}
+\end{equation}
+
+其中，$y_0$ 和 $y_1$ 分别表示第 0 期和第 1 期的收入，$c_0$ 和 $c_1$ 表示相应时期的消费，$r$ 为利率。该约束要求消费现值等于收入现值。借贷使消费可以在不改变其现值的情况下跨期转移。今天每增加一单位消费，就必须放弃下一期的 $1+r$ 单位消费。
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  >=Latex,
+  axis/.style={-Latex, line width=0.8pt},
+  budget/.style={line width=1.0pt},
+  guide/.style={dashed, gray, line width=0.6pt},
+  move/.style={-Latex, line width=0.9pt, FinanceBlue}
+]
+\draw[axis] (0,0) -- (7.1,0) node[right] {$c_0$};
+\draw[axis] (0,0) -- (0,5.8) node[above] {$c_1$};
+\draw[budget] (0.7,5.15) -- (6.45,0.65);
+\coordinate (E) at (3.55,2.92);
+\fill[FinanceBlue] (E) circle (2.2pt);
+\node[above right] at (E) {$E=(y_0,y_1)$};
+\draw[guide] (E) -- (3.55,0) node[below] {$y_0$};
+\draw[guide] (E) -- (0,2.92) node[left] {$y_1$};
+\draw[move] (3.43,3.02) -- (2.25,3.94);
+\node[above left, align=center] at (4.88,3.95) {储蓄（贷出）};
+\draw[move] (3.67,2.82) -- (4.88,1.88);
+\node[below right] at (5.38,1.88) {借款};
+\node[above right] at (4.72,1.95) {斜率 $=-(1+r)$};
+\end{tikzpicture}
+\caption{储蓄、借款与跨期预算约束}
+\label{fig:ch1-intertemporal-budget}
+\end{figure}
+
+在禀赋点 $E$，个人每一期的消费都等于当期收入。沿预算线向左上方移动，意味着当前消费低于收入，并将购买力转移到未来；向右下方移动，则意味着以未来收入为基础借款。预算线说明，收入的时间分布并不必然决定消费的时间分布。
+
+对企业而言，有投资机会并不意味着拥有实施投资所需的资金。企业可能有一个有价值的项目，但内部资金不足，而外部投资者拥有可供投资的资源。如图~\ref{fig:ch1-internal-external-finance} 所示，外部融资通过将外部资源引入企业，并以未来支付请求权作为交换，弥合了这种分离。
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  >=Latex,
+  box/.style={
+    draw,
+    rounded corners,
+    minimum width=3.0cm,
+    minimum height=1.15cm,
+    align=center,
+    line width=0.8pt
+  },
+  flow/.style={
+    -Latex,
+    line width=0.9pt,
+    FinanceBlue
+  },
+  return/.style={
+    -Latex,
+    dashed,
+    line width=0.8pt,
+    gray
+  },
+  firmbox/.style={
+    draw,
+    rounded corners,
+    dashed,
+    line width=0.8pt
+  }
+]
+
+%------------------------------------------------
+% External investors
+%------------------------------------------------
+\node[box] (outside) at (0.3,1.3)
+{外部投资者\\[2pt]
+\small 拥有可用资金};
+
+%------------------------------------------------
+% Firm
+%------------------------------------------------
+\node[box] (internal) at (6.2,1.3)
+{内部资金\\[2pt]
+\small 单靠内部资金不足};
+
+\node[box] (project) at (6.2,3.35)
+{投资机会\\[2pt]
+\small 需要资金};
+
+% Firm boundary
+\draw[firmbox]
+  (3.8,0.25) rectangle (8.6,4.45);
+
+\node[
+  fill=white,
+  inner sep=2pt,
+  font=\bfseries
+]
+at (6.2,4.45) {企业};
+
+%------------------------------------------------
+% Internal financing and future return
+%------------------------------------------------
+
+% Current financing: slightly left
+\coordinate (intfinstart)
+  at ($(internal.north)+(-0.18,0)$);
+
+\coordinate (intfinend)
+  at ($(project.south)+(-0.18,0)$);
+
+\draw[flow]
+  (intfinstart)
+  -- node[left, font=\small]
+  {内部融资}
+  (intfinend);
+
+% Future return: slightly right
+\coordinate (intreturnstart)
+  at ($(project.south)+(0.18,0)$);
+
+\coordinate (intreturnend)
+  at ($(internal.north)+(0.18,0)$);
+
+\draw[return]
+  (intreturnstart)
+  -- node[right, font=\small]
+  {未来回报}
+  (intreturnend);
+
+%------------------------------------------------
+% External financing and future return
+%------------------------------------------------
+
+% External finance: upper path
+\coordinate (extfinstart)
+  at ($(outside.north)+(-0.15,0)$);
+
+\coordinate (extfinend)
+  at ($(project.west)+(0,0.18)$);
+
+\draw[flow]
+  (extfinstart)
+  |- node[pos=0.72, above, font=\small]
+  {外部融资}
+  (extfinend);
+
+% Future return: lower parallel path
+\coordinate (extreturnstart)
+  at ($(project.west)+(0,-0.18)$);
+
+\coordinate (extreturnend)
+  at ($(outside.north)+(0.15,0)$);
+
+\draw[return]
+  (extreturnstart)
+  -| node[pos=0.28, below, font=\small]
+  {未来回报}
+  (extreturnend);
+
+\end{tikzpicture}
+
+\caption{资源与投资机会分离时的内部融资和外部融资}
+\label{fig:ch1-internal-external-finance}
+\end{figure}
+
+
+\subsection{不确定性与风险分配}
+
+未来的不确定性增加了跨期交换的难度。奈特根据人们对未来结果的认知程度区分了风险（risk）与不确定性（uncertainty）。风险是指可能的未来状态已知，而且每种状态的概率可以确定。不确定性则包括两种情况：第一，可能的未来状态已知，但其概率未知；第二，甚至无法完全识别可能出现的未来状态，因此这些状态的概率也未知。
+
+金融安排可以决定，不同状态带来的经济后果如何在参与者之间分配。它们无法消除究竟会出现何种状态的根本不确定性，但可以改变由谁承担随之产生的收益和损失。
+
+如果参与者面临的风险敞口不同，承担风险的能力或意愿也不同，风险分配就可能创造经济价值。金融安排能够将特定风险转移给更有能力或更愿意承担它的人。风险分担（risk sharing）是风险分配的一种形式：一个人难以承受的损失，可以分散给许多参与者。
+
+设状态 $s$ 下可用的总资源为 $Y(s)$，参与者 $i$ 获得的资源为 $X_i(s)$，则任何可行分配都必须满足
+
+\begin{equation}
+\sum_i X_i(s)=Y(s)
+\qquad \text{对每一种状态 }s.
+\label{eq:ch1_risk_sharing}
+\end{equation}
+
+这一约束意味着，风险分担可以改变某一状态下资源的分配，却不能改变该状态下可用资源的总量。图~\ref{fig:ch1-risk-sharing} 展示了这一区别。
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  >=Latex,
+  title/.style={font=\small\bfseries},
+  label/.style={font=\small},
+  flow/.style={-Latex, line width=0.9pt, FinanceBlue},
+  total/.style={draw, line width=0.8pt, minimum height=0.65cm},
+  abar/.style={fill=FinanceBlue!25},
+  bbar/.style={fill=gray!20}
+]
+
+%------------------------------------------------
+% Column headings
+%------------------------------------------------
+\node[title] at (3.0,5.2) {状态 1};
+\node[title] at (8.0,5.2) {状态 2};
+
+%------------------------------------------------
+% Before risk sharing
+%------------------------------------------------
+\node[label, anchor=east] at (0.3,4.15)
+{风险分担前};
+
+% State 1: A has more, B has less
+\draw[total] (1.4,3.8) rectangle (4.6,4.45);
+\fill[abar] (1.4,3.8) rectangle (3.9,4.45);
+\fill[bbar] (3.9,3.8) rectangle (4.6,4.45);
+
+\node[label] at (2.65,4.125) {$A$};
+\node[label] at (4.25,4.125) {$B$};
+
+% State 2: A has less, B has more
+\draw[total] (6.4,3.8) rectangle (9.6,4.45);
+\fill[abar] (6.4,3.8) rectangle (7.1,4.45);
+\fill[bbar] (7.1,3.8) rectangle (9.6,4.45);
+
+\node[label] at (6.75,4.125) {$A$};
+\node[label] at (8.35,4.125) {$B$};
+
+%------------------------------------------------
+% Risk-sharing arrows
+%------------------------------------------------
+\draw[flow] (3.0,3.55) -- (3.0,2.75);
+\draw[flow] (8.0,3.55) -- (8.0,2.75);
+
+\node[label, fill=white, inner sep=2pt]
+  at (5.5,3.15) {风险分担};
+
+%------------------------------------------------
+% After risk sharing
+%------------------------------------------------
+\node[label, anchor=east] at (0.3,2.0)
+{风险分担后};
+
+% State 1: more balanced allocation
+\draw[total] (1.4,1.65) rectangle (4.6,2.30);
+\fill[abar] (1.4,1.65) rectangle (3.35,2.30);
+\fill[bbar] (3.35,1.65) rectangle (4.6,2.30);
+
+\node[label] at (2.38,1.975) {$A$};
+\node[label] at (3.98,1.975) {$B$};
+
+% State 2: more balanced allocation
+\draw[total] (6.4,1.65) rectangle (9.6,2.30);
+\fill[abar] (6.4,1.65) rectangle (7.65,2.30);
+\fill[bbar] (7.65,1.65) rectangle (9.6,2.30);
+
+\node[label] at (7.03,1.975) {$A$};
+\node[label] at (8.63,1.975) {$B$};
+
+%------------------------------------------------
+% Aggregate resource labels
+%------------------------------------------------
+\draw[decorate,
+  decoration={brace, amplitude=4pt, mirror},
+  line width=0.7pt]
+  (1.4,1.40) -- (4.6,1.40)
+  node[midway, below=5pt, label] {$Y(1)$ 不变};
+
+\draw[decorate,
+  decoration={brace, amplitude=4pt, mirror},
+  line width=0.7pt]
+  (6.4,1.40) -- (9.6,1.40)
+  node[midway, below=5pt, label] {$Y(2)$ 不变};
+
+\end{tikzpicture}
+
+\caption{风险分担改变分配，不改变总资源}
+\label{fig:ch1-risk-sharing}
+\end{figure}
+
+在各状态可用资源给定时，金融能够重新分配风险后果，却不能消除总量损失。保险将损失分摊给投保人，股权将经营风险分配给投资者，衍生工具重新配置特定风险敞口，分散化则降低对个别结果的依赖。因此，风险分配关注的是：在不同的世界状态下，由谁承担经济后果。
+
+\subsection{信息与激励摩擦}
+
+金融决策要求在结果实现之前，对项目、交易对手和未来现金流作出评估。这些评估所依据的信息，往往不完整，且在参与者之间分布不均。
+
+这种信息差异构成信息不对称（information asymmetry）。企业管理者对项目质量的了解可能多于外部投资者，而借款人可能掌握贷款人无法直接观察的行为信息。融资之前，如果融资条件影响哪些借款人寻求或接受资金，不可观察的项目质量差异就可能引发逆向选择（adverse selection）。融资之后，如果借款人有动力采取影响贷款人收益、但无法被完全观察的行动，就可能产生道德风险（moral hazard）。
+
+仅靠信息披露无法解决这些问题。信息生产可能成本高昂，信息可能难以核实，而且即使能够获得也可能不完整。金融体系将资源用于筛选、审计、认证与监督。这些活动能够改善金融决策的信息基础，但无法消除未来结果的不确定性。
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{金融视角：金融契约为何不只是转移资金},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+提供资金之前，贷款人和投资者可以评估借款人、发行人或项目，核实财务信息，并参考信用记录或声誉。贷款人也可能要求抵押品。融资之后，契约可以要求定期披露信息、限制某些行为，并赋予资金提供者监督绩效或在违反契约条件时介入的权利。
+
+这些机制并不能消除信息不对称。筛选和核实主要用于融资之前，此时相关特征可能难以观察；披露、监督和契约限制则在融资之后变得重要，此时行为可能难以观察。
+\end{tcolorbox}
+
+信息既影响融资能否实现，也影响融资条件。但信息本身并不界定各方的权利和义务。这些权利和义务必须得到明确规定，而未来承诺必须可信且能够执行。
+
+
+\subsection{承诺与执行}
+
+许多金融安排依赖于规定未来承诺、权利和义务的契约。契约明确支付、或有情形，以及未遵守约定条款时的救济措施。例如，债务契约规定何时付款，以及借款人违约时债权人享有哪些权利。
+
+只有当各方预期未来义务会得到履行时，契约承诺才可信。如果一方在签订契约时无法可信地约束自己的未来行为，就会出现承诺问题（commitment problem）。融资之后，一方可能有动力采取使自己受益、却降低另一方请求权价值的行动。抵押品、限制性条款、声誉与控制权，可以通过限制某些行为或改变不履约的后果来支持承诺。
+
+执行（enforcement）使契约权利具有实际效力。法院、债权人权利、破产程序和抵押安排，决定了义务被违反时可采取哪些救济措施。对执行情况的预期会影响是否提供融资及其条件。然而，执行既不完备，也并非没有成本：契约无法规定所有未来情形，法律程序也可能耗时且昂贵。因此，金融安排除了依靠正式契约权利，还依靠重新谈判、声誉和酌情处理。
+
+这四类经济问题往往同时存在。例如，银行贷款在跨期转移购买力的同时，分配与不确定偿付有关的风险，依赖借款人的信息，并建立由执行机制支持的契约权利和义务。因此，金融安排通常同时应对多个经济问题。
+
+\section{金融体系履行哪些功能}
+
+上述经济问题构成了金融体系核心功能的依据。尽管各国及不同时期的金融体系各不相同，它们都在不同时间和用途之间配置资源、分担和转换风险、提供流动性并支持支付、生产信息并约束行为，以及促进价格发现。即使履行这些功能的机构和技术发生变化，这些功能依然重要。
+
+\subsection{在不同时间和用途之间配置资源}
+
+金融在不同时点之间重新配置购买力。借款使个人能够提前使用未来购买力，而储蓄和投资把当前购买力转移到未来。在生命周期中，这些安排可以帮助个人在成年初期为教育或住房融资，在工作期间积累资源，并支持退休后的消费。对企业而言，融资同样使投资可以发生在项目现金流实现之前。
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  >=Latex,
+  axis/.style={-Latex, line width=0.8pt},
+  income/.style={line width=1.1pt, FinanceBlue},
+  consumption/.style={line width=1.0pt, gray!75},
+  guide/.style={dashed, gray, line width=0.6pt},
+  label/.style={font=\small}
+]
+
+%------------------------------------------------
+% Axes
+%------------------------------------------------
+\draw[axis] (0,0) -- (9.4,0) node[right] {年龄};
+\draw[axis] (0,0) -- (0,5.4)
+  node[above, align=center] {收入与\\消费};
+
+%------------------------------------------------
+% Income over the life cycle
+%------------------------------------------------
+\draw[income]
+  (0.6,1.25)
+  .. controls (1.6,1.55) and (2.3,3.3) ..
+  (3.5,4.15)
+  .. controls (4.5,4.65) and (5.7,4.55) ..
+  (6.5,3.85)
+  .. controls (7.0,3.3) and (7.25,1.55) ..
+  (8.7,1.05);
+
+%------------------------------------------------
+% Consumption over the life cycle
+%------------------------------------------------
+\draw[consumption]
+  (0.6,2.05)
+  .. controls (2.1,2.35) and (3.7,2.65) ..
+  (5.0,2.70)
+  .. controls (6.2,2.70) and (7.5,2.45) ..
+  (8.7,2.10);
+
+%------------------------------------------------
+% Curve labels
+%------------------------------------------------
+\node[label, FinanceBlue, anchor=west]
+  at (4.15,4.65) {收入（$I$）};
+
+\node[label, anchor=west]
+  at (3.75,2.38) {消费（$C$）};
+
+%------------------------------------------------
+% Stage separators
+%------------------------------------------------
+\draw[guide] (2.45,0) -- (2.45,4.9);
+\draw[guide] (6.85,0) -- (6.85,4.9);
+
+%------------------------------------------------
+% Stage labels
+%------------------------------------------------
+\node[label, align=center] at (1.35,-0.55)
+  {成年初期};
+
+\node[label, align=center] at (4.65,-0.55)
+  {工作期间};
+
+\node[label, align=center] at (7.95,-0.55)
+  {退休后};
+
+%------------------------------------------------
+% Financial allocation labels
+%------------------------------------------------
+\node[label, align=center] at (1.35,3.25)
+  {借款\\[1pt]\footnotesize $C > I$};
+
+
+\node[label, align=center] at (4.65,1.15)
+  {储蓄与投资\\[1pt]\footnotesize $I > C$};
+
+
+\node[label, align=center] at (7.95,3.25)
+  {使用积累的储蓄\\[1pt]\footnotesize $C > I$};
+
+
+\end{tikzpicture}
+
+\caption{生命周期中的金融配置}
+\label{fig:ch1-life-cycle-allocation}
+\end{figure}
+
+图~\ref{fig:ch1-life-cycle-allocation} 展示了金融在生命周期中的这一作用。收入和支出需求可能沿着不同路径变化，因此借款和储蓄可以在不同人生阶段之间转移购买力。
+
+金融还在相互竞争的用途之间配置稀缺资源。利率、证券价格、贷款决策与投资授权，会影响哪些项目获得资金以及融资条件。若两家企业争取有限资金，相对于其风险和融资成本而言，预期回报更有吸引力的项目可能获得更多融资或更优惠的条件，而另一项目可能获得较少融资，甚至无法融资。
+
+\subsection{分担与转换风险}
+
+参与者面临的风险及其承担能力或意愿并不相同。这些差异创造了重新分配风险的空间。相对于某一参与者资源而言很大的损失，另一参与者可能更容易吸收；将损失分散给多人，或与其他风险敞口组合，也可以减轻负担。金融安排能够在参与者之间分担风险，或转换风险被承担的形式。
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  >=Latex,
+  box/.style={
+    draw,
+    rounded corners,
+    minimum width=3.8cm,
+    minimum height=1.05cm,
+    align=center,
+    line width=0.8pt
+  },
+  topbox/.style={
+    draw,
+    rounded corners,
+    minimum width=5.4cm,
+    minimum height=1.05cm,
+    align=center,
+    line width=0.8pt
+  },
+  flow/.style={
+    -Latex,
+    line width=0.9pt,
+    FinanceBlue
+  },
+  note/.style={
+    font=\small,
+    align=center
+  }
+]
+
+%------------------------------------------------
+% Source of risk reallocation
+%------------------------------------------------
+\node[topbox] (heterogeneity) at (5.5,4.6)
+{风险敞口与\\风险承担能力的差异};
+
+
+%------------------------------------------------
+% Risk sharing
+%------------------------------------------------
+\node[box] (sharing) at (2.7,2.45)
+{\textbf{风险分担}\\[2pt]
+\small 在参与者之间\\重新配置风险敞口};
+
+
+\node[box] (sharingout) at (2.7,0.55)
+{改变风险由谁承担};
+
+%------------------------------------------------
+% Risk transformation
+%------------------------------------------------
+\node[box] (transform) at (8.3,2.45)
+{\textbf{风险转换}\\[2pt]
+\small 通过状态依存支付\\重塑风险敞口};
+
+\node[box] (transformout) at (8.3,0.55)
+{改变风险如何被承担};
+
+%------------------------------------------------
+% Branching arrows from common source
+%------------------------------------------------
+\coordinate (split)
+  at ($(heterogeneity.south)+(0,-0.35)$);
+
+% Common stem
+\draw[line width=0.9pt, FinanceBlue]
+  (heterogeneity.south) -- (split);
+
+% Left branch: Risk sharing
+\draw[flow]
+  (split)
+  -| (sharing.north);
+
+% Right branch: Risk transformation
+\draw[flow]
+  (split)
+  -| (transform.north);
+
+\draw[flow]
+  (sharing.south)
+  -- (sharingout.north);
+
+\draw[flow]
+  (transform.south)
+  -- (transformout.north);
+
+\end{tikzpicture}
+
+\caption{风险分担与风险转换}
+\label{fig:ch1-risk-sharing-transformation}
+\end{figure}
+
+风险分担改变参与者之间风险敞口的分布。例如，保险将特定损失分摊给众多投保人。风险转换（risk transformation）则通过在未来不同状态下具有不同支付的金融请求权来重塑风险敞口。例如，债务和股权把企业现金流划分为优先请求权和剩余请求权，而衍生工具的支付则与价格、利率或其他标的变量的变化相联系。
+
+
+\subsection{提供流动性并支持支付}
+
+流动性（liquidity）涉及按期履行支付义务的能力，以及资产在不发生明显延误或价值损失的情况下转化为购买力的难易程度。当现金流入与支付义务无法完全同步时，就会产生流动性需求。金融安排通过在需要时提供资金，弥合这一时间缺口。
+
+例如，一家具有清偿能力的企业可能持有价值较高的资产，却只有少量现金。如果必须大幅降价才能迅速出售这些资产，市场流动性（market liquidity）就有限；如果企业无法以这些资产为担保借款，也无法获得短期融资，其融资流动性（funding liquidity）也有限。
+
+现金和其他流动资产有助于履行支付义务，而支付与结算系统使资金转移和义务清偿成为可能。
+
+流动性供给可能涉及期限转换和流动性转换。例如，银行以可随时提取的存款，为期限较长、流动性较低的贷款融资。这种结构为存款人提供流动性，但也造成流动负债与低流动性资产之间的错配；当提款或融资需求上升时，错配可能成为脆弱性的来源。
+
+\subsection{生产信息并约束行为}
+
+金融决策依赖于有关预期现金流、风险以及各方激励的信息。在投入资源之前，必须生产、解释和比较信息。筛选、财务分析、审计、信用评估与市场交易，都对这一过程有所贡献。在市场中，价格还汇集了众多参与者决策所揭示的信息。
+
+融资之后，信息仍然重要。监督提供有关绩效和资金用途的证据，而治理安排与融资条件影响后续决策及激励。金融体系不只是根据现有信息配置资源，还会生产信息，并在信息不完整时建立约束行为的机制。
+
+\subsection{发现价格}
+
+金融体系通过交易形成价格。估值根据预期现金流、时间、风险及或有情形进行估计，而市场价格通过买卖双方的相互作用形成。参与者依据不同的信息、信念、约束和目标采取行动。他们的交易决策影响供求，进而引起价格调整。随着新信息和新交易进入市场，价格不断变化，因此价格发现（price discovery）是一个持续过程。
+
+这些价格又进入后续金融决策。利率影响储蓄、借款和融资成本；债券收益率和股票价格影响发行与投资；汇率改变外币现金流的本币价值；资产价格影响抵押品价值与借款能力。因此，金融价格将交易中的信息传递到后续经济决策中。
+
+\section{金融体系如何组织}
+
+金融体系通过若干相互联系的组成部分履行这些功能，包括货币与支付系统、金融市场、金融机构及金融工具。虽然可以在分析上加以区分，这些部分在实践中相互作用。
+
+\subsection{货币、支付与结算}
+
+金融交易产生最终必须清偿的义务。清偿需要被接受的支付手段。货币提供表达金融义务的共同单位，也提供清偿这些义务的手段。
+
+货币通过支付系统转移时，可能涉及清算与结算。清算（clearing）确定交易产生的义务，并可通过轧差减少这些义务；结算（settlement）通过转移被接受的结算资产完成支付。货币、支付安排、清算与结算共同构成清偿金融义务的制度基础。
+
+\subsection{金融市场}
+
+金融市场组织金融请求权的发行与交换，并提供价格形成机制。新证券的发行使企业、政府和其他借款人能够从投资者处获得资金；二级市场交易则重新配置既有请求权和风险敞口。价格产生于具有不同信息、信念和约束的参与者之间的交易，并为后续融资和投资决策提供依据。
+
+然而，市场交换并不消除评估交易对手、生产和核实信息、设计契约及监督绩效的成本。直接交易也未必总能满足参与者对委托投资、风险汇集以及流动性和期限转换的需求。
+
+\subsection{金融机构}
+
+金融机构通过专门化组织履行金融功能，而不只依靠直接的市场交换。专业化可以降低信息生产、交易执行、风险管理及金融关系监督的成本。银行、资产管理机构、保险公司和其他中介，通过不同形式的汇集、转换与委托，将这些功能结合起来。
+
+通过这些活动，金融中介（financial intermediation）影响金融关系中信息、控制权和风险的配置。替他人作决策的委托关系可能产生代理问题，而期限、流动性和风险转换可能产生需要机构管理的风险敞口。因此，治理、契约安排与监管，既影响金融功能的履行，也影响中介活动的相关风险。
+
+\subsection{金融工具}
+
+金融工具规定未来现金流、风险和权利如何在参与者之间分配。债务明确承诺支付和债权人的优先受偿权；股权赋予剩余请求权，通常还包括投票权。保险和衍生工具的支付，则以特定损失、价格、利率或其他未来事件为条件。
+
+一种工具形成的分配取决于其契约条款。期限、偿付顺序、抵押品、限制性条款、保证金要求和嵌入式期权，决定何时支付、如何吸收损失，以及控制权何时可能转移。金融工具界定了跨时间、跨未来状态配置现金流、风险和控制权的权利与义务。
+
+\par\medskip
+\noindent
+表~\ref{tab:ch1-architecture} 概括了这些组织形式如何支持上一节讨论的金融功能。
+
+\begin{table}[H]
+\centering
+
+\caption{金融体系的组织形式}
+\label{tab:ch1-architecture}
+
+\begin{tabularx}{\textwidth}{@{}p{3.0cm}X X@{}}
+\toprule
+\textbf{形式}
+&
+\textbf{组织的内容}
+&
+\textbf{主要功能}
+\\
+\midrule
+
+货币、支付与结算
+&
+义务的清偿与转移
+&
+支付与流动性
+\\
+
+金融市场
+&
+请求权与风险的交换
+&
+配置、流动性、价格发现
+\\
+
+金融机构
+&
+专业化中介与委托
+&
+信息、流动性、风险分担
+\\
+
+金融工具
+&
+现金流、权利与风险敞口
+&
+配置、风险转换、激励
+\\
+
+\bottomrule
+\end{tabularx}
+
+\end{table}
+
+\section{金融与实体经济}
+
+金融影响家庭、企业和政府能够作出哪些经济选择。它影响哪些项目得以实施、消费如何跨期分配、冲击如何被吸收，以及扰动如何通过资产负债表和市场传播。
+
+\subsection{资本形成与经济发展}
+
+金融将可用资源引向生产性投资，从而支持资本形成。这一过程涉及识别可行的投资机会、安排融资、监督资金使用，并分配相关风险。
+
+在留存收益尚不足以提供资金时，企业可能已经发现可行的投资机会。通过发行对未来现金流的金融请求权，企业可以获得今天的购买力，并用来购置生产性资产。
+
+从总量看，金融对经济发展的贡献不仅取决于融资规模，还取决于金融体系如何配置资本、设计激励和分配风险。融资增加并不必然意味着生产性投资增加。
+
+\subsection{金融创新与金融服务可得性}
+
+金融创新通过改变交易成本、信息要求、契约结构或请求权的可转让性，改变金融功能的履行方式。支付、核实、交易或风险转移成本的下降，可以使过去因成本过高或难以安排而无法实现的交易成为可能。
+
+这些变化可能使面临高固定成本、抵押品不足或与传统中介联系薄弱的家庭和企业，更容易获得金融服务。金融服务可得性提高，有助于放松支付、储蓄、借款、投资和风险管理的约束，使更多经济活动能够获得融资或得以开展。
+
+金融创新对经济发展的贡献，取决于它缓解了哪些金融摩擦，以及由此带来的可得性变化如何影响经济活动。例如，交易成本或信息成本下降，可以使原本安排成本过高的生产性投资或风险分担成为可能。然而，如果创新削弱筛选、便利过度杠杆，或引导资金流向生产率较低的用途，仅仅提高可得性并不能保证生产性投资增加。
+
+
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  >=Latex,
+  box/.style={
+    draw,
+    rounded corners,
+    text width=5.2cm,
+    minimum height=0.95cm,
+    align=center,
+    inner sep=6pt,
+    line width=0.8pt
+  },
+  sidebox/.style={
+    draw,
+    rounded corners,
+    text width=3.8cm,
+    minimum height=0.95cm,
+    align=center,
+    inner sep=6pt,
+    line width=0.8pt
+  },
+  flow/.style={
+    -Latex,
+    line width=0.9pt,
+    FinanceBlue
+  },
+  sideflow/.style={
+    -Latex,
+    dashed,
+    line width=0.8pt,
+    gray
+  }
+]
+
+\node[box] (innovation) at (0,4.2)
+  {\textbf{金融创新}};
+
+\node[box] (frictions) at (0,2.0)
+  {\textbf{金融摩擦的变化}\\[3pt]
+   \small 交易、信息与契约成本};
+
+\node[box] (access) at (0,-0.4)
+  {\textbf{金融服务可得性的变化}};
+
+\node[box] (activity) at (0,-2.8)
+  {\textbf{实体经济活动的变化}\\[3pt]
+   \small 储蓄、借款、投资与风险管理};
+
+\node[sidebox] (risks) at (6.2,2.0)
+  {\textbf{新的风险与扭曲}\\[3pt]
+   \small 杠杆、筛选薄弱与集中度};
+
+\draw[flow] (innovation.south) -- (frictions.north);
+\draw[flow] (frictions.south) -- (access.north);
+\draw[flow] (access.south) -- (activity.north);
+
+\draw[sideflow] (frictions.east) -- (risks.west);
+\draw[sideflow]
+  (risks.south) |- (activity.east);
+
+\end{tikzpicture}
+
+\caption{金融创新、金融服务可得性与实体经济活动}
+\label{fig:ch1-innovation-access}
+\end{figure}
+
+\subsection{脆弱性与金融放大}
+
+使金融发挥作用的安排，也可能造成脆弱性。杠杆放大收益与损失，流动性转换造成资产负债错配；当许多参与者作出相似反应时，市场调整也可能破坏稳定。风险转移可以分散敞口，却也可能使风险的最终承担者更难识别。
+
+金融脆弱性（financial fragility）往往源于反馈效应，而非某一次损失。资产价格下跌会降低抵押品价值，收紧借款约束，迫使资产出售。这些出售又可能进一步压低价格，再次削弱抵押品价值和信贷条件。图~\ref{fig:ch1-fragility-loop} 展示了这一放大机制。
+
+随着金融条件收紧，这些效应传播到实体经济。抵押品价值下降、信贷可得性降低的企业可能削减投资；面临借款条件收紧或财富损失的家庭可能减少消费。金融放大能够把最初的扰动转化为更广泛的支出和生产收缩。
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  >=Latex,
+  box/.style={
+    draw,
+    rounded corners,
+    text width=3.8cm,
+    minimum height=0.9cm,
+    align=center,
+    inner sep=5pt,
+    line width=0.8pt
+  },
+  realbox/.style={
+    draw,
+    rounded corners,
+    text width=4.0cm,
+    minimum height=0.9cm,
+    align=center,
+    inner sep=5pt,
+    line width=0.8pt
+  },
+  flow/.style={
+    -Latex,
+    line width=0.9pt,
+    FinanceBlue
+  }
+]
+
+% Financial amplification loop
+\node[box] (prices) at (0,3.6)
+  {\textbf{资产价格下跌}};
+
+\node[box] (collateral) at (0,2.0)
+  {\textbf{抵押品价值下降}};
+
+\node[box] (credit) at (0,0.4)
+  {\textbf{信贷收紧}};
+
+\node[box] (sales) at (-4.8,0.4)
+  {\textbf{被迫出售资产增加}};
+
+% Real-economy effect
+\node[realbox] (real) at (4.8,0.4)
+  {\textbf{实体经济活动减弱}\\[2pt]
+   \small 投资与消费下降};
+
+% Main financial loop
+\draw[flow] (prices.south) -- (collateral.north);
+\draw[flow] (collateral.south) -- (credit.north);
+\draw[flow] (credit.west) -- (sales.east);
+\draw[flow] (sales.north) |- (prices.west);
+
+% Transmission to the real economy
+\draw[flow] (credit.east) -- (real.west);
+
+\end{tikzpicture}
+
+\caption{金融放大及其向实体经济的传导}
+\label{fig:ch1-fragility-loop}
+\end{figure}
+
+\section{从功能视角理解变化中的金融体系}
+
+技术变化可以改变由谁履行金融功能、如何组合这些功能，以及通过何种组织形式履行。活动可能在银行、市场、数字平台和技术基础设施之间转移；信息处理任务可能越来越多地由算法支持或执行；金融请求权也可能以新方式发行、交易或结算。这些变化能够显著改变金融的组织形式，却不会消除配置资源、生产信息、管理风险、提供流动性，以及支持可信金融义务的根本需求。
+
+人工智能说明了这一区别。AI 可以改变筛选、监督、交易及金融决策的执行方式，而共同数据、模型或决策规则的使用，也可能产生新的集中和相互依赖。数字平台、可编程契约、代币化资产与新型支付安排，也会带来类似的组织形式变化。它们可能改变市场、中介与基础设施的边界，或改变金融请求权的创设、转移和结算方式。
+
+\TailModule{summary}{本章小结}
+
+金融交换往往将今天可用的资源与其他时点的支出和投资机会分开。即使未来结果已知，这种分离也使储蓄、借款和融资具有作用。当未来结果不确定时，决策还依赖于可能不完整或分布不均的信息；契约与制度则有助于界定权利和义务，使未来承诺可信且能够执行。
+
+金融通过支持投资、风险分担和金融服务的获取，扩大经济活动的可能性，但同样的安排也会产生脆弱性。杠杆放大损失，流动性转换造成融资错配，个体理性的反应可能通过价格和资产负债表相互作用，放大整个金融体系的冲击。人工智能、数字平台及其他技术，可以改变履行金融功能的成本和组织形式，却不会消除产生这些功能的经济问题。
+
+\TailModule{keyterms}{关键术语}
+
+跨期交换（Intertemporal exchange）；风险分担（risk sharing）；逆向选择（adverse selection）；道德风险（moral hazard）；承诺（commitment）；执行（enforcement）；资本配置（capital allocation）；货币流动性（monetary liquidity）；市场流动性（market liquidity）；融资流动性（funding liquidity）；信息生产（information production）；价格发现（price discovery）；金融中介（financial intermediation）；金融脆弱性（financial fragility）。
+
+
+
+
+\TailModule{questions}{讨论题}
+
+\begin{enumerate}
+\item 即使未来结果完全确定，为什么跨期交换仍然使金融具有作用？
+\item 不确定性如何使信息具有经济价值？为什么仅有信息仍不足以支持金融交换？
+\item 为什么一种金融安排能够同时解决多个经济问题？请以银行贷款、保险契约或交易中的证券为例说明。
+\item 为什么提供流动性既能提高经济效率，又会造成金融脆弱性？
+\end{enumerate}
+
+\TailModule{appprobs}{应用题}
+
+\begin{enumerate}
+\item 某人今天收入为 40，下一期收入为 66，借入与贷出利率均为 10\%。若当前消费为 50，利用式~\eqref{eq:ch1_intertemporal_budget} 求下一期消费。此人今天是在借款还是储蓄？金额是多少？
+
+\item 一家金融中介主要用可随时兑付的负债为五年期贷款融资。解释这种结构在正常时期的经济收益，以及它在压力时期可能变得不稳定的机制。指出其提供的金融功能和脆弱性来源。
+\end{enumerate}
+
+\TailModule{aiprompt}{金融 AI 实验室}
+
+\textbf{实验：追踪金融功能}
+
+选择一种金融创新或数字金融服务，请 AI 系统解释它“新”在何处。随后，围绕本章的分析框架重新组织回答：其背后的经济问题、涉及的金融功能、履行功能的组织形式、现金流和风险的分配，以及这种安排可能失效的条件。识别需要外部核实的事实性主张，以及 AI 回答中将技术新颖性误认为经济功能变化的部分。
+
+
+
+
+
+
+
+
+\TailModule{furtherread}{延伸阅读}
+
+\begin{itemize}
+
+\item Merton, Robert C. (1995),
+“金融中介的功能视角”（``A Functional Perspective of Financial Intermediation''），
+\emph{Financial Management}, 24(2), 23--41.
+
+\item Merton, Robert C., and Zvi Bodie (1995),
+“分析金融环境的概念框架”（``A Conceptual Framework for Analyzing the Financial Environment''），
+载 Dwight B. Crane 等，\emph{The Global Financial System: A Functional Perspective}（《全球金融体系：功能视角》），Harvard Business School Press，第~3--31~页。
+
+
+\item Levine, Ross (2005),
+“金融与增长：理论与证据”（``Finance and Growth: Theory and Evidence''），
+载 Philippe Aghion 与 Steven N. Durlauf（编），\emph{Handbook of Economic Growth}（《经济增长手册》），第~1A~卷，Elsevier，第~865--934~页。
+
+
+
+\end{itemize}
+
+\ChapterTail{summary,keyterms,questions,appprobs,aiprompt,furtherread}

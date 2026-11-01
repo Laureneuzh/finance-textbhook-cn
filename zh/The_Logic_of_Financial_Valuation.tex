@@ -1,0 +1,915 @@
+\chapter{金融估值的逻辑}
+\label{chap:The_Logic_of_Financial_Valuation}
+
+\begin{openingcase}{预期现金流相同，价值也相同吗？}
+
+一位投资者正在比较两项一年期金融请求权，两者的预期支付均为人民币 100 元。请求权 A 在经济强劲时支付 120 元，在经济疲弱时支付 80 元；请求权 B 则相反，在经济强劲时支付 80 元，在经济疲弱时支付 120 元。假设两种状态出现的概率相同。
+
+两者的预期支付相同：
+
+\[
+0.5(120)+0.5(80)=100.
+\]
+
+然而，两项请求权的当前价值未必相同。请求权 B 在经济疲弱时支付更多，而此时额外一单位现金可能特别有价值。因此，即使预期支付相同，支付在经济状态之间的分布仍会影响估值。
+
+\end{openingcase}
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=FinanceBlue!6,
+  colframe=FinanceBlue,
+  boxrule=0.6pt,
+  sharp corners,
+  left=8pt,
+  right=8pt,
+  top=7pt,
+  bottom=7pt,
+  before skip=1em,
+  after skip=1.6em,
+  title=\textbf{核心问题},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  attach boxed title to top left={xshift=6pt,yshift=-2mm},
+  boxed title style={
+    boxrule=0pt,
+    sharp corners,
+    left=5pt,
+    right=5pt,
+    top=2pt,
+    bottom=2pt
+  }
+]
+\begin{enumerate}[
+  leftmargin=*,
+  label=\textcolor{FinanceBlue}{\textbf{\arabic*.}},
+  itemsep=0.55em,
+  topsep=0.2em
+]
+
+\item 为什么仅凭预期现金流不足以确定金融请求权的价值？
+
+\item 未来现金流的时间、风险和状态依存性，如何影响其现值？
+
+\item 信息、契约权利与市场价格如何相互作用，共同影响金融请求权的价值？
+
+\end{enumerate}
+\end{tcolorbox}
+
+
+\section{金融价值的基础}
+
+金融请求权的价值来自它赋予持有人的未来经济利益。使用估值公式之前，需要回答三个问题：
+
+
+\begin{itemize}[
+  leftmargin=2.2em,
+  itemsep=0.45em,
+  topsep=0.55em
+]
+
+\item 该请求权赋予持有人获取哪些现金流的权利？
+
+\item 这些现金流何时收到？
+
+\item 这些现金流在未来不同世界状态下如何变化？
+
+\end{itemize}
+
+\subsection{金融资产：对未来经济资源的请求权}
+
+金融资产代表对未来经济资源的权利，通常通过未来现金流表达。
+债券赋予持有人获取约定支付的契约权利，普通股则赋予持有人在优先请求权获满足之后对公司的剩余请求权。衍生工具创造取决于标的资产、利率、指数或状态变量的或有现金流。
+
+因此，估值对象是由这些权利界定的\emph{请求权}（financial claim），而不只是发行人、项目或标的资产。假设企业经营资产在时点 $t$ 产生现金流 $Y_t$，这一现金流可能分配给多个请求权人：
+
+\begin{equation}
+Y_t=C_{D,t}+C_{E,t}+C_{O,t},
+\label{eq:ch5-cash-flow-allocation}
+\end{equation}
+其中，$C_{D,t}$ 表示债权人现金流，$C_{E,t}$ 表示股东现金流，$C_{O,t}$ 表示其他契约请求权人的现金流。
+
+金融请求权的价值不仅取决于底层资产产生的现金流，还取决于决定现金流如何分配的契约规则。
+
+优先顺序提供了一个简单例子。考虑仅由债务和股权融资的企业，假设下一期产生现金流 $Y$，债务承诺偿还额为 $D$。不考虑其他契约条款时，债权人获得
+
+\begin{equation}
+C_D=\min\{Y,D\},
+\label{eq:ch5-debt-payoff}
+\end{equation}
+而股东获得
+
+\begin{equation}
+C_E=\max\{Y-D,0\}.
+\label{eq:ch5-equity-payoff}
+\end{equation}
+
+因此，
+
+\begin{equation*}
+C_D+C_E=Y.
+\label{eq:ch5-claim-additivity}
+\end{equation*}
+
+契约结构不改变企业总现金流，而是决定在 $Y$ 的每一种实现值下，如何在请求权人之间分配现金流。图~\ref{fig:ch5-debt-equity-payoff} 展示了这一分配。
+
+\begin{figure}[H]
+
+\centering
+
+\begin{tikzpicture}[
+=Latex,
+axis/.style={-Latex, line width=0.8pt},
+debt/.style={line width=1.0pt, FinanceBlue},
+equity/.style={line width=1.0pt, dashed}
+ ]
+
+\draw[axis] (0,0) -- (7.2,0) node[right] {企业现金流 $Y$};
+\draw[axis] (0,0) -- (0,5.4) node[above] {请求权现金流};
+
+\draw[debt] (0,0) -- (3.6,3.6) -- (6.6,3.6);
+\draw[equity] (0,0) -- (3.6,0) -- (6.6,3.0);
+
+\draw[dashed, gray] (3.6,0) -- (3.6,4.6);
+
+\node[below] at (3.6,0) {$D$};
+\node[FinanceBlue, right] at (6.0,3.85) {债务};
+\node[right] at (6.2,2.55) {股权};
+
+\end{tikzpicture}
+\caption{企业现金流在债务与股权之间的分配}
+\label{fig:ch5-debt-equity-payoff}
+
+\end{figure}
+
+\subsection{时间与未来现金流的现值}
+
+未来收到的现金流，与今天收到的同额现金流，通常并不等值。个人可能要求因推迟当前消费而获得补偿，今天可用的资金也可以投资并产生未来回报。这些因素构成货币时间价值、利息和贴现的基本经济基础。
+
+将未来现金流按适当利率贴现，可以把它表示为今天的等值金额。
+
+令 \(V_0\) 表示一期后确定支付 \(CF_1\) 的请求权现值。如果相关的一期无风险利率为 \(r_f\)，无套利等价关系要求：
+
+\begin{equation*}
+V_0(1+r_{f})=CF_1.
+\label{eq:ch5-one-period-equivalence}
+\end{equation*}
+由此可得
+
+\begin{equation*}
+V_0=\frac{CF_1}{1+r_{f}}.
+\label{eq:ch5-one-period-pv}
+\end{equation*}
+
+因子 $1/(1+r_f)$ 是一期贴现因子（discount factor），表示一期后收到一单位现金流的现值。
+
+
+
+假设每期贴现率恒定为 $r$，则 $t$ 期后收到现金流 $CF_t$ 的现值为
+
+
+
+\[
+V_0=\frac{CF_t}{(1+r)^t}.
+\]
+
+一系列未来现金流的现值为
+
+
+\begin{equation}
+V_0=\sum_{t=1}^{T}
+\frac{CF_t}{(1+r)^t}.
+\label{eq:ch5-pv-cash-flow-stream}
+\end{equation}
+
+贴现将不同日期的现金流转换为共同日期的价值。转换到共同基础后，现金流就能够比较和相加。
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  >=Latex,
+  axis/.style={-Latex, line width=0.8pt},
+  cash/.style={-Latex, line width=1.0pt, FinanceBlue},
+  discount/.style={-Latex, dashed, line width=0.8pt}
+]
+
+\draw[axis] (0,0) -- (10.2,0) node[right]{时间};
+
+\foreach \x/\t in {0/0,2/1,4/2,6/3,8/4}
+{
+  \draw (\x,0.12) -- (\x,-0.12);
+  \node[below=4pt] at (\x,0) {$t=\t$};
+}
+
+\draw[cash] (2,0) -- (2,1.2) node[above] {$CF_1$};
+\draw[cash] (4,0) -- (4,1.55) node[above] {$CF_2$};
+\draw[cash] (6,0) -- (6,1.05) node[above] {$CF_3$};
+\draw[cash] (8,0) -- (8,1.45) node[above] {$CF_4$};
+
+\draw[discount] (2,2.25) -- (0.35,2.25);
+\draw[discount] (4,2.25) -- (0.35,2.25);
+\draw[discount] (6,2.25) -- (0.35,2.25);
+\draw[discount] (8,2.25) -- (0.35,2.25);
+
+\node[above] at (4.1,2.25) {贴现至 $t=0$};
+
+\end{tikzpicture}
+
+\caption{将未来现金流贴现至当前}
+\label{fig:ch5-discount-timeline}
+\end{figure}
+
+贴现直接带来以下几点含义。
+
+第一，即使名义现金流总额不变，时间仍然重要。若两项请求权支付总额相同，但一项更早支付，那么在贴现率为正时，较早支付通常具有更高现值。
+
+第二，现值对贴现率的敏感性随支付时间推远而提高。因此，贴现率变化对更远期现金流的影响更大。
+
+第三，现金流时间必须与贴现率惯例一致。年利率不能未经适当转换就直接用于季度现金流，还必须区分期初与期末发生的现金流。
+
+\begin{example}{仅时间差异就会改变价值}{timing-alone-changes-value}
+
+假设请求权 A 在一年后支付人民币 1,000 元，请求权 B 在五年后支付 1,000 元。若相关年利率为 5\%，
+
+\[
+V_A=\frac{1,000}{1.05}=952.38,
+\]
+
+而
+
+\[
+V_B=\frac{1,000}{1.05^5}=783.53.
+\]
+
+两者未来名义支付相同，现值差异完全来自支付日期不同。
+
+\end{example}
+
+\subsection{风险与必要报酬率}
+
+价值并非仅由时间决定。许多金融请求权的未来现金流具有风险。假设下一期有两种可能状态，请求权分别以概率 $p$ 和 $1-p$ 支付 $CF_H$ 和 $CF_L$，其预期现金流为
+
+\begin{equation}
+\mathrm{E}[X]=pCF_H+(1-p)CF_L.
+\label{eq:ch5-expected-cash-flow}
+\end{equation}
+
+通常，仅有预期现金流不足以估值，请求权价值还取决于现金流风险。如果现金流在整体经济状况较差时往往较低，就使投资者面临更多风险。这类请求权通常需要更高预期回报。因此，预期支付相同的两项请求权，当前价值可能不同。
+
+将风险纳入估值的一种常见方式是使用必要报酬率（required return）。令 $r_f$ 为无风险利率，$\pi$ 为适用于该请求权的风险溢价，则必要报酬率为
+
+\begin{equation}
+r=r_f+\pi.
+\label{eq:ch5-required-return}
+\end{equation}
+
+以预期现金流为基础的简化一期估值为
+
+\begin{equation}
+V_0=\frac{\mathrm{E}[CF]}{1+r}.
+\label{eq:ch5-risk-adjusted-discount}
+\end{equation}
+
+风险溢价（risk premium）补偿投资者承担与估值有关的风险。可分散风险可能只要求很少溢价，甚至没有溢价；在整体经济条件较差时往往造成损失的风险，则可能要求更高溢价。
+
+更一般地，可以通过风险调整现金流、贴现率或状态依存估值来纳入风险。风险处理必须与所估值请求权保持一致。
+
+\medskip
+
+下面概括金融估值的主要维度及相应分析输入。
+
+\begin{table}[H]
+
+\centering
+
+\caption{估值中的三个问题}
+\label{tab:ch5-three-valuation-questions}
+
+\begin{tabularx}{\textwidth}{
+  @{}
+  >{\raggedright\arraybackslash\hyphenpenalty=10000\exhyphenpenalty=10000}p{3.3cm}
+  Y
+  Y
+  @{}
+}
+
+\toprule
+
+\textbf{问题}
+& \textbf{经济问题}
+& \textbf{典型估值输入} \\
+
+\midrule
+
+收到什么？
+& 对未来经济资源的权利
+& 现金流定义与契约支付 \\[20pt]
+
+何时收到？
+& 跨期估值
+& 贴现因子或利率 \\[20pt]
+
+在哪些状态下收到？
+& 风险与状态依存性
+& 风险溢价或状态依存估值 \\
+
+\bottomrule
+
+\end{tabularx}
+
+\end{table}
+
+
+\section{估值框架}
+
+适当的估值方法取决于金融请求权的性质及可用信息。
+
+现金流贴现（discounted cash-flow，DCF）估值根据归属于某项请求权的预期现金流推导价值；相对估值使用可比资产的观察价格；或有请求权估值则明确考虑状态依存支付，尤其适用于非线性或取决于未来事件的支付。
+
+尽管这些方法的输入和实施方式不同，它们都提供价值估计。令 $V$ 表示金融请求权的估计价值，$P$ 表示观察到的市场价格。在相对估值中，可比请求权的市场价格作为输入，用于估计待估值请求权的价值；随后可将估值与该请求权的市场价格比较。
+
+\subsection{现金流贴现估值}
+
+现金流贴现估值，通过贴现归属于某项请求权的现金流，估计其价值。
+
+若 $r_j$ 表示时点 $j-1$ 到 $j$ 之间适用的一期必要报酬率，一系列预期现金流的价值可写为
+
+\begin{equation}
+V_0 = \sum_{t=1}^{T}
+\frac{\mathrm{E}[CF_t]}
+{\prod_{j=1}^{t}(1+r_j)}.
+\label{eq:ch5-general-dcf}
+\end{equation}
+
+若必要报酬率恒定为 $r$，则
+
+\begin{equation}
+V_0=\sum_{t=1}^{T}
+\frac{\mathrm{E}[CF_t]}{(1+r)^t}.
+\label{eq:ch5-constant-dcf}
+\end{equation}
+
+公式本身简单，但应用取决于如何定义现金流、风险和长期假设。
+
+\paragraph{先定义请求权，再预测现金流。}
+
+会计利润并不直接度量可供某项金融请求权使用的现金流。权责发生制、非现金费用、营运资本变化和投资支出，都可能使报告利润不同于现金流。因此，相关现金流指标取决于估值对象。
+
+对项目而言，相关现金流是实施项目产生的增量现金流。对股权而言，是满足经营需要、投资、税收及优先请求权人支付后，可供股东取得的现金流。对债务而言，是归属于债权的支付，并需考虑违约与回收的可能性。
+
+
+
+
+
+
+
+\paragraph{区分预测与估值。}
+
+预测是在给定假设下估计未来现金流，估值则将这些现金流转化为现值。区分两项任务，有助于识别错误究竟来自预测本身，还是对预测的估值。复杂贴现模型无法弥补不现实的增长假设、被低估的投资需求，或现金流预测中的不一致。
+
+假设项目需要初始投资 $I_0$，产生预期现金流 $\mathrm{E}[CF_t]$，其净现值（net present value，NPV）为
+
+\begin{equation}
+NPV=\sum_{t=1}^{T}
+\frac{\mathrm{E}[CF_t]}{(1+r)^t}-I_0.
+\label{eq:ch5-npv}
+\end{equation}
+
+NPV 为正，意味着在既定假设下，预期未来现金流的现值超过今天所需资源。它表示按相关必要报酬率估值时，项目具有正经济剩余；并不意味着在某些实际实现的状态下不会亏损。
+
+\begin{example}{从现金流到净现值}{from-cash-flows-to-npv}
+
+
+某项目初始投资为人民币 1,000 万元，预计第 1 年末产生 300 万元、第 2 年末产生 400 万元、第 3 年末产生 550 万元。假设必要报酬率为 8\%。
+
+未来现金流的现值约为
+
+$$
+PV=\frac{3.0}{1.08}+\frac{4.0}{1.08^2}+\frac{5.5}{1.08^3}=10.57
+$$
+百万人民币。因此，
+
+$$
+NPV=10.57-10.00=0.57
+$$
+
+百万人民币。
+
+在给定现金流和必要报酬率假设下，该项目净现值为正。
+
+\end{example}
+
+\paragraph{终值将预测延伸到显式预测期之后。}
+
+许多资产在显式预测期结束后仍继续产生现金流。因此，现金流贴现估值通常将价值分为两部分：截至时点 $T$ 逐期预测的现金流，以及时点 $T$ 的终值，后者代表该时点之后预期现金流的价值。
+
+\begin{equation}
+V_0=\sum_{t=1}^{T}
+\frac{\mathrm{E}[CF_t]}{(1+r)^t}+\frac{TV_T}{(1+r)^T}.
+\label{eq:ch5-dcf-terminal}
+\end{equation}
+
+如果预期第 $T$ 年后的现金流将永远按恒定增长率 $g$ 增长，则时点 $T$ 的终值为
+
+\begin{equation}
+TV_T=\frac{CF_{T+1}}{r-g},
+\qquad r>g.
+\label{eq:ch5-growing-perpetuity}
+\end{equation}
+
+终值（terminal value）对 $r$ 和 $g$ 都敏感。显式预测期较短时，终值可能占总估值很大比例，此时估值高度依赖这些参数背后的长期假设。
+
+要使增长型永续年金公式产生有限价值，必须满足 $r>g$。所假设的长期增长率，还应与相关市场或经济的可持续增长一致。
+
+\paragraph{敏感性分析识别最重要的假设。}
+
+估值以其假设为条件。敏感性分析（sensitivity analysis）考察关键输入变化时，估计价值如何变化。
+
+敏感性分析度量估值结果对选定假设的依赖，而不是不同结果发生的概率。更远期现金流对贴现率尤其敏感，终值则往往对长期增长假设敏感。
+
+现金流贴现估值的输入，建立在经济、会计、契约和市场分析之上。销售额、利润率、再投资及其他现金流预测，反映对未来经营条件的假设；必要报酬率取决于请求权风险及相关市场证据。DCF 将这些输入纳入一致的估值框架。
+
+\subsection{相对估值：可比对象与市场倍数}
+
+相对估值（relative valuation）依据经济上可比资产的观察价格，估计资产价值。
+
+假设可比企业市盈率约为 15 倍。如果待估值企业每股收益为人民币 2 元，隐含价格为 $15\times 2=30$ 元。
+
+估值倍数表示市场价值相对于利润、账面价值、销售额、现金流或其他经济指标的比例。常见例子包括
+
+\begin{equation*}
+\frac{P}{E},
+\qquad
+\frac{P}{B},
+\qquad
+\frac{EV}{EBITDA},
+\qquad
+\frac{EV}{Sales}.
+\label{eq:ch5-common-multiples}
+\end{equation*}
+
+估值倍数的分子和分母，应对应同一组请求权人。股权市场价值 $P$ 应与归属股东的利润或股权账面价值等指标匹配；企业价值 $EV$ 应与可供所有资本提供者分享的经营指标匹配，例如息税折旧摊销前利润（EBITDA）或销售额。
+
+企业内在经济特征不同，估值倍数也会不同。考虑一只股利预计永久按恒定增长率 $g$ 增长的股票。若下一期每股股利为 $D_1$，股权必要报酬率为 $r$，其价值为
+
+\begin{equation}
+P_0=\frac{D_1}{r-g}.
+\label{eq:ch5-dividend-growth}
+\end{equation}
+
+这一估值关系称为戈登增长模型（Gordon growth model）。
+在股利支付率恒定为 $\alpha$ 时，下一期每股股利满足 $D_1=\alpha E_1$，其中 $E_1$ 是下一期每股收益。将其代入式~\eqref{eq:ch5-dividend-growth} 得：
+
+\begin{equation}
+\frac{P_0}{E_1}=\frac{\alpha}{r-g}.
+\label{eq:ch5-pe-drivers}
+\end{equation}
+
+即使在这一简化框架中，市盈率也取决于股利支付率、必要报酬率和预期增长。更一般地，增长取决于再投资规模及再投资回报，盈利能力则影响企业资产基础产生的现金流。因此，估值倍数反映有关增长、风险、分配和盈利能力的内在假设。
+
+相对估值的可靠性，取决于资产在经济上的可比性，以及倍数变量的计量。行业分类是有用起点，但同行业企业也可能在增长、杠杆、经营风险、会计惯例和地域敞口上不同。相对估值纳入当前市场价格，可作为评价估值的有用基准；但全市场错误定价、会计差异、周期性或负收益，以及财务杠杆差异，可能降低观察倍数的有用性。
+
+
+\subsection{或有请求权估值：状态依存支付}
+
+一些金融请求权的支付随未来状态变化。因此，估值不仅取决于预期现金流，还取决于支付在状态间如何分布。
+
+期权是一个明显例子，但状态依存支付的存在更为广泛。股权体现有限责任，信用工具暴露于违约状态，保险契约取决于约定损失事件。担保、可转换证券和结构化请求权也具有类似特征。
+
+假设时点 $T$ 有 $S$ 种可能状态，$CF_T(s)$ 表示状态 $s$ 发生时请求权在时点 $T$ 的支付。令 $q_s$ 表示一种证券在时点 0 的价格，该证券在时点 $T$ 仅当状态 $s$ 发生时支付一单位货币，否则支付零。$q_s$ 称为状态 $s$ 的状态价格（state price）。
+
+状态价格反映在不同状态下获得资源的价值。资源相对稀缺状态下的一单位支付，可能比有利状态下的同额支付更有价值。因此，状态依存估值根据支付发生的状态赋予不同价值，而不是把每单位预期支付都视为经济上等价。
+
+在状态价格估值下，请求权在时点 0 的价值为
+
+\begin{equation}
+V_0=\sum_{s=1}^{S}q_s CF_T(s).
+\end{equation}
+
+\begin{example}{状态依存估值}{state-dependent-valuation}
+
+考虑两种等概率状态 $s=1,2$。请求权 A 在状态 1 支付 120、状态 2 支付 80；请求权 B 在状态 1 支付 80、状态 2 支付 120。两者预期支付均为 100。
+
+假设相应状态价格为
+
+$$
+q_{1}=0.40,
+\qquad
+q_{2}=0.55.
+$$
+
+两项请求权在时点 0 的价值为
+
+\begin{align}
+V_A
+&=
+0.40(120)+0.55(80)=92,\\
+V_B
+&=0.40(80)+0.55(120)=98.
+\end{align}
+
+请求权 B 在时点 0 的价值更高，因为它在状态价格更高的状态 2 支付更多。
+
+\end{example}
+
+状态价格还与无风险贴现有关。在每种状态下均支付一单位的请求权是无风险的，其在时点 0 的价值为
+
+\begin{equation}
+\sum_{s=1}^{S}q_s=\frac{1}{1+r_f},
+\label{eq:ch5-state-price-riskfree}
+\end{equation}
+其中，$r_f$ 是一期无风险利率。因此，状态价格之和等于一期无风险贴现因子。更一般地，状态价格估值将状态依存请求权在时点 0 的价值，表示为各状态支付与相应状态价格的加权和。
+
+状态价格估值与无套利原则紧密相关。令 $CF_T^A(s)$ 和 $CF_T^B(s)$ 分别表示组合 A、B 在时点 $T$、状态 $s$ 的支付，$P_A$ 和 $P_B$ 为时点 0 的价格。根据无套利原则，如果每种可能状态下支付都相同，时点 0 的价格就必须相同：
+
+\begin{equation}
+CF_T^A(s)=CF_T^B(s)
+\quad \text{对每个 } s
+\quad \Longrightarrow \quad
+P_A=P_B.
+\label{eq:ch5-law-one-price}
+\end{equation}
+
+如果价格不同，投资者就可以买入低价组合、卖出高价组合，同时未来支付相互抵消，从而形成套利机会。
+
+状态价格同时反映货币时间价值，以及不同状态支付的相对价值。请求权的估值，是将每种状态依存支付按相应状态价格加权。
+
+状态价格表示法也澄清了估值中风险的性质。与低状态价格状态下的等额支付相比，高状态价格状态下的支付对时点 0 价值贡献更大。因此，仅凭支付方差不能决定价值。即使预期支付相同，支付波动更大也未必意味着价值更低；其影响取决于支付如何分布于具有不同状态价格的状态。
+
+\section{信息、契约与价值形成}
+
+估值受有关未来现金流和风险的可用信息影响，也受待估值请求权所附契约权利影响。
+
+\subsection{信息与现金流预期}
+
+估值依赖对未来现金流和风险的预期，而预期根据可用信息形成。营业收入、违约损失、投资需求和长期增长都无法事先确定，而是根据估值日可用信息估计。
+
+令 $\mathcal{I}_0$ 表示时点 0 的可用信息，请求权价值可写为
+
+\begin{equation}
+V_0=\sum_{t=1}^{T}
+\frac{\mathrm{E}[CF_t\mid \mathcal{I}_0]}
+{\prod_{j=1}^{t}(1+r_j)},
+\label{eq:ch5-information-conditional-value}
+\end{equation}
+其中，预期现金流以可用信息为条件，$r_j$ 为第 $j$ 期必要报酬率。
+
+新信息可以改变预期现金流、必要报酬率或两者，从而改变价值。令 $\mathcal{I}_0'$ 表示时点 0 可用的更新后信息集，则
+
+
+
+
+\begin{equation*}
+\mathrm{E}[CF_t\mid \mathcal{I}_0']
+\neq
+\mathrm{E}[CF_t\mid \mathcal{I}_0]
+\end{equation*}
+
+新信息通过两条渠道影响估值：一是改变预期未来现金流，二是改变对请求权风险的判断，进而改变必要报酬率。
+
+新增信息对价值的影响并非单向。它可能提高或降低预期现金流，也可能改变对内在风险的评估。信息质量改善能够减少估计不确定性，却未必降低底层经济风险。估值既依赖信息数量，也依赖相关性和可靠性。
+
+
+
+
+
+
+
+
+\subsection{契约与现金流权利分配}
+
+契约界定金融请求权的现金流权利，包括支付条件，以及相对于其他请求权的优先顺序。这些契约特征与估值直接相关。
+
+对仅以债务和股权融资的企业，令 $V_A$ 表示资产价值，相应请求权的价值满足
+
+\begin{equation}
+V_A=V_D+V_E,
+\label{eq:ch5-value-allocation}
+\end{equation}
+其中，$V_D$ 和 $V_E$ 分别为债务与股权价值。即使底层经营资产价值不变，契约条款也能影响价值在不同请求权之间的分配。
+
+优先顺序决定支付次序，抵押品影响违约回收，担保则在各方之间重新分配损失。
+
+\begin{example}{抵押品与请求权价值}{collateral-claim-value}
+
+
+假设两项一年期债权均承诺偿还 100。第一项有担保，抵押品违约时可变现价值为 60；第二项无担保。如果违约发生，且企业剩余资产不足以全额偿还两项债权，有担保债权的回收更高。因此，即使承诺支付和期限相同，两项请求权也可能具有不同价值。
+
+\end{example}
+
+契约也通过激励影响价值。限制性条款可以限制新增借款、股利支付，或其他增加债权人风险的行动。这些限制能够保护债权，却可能降低经营灵活性。
+
+其他契约条款创造状态依存权利。例如，可转换债券赋予持有人在特定条件下将债券换成股权的权利。转换权、赎回权等嵌入式期权，改变未来不同状态下的支付。
+
+契约条款通过决定支付顺序、影响激励和界定状态依存支付，影响请求权价值。因此，对复杂金融工具，估值取决于其所附契约权利，而不只是工具名称。
+
+\subsection{市场价格与估值}
+
+\paragraph{市场价格与价格发现。}
+市场价格是请求权成交的价格，估值则根据特定信息、假设和定价关系估计其价值。市场价格与估计价值相关，但概念不同。
+
+在具有流动性的市场，价格反映参与者信息、信念和交易指令的相互作用，新信息可能由此纳入价格。然而，市场价格并非不依赖任何假设的基本价值度量。投资者可能在信息、信念、约束、税收状况、融资成本和风险敞口上不同。价格也可能受到流动性需求、杠杆、做市能力、被迫交易和暂时性订单失衡影响。
+
+\paragraph{作为估值基准的市场价格。}
+市场价格为估值提供外部基准。估值与观察市场价格存在显著差异，可能反映现金流预期、风险判断、贴现率假设、遗漏因素或市场错误定价的差别。这种差异本身不能证明估值或市场价格哪一个错误，而是说明需要进一步审查底层假设和分歧来源。
+
+无套利对相对价格施加更强约束。如果两项交易资产在同一未来日期、每一种可能状态下的支付完全相同，且不存在相关市场摩擦，它们在时点 0 的价格就必须相同，否则便存在套利机会。这一原则称为一价定律（law of one price），连接具有等价支付的证券价格，是固定收益和衍生工具估值的基础。
+
+\paragraph{复制受限时的估值。}
+如果某项请求权无法用交易中的证券紧密复制，估值就更依赖现金流预测和必要报酬率假设。例如，非上市企业和长期投资项目可能没有接近的市场对应物。尽管如此，可比企业与交易请求权的价格，以及利率、信用利差和期权价格，仍提供有用估值输入。
+
+\begin{figure}[H]
+\centering
+
+\begin{tikzpicture}[
+  >=Latex,
+  box/.style={
+    draw,
+    rounded corners=2pt,
+    align=center,
+    minimum height=0.9cm,
+    inner xsep=12pt,
+    inner ysep=5pt
+  },
+  flow/.style={
+    -Latex,
+    line width=0.8pt,
+    FinanceBlue
+  }
+]
+
+% Top nodes
+\node[box] (info) at (-2.0,2.2)
+{信息与\\预期};
+
+\node[box] (contract) at (2.0,2.2)
+{契约规定的\\现金流权利};
+
+% Central sequence
+\node[box] (valuation) at (0,0.3)
+{价值评估};
+
+\node[box] (trading) at (0,-1.6)
+{交易与价格发现};
+
+\node[box] (price) at (0,-3.5)
+{观察到的市场价格};
+
+% Main flows: 90-degree turns
+\coordinate (val-left) at
+  ($(valuation.north west)!0.09!(valuation.north east)$);
+\draw[flow]
+  (info.south) -- (val-left);
+
+\coordinate (val-right) at
+  ($(valuation.north west)!0.91!(valuation.north east)$);
+
+\draw[flow]
+  (contract.south) -- (val-right);
+
+
+% Vertical flows
+\draw[flow]
+  (valuation.south) -- (trading.north);
+
+\draw[flow]
+  (trading.south) -- (price.north);
+
+% Feedback from observed market price to valuation
+\draw[flow]
+  (price.west)
+  -- ++(-2.0,0)
+  -- node[left, midway, align=center, xshift=-3pt]
+  {市场\\证据}
+     ($(valuation.west)+(-2.0,0)$)
+  -- (valuation.west);
+
+\end{tikzpicture}
+
+\caption{信息、契约权利、估值与市场价格}
+\label{fig:ch5-value-formation}
+
+\end{figure}
+
+图~\ref{fig:ch5-value-formation} 概括了这些互动。信息影响对未来现金流和风险的预期，契约界定每项请求权所附的现金流权利。这些因素进入估值，估值又为交易决策提供依据。交易和价格发现形成观察到的市场价格，为评估和修订估值提供市场证据。
+
+图~\ref{fig:ch5-value-formation} 总结了上述相互关系。信息塑造未来现金流与风险预期，契约条款界定每项请求权所附的现金流权利。估值结合这些输入，并为交易决策提供依据。交易和价格发现产生市场价格，后者又为评估和修订估值提供证据。
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{金融视角：估值以假设为条件},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+估值以分析采用的契约现金流权利、可用信息、时间假设和风险处理为条件。这些输入变化时，估值可能改变。稳健估值明确说明假设并一致应用，使结果能够被评估，并随信息变化而修订。
+
+\end{tcolorbox}
+
+%========================================================
+% Summary
+%========================================================
+
+\TailModule{summary}{本章小结}
+
+金融估值将未来现金流转换为当前价值。估值对象是金融请求权，因此首先要识别其现金流和契约权利。支付优先顺序、抵押品、转换权及其他条款，会使基于同一底层资产的请求权具有不同价值。
+
+现金流时间很重要，因为不同日期的现金流必须转换到共同日期的价值。风险也影响价值：预期支付相同的两项请求权，如果支付在未来状态间分布不同，价值也可能不同。必要报酬率是一种纳入风险的方式，而状态价格估值则明确呈现价值对未来状态的依赖。
+
+现金流贴现估值将请求权特定现金流预测与适当贴现率结合。可靠性取决于现金流与必要报酬率的一致处理、现实预测，以及经济上合理的终值假设。相对估值使用可比资产的观察价格，但估值倍数反映增长、风险、盈利能力、分配及其他基本面的差异。或有请求权估值则利用状态价格与无套利关系，对状态依存支付估值。
+
+信息、契约和估值紧密相连。信息影响未来现金流和风险预期，契约界定每项请求权所附权利。交易与价格发现形成可观察市场价格，为评估和修订估值提供证据。估值以分析采用的信息、契约权利、时间假设和风险处理为条件，其可靠性取决于内部一致性、经济合理性，以及与可用市场证据的关系。
+
+%========================================================
+% Key Terms
+%========================================================
+
+\TailModule{keyterms}{关键术语}
+
+金融估值（Financial valuation）；金融请求权（financial claim）；现金流权利（cash-flow right）；现值（present value）；贴现因子（discount factor）；必要报酬率（required return）；无风险利率（risk-free rate）；风险溢价（risk premium）；预期现金流（expected cash flow）；现金流贴现估值（discounted cash-flow valuation）；净现值（net present value）；终值（terminal value）；增长型永续年金（growing perpetuity）；敏感性分析（sensitivity analysis）；相对估值（relative valuation）；可比企业（comparable firm）；市场倍数（market multiple）；市盈率（price--earnings ratio）；企业价值（enterprise value）；或有请求权（contingent claim）；状态依存支付（state-contingent payoff）；状态价格（state price）；一价定律（law of one price）；无套利（no-arbitrage）；价格发现（price discovery）；市场价格。
+
+%========================================================
+% Financial AI Lab
+%========================================================（market price
+
+%========================================================
+% Financial AI Lab
+%========================================================）。
+
+\TailModule{aiprompt}{金融 AI 实验室}
+
+\textbf{实验：审查 AI 生成的估值}
+
+选择一家上市公司，请 AI 系统使用公开信息生成简化的现金流贴现估值。要求明确估值对象、预测期、现金流指标、增长假设、终值方法和贴现率。
+
+分五个阶段审查估值。
+
+\begin{enumerate}
+
+\item \textbf{识别请求权。}
+确定估值针对股权还是整个企业，并检查现金流和贴现率是否与该请求权保持一致。
+
+\item \textbf{核实计算。}
+独立复算现值，检查单位、现金流时间、复利及终值处理。
+
+\item \textbf{评价经济假设。}
+考察现金流预测是否具有经济合理性、长期增长能否合理持续、再投资是否与增长一致，以及贴现率是否适合请求权风险。
+
+\item \textbf{进行敏感性分析。}
+识别估计价值特别敏感的两项关键假设，报告这些假设变化如何影响估值。
+
+\item \textbf{与市场证据比较。}
+将结果与观察到的市场价格及一个简单相对估值指标比较，确保比较对象是同一请求权。不要认为 AI 估值或市场价格必然正确，而要解释能够说明差异的假设或市场因素。
+
+\end{enumerate}
+
+最终提交应识别 AI 估值中至少一个仅看最终估值数字无法发现的问题，可以涉及计算、经济假设、内部一致性或市场证据核实。
+
+%========================================================
+% Applied Problems
+%========================================================
+
+\TailModule{appprobs}{应用题}
+
+\begin{enumerate}
+
+\item \textbf{时间与现值。}
+
+某项请求权三年后支付人民币 5,000 元，相关年贴现率为 6\%。
+
+\begin{enumerate}
+
+\item 计算该请求权的现值。
+
+\item 如果改为六年后支付，重新计算现值。
+
+\item 解释为什么贴现率为正时，推迟支付会降低现值。
+
+\end{enumerate}
+
+
+\item \textbf{净现值与必要报酬率。}
+
+某项目初始投资为人民币 1,200 万元，预期第 1 至第 4 年末现金流依次为 300 万元、400 万元、500 万元和 400 万元。
+
+\begin{enumerate}
+
+\item 按 7\% 必要报酬率计算项目净现值。
+
+\item 按 11\% 必要报酬率重新计算净现值。
+
+\item 解释为什么预期现金流不变，项目价值却变化。
+
+\end{enumerate}
+
+
+\item \textbf{终值敏感性。}
+
+某企业预计第 6 年，即显式预测期后的第一年，产生人民币 2,000 万元现金流。从第 7 年起，现金流预计永久按恒定年增长率 \(g\) 增长。假设所有情景中第 6 年现金流保持不变。
+
+\begin{enumerate}
+
+\item 若 $r=9\%$、$g=3\%$，计算第 5 年末的终值。
+
+\item 保持 $r$ 不变，若 $g=4\%$，重新计算终值。
+
+\item 若 $r=8\%$、$g=3\%$，重新计算终值。
+
+\item 比较第（b）和（c）问结果。解释为什么在给定假设下，$g$ 上升一个百分点，与 $r$ 下降一个百分点，会产生相同终值。
+
+\end{enumerate}
+
+
+\item \textbf{相对估值与一致性。}
+
+企业 A 的企业价值为人民币 80 亿元，EBITDA 为 8 亿元。企业 B 的 EBITDA 为 5 亿元。
+
+\begin{enumerate}
+
+\item 计算企业 A 的 EV/EBITDA 倍数。
+
+\item 将这一倍数应用于企业 B，估计其隐含企业价值。
+
+\item 假设企业 B 净债务为人民币 12 亿元，计算其隐含股权价值。
+
+\item 解释为什么企业价值倍数不应直接用于仅归属于股东的利润指标。
+
+\end{enumerate}
+
+
+\item \textbf{状态价格估值。}
+
+未来存在两种等概率状态。请求权 A 在强劲状态支付 140、疲弱状态支付 60；请求权 B 在强劲状态支付 80、疲弱状态支付 120。
+
+\begin{enumerate}
+
+\item 计算两项请求权各自的预期支付。
+
+\item 假设状态价格为 $q_S=0.38$、$q_W=0.56$，计算两项请求权在时点 0 的价值。
+
+\item 比较两项请求权的预期支付与时点 0 价值。
+
+\item 解释为什么预期支付相同，时点 0 的价值却未必相同。
+
+\end{enumerate}
+
+
+\item \textbf{价值的契约分配。}
+
+某企业下一期现金流为 150 或 70，两种状态等概率。其债务承诺偿还 100。
+
+\begin{enumerate}
+
+\item 计算每种状态下债务和股权的支付。
+
+\item 验证每种状态下债务与股权支付之和等于企业总现金流。
+
+\item 使用状态价格 $q_H=0.40$、$q_L=0.55$，计算债务、股权及企业整体的当前价值。
+
+\item 验证债务和股权价值之和等于企业价值。
+
+\end{enumerate}
+
+\end{enumerate}
+
+%========================================================
+% Further Reading
+%========================================================
+
+\TailModule{furtherread}{延伸阅读}
+
+\begin{itemize}
+
+\item Fisher, Irving (1930), 
+\emph{The Theory of Interest: As Determined by Impatience to Spend Income and Opportunity to Invest It}（《利息理论：由支出收入的时间偏好与投资机会共同决定》），
+Macmillan.
+
+\item Williams, John Burr (1938), 
+\emph{The Theory of Investment Value}（《投资价值理论》），
+Harvard University Press.
+
+\item Modigliani, Franco, and Merton H. Miller (1958), 
+“资本成本、公司融资与投资理论”（``The Cost of Capital, Corporation Finance and the Theory of Investment''），
+\emph{The American Economic Review}, 48(3), 261--297.
+
+\item Sharpe, William F. (1964), 
+“资本资产价格：风险条件下的市场均衡理论”（``Capital Asset Prices: A Theory of Market Equilibrium under Conditions of Risk''），
+\emph{The Journal of Finance}, 19(3), 425--442.
+
+\item Damodaran, Aswath (2012), 
+\emph{Investment Valuation: Tools and Techniques for Determining the Value of Any Asset}（《投资估值：评估任何资产价值的工具与方法》），
+第 3 版，Wiley。
+
+\end{itemize}
+
+\ChapterTail{summary,keyterms,aiprompt,appprobs,furtherread}

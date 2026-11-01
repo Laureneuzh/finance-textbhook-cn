@@ -1,0 +1,947 @@
+\chapter{金融中介与金融结构}
+\label{chap:Financial_Intermediation_and_Financial_Structure}
+
+\begin{openingcase}{为什么大企业发债，小企业却向银行借款？}
+
+两家制造企业都需要外部融资。一家大型上市企业计划发行债券融资人民币 20 亿元，一家需要 500 万元的小型民营企业则转向银行。这种差异似乎令人困惑：发债可以直接向投资者融资，而无须通过银行借款。为什么小企业要依赖中介？
+
+上市企业拥有经审计的财务报表，融资需求规模也足以分摊发行成本。对小企业而言，外部投资者很难核实有关客户、设备和管理层的信息。与其已有业务关系的银行，可能更适合评估和监督借款人。
+
+金融中介在融资过程中增加了一家机构，却可能降低获得和维持融资的总体成本。
+
+\end{openingcase}
+
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=FinanceBlue!6,
+  colframe=FinanceBlue,
+  boxrule=0.6pt,
+  sharp corners,
+  left=8pt,
+  right=8pt,
+  top=7pt,
+  bottom=7pt,
+  before skip=1em,
+  after skip=1.6em,
+  title=\textbf{核心问题},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  attach boxed title to top left={xshift=6pt,yshift=-2mm},
+  boxed title style={
+    boxrule=0pt,
+    sharp corners,
+    left=5pt,
+    right=5pt,
+    top=2pt,
+    bottom=2pt
+  }
+]
+\begin{enumerate}[
+  leftmargin=*,
+  label=\textcolor{FinanceBlue}{\textbf{\arabic*.}},
+  itemsep=0.55em,
+  topsep=0.2em
+]
+\item 什么因素决定融资通过证券市场还是金融中介组织？
+
+\item 为什么委托信息生产、监督和资产负债表转换能够创造价值？
+
+\item 为什么市场和中介会共存？什么决定它们在金融体系中的相对重要性？
+
+\end{enumerate}
+\end{tcolorbox}
+
+\section{融资渠道：直接融资与间接融资}
+
+融资渠道由连接最终资金提供者与最终使用者的请求权结构来界定。在直接融资（direct finance）中，资金提供者持有最终借款人发行的请求权；在间接融资（indirect finance）中，中介取得借款人的请求权，再通过发行自身请求权为其融资。其他机构的参与并不改变这一区分；关键是中介是否将自己的资产负债表置于双方之间。
+
+\begin{figure}[htbp]
+\centering
+
+\begin{tikzpicture}[
+    box/.style={
+        draw,
+        rounded corners,
+        align=center,
+        minimum width=2.7cm,
+        minimum height=0.85cm,
+        inner sep=3pt
+    },
+    fund/.style={
+        -{Latex[length=2.2mm]},
+        thick
+    },
+    claim/.style={
+        -{Latex[length=2.2mm]},
+        dashed,
+        thick
+    },
+    every node/.style={font=\footnotesize}
+]
+
+% ------------------------------------------------
+% (a) Direct finance
+% ------------------------------------------------
+
+\node[font=\small\bfseries] at (0,1.05)
+    {（a）直接融资};
+
+\node[box] (providersA) at (-2.7,0)
+    {最终资金\\提供者};
+
+\node[box] (borrowerA) at (2.7,0)
+    {最终资金\\使用者};
+
+\draw[fund]
+    ([yshift=2.2mm]providersA.east)
+    --
+    node[above=1pt]{资金}
+    ([yshift=2.2mm]borrowerA.west);
+
+\draw[claim]
+    ([yshift=-2.2mm]borrowerA.west)
+    --
+    node[below=1pt]{证券}
+    ([yshift=-2.2mm]providersA.east);
+
+
+% ------------------------------------------------
+% (b) Indirect finance
+% ------------------------------------------------
+
+\node[font=\small\bfseries] at (0,-1.55)
+    {（b）间接融资};
+
+\node[box] (providersB) at (-4.0,-2.65)
+    {最终资金\\提供者};
+
+\node[box] (intermediary) at (0,-2.65)
+    {金融\\中介};
+
+\node[box] (borrowerB) at (4.0,-2.65)
+    {最终资金\\使用者};
+
+\draw[fund]
+    ([yshift=2.2mm]providersB.east)
+    --
+    node[above=1pt]{资金}
+    ([yshift=2.2mm]intermediary.west);
+
+\draw[claim]
+    ([yshift=-2.2mm]intermediary.west)
+    --
+    node[below=2pt, align=center, font=\scriptsize]
+    {中介发行的\\[-1pt]请求权}
+    ([yshift=-2.2mm]providersB.east);
+
+\draw[fund]
+    ([yshift=2.2mm]intermediary.east)
+    --
+    node[above=1pt]{资金}
+    ([yshift=2.2mm]borrowerB.west);
+
+\draw[claim]
+    ([yshift=-2.2mm]borrowerB.west)
+    --
+    node[below=2pt, align=center, font=\scriptsize]
+    {对资金使用\\[-1pt]者的请求权}
+    ([yshift=-2.2mm]intermediary.east);
+
+\end{tikzpicture}
+
+\caption{直接与间接融资渠道}
+\label{fig:ch4-direct-indirect-finance}
+\end{figure}
+
+\subsection{直接融资与证券市场}
+
+直接融资和间接融资的区别，在于连接最终资金提供者与资金使用者的金融请求权结构。直接融资中，资金提供者持有资金使用者发行的请求权；间接融资中，中介持有对使用者的请求权，并发行自己的金融请求权为其融资。关键在于中介是否将自身资产负债表置于双方之间。
+
+直接融资并不意味着没有金融机构。投资银行可以安排或承销发行，评级机构可以评估信用风险，交易所或交易商可以便利交易。这些机构支持融资过程，但并不将自身资产负债表置于发行人与投资者之间。
+
+要向众多投资者分销证券，请求权必须足够标准化，相关信息也必须以广泛投资者群体能够使用的形式传递和核实。支付权利、期限、抵押品、优先顺序和投票权，通过共同契约条款规定；经审计财务报表、披露要求、招股说明书或募集说明书以及评级，则提供广泛可得的信息。这些安排减少了投资者分别调查发行人、协商条款的需要。
+
+证券发行具有固定成本，融资金额越大，可分摊的基数越大。假设规模为 $Q$ 的发行，其总交易成本为
+
+\begin{equation}
+C_M(Q)=F_M+c_MQ,
+\label{eq:ch4-market-financing-cost}
+\end{equation}
+其中，$F_M$ 是与披露、法律工作、尽职调查、注册及发行组织有关的固定成本，$c_M$ 是每单位融资的可变交易成本。平均交易成本为
+
+\begin{equation}
+AC_M(Q)=\frac{F_M}{Q}+c_M,
+\label{eq:ch4-market-average-cost}
+\end{equation}
+因此
+\begin{equation}
+\frac{dAC_M(Q)}{dQ}
+=-\frac{F_M}{Q^2}
+<0.
+\label{eq:ch4-market-scale-effect}
+\end{equation}
+
+随着发行规模增加，固定成本被分摊到更大融资基数上，平均交易成本下降，市场融资变得更经济。
+
+信息成本也影响融资渠道选择。如果发行人的财务状况和现金流能够可信地披露并核实，分散投资者便能以较低成本评价其证券，使市场融资更有吸引力。
+
+二级市场使投资者可以出售证券，而无须要求发行人偿还或重新谈判融资。因此，可交易性将发行人的融资期限与单个投资者的持有期分离。这一收益依赖市场流动性，而流动性又需要活跃交易、可靠信息和配套市场基础设施，且可能在压力时期急剧恶化。
+
+\subsection{间接融资与金融中介}
+
+间接融资中，金融中介向借款人提供资金，持有由此形成的请求权，并通过向资金提供者发行自身负债，为这些资产融资。
+
+商业银行体现了这一结构。存款人持有对银行的请求权，银行则持有对借款企业和家庭的请求权。简化资产负债表可以清晰展示这种双边结构。
+ 
+\begin{table}[htbp]
+
+\centering
+
+\caption{商业银行的简化资产负债表}
+
+\label{tab:ch4-bank-balance-sheet}
+
+\begin{tabularx}{0.78\textwidth}{@{}X X@{}}
+
+\toprule
+
+\textbf{资产} & \textbf{负债与权益} \\
+
+\midrule
+
+贷款 & 存款 \\
+证券 & 批发融资 \\
+准备金与流动资产 & 股本 \\
+
+\bottomrule
+
+\end{tabularx}
+
+\end{table}
+
+因此，中介将自身资产负债表置于资金提供者与借款人之间。它持有对借款人的请求权，通常表现为贷款；资金提供者则持有中介发行的请求权。中介评估信用状况、协商贷款条款并监督借款人绩效。
+
+这种安排将信息生产集中于中介内部。通过重复贷款和与借款人直接接触，银行可以积累分散投资者分别生产时成本高昂的信息。其中很多信息可以保持私有，使中介无须完全依赖标准化公开披露来评估借款人。
+
+同样的安排也将大量决策权委托给中介，形成新的代理关系。资金提供者通常无法观察每一项贷款或风险管理决策。因此，中介履行义务的能力，部分取决于贷款决策质量、流动性管理和风险控制。资本、治理、声誉、监督与监管，有助于约束这种受托自主权，并维持对中介负债的信心。
+
+当专业化信息生产与监督的收益超过委托决策的代理成本时，中介可以提高融资效率，尤其是在借款人信息难以标准化或公开核实的情况下。
+
+\subsection{融资链条与混合型中介}
+
+融资链条通过一连串金融请求权，连接最终资金提供者与最终使用者。当证券市场与金融中介在链条不同阶段履行不同功能时，就形成混合型中介。
+
+\begin{figure}[htbp]
+\centering
+
+\begin{tikzpicture}[
+    box/.style={
+        draw,
+        rounded corners,
+        align=center,
+        minimum width=2.45cm,
+        minimum height=0.78cm,
+        inner sep=3pt,
+        font=\footnotesize
+    },
+    fund/.style={
+        -{Latex[length=2.0mm]},
+        line width=0.75pt
+    },
+    claim/.style={
+        -{Latex[length=2.0mm]},
+        dashed,
+        line width=0.75pt
+    },
+    labeltext/.style={
+        font=\scriptsize,
+        align=center
+    },
+    panel/.style={
+        font=\small\bfseries
+    }
+]
+
+% ==================================================
+% (a) Mutual fund
+% ==================================================
+
+\node[panel] at (0,1.15)
+    {（a）共同基金};
+
+\node[box] (hh) at (-4.0,0)
+    {家庭};
+
+\node[box] (mf) at (0,0)
+    {共同基金};
+
+\node[box] (firm) at (4.0,0)
+    {企业};
+
+% funds
+\draw[fund]
+    ([yshift=2mm]hh.east)
+    --
+    node[above, labeltext]{资金}
+    ([yshift=2mm]mf.west);
+
+\draw[fund]
+    ([yshift=2mm]mf.east)
+    --
+    node[above, labeltext]{资金}
+    ([yshift=2mm]firm.west);
+
+% claims
+\draw[claim]
+    ([yshift=-2mm]mf.west)
+    --
+    node[below, labeltext]{基金份额}
+    ([yshift=-2mm]hh.east);
+
+\draw[claim]
+    ([yshift=-2mm]firm.west)
+    --
+    node[below, labeltext]{公司债券}
+    ([yshift=-2mm]mf.east);
+
+
+% ==================================================
+% (b) Securitization
+% ==================================================
+
+\node[panel] at (0,-2.0)
+    {（b）证券化};
+
+\node[box] (investors) at (-5.7,-3.25)
+    {投资者};
+
+\node[box] (spv) at (-1.9,-3.25)
+    {特殊目的\\载体};
+
+\node[box] (originator) at (1.9,-3.25)
+    {银行或\\财务公司};
+
+\node[box] (borrowers) at (5.7,-3.25)
+    {借款人};
+
+% funds
+\draw[fund]
+    ([yshift=2mm]investors.east)
+    --
+    node[above, labeltext]{资金}
+    ([yshift=2mm]spv.west);
+
+\draw[fund]
+    ([yshift=2mm]spv.east)
+    --
+    node[above, labeltext]{购买\\贷款}
+    ([yshift=2mm]originator.west);
+
+\draw[fund]
+    ([yshift=2mm]originator.east)
+    --
+    node[above, labeltext]{贷款\\资金}
+    ([yshift=2mm]borrowers.west);
+
+% claims
+\draw[claim]
+    ([yshift=-2mm]borrowers.west)
+    --
+    node[below, labeltext]{贷款\\请求权}
+    ([yshift=-2mm]originator.east);
+
+\draw[claim]
+    ([yshift=-2mm]originator.west)
+    --
+    node[below, labeltext]{贷款\\资产池}
+    ([yshift=-2mm]spv.east);
+
+\draw[claim]
+    ([yshift=-2mm]spv.west)
+    --
+    node[below, labeltext]{资产支持\\证券}
+    ([yshift=-2mm]investors.east);
+
+
+% ==================================================
+% (c) Repo funding
+% ==================================================
+\node[panel] at (0,-5.55)
+    {（c）回购融资};
+\node[box] (issuer) at (-4.0,-6.75)
+    {证券\\发行人};
+
+\node[box] (fi) at (0,-6.75)
+    {金融\\中介};
+
+\node[box] (cash) at (4.0,-6.75)
+    {资金提供者};
+
+% Intermediary purchases security
+\draw[fund]
+    ([yshift=2mm]fi.west)
+    --
+    node[above, labeltext]{资金}
+    ([yshift=2mm]issuer.east);
+
+\draw[claim]
+    ([yshift=-2mm]issuer.east)
+    --
+    node[below, labeltext]{可交易\\证券}
+    ([yshift=-2mm]fi.west);
+
+% Repo funding
+\draw[fund]
+    ([yshift=2mm]cash.west)
+    --
+    node[above, labeltext]{回购融资}
+    ([yshift=2mm]fi.east);
+
+\draw[claim]
+    ([yshift=-2mm]fi.east)
+    --
+    node[below, labeltext]{证券作为\\抵押品}
+    ([yshift=-2mm]cash.west);
+
+\end{tikzpicture}
+
+\caption{混合融资链条的例子}
+\label{fig:ch4-hybrid-financing}
+\end{figure}
+
+共同基金持有公司债券就是一个简单例子。公司通过发行可交易证券融资，家庭投资者持有基金份额，而非直接持有公司债券。发行人使用市场融资，家庭储蓄则通过中介进入市场。
+
+证券化通过将贷款发起与筛选，同后续资金和风险分配分开，延伸融资链条。银行或财务公司发起并筛选贷款，将其汇集后转移给特殊目的载体，后者发行以贷款现金流为支持的证券。信息生产仍集中在发起环节附近，而资金供给与风险承担可以通过证券市场分散。
+
+可交易证券还可以支持中介融资。在回购交易中，金融机构以证券获得短期融资，并约定日后回购证券。因此，中介资产负债表上持有的证券，可以成为货币市场融资的抵押品，将证券市场与中介融资联系起来。
+
+因此，市场和中介往往互补。有用的区分不是整条融资链究竟属于市场融资还是中介融资，而是信息在哪里生产、资金如何筹集、流动性在哪里提供，以及最终由谁承担风险。
+
+\section{金融中介为何存在？}
+
+金融中介为融资增加了一个组织层次，但可以通过专业化和规模效应，降低信息生产、缔约、监督及交易成本。这些收益必须与中介成本加以权衡。
+
+\subsection{交易成本、规模与专业化}
+
+重复交易使金融中介能够将信息系统、标准化流程及监督基础设施的成本，分摊到众多借款人上。类似交易的经验，也能够提高其评估和管理风险的能力。
+
+这一优势的一个来源是，有些成本并不随交易量同比例增加。假设某项活动的固定成本为 $F$，每笔交易的可变成本为 $c$，则 $n$ 笔交易的平均成本为
+
+\begin{equation}
+AC(n)=\frac{F}{n}+c.
+\label{eq:ch4-scale-cost}
+\end{equation}
+
+随着 $n$ 增加，每笔交易分摊的固定成本下降。规模也支持专业化：信用分析、缔约、风险管理和交易处理方面的专长，可以服务众多交易，而无须由每个投资者重复建立。类似任务反复开展时，标准化流程还可进一步节约成本。
+
+交易成本下降可以使原本不经济的融资变得可行。假设为一家小企业融资，在扣除信息与缔约成本之前产生预期剩余 $S$。若个人投资者的成本为 $k>S$，直接融资就不经济。若中介提供这些服务的总成本低于 $S$，它就可能使交易成为可行。
+
+规模收益并非无限。中介扩大时，新增组织层级可能削弱内部激励、增加程序僵化，并降低本地或关系专属信息的有效利用。因此，一些交易成本下降的同时，组织成本可能上升。
+
+\subsection{信息生产与委托监督}
+
+金融中介通过收集、核实和解释借款人特定数据来生产信息。融资之前，这些信息支持筛选和融资条款制定；融资之后，监督更新中介对借款人的评估，并识别行为或信用质量变化。当融资来自众多分散投资者时，将这些活动集中在中介内部，可以避免重复生产信息。
+
+考虑融资后的监督。假设 $N$ 位投资者向同一借款人融资，如果分别监督，每位投资者的监督成本为 $m$，则总监督成本为
+
+\begin{equation}
+C_D=Nm.
+\label{eq:ch4-direct-monitoring}
+\end{equation}
+
+也可以将监督委托给金融中介。令 $m_I$ 表示中介的监督成本，$g$ 表示委托产生的代理成本，则委托监督下的总成本为
+
+\begin{equation}
+C_I=m_I+g.
+\label{eq:ch4-delegated-monitoring}
+\end{equation}
+
+当以下条件成立时，委托监督（delegated monitoring）降低总成本：
+
+\begin{equation}
+m_I+g<Nm.
+\label{eq:ch4-delegation-condition}
+\end{equation}
+
+$g$ 反映委托形成的新代理问题。资金提供者无法完全观察中介的监督努力或风险承担决策。因此，中介可能不如资金提供者所希望的那样认真监督，也可能承担更多风险。
+
+$g$ 的大小取决于中介面对的激励和约束。股本使股东承担不良贷款决策或过度风险承担造成的损失。经审计财务报告改善债权人、投资者和监管者对中介资产质量、资本状况及风险敞口的信息。契约限制和审慎监管，可以进一步约束将潜在损失转给资金提供者的风险承担。这些机制能够减少、但不能消除委托代理成本。
+
+\subsection{私人信息与关系型贷款}
+
+重复互动使贷款人能够从偿还行为、账户活动、抵押品状况以及与管理层的直接接触中积累私人信息。其中一些信息难以量化、编码或传递给外部投资者，通常称为\emph{软信息}（soft information），例如对管理能力或财务困难持续性的判断。
+
+关系型贷款（relationship lending）利用持续借贷关系中积累的信息，评估那些难以通过标准化披露判断信用状况的借款人。这些信息可以帮助贷款人区分在外部投资者看来相似的企业，改善公开信息有限的借款人的融资可得性。
+
+提供融资之后，信息优势同样重要。借款人遭遇暂时挫折时，关系型贷款人可能更有能力区分短期现金流冲击与内在信用质量恶化，并判断是否值得继续放贷或重新谈判。
+
+私人信息也会形成借款人依赖。一家贷款人积累的信息可能难以转移给竞争对手，增加转换成本，并强化原有贷款人的议价能力。因此，关系型贷款需要在改善信用评估的收益，与借款人依赖和贷款人市场势力的潜在成本之间权衡。
+
+\subsection{流动性、期限与风险转换}
+
+除了生产信息，金融中介还转换金融请求权的特征。如果资金提供者重视随时或短期内取得资金，而借款人需要为长期、低流动性资产融资，就会产生流动性转换。银行通过发行具有流动性的存款、持有流动性较低的贷款，弥合这种错配。
+
+汇集众多存款人的个体流动性需求，能够降低总提款额的不确定性。单个存款人的流动性需求时间不确定，但只要这些需求不完全相关，总提款额就会更可预测。下面的简单模型说明这一机制。
+
+假设有 $N$ 位存款人，每人以概率 $\lambda$ 在本期需要一单位流动性。如果流动性需求相互独立，需要资金的存款人人数期望值为
+
+\begin{equation}
+\mathbb{E}[L]=N\lambda.
+\label{eq:ch4-liquidity-expected}
+\end{equation}
+
+其方差为
+
+\begin{equation}
+\mathrm{Var}(L)=N\lambda(1-\lambda).
+\label{eq:ch4-liquidity-variance}
+\end{equation}
+
+标准差随 $\sqrt{N}$ 增长，而预期流动性需求随 $N$ 增长，因此相对不确定性随 $N$ 增加而下降：
+
+\begin{equation}
+\frac{\sqrt{\mathrm{Var}(L)}}{\mathbb{E}[L]}
+=
+\sqrt{\frac{1-\lambda}{N\lambda}}.
+\label{eq:ch4-liquidity-relative-risk}
+\end{equation}
+
+总提款额的相对不确定性下降，使中介能够持有更多长期、低流动性资产，同时仍向存款人提供具有流动性的请求权。
+
+如果提款高度相关，流动性错配就可能使中介面临严重融资压力。中介可能需要额外融资，或出售非流动资产，以满足提款需求。
+
+流动性转换通常伴随期限转换（maturity transformation）。银行可以用较短期限负债为长期贷款融资，使借款人获得长期资金，而资金提供者持有较短期请求权。由此形成的期限错配使银行面临再融资风险：资产尚未产生足够现金流，到期负债就需要续借。
+
+除了流动性和期限转换，金融中介还通过分散化与损失分配进行风险转换。银行组合信用风险不完全相关的贷款，可以降低借款人特定风险敞口。资本结构还决定损失如何在金融请求权之间分配，其中股权先于债权吸收损失。
+
+\begin{table}[htbp]
+\centering
+\caption{金融中介的转换功能}
+\label{tab:ch4-transformation}
+
+\renewcommand{\arraystretch}{1.15}
+
+\begin{tabularx}{\textwidth}{
+@{}
+>{\raggedright\arraybackslash}p{3.2cm}
+>{\raggedright\arraybackslash}X
+>{\raggedright\arraybackslash}X
+@{}
+}
+
+\toprule
+\textbf{转换类型}
+& \textbf{资产或风险敞口}
+& \textbf{向资金提供者发行的请求权} \\
+\midrule
+
+流动性转换
+& 流动性相对较低的资产
+& 更具流动性或易于兑付的请求权 \\
+
+期限转换
+& 期限较长的资产
+& 期限较短的负债 \\
+
+风险转换
+& 分散化贷款组合
+& 具有不同损失敞口的股权与债权 \\
+
+\bottomrule
+\end{tabularx}
+
+\end{table}
+
+
+
+\section{金融结构：市场、银行与混合体系}
+
+金融结构（financial structure）描述融资如何通过金融市场、金融中介及两者的组合来组织。
+
+\subsection{市场主导型与银行主导型金融体系}
+
+不同金融体系通过证券市场和银行向资金使用者输送资金的相对重要性不同。这是一种程度上的差异，而非两类体系之间的严格分界。
+
+市场主导型融资更依赖标准化披露、可转让金融请求权和市场价格。当相关信息可以低成本评估时，这些安排便利分散投资者提供融资。契约权利和治理机制则提供额外的投资者监督手段。
+
+银行主导型融资更依赖私人信息与持续借款关系。如果借款人信息难以公开核实，或融资需要持续调整，集中监督和可灵活调整的贷款契约就可能更有优势。
+
+市场融资与银行融资的相对成本，取决于企业特征和金融体系条件。更大融资金额能够更广泛地分摊固定发行成本，可信公开披露则降低分散投资者的信息成本。如果评估借款人需要私人信息、持续监督或重新谈判，银行融资可能更经济。证券市场深度和流动性，以及银行的融资与监管约束，也影响两条渠道的相对成本。
+
+在体系层面，企业构成影响市场和银行融资的相对重要性。大型、透明企业较多的经济体，可能更依赖证券市场；借款人特定信息和持续监督较重要的经济体，银行融资可能更重要。法律制度、披露标准、市场基础设施和金融监管，也影响两类渠道的发展。
+
+\begin{table}[htbp]
+\centering
+\caption{市场主导型与银行主导型融资}
+\label{tab:ch4-market-bank}
+
+\renewcommand{\arraystretch}{1.15}
+
+\begin{tabularx}{\textwidth}{
+@{}
+>{\raggedright\arraybackslash}p{3.0cm}
+>{\raggedright\arraybackslash}X
+>{\raggedright\arraybackslash}X
+@{}
+}
+
+\toprule
+& \textbf{市场融资}
+& \textbf{银行融资} \\
+\midrule
+
+信息
+& 更依赖标准化公开信息
+& 更多使用私人生产的借款人信息 \\
+
+监督
+& 通过披露、治理和委托监督实施投资者监督
+& 集中于专业中介内部 \\
+
+缔约
+& 请求权更标准化、更可转让
+& 更有空间定制契约 \\
+
+资金提供者的流动性
+& 通过二级市场交易
+& 通过存款等具有流动性的银行负债 \\
+
+重新谈判
+& 请求权高度分散时更困难
+& 持续借贷关系内通常更容易 \\
+
+有利于该渠道的条件
+& 融资需求大、公开透明度高
+& 不透明度较高，更需监督或重新谈判 \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{混合型与平台型金融体系}
+
+混合型金融体系在相互联系的融资链条中，结合市场机制与中介机制。家庭储蓄可以通过投资基金进入证券市场，银行发起的贷款也可以通过证券化转移给投资者。
+
+数字平台能够拆分传统上由单个中介结合提供的金融功能。借贷平台可以收集借款人数据、核实申请、评估信用、标准化契约并管理还款，而形成的请求权可以由平台保留、转移给银行或出售给机构投资者。如果请求权被转移，而服务仍由平台提供，信息处理和贷款服务就与资金供给及风险承担分离。
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{金融视角：透过机构名称看经济功能},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+机构名称未必能够识别其履行的经济功能。安排和管理贷款、但转移相关请求权的平台，与保留贷款的平台，面临不同的风险敞口。关键区别在于谁提供资金、持有金融请求权、行使控制权，以及承担损失。
+
+
+
+
+
+
+
+
+\end{tcolorbox}
+
+\begin{example}{中国的混合型金融结构}
+{china-hybrid-financial-structure}
+
+中国金融体系结合了规模可观的银行中介与债券、股票市场。中国人民银行的社会融资规模（Aggregate Financing to the Real Economy，AFRE）框架，记录银行贷款、企业债券、股票发行及其他渠道的融资。信贷资产证券化允许银行发起的贷款转移到向投资者发行证券的结构中，进一步连接银行体系与证券市场。
+
+
+
+
+
+
+
+
+
+\end{example}
+
+\section{什么塑造金融结构？}
+
+\subsection{法律制度与投资者保护}
+
+法律制度通过金融请求权的保护和执行影响金融结构。对债权人而言，破产程序、优先顺序规则与抵押权影响预期回收；对外部股东而言，法律和治理保护可以限制企业资源被转移，并保障其在公司决策中的权利。
+
+这些保护在证券市场尤其重要，因为分散投资者单独协商和监督的空间有限。标准化披露、投资者权利与有效执行，能够支持广泛投资者群体提供融资。
+
+银行融资更依赖借款人特定契约和集中监督，但同样依赖可执行的债权人权利。执行薄弱或不确定，可能降低预期回收并限制信贷供给。
+
+投资者保护也影响所有权和控制权结构。更强的外部股东保护可以支持分散所有权；保护较弱则可能鼓励集中所有权和大股东监督。然而，控制权集中也可能使控股股东以牺牲中小投资者利益为代价，攫取私人收益。
+
+\subsection{经济发展与金融深化}
+
+经济发展通过增加金融服务需求、使更多金融安排在经济上可行，影响金融结构。收入、财富和经济活动增长，可以扩大金融活动规模。更大的交易量，又能将信息生产、金融基础设施和证券发行的固定成本，分摊到更广基数上。
+
+金融深化（financial deepening）是指相对于经济规模而言，金融中介和市场活动的规模与范围扩大。它可以通过银行信贷、证券市场、机构投资者与金融基础设施扩张实现。这些组成部分能够相互强化：机构投资者增长增加对可交易证券的需求，发达的政府债券市场则可以为其他证券定价提供基准收益率，并为金融交易提供抵押品。
+
+\begin{figure}[htbp]
+\centering
+
+\begin{tikzpicture}[
+    >=Latex,
+    box/.style={
+        draw=FinanceBlue,
+        rounded corners=2pt,
+        align=center,
+        minimum height=1.05cm,
+        text width=2.8cm,
+        inner xsep=1pt,
+        inner ysep=4pt
+    },
+    arrow/.style={
+        -Latex,
+        line width=0.8pt
+    }
+]
+
+% Nodes
+\node[box] (development) at (0,0)
+{经济发展};
+
+\node[box] (demand) at (3.8,1.15)
+{金融服务\\需求增加};
+
+\node[box] (volume) at (3.8,-1.15)
+{交易量\\扩大};
+
+\node[box] (cost) at (7.1,-1.15)
+{平均固定\\成本下降};
+
+\node[box] (deepening) at (10.6,0)
+{金融深化};
+
+% Arrows
+\draw[arrow] (development.east) -- ++(0.45,0) |- (demand.west);
+\draw[arrow] (development.east) -- ++(0.45,0) |- (volume.west);
+
+\draw[arrow] (demand.east) -| ([xshift=-0.45cm]deepening.west) -- (deepening.west);
+\draw[arrow] (volume.east) -- (cost.west);
+\draw[arrow] (cost.east) -| ([xshift=-0.45cm]deepening.west) -- (deepening.west);
+
+\end{tikzpicture}
+
+\caption{经济发展与金融深化}
+\label{fig:ch4-financial-deepening}
+\end{figure}
+
+经济发展能够同时支持金融中介和证券市场。随着金融体系深化，两者可能通过融资、投资和流动性关系，变得更加相互联系。
+
+然而，金融深度并不等同于金融效率。信贷、市值或金融资产增加，本身并不意味着资源配置更有效。信贷可能流向预期回报低的项目，杠杆可能增加金融脆弱性，证券市场也可能在披露或执行未相应改善时扩张。金融深化的经济价值，取决于金融扩张改善资本配置、信息生产、风险分担、流动性和服务可得性的收益，相对于它引入的成本与脆弱性如何。
+
+\subsection{技术与金融基础设施}
+
+技术进步可以通过降低信息处理和金融交易成本来影响金融结构。数字信息系统能够降低筛选与核实成本，电子交易系统则可降低证券交易成本。
+
+这些影响对市场和中介未必对称。如果技术降低借款人信息标准化、公开核实的成本，原本分散投资者难以评估的借款人，就可能更容易采用市场融资。反之，如果专有交易数据改善筛选和监督，拥有大量数据的银行或平台就可能获得相对信息优势。
+
+金融基础设施是技术影响金融结构的另一渠道。市场和中介都依赖记录请求权、转移资金、交换信息和结算交易的系统。这些系统的可靠性与互操作性，会影响不同融资渠道的效率。
+
+
+\subsection{监管与制度变化}
+
+监管可以通过改变不同金融安排的成本和约束来影响金融结构。即使主要目标是审慎监管或投资者保护，资本、流动性、披露和投资规则，仍会改变银行、证券发行人及机构投资者的经营条件。
+
+监管待遇差异影响金融活动的组织方式。如果监管提高银行在资产负债表上持有某类信用敞口的成本，一部分活动可能转向证券市场或非银行中介。即使机构形式改变，提供信贷的底层功能可能仍相似。这些转移可能只是重新配置而非消除风险，因为市场型和非银行安排可能涉及不同的杠杆、融资结构与流动性风险组合。
+
+监管也与金融创新相互作用。新融资安排可能引发监管回应，而回应又影响其可行性与组织形式。
+
+%========================================================
+% Summary
+%========================================================
+
+\TailModule{summary}{本章小结}
+
+金融结构关注融资、信息生产、监督、流动性供给和风险分配，如何在市场与中介之间组织。直接融资中，投资者持有最终资金使用者发行的请求权；间接融资中，中介持有对借款人的请求权，并向资金提供者发行自身请求权。现代金融体系通常在相互联系的融资链条中结合两种形式。
+
+如果信息能够标准化并由公众评价，融资规模又足以分摊固定发行成本，市场融资会更有效。中介通过专业化、规模经济、私人信息生产和委托监督创造价值。委托可以减少分散投资者的重复监督，但也引入资金提供者与中介之间的代理问题。
+
+中介还转换金融请求权的特征。汇集流动性需求，可以支持以流动性较低资产为基础的流动负债；期限转换使较长期资产能够用较短期负债融资；风险转换则通过汇集风险和在不同金融请求权之间分配损失实现。这些转换在提供金融服务的同时，也形成潜在脆弱性来源。
+
+市场与中介的相对作用，既取决于融资特征，也取决于更广泛的经济与制度环境。法律保护与执行、经济发展、技术、金融基础设施和监管，会改变不同金融安排的成本和可行性。随着市场、中介和混合安排适应变化中的经济与制度条件，金融结构不断演化。
+
+%========================================================
+% Mind Map
+%========================================================
+
+\TailModule{mindmap}{思维导图}
+
+\begin{figure}[H]
+\centering
+
+\begin{tikzpicture}[
+  >=Latex,
+  main/.style={
+    draw,
+    rounded corners,
+    minimum height=0.9cm,
+    align=center,
+    fill=gray!10,
+    inner xsep=5pt,
+    inner ysep=4pt
+  },
+  sub/.style={
+    draw,
+    rounded corners,
+    minimum height=0.85cm,
+    align=center,
+    inner xsep=4pt,
+    inner ysep=4pt
+  },
+  flow/.style={
+    -Latex,
+    line width=0.75pt
+  }
+]
+
+% Top
+\node[main, text width=3.4cm] (functions) at (0,4.2)
+{金融功能};
+
+% Organizational forms
+\node[sub, text width=3.2cm] (markets) at (-5.0,2.2)
+{市场与\\直接融资};
+
+\node[sub, text width=3.2cm] (inter) at (0,2.2)
+{中介与\\间接融资};
+
+\node[sub, text width=3.2cm] (hybrid) at (5.0,2.2)
+{混合型\\融资安排};
+
+% Mechanisms
+\node[sub, text width=3.5cm] (marketmech) at (-5.0,0)
+{公开信息\\与可交易性};
+
+\node[sub, text width=3.8cm] (intermech) at (0,0)
+{信息、监督\\与转换};
+
+\node[sub, text width=3.8cm] (hybridmech) at (5.0,0)
+{市场与中介\\共同履行功能};
+
+% Financial structure
+\node[main, text width=3.4cm] (structure) at (0,-2.2)
+{金融结构};
+
+% Environment
+\node[sub, text width=5.2cm] (environment) at (0,-4.2)
+{法律、发展、技术、\\基础设施与监管};
+
+% Arrows
+\draw[flow] (functions) -- (markets);
+\draw[flow] (functions) -- (inter);
+\draw[flow] (functions) -- (hybrid);
+
+\draw[flow] (markets) -- (marketmech);
+\draw[flow] (inter) -- (intermech);
+\draw[flow] (hybrid) -- (hybridmech);
+
+\draw[flow] (marketmech) -- (structure);
+\draw[flow] (intermech) -- (structure);
+\draw[flow] (hybridmech) -- (structure);
+
+\draw[flow] (environment) -- (structure);
+
+\end{tikzpicture}
+
+\caption*{从金融功能到金融结构}
+\end{figure}
+
+%========================================================
+% Key Terms
+%========================================================
+
+\TailModule{keyterms}{关键术语}
+
+直接融资（Direct finance）；间接融资（indirect finance）；金融中介（financial intermediary）；融资链条（financing chain）；混合型金融体系（hybrid financial system）；规模经济（economies of scale）；委托监督（delegated monitoring）；关系型贷款（relationship lending）；流动性汇集（liquidity pooling）；流动性转换（liquidity transformation）；期限转换（maturity transformation）；风险转换（risk transformation）；金融结构（financial structure）；市场主导型金融体系（market-based financial system）；银行主导型金融体系（bank-based financial system）；金融深化（financial deepening）；投资者保护（investor protection）；金融基础设施（financial infrastructure）；平台型金融（platform-based finance）；非银行金融中介。
+
+%========================================================
+% Financial AI Lab
+%========================================================（non-bank financial intermediation
+
+%========================================================
+% Financial AI Lab
+%========================================================）。
+
+\TailModule{aiprompt}{金融 AI 实验室}
+
+\textbf{实验：重建融资链条}
+
+选择一种当代融资安排，例如数字借贷平台、私募信贷基金、证券化载体、众筹平台或在线理财产品。请 AI 系统将其划为直接或间接融资，并将初步分类视为暂定结论。
+
+重建完整融资链条，识别最终资金提供者和使用者、每个阶段创设的金融请求权，以及每项请求权的持有人。再确定谁开展筛选和监督、谁提供流动性，以及最终由谁承担信用损失。
+
+将你的重建结果与 AI 分类比较。如果同一融资链条结合市场和中介功能，解释简单的直接／间接二分为什么可能不够。利用相关金融机构、监管机构、交易所或平台的一手文件，核实制度结构和风险分配。
+
+%========================================================
+% Discussion Questions
+%========================================================
+
+\TailModule{questions}{讨论题}
+
+\begin{enumerate}
+
+\item 为什么投资银行参与公司债券发行，并不必然使交易成为间接融资？
+
+\item 解释金融中介的委托监督理论。委托如何在减少重复监督的同时，产生新的代理问题？
+
+\item 当个人流动性需求并非完全相关时，存款人人数增加如何降低总流动性需求的相对不确定性？
+
+\item 为什么应将市场主导型与银行主导型金融体系的区别理解为程度差异，而非二元分类？
+
+\item 同一技术变化如何对证券市场和金融中介产生不同影响？
+
+\end{enumerate}
+
+%========================================================
+% Data Application
+%========================================================
+
+\TailModule{dataapp}{数据应用}
+
+\textbf{中国金融结构及国际比较}
+
+使用 IMF 金融发展指数数据库，在共同样本期内比较中国和至少三个其他经济体的金融机构指数与金融市场指数。选择金融结构具有明显差异的经济体，考察金融发展主要通过机构、市场还是两者共同实现。应将这些指数理解为金融发展不同维度的度量，而非金融体系优劣排名。
+
+针对中国，使用中国人民银行社会融资规模统计考察融资构成。比较人民币贷款与企业债券、非金融企业境内股票融资等选定的直接融资类别。解释为什么社会融资规模度量的融资流量，与 IMF 指数反映的是金融结构的不同维度。
+
+利用证据评价本章的一个命题，例如银行中介持续重要、市场型融资发展，或两类渠道共存。报告指标定义、样本期、所选经济体和一手数据来源。
+
+%========================================================
+% Further Reading
+%========================================================
+
+\TailModule{furtherread}{延伸阅读}
+
+\begin{itemize}
+
+\item Diamond, Douglas W.（1984），“金融中介与委托监督”（``Financial Intermediation and Delegated Monitoring''），
+\emph{The Review of Economic Studies}, 51(3), 393--414.
+
+\item Allen, Franklin, and Douglas Gale (2000), 
+\emph{Comparing Financial Systems}（《金融体系比较》），MIT Press。
+
+\item Levine, Ross（2002），“银行主导型还是市场主导型金融体系：哪一种更好？”（``Bank-Based or Market-Based Financial Systems: Which Is Better?''），
+\emph{Journal of Financial Intermediation}, 11(4), 398--428.
+
+\item Beck, Thorsten, Asli Demirg\"{u}\c{c}-Kunt, and Ross Levine (2003), 
+“法律与金融：为什么法律起源重要？”（``Law and Finance: Why Does Legal Origin Matter?''），
+\emph{Journal of Comparative Economics}, 31(4), 653--675.
+
+\item Svirydzenka, Katsiaryna (2016), 
+“介绍一种新的综合金融发展指数”（``Introducing a New Broad-based Index of Financial Development''），
+IMF 工作论文，第~16/5~号。
+
+\end{itemize}
+
+\ChapterTail{summary,mindmap,keyterms,aiprompt,questions,dataapp,furtherread}

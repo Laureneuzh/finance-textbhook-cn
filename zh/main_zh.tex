@@ -1,0 +1,88 @@
+% !TeX program = xelatex
+\documentclass[UTF8,11pt,a4paper,oneside,openany,fontset=fandol]{ctexbook}
+\usepackage[left=24mm,right=24mm,top=25mm,bottom=25mm,headheight=16pt]{geometry}
+\usepackage{amsmath,amssymb,booktabs,tabularx,array,float,graphicx,enumitem}
+\usepackage{xcolor,tikz,fancyhdr,etoolbox}
+\usetikzlibrary{calc,positioning,arrows.meta,shapes.arrows,shapes.geometric,decorations.pathreplacing}
+\usepackage[most]{tcolorbox}
+\usepackage{hyperref}
+\hypersetup{unicode=true,colorlinks=true,linkcolor=black,urlcolor=FinanceBlue,bookmarksnumbered=true,pdftitle={金融学基础：五章中文译稿}}
+\definecolor{FinanceBlue}{cmyk}{1,0.65,0,0.35}
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{1}
+\setlength{\parskip}{0.25em}
+\setlength{\emergencystretch}{3em}
+\linespread{1.16}
+\ctexset{chapter={format=\Large\bfseries,beforeskip=8pt,afterskip=22pt},section={format=\large\bfseries},subsection={format=\normalsize\bfseries}}
+\setlist{itemsep=0.35em,topsep=0.5em}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\NewDocumentEnvironment{openingcase}{m}{%
+\begin{tcolorbox}[enhanced,breakable,colback=FinanceBlue!3,colframe=FinanceBlue,boxrule=0pt,borderline west={2pt}{0pt}{FinanceBlue},sharp corners,left=10pt,right=10pt,top=10pt,bottom=10pt,before skip=1em,after skip=1em]
+{\small\bfseries\color{FinanceBlue}章首案例\par}\smallskip
+{\large\bfseries #1\par}\medskip
+}{\end{tcolorbox}}
+% The source chapters use two mandatory example arguments (title and ID).
+\NewDocumentEnvironment{example}{m m}{%
+\begin{tcolorbox}[enhanced,breakable,colback=gray!5,colframe=FinanceBlue!75,title={例：#1},fonttitle=\bfseries,boxrule=0.5pt]
+\label{ex:#2}
+}{\end{tcolorbox}}
+\newcommand{\TailAnchor}[1]{\phantomsection\hypertarget{sec:\thechapter:#1}{}\label{sec:\thechapter:#1}}
+\newif\iffinancereadings
+\newcommand{\TailModule}[2]{\TailAnchor{#1}\section*{#2}\ifstrequal{#1}{furtherread}{\begingroup\financereadingstrue\small\setlist[itemize]{itemsep=0.2em}}{}}
+\newcommand{\TailLink}[3]{\hyperlink{sec:#1:#2}{#3}\,(\pageref*{sec:#1:#2})}
+\ExplSyntaxOn
+\cs_new:Npn \finance_tail_title:n #1 {
+\str_case:nnF {#1} {
+{summary}{本章小结} {mindmap}{思维导图} {keyterms}{关键术语}
+{questions}{讨论题} {appprobs}{应用题} {aiprompt}{金融~AI~实验室}
+{dataapp}{数据应用} {caseanalysis}{案例分析} {furtherread}{延伸阅读}
+}{#1}}
+\bool_new:N \l__finance_tail_first_bool
+\cs_new_protected:Npn \finance_tail_list:nn #1#2 {
+\bool_set_true:N \l__finance_tail_first_bool
+\clist_map_inline:nn {#2} {
+\bool_if:NF \l__finance_tail_first_bool {\quad}
+\TailLink{#1}{##1}{\finance_tail_title:n{##1}}
+\bool_set_false:N \l__finance_tail_first_bool
+}}
+\NewDocumentCommand{\HyperTailList}{mm}{\finance_tail_list:nn{#1}{#2}}
+\ExplSyntaxOff
+% A compact guide at each chapter's end avoids overcrowding the main contents.
+\newcommand{\ChapterTail}[1]{\par\medskip\noindent{\footnotesize\HyperTailList{\thechapter}{#1}}\par\iffinancereadings\endgroup\fi}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small 金融学基础}
+\fancyhead[R]{\small\nouppercase{\leftmark}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\chaptermark}[1]{\markboth{第\thechapter 章\quad #1}{}}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0pt}}
+\begin{document}
+\frontmatter
+\begin{titlepage}
+\centering
+\vspace*{38mm}
+{\Huge\bfseries 金融学基础\par}
+\vspace{12mm}
+{\Large 五章中文译稿\par}
+\vspace{8mm}
+{\large 金融体系、货币支付、信息契约、金融中介与估值\par}
+\vfill
+{\normalsize 根据提供的五章英文 LaTeX 原稿翻译\par}
+\vspace{4mm}
+{\small 2026 年 11 月\par}
+\end{titlepage}
+\chapter*{译稿说明}
+本稿依据所提供的五章英文原稿完整翻译，采用中国大陆金融学常用术语。原文的案例背景、货币单位、公式、数值、章节层级及习题均予保留。参考文献保留作者姓名、原文题名和出版信息，并附题名中译，便于检索。文中的 AI 实验、数据练习和案例研究要求均为教材内容，未代为作答。
+
+本稿中的金融概念以原文语境为准，例如“清算”与“结算”、“风险分担”与“风险转换”，以及“预期回报”与“必要报酬率”分别使用。正文及图示中的说明文字已译为中文，公式变量和交叉引用标识保持一致。各章关键术语附英文对照。
+\tableofcontents
+\mainmatter
+\part{金融体系基础}
+\include{The_Essence_of_Finance_Frictions_Functions_and_the_Financial_System}
+\include{Money_Payments_and_Liquidity_Architecture}
+\part{信息、契约与估值}
+\include{Information_Economics_and_Financial_Contracts}
+\include{Financial_Intermediation_and_Financial_Structure}
+\include{The_Logic_of_Financial_Valuation}
+\end{document}
