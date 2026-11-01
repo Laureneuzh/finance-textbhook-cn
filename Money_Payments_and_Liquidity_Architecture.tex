@@ -1,0 +1,727 @@
+\chapter{Money, Payments, and Liquidity Architecture}
+\label{chap:Money_Payments_and_Liquidity_Architecture}
+
+\begin{openingcase}{A Payment App Is Not the Settlement Asset}
+
+By the late 2010s, mobile and online payments had become deeply embedded in everyday commerce in China. To a user, the transaction often appeared simple: open an app, scan a code, confirm the amount, and the payment is complete. Behind that interface, however, the institutional path of the payment was changing.
+
+Non-bank payment institutions had previously connected directly with many commercial banks to process online payments involving bank accounts. The People's Bank of China required payment institutions to break these direct connections and route the relevant transactions through centralized clearing infrastructures. By January 14, 2019, payment businesses jointly conducted by non-bank payment institutions and commercial banks were processed through NetsUnion Clearing or China UnionPay.\footnote{People's Bank of China, \emph{Annual Report 2018}, discussion of the NetsUnion platform and the migration of non-bank payment institutions away from direct connections with commercial banks.}
+
+For most customers, the payment experience remained largely unchanged, even as the institutional architecture behind it changed substantially.
+
+\end{openingcase}
+
+%========================================================
+% Core Questions
+%========================================================
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=FinanceBlue!6,
+  colframe=FinanceBlue,
+  boxrule=0.6pt,
+  sharp corners,
+  left=8pt,
+  right=8pt,
+  top=7pt,
+  bottom=7pt,
+  before skip=1em,
+  after skip=1.6em,
+  title=\textbf{Core Questions},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  attach boxed title to top left={xshift=6pt,yshift=-2mm},
+  boxed title style={
+    boxrule=0pt,
+    sharp corners,
+    left=5pt,
+    right=5pt,
+    top=2pt,
+    bottom=2pt
+  }
+]
+\begin{enumerate}[
+  leftmargin=*,
+  label=\textcolor{FinanceBlue}{\textbf{\arabic*.}},
+  itemsep=0.55em,
+  topsep=0.2em
+]
+\item What makes some financial claims function as money while others do not?
+\item How are payment instructions processed through clearing and settlement, and when is a payment final?
+\item Why do modern monetary systems rely on both central bank money and commercial bank money, and what supports their convertibility at par?
+\end{enumerate}
+\end{tcolorbox}
+
+\section{Money as a Financial Agreement}
+
+Why would one person accept a particular object or account balance from another in exchange for goods, labor, or financial claims? The answer depends not only on the form of money, but also on the institutions that make it widely acceptable and usable for settling obligations. 
+
+\subsection{Money as a Social and Institutional Arrangement}
+
+Money's usefulness depends on a shared expectation that others will accept it in payment. If every seller had to check an issuer's backing, legal status, and the asset's acceptability before taking it in payment, ordinary exchange would become costly. Money reduces this burden by creating a commonly accepted unit and settlement convention.
+
+This property is partly self-reinforcing. An asset becomes more useful for payment as more people accept it, and wider acceptance gives others a stronger reason to hold and use it. This feedback generates network effects in monetary exchange. But these alone are not enough. Participants must also trust that the monetary unit will remain usable and that payments made in it will be recognized and settled.
+Modern monetary systems support this confidence through law, payment infrastructure, central-bank arrangements, regulation, and shared expectations. 
+
+Money is not merely a social convention. Its use depends on both collective acceptance and the institutional arrangements that support monetary claims. For example, a bank deposit is an asset for the depositor and a liability for the issuing bank. The general acceptability of money therefore rests not only on shared expectations but also on the arrangements that support payment and settlement.
+
+\subsection{The Core Functions of Money}
+
+Once a monetary claim is widely accepted and institutionally supported, it can perform three core monetary functions.
+
+The \emph{unit of account} provides a common language for prices and financial obligations. A loan agreement can specify RMB~1 million rather than a changing bundle of goods. A bond can promise coupon and principal payments in the same unit used to record the issuer's revenues and the investor's wealth. Without a common unit, comparison and contracting become more costly.
+
+The \emph{medium of exchange} function allows money to facilitate transactions and discharge obligations. Cash can settle a face-to-face transaction directly. A bank deposit can be transferred through a payment system. 
+
+
+\begin{table}[H]
+\centering
+\caption{The Core Functions of Money}
+\label{tab:ch2-money-functions}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{
+    @{}
+    >{\raggedright\arraybackslash}p{3.0cm}
+    >{\raggedright\arraybackslash}X
+    >{\raggedright\arraybackslash}X
+    @{}
+}
+\toprule
+\textbf{Function}
+& \textbf{Economic role}
+& \textbf{Financial significance} \\
+\midrule
+
+Unit of account
+& Provides a common measure for prices and obligations
+& Makes contracts, accounting, and valuation comparable \\
+
+Medium of exchange
+& Facilitates transactions and discharges obligations
+& Enables efficient exchange of goods and services \\
+
+Store of value
+& Carries purchasing power across time
+& Allows wealth to be held in a liquid, nominal form \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The \emph{store of value} function allows purchasing power to be carried across time. Money is not a perfect store of value because inflation can reduce its real purchasing power. Even so, it is often more stable and liquid than many other assets. 
+
+These functions provide a useful way to distinguish money from other financial assets and payment instruments.For example, a government bond may be a good store of value without serving as a medium of exchange. A payment card facilitates transactions but is not itself money: a debit card provides access to a bank deposit, while a credit card allows the holder to draw on a credit facility. A foreign currency may perform the functions of money in one jurisdiction while being held mainly as a financial asset in another.
+
+
+\subsection{The Balance-Sheet Structure of Money}
+
+Most money in a modern economy takes the form of financial claims recorded on institutional balance sheets. The most important forms are commercial-bank deposits, central-bank reserves, and currency, although they differ in who can hold them and how they are used.
+
+Commercial-bank deposits are liabilities of banks and assets of depositors. Central-bank reserves are liabilities of the central bank and assets of eligible account holders, principally banks and other designated institutions. Currency is also recorded as a liability of the central bank, although modern fiat currency is not generally redeemable for gold or another specified asset at a fixed rate.
+
+\begin{table}[H]
+\centering
+\caption{A Bank Deposit as an Asset and a Liability}
+\label{tab:ch2-deposit-taccount}
+
+\renewcommand{\arraystretch}{1.25}
+
+\begin{tabularx}{0.9\textwidth}{
+    @{}
+    >{\raggedright\arraybackslash}X
+    >{\raggedright\arraybackslash}X
+    >{\raggedright\arraybackslash}X
+    @{}
+}
+\toprule
+\multicolumn{1}{c}{\textbf{Household}}
+&
+\multicolumn{2}{c}{\textbf{Commercial Bank}}
+\\
+\cmidrule(r){1-1}
+\cmidrule(l){2-3}
+
+\textbf{Assets}
+&
+\textbf{Assets}
+&
+\textbf{Liabilities}
+\\
+
+Bank deposit: RMB~100
+&
+--
+&
+Bank deposit: RMB~100
+\\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Table~\ref{tab:ch2-deposit-taccount} illustrates how the same RMB~100 deposit appears on two balance sheets: as an asset of the household and a liability of the bank.
+
+The balance-sheet perspective clarifies why different forms of money are not economically identical. 
+An RMB~100 bank deposit and an RMB~100 banknote share the same unit of account and are normally accepted at par, but they have different issuers and balance-sheet relationships. The deposit is a liability of a commercial bank and an asset of the depositor, whereas the banknote is a liability of the central bank and an asset of its holder.
+
+\begin{table}[H]
+\centering
+\caption{Selected Monetary Forms and Their Balance-Sheet Positions}
+\label{tab:ch2-money-claims}
+
+\renewcommand{\arraystretch}{1.15}
+\setlength{\tabcolsep}{7pt}
+
+\begin{tabularx}{\textwidth}{
+    @{}
+    >{\raggedright\arraybackslash}p{3.35cm}
+    >{\raggedright\arraybackslash}p{2.85cm}
+    >{\raggedright\arraybackslash}X
+    @{}
+}
+\toprule
+\textbf{Monetary form}
+& \textbf{Issuer}
+& \textbf{Balance-sheet relationship} \\
+\midrule
+
+Currency\newline
+{\small (banknotes and coins)}
+& Central bank
+& Liability of the central bank; asset held by the public \\
+\addlinespace[0.3em]
+
+Central-bank reserves
+& Central bank
+& Liability of the central bank; asset of eligible account holders \\
+\addlinespace[0.3em]
+
+Commercial-bank deposits
+& Commercial bank
+& Liability of the bank; asset of the depositor \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The same balance-sheet logic helps explain how commercial-bank deposits are created. Suppose a bank grants a new loan of RMB~100 and credits the borrower's deposit account by the same amount. On the bank's balance sheet,
+
+\begin{equation}
+\Delta \text{Loans}=+100,
+\qquad
+\Delta \text{Deposits}=+100.
+\label{eq:ch2-loan-deposit}
+\end{equation}
+
+The loan therefore creates a new bank deposit at origination. The borrower simultaneously acquires a deposit asset and a matching loan liability, so there is no equal increase in net wealth. Deposit creation remains subject to the bank's broader balance-sheet and regulatory constraints.
+
+\subsection{Trust, Credibility, and Monetary Stability}
+
+Money reduces information costs by limiting the need to reassess the issuer behind each monetary claim in every transaction. A recipient of a bank transfer typically relies on the transferability of the deposit rather than assessing the payer's bank, while a holder of currency does not need to examine the central bank's balance sheet. The efficiency of monetary exchange rests on the ability to treat accepted monetary claims as reliable without repeated verification.
+
+Such trust rests on the credibility of the institutions and arrangements that support the monetary system. The monetary unit needs to remain sufficiently stable to support pricing and contracting, and monetary claims need to be transferable or convertible as promised. Reliable payment systems and legal rules that define ownership and settlement finality also support this credibility.
+
+A decline in monetary trust can affect behavior in several ways. If depositors become concerned about a bank's ability to meet withdrawals, they may convert deposits into currency or transfer funds to other banks. If confidence in a privately issued monetary claim weakens, the claim may trade below par or lose acceptance. If inflation undermines confidence in the unit of account, households and firms may shorten contract maturities, index prices, or shift toward other currencies or assets.
+
+Monetary stability also depends on the expectation that different forms of money denominated in the same unit will remain interchangeable. This expectation supports common pricing, contracting, and payment across the economy.
+
+\section{Payment Systems and Financial Networks}
+
+Money can serve as a means of payment only if it can be transferred between users. A payment system is the set of instruments, rules, institutions, technologies, and settlement arrangements through which funds are transferred and monetary obligations are discharged.
+
+\subsection{Payment Instruments and Traditional Payment Infrastructure}
+
+Payment instruments are the means through which payment instructions are initiated and transmitted. Cash combines the payment instrument and the settlement asset in a single object: handing over currency can complete the transaction directly. Most non-cash payments separate the payment instruction from the asset used for settlement.
+
+Non-cash payment instruments differ in who initiates the payment and how the instruction is transmitted. Cheques and credit transfers are payer-initiated, whereas direct debits are payee-initiated under prior authorization. Card and mobile payments rely on payment networks and digital interfaces to authenticate users, authorize transactions, and route payment instructions. 
+
+\begin{figure}[H]
+\centering
+
+\resizebox{0.94\textwidth}{!}{%
+\begin{tikzpicture}[
+  >=Latex,
+  box/.style={
+  draw,
+  rounded corners,
+  align=center,
+  minimum height=0.85cm,
+  text width=1.5cm,
+  inner xsep=2pt,
+  inner ysep=3pt,
+  line width=0.8pt
+  },
+  flow/.style={
+    -Latex,
+    line width=0.85pt,
+    FinanceBlue
+  },
+  note/.style={
+    font=\scriptsize,
+    align=center,
+    text=FinanceBlue,
+    fill=white,
+    inner sep=1pt
+  }
+]
+
+\node[box] (payer) at (0,0) {Payer};
+\node[box] (bankA) at (3.6,0) {Payer's bank};
+\node[box, text width=2.2cm] (infra) at (6.3,0)
+{Clearing and\\settlement system};
+
+\node[box] (bankB) at (9.0,0) {Payee's bank};
+\node[box] (payee) at (11.8,0) {Payee};
+
+\draw[flow] (payer) -- 
+  node[midway, above=6pt, note]{payment\\ instruction}
+  (bankA);
+
+\draw[flow] (bankA) -- (infra);
+
+\draw[flow] (infra) -- (bankB);
+
+\draw[flow] (bankB) -- 
+  node[midway, above=5pt, note]{credit}
+  (payee);
+
+\end{tikzpicture}%
+}
+
+\caption{A Simplified Cross-Bank Payment Chain}
+\label{fig:ch2-payment-chain}
+\end{figure}
+
+Figure~\ref{fig:ch2-payment-chain} illustrates a simplified cross-bank payment chain. If the payer and payee use the same bank, the transaction can be settled internally by reducing one deposit account and increasing another. If they use different banks, the payment creates an interbank obligation. The participating banks must then settle with each other, typically using a settlement asset accepted by both.
+
+A payment network is thereforemore than a communication system. Its design affects when obligations arise and are discharged, how much liquidity participants require, and the credit and operational exposures they face before settlement becomes final.
+
+\subsection{Clearing, Netting, and Payment Obligations}
+
+Clearing is the process through which payment instructions are transmitted, reconciled, confirmed, and converted into obligations for settlement. Where applicable, these obligations may be netted before settlement.
+
+Consider a set of banks indexed by $i$ and $j$. Let $p_{ij}$ denote the amount that bank $i$ must pay bank $j$. Bank $i$'s gross outgoing payments are
+
+\begin{equation}
+G_i^{\mathrm{out}}
+=\sum_{j\neq i} p_{ij},
+\label{eq:ch2-gross-outgoing}
+\end{equation}
+while its net settlement position can be written as
+
+\begin{equation}
+N_i=\sum_{j\neq i} p_{ij}-\sum_{j\neq i} p_{ji}.
+\label{eq:ch2-net-position}
+\end{equation}
+
+A positive $N_i$  represents a net payment obligation, while a negative value represents a net receipt. In a closed clearing system,
+
+\begin{equation}
+\sum_i N_i=0.
+\label{eq:ch2-net-zero}
+\end{equation}
+
+Netting can substantially reduce the liquidity required for settlement. Suppose Bank A owes Bank B 100, Bank B owes Bank C 90, and Bank C owes Bank A 80. Table~\ref{tab:ch2-netting-example} shows the resulting gross flows and net settlement positions.
+
+\begin{table}[H]
+\centering
+\caption{Gross payments and net settlement positions}
+\label{tab:ch2-netting-example}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+\textbf{Bank} & \textbf{Outgoing} & \textbf{Incoming} & \textbf{Net position} \\
+\midrule
+A & 100 & 80 & Pays 20 \\
+B & 90 & 100 & Receives 10 \\
+C & 80 & 90 & Receives 10 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The three gross payments total 270, but after multilateral netting the system has only 20 of aggregate net debit obligations to settle. Bank A pays 20, while Banks B and C receive 10 each. Netting reduces the liquidity required for settlement.
+
+In deferred net settlement systems, these liquidity savings come with a cost. Payment obligations may remain unsettled until the end of the clearing cycle, exposing participants to the risk of another participant's default. Payment-system design involves a trade-off between liquidity efficiency, settlement finality, and risk containment.
+
+\subsection{Settlement, Payment Finality, and Settlement Risk}
+
+Settlement is the discharge of payment obligations through transfers on the books of a settlement institution. Payment finality refers to the point at which a payment is regarded as complete and cannot be revoked under the applicable system rules and law.
+
+The distinction between clearing and settlement can be seen in a simple cross-bank transfer. Suppose a customer at Bank A pays RMB~100 to a customer at Bank B. If the payment is settled in central-bank reserves, the essential balance-sheet changes are shown in Table~\ref{tab:ch2-cross-bank-payment}.
+
+\begin{table}[H]
+\centering
+\caption{Balance-Sheet Effects of a Cross-Bank Payment of RMB~100}
+\label{tab:ch2-cross-bank-payment}
+
+\renewcommand{\arraystretch}{1.2}
+
+\begin{tabularx}{\textwidth}{
+    @{}
+    >{\raggedright\arraybackslash}p{3.0cm}
+    >{\raggedright\arraybackslash}X
+    >{\raggedright\arraybackslash}X
+    @{}
+}
+\toprule
+\textbf{Institution}
+& \textbf{Assets}
+& \textbf{Liabilities} \\
+\midrule
+
+Bank A
+& Reserves $-100$
+& Payer's deposit $-100$ \\
+
+Bank B
+& Reserves $+100$
+& Payee's deposit $+100$ \\
+
+Central bank
+& ---
+& Reserve liability to Bank A $-100$; reserve liability to Bank B $+100$ \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The transfer of reserves from Bank A to Bank B settles the interbank obligation. The customer's deposit does not physically move from one bank to another. Instead, Bank A reduces its liability to the payer, Bank B increases its liability to the payee, and central-bank reserves are transferred between the two banks. Settlement finality is reached when that settlement becomes irrevocable and unconditional under the rules of the system.
+
+A settlement asset should allow obligations to be discharged without introducing significant additional credit risk at the point of settlement. Central-bank money is widely used for settlement in systemically important domestic payment systems.
+
+Before settlement finality is reached, participants remain exposed to settlement risk: the expected settlement may be delayed or fail to occur. Such failures can generate several related forms of risk, summarized in Table~\ref     {tab:ch2-payment-risk}.
+
+\begin{table}[H]
+\centering
+\caption{Major Forms of Payment-System Risk}
+\label{tab:ch2-payment-risk}
+
+\renewcommand{\arraystretch}{1.2}
+
+\begin{tabularx}{\textwidth}{
+    @{}
+    >{\raggedright\arraybackslash}p{3.0cm}
+    >{\raggedright\arraybackslash}X
+    @{}
+}
+\toprule
+\textbf{Risk}
+& \textbf{Economic meaning} \\
+\midrule
+
+
+Credit risk
+& A participant may fail to meet an obligation in full, either when due or at any time thereafter. \\
+
+Liquidity risk
+& A participant may be unable to meet an obligation when due but may settle it in full at a later time. \\
+
+Operational risk
+& Technology failures, cyber incidents, human error, or infrastructure disruptions may interrupt processing or settlement \\
+
+Legal risk
+& Uncertainty about rules, ownership, netting, or finality may undermine enforceability \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The importance of these risks depends partly on how settlement is organized. In a real-time gross settlement system, payments are settled individually and continuously, reducing the duration of interbank exposures but increasing intraday liquidity needs. In a deferred net settlement system, obligations are accumulated and netted before settlement, reducing liquidity needs but leaving exposures outstanding for longer.
+
+Settlement design involves a trade-off between liquidity efficiency, the speed of finality, and risk containment.
+
+\subsection{Digital Payment Networks and Platforms}
+
+Digitalization changes how payments are initiated, authenticated, and routed, but it does not remove the need to distinguish monetary claims, clearing, and settlement. A mobile wallet or payment app may make payment appear instantaneous to the user, yet the underlying value may still be a bank deposit, a regulated payment claim, or another monetary asset. The essential question is not only how the payment is made, but what claim is being transferred and how final settlement occurs.
+
+A payment network connects users, merchants, financial institutions, payment service providers, and clearing or settlement infrastructures. Its value depends not only on technology, but also on participation, interoperability, rules, and trust. A larger network can make payments easier and cheaper, but it can also create dependence on a small number of platforms or infrastructures.
+
+\begin{figure}[H]
+\centering
+
+\begin{tikzpicture}[
+  >=Latex,
+  layer/.style={
+    draw,
+    rounded corners,
+    align=center,
+    minimum height=0.95cm,
+    text width=0.82\textwidth,
+    inner xsep=6pt,
+    inner ysep=5pt,
+    line width=0.7pt,
+    font=\footnotesize
+  },
+  arrow/.style={
+    -Latex,
+    line width=0.75pt,
+    FinanceBlue
+  }
+]
+
+\node[layer] (interface) at (0,2.4)
+{\textbf{User interface}\\
+mobile wallet, payment app, QR code, card, or online checkout};
+
+\node[layer] (network) at (0,0.7)
+{\textbf{Payment network and platform layer}\\
+users, merchants, financial institutions, payment service providers, rules, interoperability, and trust};
+
+\node[layer] (claim) at (0,-1.0)
+{\textbf{Monetary claim layer}\\
+bank deposit, regulated payment claim, or another monetary asset};
+
+\node[layer] (settlement) at (0,-2.7)
+{\textbf{Clearing and settlement layer}\\
+calculation of obligations, netting where applicable, and final settlement in a settlement asset};
+
+\draw[arrow] (interface) -- (network);
+\draw[arrow] (network) -- (claim);
+\draw[arrow] (claim) -- (settlement);
+
+\end{tikzpicture}
+
+\caption{Digital Payment as Interface, Network, Claim, and Settlement Layers}
+\label{fig:ch2-digital-payment-layers}
+\end{figure}
+
+Figure~\ref{fig:ch2-digital-payment-layers} illustrates that digital payment involves more than a change in user interface. The same visible payment may rest on different underlying monetary claims, network arrangements, and settlement assets.
+
+Within this layered architecture, the platform layer coordinates interactions among users, merchants, banks, and payment service providers. Through access management, authentication, transaction routing, and data processing, platforms can reduce transaction costs and processing delays. These arrangements also generate network effects: the value of a payment service to participants may increase with the number of users and merchants, creating economies of scale while potentially reinforcing market concentration. Payment data can improve fraud detection and service design, but its collection and use raise concerns about privacy, market power, interoperability, and access.
+
+The same logic applies to newer payment technologies. 
+Programmable transfers and tokenized claims may bring trading, clearing, and settlement closer together by embedding conditions in transaction logic. Artificial intelligence can improve fraud detection, transaction monitoring, liquidity forecasting, and payment routing. Yet faster execution and better prediction do not by themselves establish legal finality, guarantee par redemption, or eliminate liquidity needs. The economic problem remains institutional as well as computational.
+
+\section{Liquidity in the Monetary System}
+
+Money can serve as a means of payment only when monetary claims can be used, transferred, or converted as obligations come due. Payment systems therefore require not only monetary assets but also liquidity: the ability to obtain the required settlement asset when needed.
+
+\subsection{Liquidity, Convertibility, and Economic Exchange}
+
+Liquidity is distinct from an asset's value. It describes how readily an asset can be used to meet payment or settlement obligations when they come due. Currency can discharge many retail payments directly. A government security may be valuable and actively traded, but its value usually must be converted into spendable funds through a sale or collateralized borrowing before it can support an ordinary payment. The difference lies in the distance between holding value and making payment.
+
+Convertibility may reduce this distance. Here, convertibility refers to the ability to convert one monetary claim into another, typically at par and without significant delay. A bank deposit is a private liability of a commercial bank, but it can function as money in ordinary exchange when it is both convertible into currency at par and transferable through payment networks.
+
+The importance of convertibility becomes apparent when confidence in par redemption weakens. Depositors may then withdraw cash or move balances to other institutions. More generally, a payment claim that cannot be reliably redeemed at its stated value may cease to circulate as a close substitute for money.
+
+Convertibility, however, does not eliminate the importance of timing. Suppose a bank expects a large inflow at 4:00 p.m. but must make a payment at 10:00 a.m. Even if its end-of-day position would be balanced, it still needs liquidity at 10:00 a.m. This timing mismatch creates a demand for reserves, intraday credit, and other arrangements that make settlement assets available when needed.
+
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+ title=\textbf{Financial Perspective: Convertibility Is Not Liquidity},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+Convertibility concerns whether a financial claim can be exchanged for a usable payment or settlement asset, typically at par. Liquidity additionally requires that the relevant asset be available in the required amount and at the required time. A claim may therefore be convertible in principle without providing sufficient liquidity when an obligation falls due.
+\end{tcolorbox}
+
+At the system level, the same temporal mismatch can generate payment gridlock. Institutions may postpone outgoing payments in anticipation of incoming funds. When such behavior is widespread, settlement can be delayed even if aggregate liquidity is sufficient over the course of the day. Liquidity arrangements must therefore ensure not only an adequate quantity of settlement assets, but also their timely availability across participants.
+
+Maintaining liquidity entails an opportunity cost. Reserves and other highly liquid assets provide immediate settlement capacity but may offer lower returns than less liquid alternatives. Financial institutions therefore face a trade-off between liquidity and return, holding sufficient liquid assets to meet obligations while allocating other funds to higher-yielding uses.
+
+This trade-off reflects the broader role of liquidity and convertibility in economic exchange. By reducing the need to liquidate other assets before payment and limiting delays in the discharge of obligations, they lower transaction frictions and support the circulation of monetary claims across the economy.
+
+\subsection{Safe Assets and the Demand for Liquidity}
+
+The demand for liquidity helps explain the distinctive role of safe assets in the monetary system. Safe and liquid assets can be mobilized to meet payment and settlement needs while limiting exposure to credit loss.
+
+Safety is conceptually distinct from liquidity. Here, safety refers primarily to credit quality: a safe asset carries a low risk that its promised payments will not be made in full and on time. Liquidity concerns the ease with which an asset can be used or mobilized to meet payment or settlement obligations when they fall due.
+
+Safety alone does not determine an asset's liquidity. Its liquidity also depends on whether it can be readily sold or pledged on favorable terms, particularly under stressed market conditions.
+
+Liquidity and collateral services are also reflected in asset yields. Among otherwise comparable assets, investors may accept a lower yield on one that provides more valuable liquidity or collateral services. The value attached to these services is commonly described as a convenience yield.
+
+\begin{equation}
+y
+=
+y^{*}-\lambda,
+\qquad \lambda>0,
+\label{eq:ch2-convenience-yield}
+\end{equation}
+where $y^{*}$ is the yield on an otherwise comparable asset that does not provide the same convenience services, and $\lambda$ represents the convenience yield associated with liquidity, collateral, and related services. This expression is an economic decomposition rather than a pricing model, and $\lambda$ may vary with market conditions.
+
+The demand for safe and liquid assets often increases during periods of uncertainty or financial stress. Market participants may reduce their holdings of riskier claims and shift toward cash, short-term government securities, or, for eligible institutions, central-bank reserves. Such a flight to safety may reduce individual risk exposure while tightening funding conditions and market liquidity elsewhere.
+
+At the institutional level, efforts to preserve liquidity can amplify stress. If institutions simultaneously reduce lending, conserve settlement assets, or sell less-liquid securities, funding conditions may tighten and asset-market liquidity may deteriorate. Actions that are prudent for individual institutions can  contribute to system-wide liquidity stress.
+
+When such behavior becomes widespread, the demand for liquidity becomes a system-wide coordination problem. A resilient monetary system requires arrangements that support the mobilization and distribution of liquidity as conditions change. Central-bank liquidity facilities, collateral frameworks, and payment-system arrangements form part of this institutional architecture.
+
+
+\section{The Architecture of Public and Private Money}
+Modern monetary systems comprise monetary liabilities issued on interconnected public and private balance sheets. Central-bank money provides a common settlement foundation, while commercial-bank deposits account for much of the money used in everyday economic activity.
+
+\subsection{Public Money and the Central Bank}
+
+Public money in modern monetary systems consists primarily of central-bank liabilities: currency in circulation and reserve balances maintained by institutions with access to central-bank accounts. Both are denominated in the common unit of account, but they perform different functions within the payment and settlement system.
+
+The central bank issues these liabilities and maintains the reserve accounts used for interbank settlement. When one participating institution makes a payment to another, reserve balances are transferred between their accounts at the central bank. This transfer reallocates central-bank liabilities across institutions and extinguishes the corresponding interbank obligation. Settlement in central-bank money therefore does not require an additional claim on a private settlement intermediary.
+
+\subsection{Private Money and Commercial Banks}
+
+Private money in modern monetary systems consists primarily of commercial-bank deposits. Each deposit is an asset of the depositor and a liability of the issuing bank. Deposits used as money are denominated in the common unit of account and transferable through the payment system. Although deposits issued by different banks share the same unit of account, each remains a claim on a particular institution.
+
+Commercial banks create deposits when they expand their balance sheets. When a bank grants a loan, it records the loan as an asset and credits the borrower's deposit account by the same amount, creating a new deposit liability at the same time. Deposit creation does not require an equivalent quantity of central-bank money to be supplied in advance.
+
+Deposit creation is nevertheless subject to financial and institutional constraints. Banks must maintain adequate capital and liquidity, manage credit risk, and remain able to meet payment and settlement obligations as their balance sheets expand.
+
+A key feature of modern monetary systems is that deposits issued by different banks are separate legal liabilities, yet they are ordinarily accepted at the same nominal value. This equivalence depends on the arrangements that connect commercial-bank deposits to central-bank money and support convertibility at par.
+
+\subsection{Par Convertibility and the Hierarchy of Money}
+
+Different monetary claims may be denominated in the same unit of account even though they are liabilities of different issuers. An RMB~100 deposit at one commercial bank is legally distinct from an RMB~100 deposit at another bank and from RMB~100 in currency. Par convertibility means that these forms of money can normally be exchanged at par rather than at market-determined discounts or premia.
+
+Par convertibility preserves nominal equivalence without eliminating differences among issuers. Commercial-bank deposits remain claims on individual banks, whereas currency and reserve balances are liabilities of the central bank. 
+
+These differences are reflected in a hierarchy of money. Commercial-bank deposits can be used for most payments by households and firms, whereas interbank obligations are typically settled in central-bank money. The hierarchy therefore reflects differences in issuer and settlement status rather than differences in the unit of account.
+
+This hierarchy is compatible with monetary unity as long as par convertibility is maintained. When confidence in convertibility weakens, differences among issuers become economically significant and the unity of the monetary system may begin to break down.
+
+\subsection{Maintaining the Unity of the Monetary System}
+
+Par convertibility allows legally distinct monetary liabilities to be used at a common nominal value. Maintaining this monetary unity depends on the ability of private issuers to honor their liabilities and on the availability of liquidity for settlement. Weakness in either condition can disrupt the par relationship among monetary claims.
+
+The first condition concerns the financial soundness of the issuing bank. Prudential regulation and supervision constrain risk-taking and require adequate capital, reducing the likelihood that a bank will be unable to honor its deposit liabilities. If a bank fails, deposit insurance protects covered deposits, while resolution arrangements provide an orderly process for handling the failed institution. These mechanisms help preserve confidence that commercial-bank deposits will be honored at par.
+
+The second condition concerns settlement liquidity. Cross-bank payments generate interbank obligations that must be settled in a timely manner. Reserve balances held at the central bank serve as the settlement asset, while liquidity facilities can provide additional reserves when temporary shortages arise. Common payment rules, interoperability, and settlement finality support reliable cross-bank payments and help maintain par convertibility.
+
+Together, these arrangements allow legally distinct monetary liabilities to function as equivalent forms of money within a common monetary system.
+
+%========================================================
+% Summary
+%========================================================
+
+\TailModule{summary}{Summary}
+
+Money is more than a widely accepted asset. It provides a common unit of account, supports exchange, and carries purchasing power across time. In modern monetary systems, most forms of money are also financial claims. Currency and central-bank reserves are liabilities of the central bank, while commercial-bank deposits are liabilities of individual banks. Their usefulness depends on trust, transferability, and the institutional arrangements that support payment and settlement.
+
+Payments involve more than the transfer of an instruction. Clearing determines the obligations that arise among participants, netting can reduce the amount that must be settled, and settlement discharges those obligations through an accepted settlement asset. The timing and finality of settlement affect both liquidity needs and financial risk. Digital payment technologies can change how payments are initiated, authenticated, and routed without removing these underlying economic functions.
+
+Liquidity concerns the ability to meet payment and settlement obligations when they fall due. Convertibility allows monetary claims to be exchanged at par, while safe and liquid assets provide additional liquidity and collateral services. These services can affect asset yields and become especially valuable during periods of financial stress.
+
+Modern monetary systems combine public and private money. Commercial banks create deposit money through balance-sheet expansion, while central-bank money provides a common basis for interbank settlement. Par convertibility allows legally distinct monetary claims to function at a common nominal value. Maintaining this monetary unity requires financially sound issuers, adequate settlement liquidity, reliable payment infrastructure, and institutions capable of managing bank distress.
+
+%========================================================
+% Key Terms
+%========================================================
+
+\TailModule{keyterms}{Key Terms}
+
+Money; unit of account; medium of exchange; payment system; clearing; netting; settlement; settlement finality; liquidity; convertibility; safe asset; convenience yield; central-bank money; commercial-bank money; par convertibility; hierarchy of money
+
+%========================================================
+% Discussion Questions
+%========================================================
+
+\TailModule{questions}{Discussion Questions}
+
+\begin{enumerate}
+
+\item Why is a mobile payment application not necessarily the same as the asset used to settle a payment? What monetary claims may underlie a digital payment?
+
+\item In a deferred net settlement system, why can netting reduce liquidity requirements while leaving participants exposed to settlement risk?
+
+\item Why can commercial-bank deposits function as money even though they are liabilities of private institutions? What institutional arrangements support their acceptance at par?
+
+\item During periods of financial stress, why might households or financial institutions shift from bank deposits to currency, deposits at other banks, or other liquid assets? What does this behavior reveal about differences among monetary claims?
+
+\end{enumerate}
+
+%========================================================
+% Applied Problems
+%========================================================
+
+\TailModule{appprobs}{Applied Problems}
+
+\begin{enumerate}
+
+\item Four banks have the following payment obligations at the end of a clearing cycle: A owes B 120; B owes C 100; C owes D 70; D owes A 60; and A owes C 30. Calculate each bank's gross outgoing payments, gross incoming payments, and net settlement position. What is the total value of payments if all obligations are settled gross? After full multilateral netting, which banks are net debtors and net creditors, and what is the total amount that must be transferred by net debtors to complete settlement?
+
+\item A customer at Bank X transfers RMB~50,000 to a customer at Bank Y. Show the balance-sheet changes for Bank X, Bank Y, and the central bank when the interbank obligation is settled in reserve balances. Then explain how the balance-sheet effects would differ if both customers held accounts at Bank X.
+
+\item Two otherwise comparable one-year securities have the same expected cash flows and comparable credit risk. Security A yields 3.2 percent and is eligible as collateral for intraday central-bank credit, whereas Security B yields 3.8 percent and is not. Using equation~\eqref{eq:ch2-convenience-yield}, interpret the 0.6 percentage-point yield difference. What assumptions are required before this difference can be attributed entirely to liquidity and collateral services?
+
+\end{enumerate}
+
+%========================================================
+% Data Application
+%========================================================
+
+\TailModule{dataapp}{Data Application}
+
+\textbf{Payment Architecture in the Data: China, 2024}
+
+The People's Bank of China reports that in 2024 the High-Value Payment System processed 392 million transactions with a total value of RMB~8,824.18 trillion, while the NetsUnion Clearing platform processed about 1.03 trillion transactions with a total value of RMB~520.53 trillion.\footnote{People's Bank of China, \emph{Payment System Operations in 2024}, Section III, Payment Systems.}
+
+\begin{enumerate}
+
+\item Calculate the average transaction value processed by each system.
+
+\item Compare transaction volume with transaction value. What do these
+two measures reveal about the different economic roles of the two systems?
+
+\item Relate these differences to the payment-system mechanisms discussed
+in this chapter. Why would a high-value real-time payment system place
+particular importance on settlement liquidity and finality, while a
+platform processing very large numbers of relatively small transactions
+places greater emphasis on processing capacity and low unit cost?
+
+\item Repeat the comparison using a later People's Bank of China
+payment-system report. How have the volume, value, and average transaction
+size of the two systems changed? Before drawing conclusions, examine
+whether the statistical definitions or coverage have changed.
+
+\end{enumerate}
+
+%========================================================
+% Financial AI Lab
+%========================================================
+
+\TailModule{aiprompt}{Financial AI Lab}
+
+\textbf{Lab: Trace the Payment to Final Settlement}
+
+Select a payment method that can be documented from reliable sources, such as a bank transfer, bank card, QR-code payment, or digital wallet. Ask an AI system to describe the complete transaction path from the payer's instruction to final settlement. Treat the generated answer as a hypothesis to be verified rather than as an authoritative description.
+
+Reconstruct the transaction using five checks: identify the monetary claim held by the payer; identify the institution that issues that claim; identify the clearing arrangement; identify the asset used for final settlement; and identify the rule or institution that determines settlement finality. For each step, require a verifiable institutional source and mark any statement that cannot be confirmed.
+
+Compare the verified transaction path with the AI-generated answer. Identify any point at which the AI confuses the payment interface with the underlying monetary claim, clearing process, balance-sheet transfer, or settlement asset. Conclude by explaining which parts of the payment process are technological and which depend on financial and institutional arrangements.
+
+%========================================================
+% Further Reading
+%========================================================
+
+\TailModule{furtherread}{Further Reading}
+\begin{itemize}
+
+\item People's Bank of China (2025), \emph{Payment System Report (2024)}.
+
+\item McLeay, Michael, Amar Radia, and Ryland Thomas (2014),
+``Money in the Modern Economy: An Introduction,''
+\emph{Bank of England Quarterly Bulletin}, 54(1), 4--13.
+
+\item Committee on Payment and Settlement Systems and
+Technical Committee of the International Organization of Securities
+Commissions (2012), \emph{Principles for Financial Market Infrastructures},
+Bank for International Settlements.
+
+\item Bank for International Settlements (2025),
+``The Next-Generation Monetary and Financial System,''
+Chapter III in \emph{BIS Annual Economic Report 2025}.
+
+\end{itemize}
+
+%========================================================
+% Tail row in Full Contents
+%========================================================
+
+\ChapterTail{summary,keyterms,questions,appprobs,dataapp,aiprompt,furtherread}
