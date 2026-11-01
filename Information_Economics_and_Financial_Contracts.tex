@@ -1,0 +1,787 @@
+\chapter{Information Economics and Financial Contracts}
+\label{chap:Information_Economics_and_Financial_Contracts}
+
+\begin{openingcase}{Why Can a Higher Interest Rate Reduce Lending?}
+
+Suppose Huaxin Commercial Bank is reviewing loan applications from two manufacturing firms, Rongda Machinery and Xinhai Technologies. On paper, the two firms look much alike. Their revenues, leverage, collateral, and recent financial performance are broadly similar. Yet their investment projects are very different.
+
+Rongda plans to expand an established production line. Its expected return is modest, but the project has a relatively high probability of success. Xinhai is considering a more speculative technology investment. The project could generate a much larger payoff, but it also carries a substantially greater risk of failure. The managers of both firms understand these differences far better than the bank does.
+
+A natural response to lending risk would seem to be a higher interest rate. If a loan is riskier, the bank should demand greater compensation. But this logic can break down when borrowers differ in ways the bank cannot fully observe.
+
+As Huaxin raises its lending rate, a firm such as Rongda may conclude that borrowing is no longer worthwhile. Its relatively modest project return leaves little room for a high financing cost. A firm such as Xinhai may still be willing to borrow. If its project succeeds, the upside is large; if it fails, part of the loss is borne by the lender.
+
+The interest rate therefore affects more than the repayment promised on a successful loan. It can also affect \emph{who is willing to borrow} and, once a loan is granted, \emph{what kinds of risks borrowers are willing to take}.
+
+At sufficiently high lending rates, these effects may reduce Huaxin's expected return. The bank may then limit the amount of credit it offers rather than raise the rate further, leaving some willing borrowers without loans.
+
+\end{openingcase}
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=FinanceBlue!6,
+  colframe=FinanceBlue,
+  boxrule=0.6pt,
+  sharp corners,
+  left=8pt,
+  right=8pt,
+  top=7pt,
+  bottom=7pt,
+  before skip=1em,
+  after skip=1.6em,
+  title=\textbf{Core Questions},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  attach boxed title to top left={xshift=6pt,yshift=-2mm},
+  boxed title style={
+    boxrule=0pt,
+    sharp corners,
+    left=5pt,
+    right=5pt,
+    top=2pt,
+    bottom=2pt
+  }
+]
+\begin{enumerate}[
+  leftmargin=*,
+  label=\textcolor{FinanceBlue}{\textbf{\arabic*.}},
+  itemsep=0.55em,
+  topsep=0.2em
+]
+\item How do transaction costs and asymmetric information affect financial exchange before a contract is signed?
+
+\item How do hidden actions affect incentives after financing has been provided?
+
+\item How can contracts, monitoring, collateral, governance, and enforcement mitigate these problems without eliminating them?
+
+\end{enumerate}
+\end{tcolorbox}
+
+Financial contracts are often designed under asymmetric information: borrowers may know more about their prospects and risk types than lenders, while their actions after receiving funds may be difficult to observe. Before contracting, private information affects borrower selection; after contracting, unobserved actions can alter risk-taking incentives. This chapter examines how these problems influence screening, incentive design, and the allocation of financial risk.
+
+\section{Transaction Costs and Information Frictions}
+
+Financial exchange is costly. Information acquisition, counterparty assessment, contract design, and enforcement require resources. These costs influence which transactions take place, the terms of financial contracts, and the organization of financial relationships.
+
+\subsection{Components of Transaction Costs}
+
+Consider Mingyuan Precision Components, a small manufacturing firm seeking external finance. Before funds are provided, the firm must approach potential lenders or investors, and those providers need enough information to assess the opportunity. Financial statements may be prepared and audited, assets valued, legal documents drafted, and collateral identified. The parties may also specify rights, contingencies, and remedies in the event of distress or default.
+
+Each of these activities requires resources. These costs reduce the net gains from financing and may determine whether a transaction generates a positive surplus.
+
+Suppose Mingyuan is considering a new production line that requires an investment of $I$ today and generates an uncertain payoff $X$ next period. In a frictionless setting, the project is financially worthwhile when the expected present value of $X$ exceeds the initial investment. Once transaction costs $K$ are included, the relevant surplus becomes
+\begin{equation}
+S = V_{0}-I-K,
+\label{eq:ch3-transaction-surplus}
+\end{equation}
+where $V_{0}$ is the present value of the project's expected future payoff and $K$ denotes the present value of thetransaction costs associated with arranging and maintaining the financial relationship.
+
+The components of \(K\) arise at different stages of a financial relationship. Search and verification costs arise when counterparties are identified and relevant information is assessed. Contracting costs reflect the specification of rights, obligations, and contingencies. Once financing has been provided, monitoring costs arise from observing performance and behavior, while enforcement costs become relevant when contractual obligations are not met.
+
+Many of these activities involve fixed costs that can be spread across multiple transactions, creating an economic rationale for specialization. A household evaluating a single business loan has limited scope to spread the costs of credit analysis and legal review across transactions. By contrast, a bank can perform these functions for numerous borrowers, spreading the associated costs across its lending activities. Auditors, credit-rating agencies, and exchanges likewise provide specialized services in verification, information production, and standardization.
+
+Specialization does not eliminate transaction costs, but it can reduce the average cost of performing these functions per transaction.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    >=Latex,
+    box/.style={
+        draw,
+        rounded corners,
+        minimum width=2.7cm,
+        minimum height=0.85cm,
+        align=center
+    },
+    central/.style={
+        draw,
+        rounded corners,
+        minimum width=3.2cm,
+        minimum height=1.0cm,
+        align=center,
+        line width=0.9pt
+    },
+    flow/.style={
+        -Latex,
+        line width=0.8pt,
+        FinanceBlue
+    }
+]
+
+\node[central] (exchange) at (0,0) {Financial exchange};
+
+\node[box] (search)   at (-4.3,1.6) {Search};
+\node[box] (verify)   at (-4.3,0)   {Verification};
+\node[box] (contract) at (-4.3,-1.6) {Contracting};
+
+\node[box] (monitor) at (4.3,0.8) {Monitoring};
+\node[box] (enforce) at (4.3,-0.8) {Enforcement};
+
+\draw[flow] (search.east) -- (exchange.west);
+\draw[flow] (verify.east) -- (exchange.west);
+\draw[flow] (contract.east) -- (exchange.west);
+
+\draw[flow] (exchange.east) -- (monitor.west);
+\draw[flow] (exchange.east) -- (enforce.west);
+
+\node[align=center] at (-4.3,2.45) {\small Before and during contracting};
+\node[align=center] at (4.3,1.65) {\small After financing};
+
+\end{tikzpicture}
+
+\caption{Transaction costs around a financial relationship}
+\label{fig:ch3-transaction-costs}
+\end{figure}
+
+Figure~\ref{fig:ch3-transaction-costs} presents a schematic representation rather than a strict chronological sequence. Verification may continue after a contract is signed, monitoring may generate new information, and the prospect of enforcement can influence behavior even before a breach occurs.
+
+\subsection{Information Asymmetry and Costly Information Acquisition}
+
+Information asymmetry exists when one party to a financial transaction has relevant information that the other does not. Some of this information may be obtainable, but acquiring and verifying it can be costly.
+
+The asymmetry may concern characteristics. Borrowers may have better information about project quality than lenders, while managers may know more about expected cash flows than outside investors.
+
+It may also concern actions. Lenders may be unable to observe fully how borrowers manage financed projects, while shareholders may not observe important managerial decisions after capital has been provided.
+
+Asymmetric information is distinct from uncertainty. Future outcomes may remain uncertain even when all parties have access to the same information. The distinction lies in the distribution of information across parties, not in the existence of uncertainty itself.
+
+Some information gaps can be reduced through additional information acquisition, but doing so requires resources. Let \(V(q)\) denote the economic value of information provided by a signal with precision \(q\), and let \(C(q)\) denote the cost of producing the signal.
+Suppose the decision maker chooses information precision \(q\) to maximize net information value, \(V(q)-C(q)\). At a differentiable interior optimum, the marginal value of greater precision equals its marginal cost:
+
+\begin{equation}
+V'(q)=C'(q).
+\label{eq:ch3-information-acquisition}
+\end{equation}
+
+Perfect information is not generally the objective. The relevant question is how much information is worth acquiring at a given cost. Banks, investors, and insurers therefore acquire information selectively, balancing its expected value against the resources required to obtain and process it.
+
+Technological advances can change the economics of information acquisition by reducing the costs of collecting, processing, and evaluating information. Digital records, satellite data, electronic invoices, machine-learning methods, and automated document analysis can make previously costly information more accessible and easier to incorporate into financial decisions.
+
+Lower information costs, however, do not necessarily improve information quality or decision value. Data may be biased, outdated, strategically manipulated, or only weakly related to the economic variable of interest. Efficient processing cannot compensate for signals with limited economic relevance.
+
+\section{Adverse Selection: Hidden Information Before Contracting}
+
+Adverse selection arises when privately known characteristics affect participation or contract choice. Different types respond differently to the terms offered, while the uninformed party cannot perfectly observe each participant's type before the contract is formed.
+
+\subsection{Pooling Under Hidden Information} 
+
+Suppose the applicant pool contains two borrower types, $H$ and $L$, with type $H$ associated with higher project quality than type $L$. The lender knows that a fraction $\pi$ of applicants are type $H$, but cannot observe the type of any individual applicant before contracting. In the absence of information that separates the two types, applicants are evaluated on a pooled basis.
+
+If the lender assigns values $V_H$ and $V_L$ to the two types, with $V_H>V_L$, the pooled expected value of an unidentified applicant is
+
+\begin{equation}
+\bar V=\pi V_H+(1-\pi)V_L.
+\label{eq:ch3-pooling-value}
+\end{equation}
+
+Under pooling, financing terms cannot be tailored to borrowers' privately known types. If participation decisions depend on the terms offered, higher-quality borrowers may be more likely to withdraw, reducing the average quality of the pool. The initial pooled valuation may then no longer reflect the composition of the borrowers who remain. This is the central mechanism of the \emph{lemons problem}.
+
+The same mechanism appears across financial markets. When lenders cannot distinguish borrower quality, lower-risk borrowers may face interest rates that partly reflect the risk of higher-risk borrowers and may reduce their use of external finance. In insurance markets, pooled premiums may discourage low-risk customers while favoring the participation of high-risk customers. In securities markets, limited information about issuer quality may result in the undervaluation of higher-quality firms.
+
+\subsection{Signaling by Informed Parties}
+
+An informed party may convey private information through an observable signal. A signal is informative only when its cost or payoff consequences differ systematically across types.
+
+Suppose a firm chooses a signal level $s$. The signaling cost for type $j$ is $c_j(s)$, where $j\in\{H,L\}$. A single-crossing condition can be written as
+
+\begin{equation}
+c_H'(s)<c_L'(s),
+\label{eq:ch3-single-crossing}
+\end{equation}
+so that the marginal cost of signaling is lower for type $H$ than for type $L$. This difference can support a separating outcome in which the high-quality type chooses a signal that the low-quality type does not find worthwhile to imitate.
+
+Financial signals may include retaining a larger equity stake, providing additional disclosure, accepting compensation tied more closely to performance, or committing assets or personal capital. Their informational content depends on differences in cost or commitment across types.
+
+Statements that can be imitated at negligible cost convey little information. Costly commitments can be more credible when imitation is less attractive to lower-quality types.
+
+Signaling can reduce informational distortions, but it is itself costly. Resources devoted to separating types may generate informational value without directly increasing project output.
+
+\subsection{Screening by Uninformed Parties}
+
+Screening occurs when the uninformed party designs contract terms that induce privately informed parties to reveal information through their choices. The mechanism works when different types prefer different contract options, allowing their choices to reveal their private information.
+
+Suppose a lender offers two contracts. Contract $A$ carries a lower interest rate but requires more collateral, while contract $B$ requires less collateral but carries a higher interest rate. Different borrower types may value this trade-off differently. Their contract choices can therefore reveal information about type that the lender cannot observe directly.
+
+A separating menu of contracts requires each type to prefer the contract intended for it. Let $C_H$ and $C_L$ denote the contracts intended for types $H$ and $L$, respectively. If $U_j(C_k)$ denotes the utility of type $j$ from contract $C_k$, where $j,k\in\{H,L\}$, incentive compatibility requires
+
+\begin{equation}
+\begin{aligned}
+U_H(C_H) &\geq U_H(C_L),\\
+U_L(C_L) &\geq U_L(C_H).
+\end{aligned}
+\label{eq:ch3-screening-ic}
+\end{equation}
+
+These conditions make self-selection consistent with type: type $H$ weakly prefers $C_H$, while type $L$ weakly prefers $C_L$. When the resulting choices differ across types, the lender can infer information about borrower type from the contract selected.
+
+Contract-based screening takes different forms across financial markets. Lenders may vary collateral requirements or loan maturity, while insurers may vary deductibles or coverage limits.
+
+When different types prefer similar contract terms, their choices reveal less information. Observable data can then supplement contract-based screening, with algorithmic credit scoring reducing the cost of information processing. However, predictive relationships may be unstable or vulnerable to strategic manipulation.
+
+\subsection{Market Consequences: Mispricing, Credit Rationing, and Market Breakdown}
+
+Under pooling, mispricing can arise when financing terms do not fully reflect differences in borrower quality. Higher-quality borrowers may face less favorable terms than under full information, while lower-quality borrowers may receive more favorable terms.
+
+If these terms affect participation, some higher-quality borrowers may withdraw. The average quality of the remaining pool then declines, reinforcing the initial pricing problem. In more severe cases, mutually beneficial transactions may disappear and the market may partially or completely break down.
+
+Credit rationing is a particularly important consequence in lending markets. In a standard competitive market, excess demand tends to put upward pressure on price. In credit markets with hidden borrower quality, however, a higher interest rate can also alter the composition of borrowers willing to borrow at that rate.
+
+Normalize the loan principal to one and assume that the nonnegative project payoff is available to repay the lender, with no bankruptcy costs. Let \(\mathbb{E}_i\) denote expectation over borrowers willing to accept a loan at rate \(i\). The bank's expected repayment per unit lent is
+
+\begin{equation}
+\rho(i)=\mathbb{E}_i[\min\{1+i,X\}]
+\label{eq:ch3-bank-return}
+\end{equation}
+where $X$ is the project payoff per unit borrowed. The bank receives $1+i$ when $X\geq 1+i$, and $X$ otherwise. A change in the lending rate affects both the contractual repayment
+and the distribution of borrower types. 
+
+The expected repayment $\rho(i)$ need not increase monotonically with the lending rate. Figure~\ref{fig:ch3-credit-rationing} illustrates one possible non-monotonic relationship. Its precise form depends on how borrower composition and project payoffs vary with the lending rate.
+
+\begin{figure}[H]
+\centering
+
+\begin{tikzpicture}[x=1cm,y=1cm]
+
+% Axes
+\draw[->, line width=0.8pt]
+    (0,0) -- (7.2,0)
+    node[right] {Loan interest rate $i$};
+
+\draw[->, line width=0.8pt]
+    (0,0) -- (0,5.2)
+    node[above] { Expected repayment $\rho(i)$};
+
+% Expected-return curve
+\draw[line width=1.1pt, smooth]
+    plot coordinates {
+        (0.6,0.9)
+        (1.4,1.8)
+        (2.3,3.0)
+        (3.2,4.0)
+        (4.0,4.4)
+        (4.8,4.2)
+        (5.6,3.6)
+        (6.5,2.6)
+    };
+
+% Maximum point
+\fill (4.0,4.4) circle (2pt);
+
+% Guide line
+\draw[dashed, gray]
+    (4.0,4.4) -- (4.0,0);
+
+% Labels
+\node[below] at (4.0,0) {$i^*$};
+\node[above right] at (4.0,4.4)
+    {\small Maximum expected repayment};
+
+\end{tikzpicture}
+
+\caption{An illustrative non-monotonic relationship
+between the lending rate and expected repayment}
+\label{fig:ch3-credit-rationing}
+\end{figure}
+
+
+In the illustrative case shown in Figure~\ref{fig:ch3-credit-rationing}, let $i^*$ denote the lending rate that maximizes expected repayment. If loan demand at $i^*$ exceeds the amount the bank is willing to lend, the bank may ration credit rather than raise the rate further, as doing so would reduce expected repayment.
+
+
+\section{Moral Hazard: Hidden Actions After Contracting}
+
+Unlike adverse selection, moral hazard concerns hidden actions after contracting. When those actions affect another party's payoff but cannot be fully observed or contracted upon, incentive problems can arise.
+
+\subsection{Hidden Actions and Agency Problems}
+
+Hidden action refers to an action chosen by the agent after contracting that affects the principal's payoff but cannot be fully observed or contracted upon. When the agent's incentives are not fully aligned with the principal's objective, this informational limitation gives rise to an agency problem.
+
+Consider a principal who provides resources and an agent whose effort affects the outcome of a project. Let the project generate payoff $R$ if it succeeds and zero if it fails. The agent chooses effort $e$, which affects the probability of success $p(e)$ and entails private cost $c(e)$.
+
+For simplicity, suppose both parties are risk-neutral, so monetary payoffs enter their objectives linearly. If the agent receives $w_S$ after success and $w_F$ after failure, expected utility is
+
+\begin{equation}
+U(e)=p(e)w_S+[1-p(e)]w_F-c(e).
+\label{eq:ch3-agent-utility}
+\end{equation}
+
+The principal values effort for its contribution to project returns, while the agent considers contractual rewards and the private cost of effort. When effort is unobservable and the agent receives only part of the benefits it generates, the agent may choose less effort than would maximize the project's total surplus.
+
+\subsection{Effort, Shirking, and Incentive Problems}
+
+The efficient effort level $e^*$ maximizes
+expected total surplus:
+
+\begin{equation}
+e^*\in\arg\max_e\left\{p(e)R-c(e)\right\}.
+\label{eq:ch3-efficient-effort}
+\end{equation}
+
+If $e^*$ is an interior optimum, it satisfies
+
+\begin{equation}
+p'(e^*)R=c'(e^*).
+\label{eq:ch3-efficient-effort-foc}
+\end{equation}
+
+The agent chooses effort to maximize the utility provided by the contract. Differentiating $U(e)$ with respect to effort, an interior optimum $\hat e$ satisfies
+
+\begin{equation}
+p'(\hat e)(w_S-w_F)=c'(\hat e).
+\label{eq:ch3-agent-effort-foc}
+\end{equation}
+
+Comparing the two conditions identifies the source of the incentive problem. The project's marginal benefit from effort is $p'(e)R$, while the agent's private marginal benefit is $p'(e)(w_S-w_F)$. If $w_S-w_F<R$, the agent receives only part of the incremental value associated with greater effort. Under standard assumptions on $p(e)$ and $c(e)$, privately chosen effort may therefore fall below the efficient level. In this setting, the shortfall represents shirking.
+
+\begin{example}{High and Low Effort}{high-low-effort}
+
+Suppose the agent chooses between high effort $e_H$ and low effort $e_L$. High effort raises the probability of success but entails a higher private cost:
+
+\begin{equation*}
+p(e_H)>p(e_L),
+\qquad
+c(e_H)>c(e_L).
+\end{equation*}
+
+If the agent receives $w_S$ after success and $w_F$ after failure, high effort is preferred when
+
+\begin{equation*}
+p(e_H)w_S+[1-p(e_H)]w_F-c(e_H)
+\geq
+p(e_L)w_S+[1-p(e_L)]w_F-c(e_L).
+\end{equation*}
+
+Rearranging gives
+
+\begin{equation*}
+[p(e_H)-p(e_L)](w_S-w_F)
+\geq
+c(e_H)-c(e_L).
+\label{eq:ch3-effort-spread}
+\end{equation*}
+
+The left-hand side is the additional expected compensation generated by the higher probability of success. The right-hand side is the additional private cost of high effort. A larger compensation differential between success and failure makes high effort more attractive relative to low effort.
+
+\end{example}
+
+Relaxing the risk-neutral assumption introduces an additional consideration. If the agent is risk-averse, greater sensitivity of compensation to outcomes strengthens incentives but also exposes the agent to more income risk when outcomes depend partly on factors outside the agent's control. Contract design may then involve a trade-off between incentive provision and risk sharing.
+
+\subsection{Risk Shifting and Asset Substitution}
+
+Post-contract incentive problems can arise through project choice as well as effort. After debt has been issued, equity holders may prefer a riskier project even when doing so reduces total firm value. This incentive is known as risk shifting. When a safer project or asset is replaced by a riskier one, the behavior is commonly described as asset substitution.
+
+Under limited liability, equity holders receive the residual payoff after the promised debt repayment has been met, while their payoff is bounded below by zero.  If the firm's payoff is $X$ and promised debt repayment is $D$, the payoff to equity holders is
+
+\begin{equation}
+V_E(X)=\max\{X-D,0\}.
+\label{eq:ch3-equity-payoff}
+\end{equation}
+
+This asymmetric payoff can make a riskier project attractive to equity holders even when it reduces total firm value.
+
+\begin{example}{Risk Shifting after Debt Issuance}{risk-shifting-debt-issuance}
+
+Suppose a firm has debt with face value \(D=80\). After the debt has been issued,
+shareholders can choose between two projects. A safe project pays 110 with
+certainty, leaving shareholders with \(110-80=30\).
+
+A risky project pays 150 with probability \(0.5\) and 50 with probability \(0.5\).
+Its expected total payoff is
+
+\begin{equation*}
+0.5(150)+0.5(50)=100,
+\end{equation*}
+
+which is lower than the safe project's payoff of 110. Under limited liability,
+shareholders receive 70 in the high-payoff state and zero in the low-payoff state.
+Their expected payoff is therefore
+
+\begin{equation*}
+0.5(70)+0.5(0)=35.
+\label{eq:ch3-risk-shifting-example}
+\end{equation*}
+
+Shareholders therefore prefer the risky project even though it reduces total firm
+value from 110 to 100. The expected repayment to creditors falls from 80 under the
+safe project to
+
+\begin{equation*}
+0.5(80)+0.5(50)=65
+\end{equation*}
+
+under the risky project. The increase in shareholder value is accompanied by a
+larger loss to creditors and a decline in total firm value.
+
+\medskip
+
+\begin{center}
+\small
+\textbf{Payoffs under the two project choices}
+
+\medskip
+
+\begin{tabularx}{\linewidth}{
+  @{}
+  >{\raggedright\arraybackslash}X
+  >{\centering\arraybackslash}p{2.8cm}
+  >{\centering\arraybackslash}p{3.0cm}
+  @{}
+}
+\toprule
+ & \textbf{Safe project} & \textbf{Risky project} \\
+\midrule
+Expected total payoff
+    & 110 & 100 \\
+Expected creditor repayment
+    & 80 & 65 \\
+Expected shareholder payoff
+    & 30 & 35 \\
+Firm-value ranking        & Higher & Lower \\
+Shareholder payoff ranking & Lower & Higher \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\end{example}
+
+
+The possibility of post-financing risk shifting provides one rationale for contractual restrictions on changes in investment policy or business risk. Creditors are concerned not only with conditions at the time of lending, but also with decisions taken after financing has been provided.
+
+\subsection{Private Benefits and Agency Costs}
+
+Post-contract incentive conflicts can also arise when decision makers receive benefits that are not shared proportionally with outside investors. Managers may obtain private benefits through managerial perks, empire building, or projects that increase their control without increasing firm value. Controlling shareholders may similarly obtain benefits at the expense of minority investors.
+
+Let a decision $a$ generate firm value $V(a)$ and private benefit $B(a)$ to the decision maker. If the decision maker owns a fraction $\alpha$ of the firm, the private payoff from the decision is
+
+\begin{equation}
+V_{\text{private}}(a)=\alpha V(a)+B(a).
+\label{eq:ch3-private-benefits}
+\end{equation}
+
+When $\alpha<1$, the decision maker bears only a fraction of any reduction in firm value while retaining the private benefit. An action that maximizes private payoff may therefore differ from one that maximizes total firm value.
+
+Private benefits can therefore generate a wedge between the action that maximizes the decision maker's private payoff and the action that maximizes firm value. This divergence gives rise to agency costs. Such costs include both resources devoted to limiting incentive conflicts and the residual loss that remains when those conflicts are not fully eliminated.
+
+\section{Financial Contracts as Information and Incentive Solutions}
+
+The information and incentive problems developed above create a role for contract design. Financial contracts do more than specify payments: they can influence participation, reveal private information, align incentives, and allocate rights when circumstances change.
+
+These functions are often supported by disclosure, governance, auditing, reputation, and legal enforcement. Financial contracts therefore operate within a broader institutional framework.
+
+\subsection{Collateral and Commitment}
+
+Contract design can link repayment obligations to assets that remain available if the borrower fails to perform. Collateral provides such a link by giving the creditor a claim on specified assets. If the borrower defaults, the pledged assets provide a source of recovery for the creditor. Before default, the prospect of losing them can also affect the borrower's incentives.
+
+If the amount owed is $D$  and the recoverable value of collateral is $C$, a simplified measure of loss is
+
+\begin{equation}
+L=\max\{D-C,0\}.
+\label{eq:ch3-collateral-loss}
+\end{equation}
+
+Collateral also affects borrower incentives before default. By exposing the borrower to the loss of pledged assets, it raises the private cost of actions that increase default risk. Collateral can therefore serve as both a recovery mechanism and a commitment device.
+
+Collateral may also convey information when the cost of pledging assets differs across borrower types. Voluntary pledging can serve as a signal, while collateral requirements can induce self-selection across contracts. Its informational content therefore depends on whether different types face meaningfully different costs of providing collateral.
+
+The effectiveness of collateral depends on the value and enforceability of the pledged assets. Collateral values can fall, while seizure and liquidation may be costly. Collateral requirements may also restrict financing for borrowers with valuable projects but limited pledgeable assets. Broad declines in collateral values can tighten borrowing constraints and amplify financial stress.
+
+\subsection{Covenants and Control Rights}
+
+Where collateral links repayment to specific assets, covenants govern borrower actions after financing has been provided. A covenant restricts or requires specified actions and may establish conditions that affect creditor rights.
+
+Negative covenants may limit additional borrowing, asset sales, or distributions to shareholders. Affirmative covenants may require financial disclosure, preservation of collateral, or compliance with specified financial ratios.
+
+Covenants focus on a limited set of observable or verifiable actions and financial conditions. When these terms are breached, the contract may trigger renegotiation or shift greater control to creditors, for example by requiring additional collateral, restricting distributions, or accelerating repayment.
+
+Control rights are often state contingent. Managers retain greater discretion while contractual conditions are satisfied, whereas creditors gain influence when those conditions are breached.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  >=Latex,
+  box/.style={
+    draw,
+    rounded corners,
+    minimum width=3.5cm,
+    minimum height=0.85cm,
+    align=center
+  },
+  flow/.style={
+    -Latex,
+    line width=0.85pt,
+    FinanceBlue
+  }
+]
+
+\node[box] (satisfied) at (-1,2.2)
+  {Covenant conditions satisfied};
+
+\node[box] (manager) at (5.2,2.2)
+  {Greater managerial discretion};
+
+\node[box] (breach) at (-1,0)
+  {Covenant conditions breached};
+
+\node[box] (creditor) at (5.2,0)
+  {Expanded creditor rights};
+
+\draw[flow] (satisfied) -- (manager);
+\draw[flow] (breach) -- (creditor);
+
+\draw[flow] (satisfied) --
+  node[left, align=center]{\small covenant\\\small breach}
+  (breach);
+
+\end{tikzpicture}
+
+\caption{State-contingent allocation of control through covenants}
+\label{fig:ch3-covenant-control}
+\end{figure}
+
+Financial covenants involve a trade-off between timely creditor intervention and unnecessary renegotiation. Overly restrictive thresholds may be breached following temporary fluctuations that do not indicate a material deterioration in the borrower's financial condition, while overly permissive thresholds may delay intervention until substantial value has been lost.
+
+\subsection{Payoff Design and Incentive Compatibility}
+
+Contract design can influence private choices by linking payoffs to observable outcomes or offering terms that encourage self-selection. Incentive compatibility requires each type to prefer its intended contract in screening and the intended action to be privately optimal when actions are hidden.
+
+Equity retention, performance-contingent compensation, and insurance deductibles can strengthen incentives by increasing exposure to the consequences of individual decisions. However, greater payoff sensitivity may reduce risk sharing when outcomes also depend on factors beyond the agent's control. Contract design thus involves a trade-off between incentive provision and risk sharing.
+
+\subsection{Monitoring and Information Production}
+
+Monitoring produces and verifies information about borrower performance, compliance, and risk after financing has been provided. It can reveal potential violations and support the exercise of contractual rights. The prospect of detection and enforcement can also discourage actions that conflict with contractual obligations.
+
+Monitoring may be underprovided when financial claims are widely dispersed. An individual claimant bears the cost of monitoring but shares the benefits with other claimants, creating a free-rider problem. Financial intermediaries can mitigate this problem by undertaking monitoring on behalf of multiple fund providers.
+
+Technology can reduce monitoring costs through automated analysis of financial reports and transaction data. AI-assisted systems can identify potential irregularities, although their findings still require verification and economic interpretation.
+
+\subsection{Governance and Enforcement}
+
+Financial contracts operate within broader governance and enforcement arrangements. Governance concerns the allocation and exercise of decision and control rights among managers, boards, shareholders, creditors, and other parties. These rights may include approving major transactions, replacing managers, or intervening when specified conditions are met.
+
+The allocation of rights alone does not ensure their effectiveness. Enforcement determines whether contractual and legal rights can be exercised in practice. Legal rules and institutions affect collateral recovery, acceleration of repayment, dispute resolution, and the enforcement of creditor priority in bankruptcy. They also provide remedies when managers or controlling shareholders breach their legal obligations.
+
+Enforcement is not confined to court proceedings. Reputation can affect access to future transactions, while lenders and investors may withdraw future financing when commitments are violated. Exchanges and regulators can also impose continuing requirements and sanctions that reinforce compliance.
+
+The expected effectiveness of enforcement also influences contract design. Where recovery is slow or uncertain, lenders may require more collateral, shorter maturities, tighter covenants, or higher credit spreads. Stronger governance and more reliable enforcement can make outside financing feasible with less direct intervention by investors. The same written contract may therefore have different economic value across institutional environments.
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{Financial Perspective: Information Alone Does Not Solve the Contracting Problem},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+Better information can improve financial decisions without eliminating incentive or enforcement problems. A lender may assess default risk accurately while remaining unable to control the borrower's actions after financing. Detailed disclosure can improve shareholder information without giving outside investors effective control over managerial decisions. An AI model may identify deteriorating credit quality, but the value of that information still depends on the rights and remedies available in response. Information, incentives, and enforceable rights are therefore complements rather than substitutes.
+
+\end{tcolorbox}
+
+%========================================================
+% Summary
+%========================================================
+
+\TailModule{summary}{Summary}
+
+Financial transactions require information about counterparties, projects, and future behavior. Producing and verifying this information is costly, and relevant information is often distributed asymmetrically across parties.
+
+Adverse selection arises from hidden information before a contract is formed. When quality cannot be observed directly, pooled pricing can discourage higher-quality participants from entering or remaining in the market, reducing the average quality of the remaining pool and, in severe cases, contributing to market breakdown. Signaling allows informed parties to reveal type when signals are differentially costly to imitate, while screening uses contract choices to induce self-selection. In credit markets, higher lending rates can worsen borrower composition, so a bank's expected repayment need not increase monotonically with the lending rate. Credit rationing can therefore arise even when some borrowers are willing to borrow at higher rates.
+
+Moral hazard arises from hidden actions after contracting. Shirking, risk shifting, and the pursuit of private benefits can cause privately optimal actions to differ from those preferred by lenders, investors, or insurers. Financial contracts respond by altering payoffs, commitments, and control rights. Collateral, covenants, equity retention, deductibles, monitoring, and state-contingent control can improve incentives, while governance and enforcement determine how rights are exercised in practice.
+
+These mechanisms involve trade-offs. Stronger incentives can reduce risk sharing, tighter contractual restrictions can limit valuable flexibility, collateral requirements can constrain borrowers with few pledgeable assets, and monitoring is costly. Contract design therefore seeks to reduce information and incentive problems at reasonable economic cost rather than eliminate them completely.
+
+%========================================================
+% Mind Map
+%========================================================
+
+\TailModule{mindmap}{Mind Map}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  >=Latex,
+  main/.style={
+    draw,
+    rounded corners,
+    minimum width=3.4cm,
+    minimum height=0.9cm,
+    align=center,
+    fill=gray!10
+  },
+  sub/.style={
+    draw,
+    rounded corners,
+    minimum width=3.2cm,
+    minimum height=0.8cm,
+    align=center
+  },
+  flow/.style={-Latex, line width=0.75pt}
+]
+
+\node[main] (friction) at (0,4.2)
+  {Information frictions};
+
+\node[sub] (hiddeninfo) at (-4.0,2.3)
+  {Hidden information\\before contracting};
+
+\node[sub] (hiddenaction) at (4.0,2.3)
+  {Hidden action\\after contracting};
+
+\node[sub] (adverse) at (-4.0,0.5)
+  {Adverse selection};
+
+\node[sub] (moral) at (4.0,0.5)
+  {Moral hazard};
+
+\node[sub] (responses1) at (-4.0,-1.5)
+  {Signaling and screening};
+
+\node[sub] (responses2) at (4.0,-1.5)
+  {Payoff design and monitoring};
+
+\node[main] (responses) at (0,-3.4)
+  {Contractual and\\institutional responses};
+
+\draw[flow] (friction) -- (hiddeninfo);
+\draw[flow] (friction) -- (hiddenaction);
+\draw[flow] (hiddeninfo) -- (adverse);
+\draw[flow] (hiddenaction) -- (moral);
+\draw[flow] (adverse) -- (responses1);
+\draw[flow] (moral) -- (responses2);
+\draw[flow] (responses1) -- (responses);
+\draw[flow] (responses2) -- (responses);
+
+\end{tikzpicture}
+
+\caption*{Information problems before and after contracting}
+\end{figure}
+
+%========================================================
+% Key Terms
+%========================================================
+
+\TailModule{keyterms}{Key Terms}
+
+Transaction costs; information asymmetry; costly information acquisition; hidden information; adverse selection; pooling; signaling; screening; incentive compatibility; credit rationing; hidden action; moral hazard; principal--agent problem; risk shifting; asset substitution; private benefits; agency costs; collateral; covenant; control rights; monitoring; governance; enforcement
+
+
+%========================================================
+% Financial AI Lab
+%========================================================
+
+\TailModule{aiprompt}{Financial AI Lab}
+
+\textbf{Lab: Design and Audit an AI Credit-Screening Framework}
+
+Ask an AI system to propose a credit-screening framework for a small-business lender. Require it to identify observable variables and explain how each variable may be related to repayment risk. Separate information available before lending from information that would become available only after financing, and explain why the latter belongs to monitoring rather than initial screening.
+
+Then audit the proposed framework. Which variables contain information about underlying borrower quality, which are only correlated with it, and which could be manipulated once applicants understand the screening rule? Identify one potential source of selection bias, one fairness concern, and one reason a model trained on past borrowers might perform poorly when credit conditions change.
+
+Finally, suppose the model predicts default risk with high accuracy. Explain which problems would still require contractual terms, collateral, monitoring, enforcement, or human review. Why does accurate prediction not by itself eliminate the contracting problem?
+
+%========================================================
+% Discussion Questions
+%========================================================
+
+\TailModule{questions}{Discussion Questions}
+
+\begin{enumerate}
+
+\item Why is uncertainty not the same as asymmetric information? Give a financial example in which uncertainty is high but information is symmetric, and another in which information is asymmetric.
+
+\item Why can a higher lending rate reduce a bank's expected
+repayment per unit lent even as the promised repayment increases?
+
+\item Compare signaling and screening. Who takes the initiative in each case, and what allows different types to be distinguished?
+
+\item Why does improved information about borrower behavior
+after financing not necessarily eliminate moral hazard?
+Explain the roles of monitoring, contractual incentives,
+control rights, and enforcement.
+\end{enumerate}
+
+%========================================================
+% Applied Problems
+%========================================================
+
+\TailModule{appprobs}{Applied Problems}
+
+\begin{enumerate}
+
+\item An investor considers purchasing claims on firms' future project cash flows. The investor believes that 70 percent of the claims are high-quality, with value 120 to the investor, and 30 percent are low-quality, with value 60. The investor cannot observe the quality of an individual claim
+    \begin{enumerate}
+
+    \item Calculate the pooled expected value.
+    
+    \item Suppose high-quality firms are willing to sell only at a price of at least 110, while low-quality firms are willing to sell at a price of at least 55. If the investor initially offers the pooled expected value, which types accept the offer, and how does the composition of claims offered for sale change?
+
+    \item Explain the adverse-selection mechanism in economic terms.
+
+    \end{enumerate}
+
+\item An agent chooses between high and low effort. High effort produces success with probability $0.8$ and has a private cost of 12. Low effort produces success with probability $0.5$ and has a private cost of 3. The agent receives $w_S$ after success and zero after failure.
+
+  \begin{enumerate}
+
+  \item Derive the incentive-compatibility condition for high effort and determine the threshold value of $w_S$.
+
+  \item Explain why increasing the success-contingent payment affects the agent's effort choice.
+
+  \item What additional trade-off arises if the agent is risk-averse?
+
+  \end{enumerate}
+
+\item A firm has debt with face value 80. Shareholders can choose between Project A, which pays 112 with certainty, and Project B, which pays 160 with probability $0.5$ and 48 with probability $0.5$.
+
+  \begin{enumerate}
+
+  \item Calculate the expected total payoff of each project.
+
+  \item Calculate the expected shareholder payoff under each project.
+
+  \item Does the project preferred by shareholders maximize total firm value? Explain the source of the conflict.
+
+  \end{enumerate}
+
+\end{enumerate}
+
+%========================================================
+% Case Analysis
+%========================================================
+
+\TailModule{caseanalysis}{Case Analysis}
+
+\textbf{Luckin Coffee: When Reported Information Cannot Be Taken at Face Value}
+
+In December 2020, the U.S. Securities and Exchange Commission charged Luckin Coffee Inc. with defrauding investors by materially misstating its revenue, expenses, and net operating loss. According to the SEC complaint, from at least April 2019 through January 2020, Luckin intentionally fabricated more than US\$300 million in retail sales. The company agreed to a settlement, subject to court approval, that included a US\$180 million civil penalty, without admitting or denying the SEC's allegations.
+
+Use the SEC's December 16, 2020 enforcement release and related company disclosures as primary sources. Analyze the episode through the framework of this chapter. What information did outside investors rely on? Which information-production and verification mechanisms were intended to reduce the information asymmetry between insiders and outside investors? What does the episode reveal about both the value and the limits of external audit as a verification mechanism? Which monitoring, governance, internal-control, and enforcement mechanisms became important once the reported information was challenged? Finally, distinguish between an \emph{information failure} and an \emph{incentive or governance failure} in the case.
+
+\emph{Primary source: U.S. Securities and Exchange Commission, ``Luckin Coffee Agrees to Pay \$180 Million Penalty to Settle Accounting Fraud Charges,'' Press Release 2020-319, December 16, 2020.}
+%========================================================
+% Further Reading
+%========================================================
+
+\TailModule{furtherread}{Further Reading}
+
+\begin{itemize}
+
+\item Akerlof, George A. (1970), ``The Market for `Lemons': Quality Uncertainty and the Market Mechanism,'' \emph{The Quarterly Journal of Economics}, 84(3), 488--500.
+
+\item Spence, Michael (1973), ``Job Market Signaling,'' \emph{The Quarterly Journal of Economics}, 87(3), 355--374.
+
+\item Jensen, Michael C., and William H. Meckling (1976), ``Theory of the Firm: Managerial Behavior, Agency Costs and Ownership Structure,'' \emph{Journal of Financial Economics}, 3(4), 305--360.
+
+\item Stiglitz, Joseph E., and Andrew Weiss (1981), ``Credit Rationing in Markets with Imperfect Information,'' \emph{American Economic Review}, 71(3), 393--410.
+
+\item Diamond, Douglas W. (1984), ``Financial Intermediation and Delegated Monitoring,'' \emph{The Review of Economic Studies}, 51(3), 393--414.
+
+\end{itemize}
+\ChapterTail{summary,mindmap,keyterms,aiprompt,questions,appprobs,caseanalysis,furtherread}
