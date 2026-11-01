@@ -1,0 +1,916 @@
+\chapter{The Essence of Finance: Frictions, Functions, and the Financial System}
+\label{chap:The_Essence_of_Finance_Frictions_Functions_and_the_Financial_System}
+
+\begin{openingcase}{A Valuable Project, but No Financing?}
+
+Li Wei, an engineer in Suzhou, has developed an energy-saving control system for industrial equipment. To build a production line and bring the product to market, he needs RMB~10 million today but can invest only RMB~1 million of his own savings.
+
+Elsewhere, Wang Cheng has savings that she does not expect to use in the near future. In a frictionless world, the match would appear obvious: one side has funds, the other has a productive use for them. Yet the exchange does not organize itself.
+
+Wang knows less about the technology than Li. She cannot observe the true quality of the project, verify all of Li's forecasts, or know in advance how he will behave after receiving the funds. The project itself is uncertain. Demand may disappoint, costs may rise, or a competing technology may emerge. Their preferred horizons also differ. Li needs patient financing; Wang may want access to her savings much sooner.
+
+Even if Wang is willing to provide the remaining RMB~9 million, further questions remain. How should the risk be allocated? What information should Li disclose? What rights should Wang receive? How can either side be confident that future obligations will be honored? And if the project is expected to generate cash flows over many years, how much are those uncertain future cash flows worth today?
+
+The availability of savings and investment opportunities alone does not ensure that funds flow from savers to investors. Financial arrangements are needed to facilitate transactions across time and address the challenges arising from uncertainty, information asymmetry, incentives, and commitment.
+
+\end{openingcase}
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=FinanceBlue!6,
+  colframe=FinanceBlue,
+  boxrule=0.6pt,
+  sharp corners,
+  left=8pt,
+  right=8pt,
+  top=7pt,
+  bottom=7pt,
+  before skip=1em,
+  after skip=1.6em,
+  title=\textbf{Core Questions},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  attach boxed title to top left={xshift=6pt,yshift=-2mm},
+  boxed title style={
+    boxrule=0pt,
+    sharp corners,
+    left=5pt,
+    right=5pt,
+    top=2pt,
+    bottom=2pt
+  }
+]
+\begin{enumerate}[
+  leftmargin=*,
+  label=\textcolor{FinanceBlue}{\textbf{\arabic*.}},
+  itemsep=0.55em,
+  topsep=0.2em
+]
+\item Which economic frictions make finance necessary?
+\item What functions must a financial system perform if mutually beneficial exchanges are to take place?
+\item Why do money, markets, institutions, and financial instruments take different forms, and why do these forms change over time?
+\end{enumerate}
+\end{tcolorbox}
+
+\section{Why Finance Exists: From Economic Opportunity to Financial Friction}
+
+Those who have funds today are not always those who can use them most productively. Finance links the two sides through arrangements that exchange resources today for payments in the future. Because those payments depend on future outcomes, uncertainty is unavoidable.
+
+Uncertainty makes information important because future payments cannot be known in advance. Participants must therefore judge what is likely to happen and whether promises are likely to be kept. Yet information is often incomplete and unevenly distributed, so financial arrangements must also define what each side is entitled and required to do. Those promises, in turn, must be credible and enforceable.
+
+\subsection{Time and the Separation of Resources from Opportunities}
+
+Economic activity involves cash inflows and outflows that occur at different times. Individuals may receive income at one date and wish to spend it at another, while firms often incur costs before sales generate cash. The availability of financial resources and the timing of their potential uses therefore need not coincide.
+
+This separation creates gains from intertemporal exchange. Saving shifts purchasing power from the present to the future; borrowing shifts it in the opposite direction. In a simple two-period benchmark, an individual who can borrow or lend at a common interest rate $r$ faces
+
+\begin{equation}
+c_0+\frac{c_1}{1+r}=y_0+\frac{y_1}{1+r},
+\label{eq:ch1_intertemporal_budget}
+\end{equation}
+
+where $y_0$ and $y_1$ denote income in periods 0 and 1, and $c_0$ and $c_1$ denote consumption, and $r$ is the interest rate. The constraint equates the present value of consumption with the present value of income. Borrowing and lending allow consumption to be shifted across time without changing its present value. One additional unit of consumption today requires giving up $1+r$ units of consumption next period.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  >=Latex,
+  axis/.style={-Latex, line width=0.8pt},
+  budget/.style={line width=1.0pt},
+  guide/.style={dashed, gray, line width=0.6pt},
+  move/.style={-Latex, line width=0.9pt, FinanceBlue}
+]
+\draw[axis] (0,0) -- (7.1,0) node[right] {$c_0$};
+\draw[axis] (0,0) -- (0,5.8) node[above] {$c_1$};
+\draw[budget] (0.7,5.15) -- (6.45,0.65);
+\coordinate (E) at (3.55,2.92);
+\fill[FinanceBlue] (E) circle (2.2pt);
+\node[above right] at (E) {$E=(y_0,y_1)$};
+\draw[guide] (E) -- (3.55,0) node[below] {$y_0$};
+\draw[guide] (E) -- (0,2.92) node[left] {$y_1$};
+\draw[move] (3.43,3.02) -- (2.25,3.94);
+\node[above left, align=center] at (4.88,3.95) {Saving(lending)};
+\draw[move] (3.67,2.82) -- (4.88,1.88);
+\node[below right] at (5.38,1.88) {Borrowing};
+\node[above right] at (4.72,1.95) {slope $=-(1+r)$};
+\end{tikzpicture}
+\caption{Saving, borrowing, and the intertemporal budget constraint}
+\label{fig:ch1-intertemporal-budget}
+\end{figure}
+
+At the endowment point $E$, consumption equals income in each period. Moving up and to the left means consuming less than current income and shifting purchasing power into the future. Moving down and to the right means borrowing against future income. The budget line shows that the timing of income need not determine the timing of consumption.
+
+For firms, having investment opportunities does not necessarily imply having the financial resources needed to pursue them. A firm may have a valuable project but insufficient internal funds, while outside investors have resources available for investment. As Figure~\ref{fig:ch1-internal-external-finance} shows, external finance bridges this separation by bringing outside resources into the firm in exchange for claims on future payments.
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  >=Latex,
+  box/.style={
+    draw,
+    rounded corners,
+    minimum width=3.0cm,
+    minimum height=1.15cm,
+    align=center,
+    line width=0.8pt
+  },
+  flow/.style={
+    -Latex,
+    line width=0.9pt,
+    FinanceBlue
+  },
+  return/.style={
+    -Latex,
+    dashed,
+    line width=0.8pt,
+    gray
+  },
+  firmbox/.style={
+    draw,
+    rounded corners,
+    dashed,
+    line width=0.8pt
+  }
+]
+
+%------------------------------------------------
+% External investors
+%------------------------------------------------
+\node[box] (outside) at (0.3,1.3)
+{External investors\\[2pt]
+\small Funds available};
+
+%------------------------------------------------
+% Firm
+%------------------------------------------------
+\node[box] (internal) at (6.2,1.3)
+{Internal funds\\[2pt]
+\small Insufficient on their own};
+
+\node[box] (project) at (6.2,3.35)
+{Investment opportunity\\[2pt]
+\small Funds required};
+
+% Firm boundary
+\draw[firmbox]
+  (3.8,0.25) rectangle (8.6,4.45);
+
+\node[
+  fill=white,
+  inner sep=2pt,
+  font=\bfseries
+]
+at (6.2,4.45) {Firm};
+
+%------------------------------------------------
+% Internal financing and future return
+%------------------------------------------------
+
+% Current financing: slightly left
+\coordinate (intfinstart)
+  at ($(internal.north)+(-0.18,0)$);
+
+\coordinate (intfinend)
+  at ($(project.south)+(-0.18,0)$);
+
+\draw[flow]
+  (intfinstart)
+  -- node[left, font=\small]
+  {Internal financing}
+  (intfinend);
+
+% Future return: slightly right
+\coordinate (intreturnstart)
+  at ($(project.south)+(0.18,0)$);
+
+\coordinate (intreturnend)
+  at ($(internal.north)+(0.18,0)$);
+
+\draw[return]
+  (intreturnstart)
+  -- node[right, font=\small]
+  {Future return}
+  (intreturnend);
+
+%------------------------------------------------
+% External financing and future return
+%------------------------------------------------
+
+% External finance: upper path
+\coordinate (extfinstart)
+  at ($(outside.north)+(-0.15,0)$);
+
+\coordinate (extfinend)
+  at ($(project.west)+(0,0.18)$);
+
+\draw[flow]
+  (extfinstart)
+  |- node[pos=0.72, above, font=\small]
+  {External finance}
+  (extfinend);
+
+% Future return: lower parallel path
+\coordinate (extreturnstart)
+  at ($(project.west)+(0,-0.18)$);
+
+\coordinate (extreturnend)
+  at ($(outside.north)+(0.15,0)$);
+
+\draw[return]
+  (extreturnstart)
+  -| node[pos=0.28, below, font=\small]
+  {Future return}
+  (extreturnend);
+
+\end{tikzpicture}
+
+\caption{Internal and external finance when resources and investment opportunities are separated}
+\label{fig:ch1-internal-external-finance}
+\end{figure}
+
+
+\subsection{Uncertainty and the Allocation of Risk}
+
+Intertemporal exchange becomes more difficult because the future is uncertain. Knight distinguished risk from uncertainty according to what is known about future outcomes. Risk refers to situations in which the possible future states are known and the probability of each state can be specified. Uncertainty, by contrast, arises in two situations. In the first, the possible future states are known, but their probabilities are unknown. In the second, the possible future states themselves cannot be fully identified, and their probabilities are therefore also unknown.
+
+Financial arrangements can determine how the economic consequences of different states are distributed among participants. They do not eliminate the underlying uncertainty about which state will occur, but they can change who bears the resulting gains and losses.
+
+Risk allocation may create economic value when participants differ in their exposure to risk and in their ability or willingness to bear it. Financial arrangements can transfer risk toward participants better able or more willing to bear particular exposures. Risk sharing is one form of this allocation: losses that would be difficult for one individual to absorb may instead be distributed across many participants.
+
+If total resources available in state $s$ are $Y(s)$ and participant $i$ receives $X_i(s)$, any feasible allocation must satisfy
+
+\begin{equation}
+\sum_i X_i(s)=Y(s)
+\qquad \text{for every state }s.
+\label{eq:ch1_risk_sharing}
+\end{equation}
+
+The constraint means that risk sharing can change the distribution of resources within a state, but not the total resources available in that state. Figure~\ref{fig:ch1-risk-sharing} illustrates this distinction.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  >=Latex,
+  title/.style={font=\small\bfseries},
+  label/.style={font=\small},
+  flow/.style={-Latex, line width=0.9pt, FinanceBlue},
+  total/.style={draw, line width=0.8pt, minimum height=0.65cm},
+  abar/.style={fill=FinanceBlue!25},
+  bbar/.style={fill=gray!20}
+]
+
+%------------------------------------------------
+% Column headings
+%------------------------------------------------
+\node[title] at (3.0,5.2) {State 1};
+\node[title] at (8.0,5.2) {State 2};
+
+%------------------------------------------------
+% Before risk sharing
+%------------------------------------------------
+\node[label, anchor=east] at (0.3,4.15)
+{Before risk sharing};
+
+% State 1: A has more, B has less
+\draw[total] (1.4,3.8) rectangle (4.6,4.45);
+\fill[abar] (1.4,3.8) rectangle (3.9,4.45);
+\fill[bbar] (3.9,3.8) rectangle (4.6,4.45);
+
+\node[label] at (2.65,4.125) {$A$};
+\node[label] at (4.25,4.125) {$B$};
+
+% State 2: A has less, B has more
+\draw[total] (6.4,3.8) rectangle (9.6,4.45);
+\fill[abar] (6.4,3.8) rectangle (7.1,4.45);
+\fill[bbar] (7.1,3.8) rectangle (9.6,4.45);
+
+\node[label] at (6.75,4.125) {$A$};
+\node[label] at (8.35,4.125) {$B$};
+
+%------------------------------------------------
+% Risk-sharing arrows
+%------------------------------------------------
+\draw[flow] (3.0,3.55) -- (3.0,2.75);
+\draw[flow] (8.0,3.55) -- (8.0,2.75);
+
+\node[label, fill=white, inner sep=2pt]
+  at (5.5,3.15) {Risk sharing};
+
+%------------------------------------------------
+% After risk sharing
+%------------------------------------------------
+\node[label, anchor=east] at (0.3,2.0)
+{After risk sharing};
+
+% State 1: more balanced allocation
+\draw[total] (1.4,1.65) rectangle (4.6,2.30);
+\fill[abar] (1.4,1.65) rectangle (3.35,2.30);
+\fill[bbar] (3.35,1.65) rectangle (4.6,2.30);
+
+\node[label] at (2.38,1.975) {$A$};
+\node[label] at (3.98,1.975) {$B$};
+
+% State 2: more balanced allocation
+\draw[total] (6.4,1.65) rectangle (9.6,2.30);
+\fill[abar] (6.4,1.65) rectangle (7.65,2.30);
+\fill[bbar] (7.65,1.65) rectangle (9.6,2.30);
+
+\node[label] at (7.03,1.975) {$A$};
+\node[label] at (8.63,1.975) {$B$};
+
+%------------------------------------------------
+% Aggregate resource labels
+%------------------------------------------------
+\draw[decorate,
+  decoration={brace, amplitude=4pt, mirror},
+  line width=0.7pt]
+  (1.4,1.40) -- (4.6,1.40)
+  node[midway, below=5pt, label] {$Y(1)$ unchanged};
+
+\draw[decorate,
+  decoration={brace, amplitude=4pt, mirror},
+  line width=0.7pt]
+  (6.4,1.40) -- (9.6,1.40)
+  node[midway, below=5pt, label] {$Y(2)$ unchanged};
+
+\end{tikzpicture}
+
+\caption{Risk sharing changes allocation, not aggregate resources}
+\label{fig:ch1-risk-sharing}
+\end{figure}
+
+Given the resources available in each state, finance can redistribute the consequences of risk but cannot eliminate an aggregate loss. Insurance pools losses across policyholders, equity distributes business risk among investors, derivatives reallocate particular exposures, and diversification reduces dependence on idiosyncratic outcomes. Risk allocation therefore concerns who bears economic consequences in different states of the world.
+
+\subsection{Information and Incentive Frictions}
+
+Financial decisions require assessments of projects, counterparties, and future cash flows before outcomes are realized. The information underlying these assessments is often incomplete and unevenly distributed among participants.
+
+Such differences in information constitute information asymmetry. Firm managers may possess more information about project quality than outside investors, while borrowers may have private information about actions that lenders cannot directly observe. Before financing, unobservable differences in project quality can give rise to adverse selection when financing terms affect which borrowers seek or accept funding. After financing, moral hazard may arise when borrowers have incentives to take actions that affect lenders' payoffs but cannot be fully observed.
+
+These problems cannot be resolved by disclosure alone. Information may be costly to produce, difficult to verify, and incomplete even when it is available. Financial systems devote resources to screening, auditing, certification, monitoring. These activities improve the information on which financial decisions are based, although they cannot eliminate uncertainty about future outcomes.
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{Finance Perspective: Why Financial Contracts Do More Than Transfer Funds},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+Before funds are provided, lenders and investors may evaluate borrowers, issuers, or projects, verify financial information, and use credit histories or reputation. Lenders may also require collateral. After financing, contracts may require periodic disclosure, restrict certain actions, and grant rights to monitor performance or intervene when contractual conditions are breached.
+
+These mechanisms do not eliminate information asymmetry. Screening and verification are used primarily before financing, when relevant characteristics may be difficult to observe. Disclosure, monitoring, and contractual restrictions become important after financing, when actions may be difficult to observe.
+\end{tcolorbox}
+
+Information affects both whether financing occurs and the terms on which it is offered. But information does not by itself define the rights and obligations of the parties. Those rights and obligations must be specified, and future promises must be credible and enforceable.
+
+
+\subsection{Commitment and Enforcement}
+
+Many financial arrangements rely on contracts that specify future commitments, rights, and obligations. Contracts define payments, contingencies, and remedies when agreed terms are not met. A debt contract, for example, specifies when payments are due and what rights creditors have if the borrower defaults.
+
+Contractual commitments are credible only to the extent that parties expect future obligations to be honored. A commitment problem arises when a party cannot credibly bind its future behavior at the time the contract is written. After financing, a party may have incentives to take actions that benefit itself while reducing the value of another party's claim. Collateral, covenants, reputation, and control rights can support commitment by restricting certain actions or altering the consequences of nonperformance.
+
+Enforcement gives contractual rights practical force. Courts, creditor rights, bankruptcy procedures, and collateral arrangements determine the remedies available when obligations are breached. Expectations about enforcement influence whether financing is provided and on what terms. Yet enforcement is neither complete nor costless: contracts cannot specify every future contingency, and legal proceedings may be costly or slow. Financial arrangements also rely on renegotiation, reputation, and discretion alongside formal contractual rights.
+
+These four economic problems often arise together. For example, a bank loan transfers purchasing power across time, allocates risks associated with uncertain repayment, depends on information about the borrower, and establishes contractual rights and obligations supported by enforcement mechanisms. Financial arrangements thus typically address several economic problems simultaneously.
+
+\section{What a Financial System Does}
+
+The economic problems discussed above provide the rationale for the core functions of a financial system. Although financial systems vary across countries and over time, they allocate resources across time and alternative uses, share and transform risk, provide liquidity and support payments, produce information and discipline behavior, and facilitate price discovery. These functions remain relevant even as the institutions and technologies through which they are performed change.
+
+\subsection{Allocating Resources Across Time and Alternative Uses}
+
+Finance reallocates purchasing power across dates. Borrowing allows individuals to bring future purchasing power forward, while saving and investment transfer current purchasing power into the future. Over the life cycle, these arrangements can help finance education or housing early in adulthood, accumulate resources during the working years, and support consumption after retirement. For firms, financing similarly allows investment to take place before the cash flows generated by a project are realized.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  >=Latex,
+  axis/.style={-Latex, line width=0.8pt},
+  income/.style={line width=1.1pt, FinanceBlue},
+  consumption/.style={line width=1.0pt, gray!75},
+  guide/.style={dashed, gray, line width=0.6pt},
+  label/.style={font=\small}
+]
+
+%------------------------------------------------
+% Axes
+%------------------------------------------------
+\draw[axis] (0,0) -- (9.4,0) node[right] {Age};
+\draw[axis] (0,0) -- (0,5.4)
+  node[above, align=center] {Income and\\consumption};
+
+%------------------------------------------------
+% Income over the life cycle
+%------------------------------------------------
+\draw[income]
+  (0.6,1.25)
+  .. controls (1.6,1.55) and (2.3,3.3) ..
+  (3.5,4.15)
+  .. controls (4.5,4.65) and (5.7,4.55) ..
+  (6.5,3.85)
+  .. controls (7.0,3.3) and (7.25,1.55) ..
+  (8.7,1.05);
+
+%------------------------------------------------
+% Consumption over the life cycle
+%------------------------------------------------
+\draw[consumption]
+  (0.6,2.05)
+  .. controls (2.1,2.35) and (3.7,2.65) ..
+  (5.0,2.70)
+  .. controls (6.2,2.70) and (7.5,2.45) ..
+  (8.7,2.10);
+
+%------------------------------------------------
+% Curve labels
+%------------------------------------------------
+\node[label, FinanceBlue, anchor=west]
+  at (4.15,4.65) {Income($I$)};
+
+\node[label, anchor=west]
+  at (3.75,2.38) {Consumption($C$)};
+
+%------------------------------------------------
+% Stage separators
+%------------------------------------------------
+\draw[guide] (2.45,0) -- (2.45,4.9);
+\draw[guide] (6.85,0) -- (6.85,4.9);
+
+%------------------------------------------------
+% Stage labels
+%------------------------------------------------
+\node[label, align=center] at (1.35,-0.55)
+  {Early adulthood};
+
+\node[label, align=center] at (4.65,-0.55)
+  {Working years};
+
+\node[label, align=center] at (7.95,-0.55)
+  {Retirement};
+
+%------------------------------------------------
+% Financial allocation labels
+%------------------------------------------------
+\node[label, align=center] at (1.35,3.25)
+  {Borrowing\\[1pt]
+   \footnotesize $C > I$};
+
+\node[label, align=center] at (4.65,1.15)
+  {Saving and investment\\[1pt]
+   \footnotesize $I > C$};
+
+\node[label, align=center] at (7.95,3.25)
+  {Using accumulated savings\\[1pt]
+   \footnotesize $C > I$};
+
+\end{tikzpicture}
+
+\caption{Financial allocation over the life cycle}
+\label{fig:ch1-life-cycle-allocation}
+\end{figure}
+
+Figure~\ref{fig:ch1-life-cycle-allocation} illustrates this role over the life cycle. Income and spending needs may follow different paths, so borrowing and saving can shift purchasing power between different stages of life.
+
+Finance also allocates scarce resources among competing uses. Interest rates, security prices, lending decisions, and investment mandates influence which projects receive funding and on what terms. If two firms compete for limited funds, a project offering a more favorable expected return relative to its risk and financing cost may receive more financing or better terms, while another may receive less or none.
+
+\subsection{Sharing and Transforming Risk}
+
+Participants differ in the risks they face and in their capacity or willingness to bear them. These differences create scope for reallocating risk across participants. A loss that would be large relative to one participant's resources may be easier for another to absorb, or may become less burdensome when distributed across many participants or combined with other exposures. Financial arrangements can share risk across participants or transform the form in which that risk is borne.
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  >=Latex,
+  box/.style={
+    draw,
+    rounded corners,
+    minimum width=3.8cm,
+    minimum height=1.05cm,
+    align=center,
+    line width=0.8pt
+  },
+  topbox/.style={
+    draw,
+    rounded corners,
+    minimum width=5.4cm,
+    minimum height=1.05cm,
+    align=center,
+    line width=0.8pt
+  },
+  flow/.style={
+    -Latex,
+    line width=0.9pt,
+    FinanceBlue
+  },
+  note/.style={
+    font=\small,
+    align=center
+  }
+]
+
+%------------------------------------------------
+% Source of risk reallocation
+%------------------------------------------------
+\node[topbox] (heterogeneity) at (5.5,4.6)
+{Differences in risk exposure\\
+and risk-bearing capacity};
+
+%------------------------------------------------
+% Risk sharing
+%------------------------------------------------
+\node[box] (sharing) at (2.7,2.45)
+{\textbf{Risk sharing}\\[2pt]
+\small Reallocate risk exposure\\
+across participants};
+
+\node[box] (sharingout) at (2.7,0.55)
+{Who bears the risk changes};
+
+%------------------------------------------------
+% Risk transformation
+%------------------------------------------------
+\node[box] (transform) at (8.3,2.45)
+{\textbf{Risk transformation}\\[2pt]
+\small Reshape risk exposures \\through state-contingent payoffs};
+
+\node[box] (transformout) at (8.3,0.55)
+{How the risk is borne changes};
+
+%------------------------------------------------
+% Branching arrows from common source
+%------------------------------------------------
+\coordinate (split)
+  at ($(heterogeneity.south)+(0,-0.35)$);
+
+% Common stem
+\draw[line width=0.9pt, FinanceBlue]
+  (heterogeneity.south) -- (split);
+
+% Left branch: Risk sharing
+\draw[flow]
+  (split)
+  -| (sharing.north);
+
+% Right branch: Risk transformation
+\draw[flow]
+  (split)
+  -| (transform.north);
+
+\draw[flow]
+  (sharing.south)
+  -- (sharingout.north);
+
+\draw[flow]
+  (transform.south)
+  -- (transformout.north);
+
+\end{tikzpicture}
+
+\caption{Risk sharing and risk transformation}
+\label{fig:ch1-risk-sharing-transformation}
+\end{figure}
+
+Risk sharing changes the distribution of exposure across participants. Insurance, for example, pools specified losses across many policyholders. Risk transformation reshapes risk exposures through financial claims with different payoffs across future states. Debt and equity, for example, divide a firm's cash flows into senior and residual claims, while derivatives create payoffs linked to changes in prices, interest rates, or other underlying variables.
+
+
+\subsection{Providing Liquidity and Supporting Payments}
+
+Liquidity concerns the ability to meet payment obligations as they fall due and the ease with which assets can be converted into purchasing power without significant delay or loss of value. The demand for liquidity arises when cash inflows and payment obligations are not perfectly synchronized. Financial arrangements bridge this timing gap by making funds available when needed.
+
+For example, a solvent firm may hold valuable assets but little cash. If those assets cannot be sold quickly without a substantial price concession, market liquidity is limited; if the firm cannot borrow against them or obtain short-term financing, funding liquidity is also limited.
+
+Cash and other liquid assets help meet payment obligations, while payment and settlement systems enable the transfer of funds and the settlement of obligations.
+
+Liquidity provision may involve maturity and liquidity transformation. Banks, for example, fund longer-term, less liquid loans with deposits available on demand. This structure provides liquidity to depositors but creates a mismatch between liquid liabilities and less liquid assets, which can become a source of fragility when withdrawals or funding needs rise.
+
+\subsection{Producing Information and Disciplining Behavior}
+
+Financial decisions depend on information about expected cash flows, risk, and the incentives of the parties involved. Before resources are committed, information must be produced, interpreted, and compared. Screening, financial analysis, auditing, credit assessment, and market trading all contribute to this process. In markets, prices also incorporate information revealed through the decisions of many participants.
+
+Information remains important after financing. Monitoring provides evidence about performance and the use of funds, while governance arrangements and financing terms influence subsequent decisions and incentives. Financial systems do not simply allocate resources on the basis of existing information; they also produce information and create mechanisms that discipline behavior when information is incomplete.
+
+\subsection{Discovering Prices}
+
+Financial systems generate prices through trading. Valuation provides estimates based on expected cash flows, timing, risk, and contingencies, while market prices are formed through the interaction of buyers and sellers. Participants act on different information, beliefs, constraints, and objectives. Their trading decisions influence demand and supply, leading to price adjustments. As new information and transactions enter the market, prices continue to change, making price discovery an ongoing process.
+
+The resulting prices enter subsequent financial decisions. Interest rates influence saving, borrowing, and financing costs; bond yields and equity prices affect issuance and investment; exchange rates alter the domestic value of foreign cash flows; and asset prices affect collateral and borrowing capacity. Financial prices therefore transmit information from trading into later economic decisions.
+
+\section{How the Financial System Is Organized}
+
+The financial system performs these functions through several interconnected components. These include money and payment systems, financial markets, financial institutions, and financial instruments. Although analytically distinct, these components interact in practice.
+
+\subsection{Money, Payments, and Settlement}
+
+Financial transactions create obligations that must eventually be discharged. Their discharge requires an accepted means of payment. Money provides a common unit for expressing financial obligations and a means through which those obligations can be settled.
+
+The transfer of money through payment systems may involve clearing and settlement. Clearing determines the obligations arising from transactions and may reduce them through netting, while settlement completes payment through the transfer of an accepted settlement asset. Together, money, payment arrangements, clearing, and settlement provide the institutional basis through which financial obligations are discharged.
+
+\subsection{Financial Markets}
+
+Financial markets organize the issuance and exchange of financial claims and provide mechanisms for price formation. The issuance of new securities enables firms, governments, and other borrowers to obtain funds from investors, while secondary-market trading reallocates existing claims and risk exposures. Prices emerge from transactions among participants with different information, beliefs, and constraints and inform subsequent financing and investment decisions.
+
+Market exchange, however, does not eliminate the costs of evaluating counterparties, producing and verifying information, designing contracts, and monitoring performance. Nor do direct transactions always meet the needs of participants seeking delegated investment, risk pooling, or liquidity and maturity transformation. 
+
+\subsection{Financial Institutions}
+
+Financial institutions perform financial functions through specialized organizations rather than through direct market exchange alone. Specialization can reduce the costs of producing information, executing transactions, managing risks, and monitoring financial relationships. Banks, asset managers, insurers, and other intermediaries combine these functions through different forms of pooling, transformation, and delegation.
+
+Through these activities, intermediation affects the allocation of information, control, and risk within financial relationships. Delegation may create agency problems when decisions are made on behalf of others, while maturity, liquidity, and risk transformation may create exposures that require management within the institution. Governance, contractual arrangements, and regulation therefore influence both the performance of financial functions and the risks associated with intermediation.
+
+\subsection{Financial Instruments}
+
+Financial instruments specify how future cash flows, risks, and rights are allocated among participants. Debt defines promised payments and creditor priority, while equity assigns residual claims and often voting rights. Insurance and derivatives make payments contingent on specified losses, prices, rates, or other future events.
+
+The allocation created by an instrument depends on its contractual terms. Maturity, seniority, collateral, covenants, margin requirements, and embedded options determine when payments occur, how losses are absorbed, and when control rights may shift. A financial instrument is defines rights and obligations governing the allocation ofcash flows, risk, and control across time and future states.
+
+\par\medskip
+\noindent
+Table~\ref{tab:ch1-architecture} summarizes how these organizational forms support the financial functions discussed in the previous section.
+
+\begin{table}[H]
+\centering
+
+\caption{Organizational forms of the financial system}
+\label{tab:ch1-architecture}
+
+\begin{tabularx}{\textwidth}{@{}p{3.0cm}X X@{}}
+\toprule
+\textbf{Form}
+&
+\textbf{Organizes}
+&
+\textbf{Main functions}
+\\
+\midrule
+
+Money, payments, and settlement
+&
+The discharge and transfer of obligations
+&
+Payments and liquidity
+\\
+
+Financial markets
+&
+The exchange of claims and risks
+&
+Allocation, liquidity, price discovery
+\\
+
+Financial institutions
+&
+Specialized intermediation and delegation
+&
+Information, liquidity, risk sharing
+\\
+
+Financial instruments
+&
+Cash flows, rights, and exposures
+&
+Allocation, risk transformation, incentives
+\\
+
+\bottomrule
+\end{tabularx}
+
+\end{table}
+
+\section{Finance and the Real Economy}
+
+Finance affects which economic choices are feasible for households, firms, and governments. It influences which projects are undertaken, how consumption is allocated over time, how shocks are absorbed, and how disturbances propagate through balance sheets and markets.
+
+\subsection{Capital Formation and Economic Development}
+
+Finance supports capital formation by channeling available resources toward productive investment. This process involves identifying viable investment opportunities, arranging financing, monitoring the use of funds, and allocating the associated risks.
+
+A firm may identify a viable investment opportunity before its retained earnings are sufficient to finance it. By issuing financial claims on future cash flows, the firm can obtain purchasing power today and use it to acquire productive assets.
+
+At the aggregate level, the contribution of finance to economic development depends not only on the volume of financing but also on how the financial system allocates capital, structures incentives, and allocates risk. More financing does not necessarily translate into more productive investment.
+
+\subsection{Financial Innovation and Access}
+
+Financial innovation changes the way financial functions are performed by altering transaction costs, information requirements, contractual structures, or the transferability of claims. Lower costs of payment, verification, trading, or risk transfer can make transactions feasible that were previously too costly or difficult to arrange.
+
+These changes may broaden access to financial services for households and firms that face high fixed costs, limited collateral, or weak connections to traditional intermediaries. Greater access help relax constraints on payments, saving, borrowing, investment, and risk management, allowing a wider range of economic activities to be financed or undertaken.
+
+The contribution of financial innovation to economic development depends on which financial frictions it relaxes and how the resulting changes in access affect economic activity. Lower transaction or information costs, for example, may enable productive investment or risk sharing that would otherwise be too costly to arrange. Greater access alone, however, does not ensure more productive investment if innovation weakens screening, facilitates excessive leverage, or directs funds toward less productive uses.
+
+
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  >=Latex,
+  box/.style={
+    draw,
+    rounded corners,
+    text width=5.2cm,
+    minimum height=0.95cm,
+    align=center,
+    inner sep=6pt,
+    line width=0.8pt
+  },
+  sidebox/.style={
+    draw,
+    rounded corners,
+    text width=3.8cm,
+    minimum height=0.95cm,
+    align=center,
+    inner sep=6pt,
+    line width=0.8pt
+  },
+  flow/.style={
+    -Latex,
+    line width=0.9pt,
+    FinanceBlue
+  },
+  sideflow/.style={
+    -Latex,
+    dashed,
+    line width=0.8pt,
+    gray
+  }
+]
+
+\node[box] (innovation) at (0,4.2)
+  {\textbf{Financial innovation}};
+
+\node[box] (frictions) at (0,2.0)
+  {\textbf{Changes in \\financial frictions}\\[3pt]
+   \small Transaction, information, and contracting costs};
+
+\node[box] (access) at (0,-0.4)
+  {\textbf{Changes in \\financial access}};
+
+\node[box] (activity) at (0,-2.8)
+  {\textbf{Changes in \\economic activity}\\[3pt]
+   \small Saving, borrowing, investment, and risk management};
+
+\node[sidebox] (risks) at (6.2,2.0)
+  {\textbf{New risks and distortions}\\[3pt]
+   \small Leverage, weak screening, and concentration};
+
+\draw[flow] (innovation.south) -- (frictions.north);
+\draw[flow] (frictions.south) -- (access.north);
+\draw[flow] (access.south) -- (activity.north);
+
+\draw[sideflow] (frictions.east) -- (risks.west);
+\draw[sideflow]
+  (risks.south) |- (activity.east);
+
+\end{tikzpicture}
+
+\caption{Financial innovation, access, and real economic activity}
+\label{fig:ch1-innovation-access}
+\end{figure}
+
+\subsection{Fragility and Financial Amplification}
+
+The arrangements that make finance useful can also create fragility. Leverage magnifies gains and losses, liquidity transformation creates mismatches between assets and liabilities, and market-based adjustment can become destabilizing when many participants respond in similar ways. Risk transfer may disperse exposures, but it can also make their ultimate location more difficult to identify.
+
+Financial fragility often arises from feedback effects rather than from a single loss. A decline in asset prices can reduce collateral values, tighten borrowing constraints, and force asset sales. Those sales may depress prices further, weakening collateral and credit conditions again. Figure~\ref {fig:ch1-fragility-loop} illustrates this amplification mechanism.
+
+As financial conditions tighten, these effects spread to real economic activity. Firms facing weaker collateral and more limited access to credit may reduce investment, while households facing tighter borrowing conditions or losses in wealth may reduce consumption. Financial amplification can turn an initial disturbance into a broader contraction in spending and production.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  >=Latex,
+  box/.style={
+    draw,
+    rounded corners,
+    text width=3.8cm,
+    minimum height=0.9cm,
+    align=center,
+    inner sep=5pt,
+    line width=0.8pt
+  },
+  realbox/.style={
+    draw,
+    rounded corners,
+    text width=4.0cm,
+    minimum height=0.9cm,
+    align=center,
+    inner sep=5pt,
+    line width=0.8pt
+  },
+  flow/.style={
+    -Latex,
+    line width=0.9pt,
+    FinanceBlue
+  }
+]
+
+% Financial amplification loop
+\node[box] (prices) at (0,3.6)
+  {\textbf{Asset prices fall}};
+
+\node[box] (collateral) at (0,2.0)
+  {\textbf{Collateral \\values decline}};
+
+\node[box] (credit) at (0,0.4)
+  {\textbf{Credit tightens}};
+
+\node[box] (sales) at (-4.8,0.4)
+  {\textbf{Forced asset sales increase}};
+
+% Real-economy effect
+\node[realbox] (real) at (4.8,0.4)
+  {\textbf{Real economic activity weakens}\\[2pt]
+   \small Lower investment and consumption};
+
+% Main financial loop
+\draw[flow] (prices.south) -- (collateral.north);
+\draw[flow] (collateral.south) -- (credit.north);
+\draw[flow] (credit.west) -- (sales.east);
+\draw[flow] (sales.north) |- (prices.west);
+
+% Transmission to the real economy
+\draw[flow] (credit.east) -- (real.west);
+
+\end{tikzpicture}
+
+\caption{Financial amplification and transmission to the real economy}
+\label{fig:ch1-fragility-loop}
+\end{figure}
+
+\section{A Functional Perspective on a Changing Financial System}
+
+Technological change can alter who performs financial functions, how those functions are combined, and the organizational forms through which they are carried out. Activities may shift among banks, markets, digital platforms, and technological infrastructures; information-processing tasks may increasingly be supported or performed by algorithms; and financial claims may be issued, traded, or settled in new ways. Such changes can substantially alter the organization of finance without eliminating the underlying need to allocate resources, produce information, manage risk, provide liquidity, and support credible financial obligations.
+
+Artificial intelligence illustrates this distinction. AI can change how screening, monitoring, trading, and financial decisions are performed, while the use of common data, models, or decision rules may also create new forms of concentration and interdependence. Digital platforms, programmable contracts, tokenized assets, and new payment arrangements can produce similar shifts in organizational form. They may change the boundaries between markets, intermediaries, and infrastructure, or alter how financial claims are created, transferred, and settled. 
+
+\TailModule{summary}{Summary}
+
+Financial exchange often separates resources available today from spending and investment opportunities that arise at other dates. Even when future outcomes are known, this separation creates a role for saving, borrowing, and financing. When future outcomes are uncertain, decisions also depend on information that may be incomplete or unevenly distributed, while contracts and institutions help define rights and obligations and make future commitments credible and enforceable.
+
+Finance expand economic possibilities by supporting investment, risk sharing, and access to financial services, but the same arrangements can also generate fragility. Leverage magnifies losses, liquidity transformation creates funding mismatches, and individually rational responses may interact through prices and balance sheets to amplify shocks across the financial system. Artificial intelligence, digital platforms, and other technologies can alter the costs and organizational forms through which financial functions are performed without eliminating the economic problems that give rise to those functions.
+
+\TailModule{keyterms}{Key Terms}
+
+Intertemporal exchange; risk sharing;
+adverse selection; moral hazard; commitment; enforcement; capital allocation;
+monetary liquidity; market liquidity; funding liquidity; information production;
+price discovery; financial intermediation; financial fragility
+
+\TailModule{questions}{Discussion Questions}
+
+\begin{enumerate}
+\item Why can intertemporal exchange create a role for finance even when future outcomes are known with certainty?
+\item How does uncertainty make information economically valuable, and why is information alone insufficient to support financial exchange?
+\item Why can a financial arrangement address several economic problems at the same time? Illustrate with a bank loan, insurance contract, or traded security.
+\item Why can liquidity provision improve economic efficiency and also create financial fragility?
+\end{enumerate}
+
+\TailModule{appprobs}{Applied Problems}
+
+\begin{enumerate}
+\item An individual has income of 40 today and 66 next period. The borrowing and lending rate is 10 percent. Use equation~\eqref{eq:ch1_intertemporal_budget} to find next-period consumption if current consumption is 50. Is the individual borrowing or saving, and by how much today?
+
+\item A financial intermediary funds five-year loans largely with liabilities redeemable on demand. Explain the economic benefit of this structure in normal times and the mechanism through which it can become unstable during stress. Identify the financial function being provided and the source of fragility.
+\end{enumerate}
+
+\TailModule{aiprompt}{Financial AI Lab}
+
+\textbf{Lab: Follow the Function}
+
+Choose one financial innovation or digital financial service. Ask an AI
+system to explain what makes it ``new.'' Then reorganize the answer around
+the analytical framework used in this chapter: the underlying economic
+problem, the financial function involved, the organizational form through
+which it is performed, the allocation of cash flows and risks, and the
+conditions under which the arrangement could fail. Identify factual claims
+that require external verification and any part of the AI answer that
+mistakes technological novelty for a change in economic function.
+
+\TailModule{furtherread}{Further Reading}
+
+\begin{itemize}
+
+\item Merton, Robert C. (1995),
+``A Functional Perspective of Financial Intermediation,''
+\emph{Financial Management}, 24(2), 23--41.
+
+\item Merton, Robert C., and Zvi Bodie (1995),
+``A Conceptual Framework for Analyzing the Financial Environment,''
+in Dwight B. Crane et al., \emph{The Global Financial System:
+A Functional Perspective}, Harvard Business School Press, pp.~3--31.
+
+\item Levine, Ross (2005),
+``Finance and Growth: Theory and Evidence,''
+in Philippe Aghion and Steven N. Durlauf (eds.),
+\emph{Handbook of Economic Growth}, Vol.~1A,
+Elsevier, pp.~865--934.
+
+\end{itemize}
+
+\ChapterTail{summary,keyterms,questions,appprobs,aiprompt,furtherread}
