@@ -1,0 +1,943 @@
+\chapter{Financial Intermediation and Financial Structure}
+\label{chap:Financial_Intermediation_and_Financial_Structure}
+
+\begin{openingcase}{Why Does a Large Firm Issue Bonds While a Small Firm Borrows from a Bank?}
+
+Two manufacturers need external financing. A large listed firm plans to raise RMB 2 billion through a bond issue, while a small private firm seeking RMB 5 million turns to a bank. The contrast seems puzzling: issuing bonds allows firms to obtain funds directly from investors rather than borrowing through a bank. Why would the smaller firm rely on an intermediary?
+
+The listed firm has audited financial statements and a large financing need over which to spread issuance costs. For the smaller firm, information about its customers, equipment, and management is difficult for outside investors to verify. A bank with an existing relationship may be better positioned to assess and monitor the borrower.
+
+Intermediation adds another institution to the financing process, yet it may reduce the overall cost of obtaining and maintaining financing.
+
+\end{openingcase}
+
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=FinanceBlue!6,
+  colframe=FinanceBlue,
+  boxrule=0.6pt,
+  sharp corners,
+  left=8pt,
+  right=8pt,
+  top=7pt,
+  bottom=7pt,
+  before skip=1em,
+  after skip=1.6em,
+  title=\textbf{Core Questions},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  attach boxed title to top left={xshift=6pt,yshift=-2mm},
+  boxed title style={
+    boxrule=0pt,
+    sharp corners,
+    left=5pt,
+    right=5pt,
+    top=2pt,
+    bottom=2pt
+  }
+]
+\begin{enumerate}[
+  leftmargin=*,
+  label=\textcolor{FinanceBlue}{\textbf{\arabic*.}},
+  itemsep=0.55em,
+  topsep=0.2em
+]
+\item What determines whether financing is organized through securities markets or through financial intermediaries?
+
+\item Why can delegated information production, monitoring, and balance-sheet transformation create value?
+
+\item Why do markets and intermediaries coexist, and what determines their relative importance in a financial system?
+
+\end{enumerate}
+\end{tcolorbox}
+
+\section{Financing Channels: Direct and Indirect Finance}
+
+A financing channel is defined by the claims that connect ultimate fund providers with ultimate users. In direct finance, fund providers hold claims issued by the ultimate borrower. In indirect finance, an intermediary acquires the borrower's claim and finances it by issuing claims of its own. The presence of other institutions does not change this distinction; what matters is whether an intermediary inserts its balance sheet between the two sides.
+
+\begin{figure}[htbp]
+\centering
+
+\begin{tikzpicture}[
+    box/.style={
+        draw,
+        rounded corners,
+        align=center,
+        minimum width=2.7cm,
+        minimum height=0.85cm,
+        inner sep=3pt
+    },
+    fund/.style={
+        -{Latex[length=2.2mm]},
+        thick
+    },
+    claim/.style={
+        -{Latex[length=2.2mm]},
+        dashed,
+        thick
+    },
+    every node/.style={font=\footnotesize}
+]
+
+% ------------------------------------------------
+% (a) Direct finance
+% ------------------------------------------------
+
+\node[font=\small\bfseries] at (0,1.05)
+    {(a) Direct finance};
+
+\node[box] (providersA) at (-2.7,0)
+    {Ultimate fund\\providers};
+
+\node[box] (borrowerA) at (2.7,0)
+    {Ultimate\\users of funds};
+
+\draw[fund]
+    ([yshift=2.2mm]providersA.east)
+    --
+    node[above=1pt]{funds}
+    ([yshift=2.2mm]borrowerA.west);
+
+\draw[claim]
+    ([yshift=-2.2mm]borrowerA.west)
+    --
+    node[below=1pt]{securities}
+    ([yshift=-2.2mm]providersA.east);
+
+
+% ------------------------------------------------
+% (b) Indirect finance
+% ------------------------------------------------
+
+\node[font=\small\bfseries] at (0,-1.55)
+    {(b) Indirect finance};
+
+\node[box] (providersB) at (-4.0,-2.65)
+    {Ultimate fund\\providers};
+
+\node[box] (intermediary) at (0,-2.65)
+    {Financial\\intermediary};
+
+\node[box] (borrowerB) at (4.0,-2.65)
+    {Ultimate\\users of funds};
+
+\draw[fund]
+    ([yshift=2.2mm]providersB.east)
+    --
+    node[above=1pt]{funds}
+    ([yshift=2.2mm]intermediary.west);
+
+\draw[claim]
+    ([yshift=-2.2mm]intermediary.west)
+    --
+    node[below=1pt, align=center]
+    {Claims issued \\[-1pt] by intermediary}
+    ([yshift=-2.2mm]providersB.east);
+
+\draw[fund]
+    ([yshift=2.2mm]intermediary.east)
+    --
+    node[above=1pt]{funds}
+    ([yshift=2.2mm]borrowerB.west);
+
+\draw[claim]
+    ([yshift=-2.2mm]borrowerB.west)
+    --
+    node[below=1pt, align=center]
+    {claim on\\[-1pt]users of funds}
+    ([yshift=-2.2mm]intermediary.east);
+
+\end{tikzpicture}
+
+\caption{Direct and indirect financing channels.}
+\label{fig:ch4-direct-indirect-finance}
+\end{figure}
+
+\subsection{Direct Finance and Securities Markets}
+
+The distinction between direct and indirect finance rests on the structure of financial claims connecting ultimate fund providers with users of funds. In direct finance, fund providers hold claims issued by the users of funds. In indirect finance, an intermediary holds claims on these users and finances them by issuing its own financial claims. The distinction rests on whether an intermediary interposes its own balance sheet between fund providers and users.
+
+Direct finance does not imply the absence of financial institutions. Investment banks may arrange or underwrite an issue, rating agencies may assess credit risk, and exchanges or dealers may facilitate trading. These institutions support the financing process, but they do not insert their own balance sheets between the issuer and investors.
+
+For securities to be distributed among many investors, claims need to be sufficiently standardized and relevant information needs to be communicated and verified in forms that a broad investor base can use. Payment rights, maturity, collateral, seniority, and voting rights are specified in common contractual terms, while audited financial statements, disclosure requirements, prospectuses, and ratings provide widely accessible information. These arrangements reduce the need for investors to investigate the issuer and negotiate contract terms separately.
+
+A securities issue entails fixed costs that can be spread over a larger financing amount. Suppose the total transaction cost of an issue of size $Q$ is
+
+\begin{equation}
+C_M(Q)=F_M+c_MQ,
+\label{eq:ch4-market-financing-cost}
+\end{equation}
+where $F_M$ represents fixed costs associated with disclosure, legal work, due diligence, registration, and issue organization, and $c_M$ is the variable transaction cost per unit of financing. The average transaction cost is
+
+\begin{equation}
+AC_M(Q)=\frac{F_M}{Q}+c_M,
+\label{eq:ch4-market-average-cost}
+\end{equation}
+so that
+\begin{equation}
+\frac{dAC_M(Q)}{dQ}
+=-\frac{F_M}{Q^2}
+<0.
+\label{eq:ch4-market-scale-effect}
+\end{equation}
+
+As issue size increases, fixed costs are spread over a larger financing base, lowering average transaction cost and making market financing more economical.
+
+Information costs also influence the choice of financing channel. When an issuer's financial condition and cash flows can be credibly disclosed and verified, dispersed investors can evaluate its securities at relatively low cost, making market financing more attractive.  
+
+A secondary market allows investors to sell securities without requiring the issuer to repay or renegotiate the financing. Tradability therefore separates the issuer's financing horizon from the holding periods of individual investors. This benefit depends on market liquidity, which in turn requires active trading, reliable information, and supporting market infrastructure and may deteriorate sharply under stress.
+
+\subsection{Indirect Finance and Financial Intermediaries}
+
+In indirect finance, a financial intermediary provides funds to borrowers and holds the resulting claims, financing those assets by issuing its own liabilities to fund providers.
+
+Commercial banks illustrate this structure. Depositors hold claims on the bank, while the bank holds claims on the firms and households to which it lends. A simplified balance sheet makes this two-sided structure explicit.
+ 
+\begin{table}[htbp]
+
+\centering
+
+\caption{A Simplified Balance Sheet of a Commercial Bank}
+
+\label{tab:ch4-bank-balance-sheet}
+
+\begin{tabularx}{0.78\textwidth}{@{}X X@{}}
+
+\toprule
+
+\textbf{Assets} & \textbf{Liabilities and Equity} \\
+
+\midrule
+
+Loans                      & Deposits \\
+Securities                 & Wholesale funding \\
+Reserves and liquid assets & Equity capital \\
+
+\bottomrule
+
+\end{tabularx}
+
+\end{table}
+
+The intermediary therefore interposes its own balance sheet between fund providers and borrowers. It holds a claim on the borrower, typically a loan, while fund providers hold claims issued by the intermediary. The intermediary assesses creditworthiness, negotiates loan terms, and monitors borrower performance.
+
+This arrangement concentrates information production within the intermediary. Through repeated lending and direct contact with borrowers, a bank can accumulate information that would be costly for dispersed investors to produce separately. Much of this information can remain private, allowing the intermediary to evaluate borrowers without relying entirely on standardized public disclosure.
+
+The same arrangement also delegates substantial decision-making authority to the intermediary, creating a new agency relationship. Fund providers do not normally observe individual lending or risk-management decisions. The intermediary's ability to meet its obligations therefore depends in part on the quality of its lending decisions, liquidity management, and risk control. Capital, governance, reputation, supervision, and regulation help constrain this delegated discretion and sustain confidence in the intermediary's liabilities.
+
+Intermediation can improve financing efficiency when the benefits of specialized information production and monitoring outweigh the agency costs of delegated decision-making, particularly when borrower information is difficult to standardize or verify publicly.
+
+\subsection{Financing Chains and Hybrid Intermediation}
+
+A financing chain links ultimate fund providers to ultimate users through a sequence of financial claims. Hybrid intermediation arises when securities markets and financial intermediaries perform different functions at different stages of that chain.
+
+\begin{figure}[htbp]
+\centering
+
+\begin{tikzpicture}[
+    box/.style={
+        draw,
+        rounded corners,
+        align=center,
+        minimum width=2.45cm,
+        minimum height=0.78cm,
+        inner sep=3pt,
+        font=\footnotesize
+    },
+    fund/.style={
+        -{Latex[length=2.0mm]},
+        line width=0.75pt
+    },
+    claim/.style={
+        -{Latex[length=2.0mm]},
+        dashed,
+        line width=0.75pt
+    },
+    labeltext/.style={
+        font=\scriptsize,
+        align=center
+    },
+    panel/.style={
+        font=\small\bfseries
+    }
+]
+
+% ==================================================
+% (a) Mutual fund
+% ==================================================
+
+\node[panel] at (0,1.15)
+    {(a) Mutual fund};
+
+\node[box] (hh) at (-4.0,0)
+    {Households};
+
+\node[box] (mf) at (0,0)
+    {Mutual fund};
+
+\node[box] (firm) at (4.0,0)
+    {Firm};
+
+% funds
+\draw[fund]
+    ([yshift=2mm]hh.east)
+    --
+    node[above, labeltext]{funds}
+    ([yshift=2mm]mf.west);
+
+\draw[fund]
+    ([yshift=2mm]mf.east)
+    --
+    node[above, labeltext]{funds}
+    ([yshift=2mm]firm.west);
+
+% claims
+\draw[claim]
+    ([yshift=-2mm]mf.west)
+    --
+    node[below, labeltext]{fund shares}
+    ([yshift=-2mm]hh.east);
+
+\draw[claim]
+    ([yshift=-2mm]firm.west)
+    --
+    node[below, labeltext]{corporate bonds}
+    ([yshift=-2mm]mf.east);
+
+
+% ==================================================
+% (b) Securitization
+% ==================================================
+
+\node[panel] at (0,-2.0)
+    {(b) Securitization};
+
+\node[box] (investors) at (-5.7,-3.25)
+    {Investors};
+
+\node[box] (spv) at (-1.9,-3.25)
+    {Special-purpose\\vehicle};
+
+\node[box] (originator) at (1.9,-3.25)
+    {Bank or finance\\company};
+
+\node[box] (borrowers) at (5.7,-3.25)
+    {Borrowers};
+
+% funds
+\draw[fund]
+    ([yshift=2mm]investors.east)
+    --
+    node[above, labeltext]{funds}
+    ([yshift=2mm]spv.west);
+
+\draw[fund]
+    ([yshift=2mm]spv.east)
+    --
+    node[above, labeltext]{purchase\\of loans}
+    ([yshift=2mm]originator.west);
+
+\draw[fund]
+    ([yshift=2mm]originator.east)
+    --
+    node[above, labeltext]{loan funds}
+    ([yshift=2mm]borrowers.west);
+
+% claims
+\draw[claim]
+    ([yshift=-2mm]borrowers.west)
+    --
+    node[below, labeltext]{loan claims}
+    ([yshift=-2mm]originator.east);
+
+\draw[claim]
+    ([yshift=-2mm]originator.west)
+    --
+    node[below, labeltext]{loan pool}
+    ([yshift=-2mm]spv.east);
+
+\draw[claim]
+    ([yshift=-2mm]spv.west)
+    --
+    node[below, labeltext]{asset-backed\\securities}
+    ([yshift=-2mm]investors.east);
+
+
+% ==================================================
+% (c) Repo funding
+% ==================================================
+\node[panel] at (0,-5.55)
+    {(c) Repo funding};
+\node[box] (issuer) at (-4.0,-6.75)
+    {Security\\issuer};
+
+\node[box] (fi) at (0,-6.75)
+    {Financial\\intermediary};
+
+\node[box] (cash) at (4.0,-6.75)
+    {Cash provider};
+
+% Intermediary purchases security
+\draw[fund]
+    ([yshift=2mm]fi.west)
+    --
+    node[above, labeltext]{funds}
+    ([yshift=2mm]issuer.east);
+
+\draw[claim]
+    ([yshift=-2mm]issuer.east)
+    --
+    node[below, labeltext]{marketable\\security}
+    ([yshift=-2mm]fi.west);
+
+% Repo funding
+\draw[fund]
+    ([yshift=2mm]cash.west)
+    --
+    node[above, labeltext]{repo funding}
+    ([yshift=2mm]fi.east);
+
+\draw[claim]
+    ([yshift=-2mm]fi.east)
+    --
+    node[below, labeltext]{security as\\collateral}
+    ([yshift=-2mm]cash.west);
+
+\end{tikzpicture}
+
+\caption{Examples of hybrid financing chains.}
+\label{fig:ch4-hybrid-financing}
+\end{figure}
+
+A corporate bond held by a mutual fund provides a simple example. The corporation raises funds by issuing a marketable security, while household investors hold fund shares rather than the corporation's bonds directly. The issuer uses market financing, while household savings reach the market through an intermediary.
+
+Securitization extends the chain by separating loan origination and screening from the subsequent distribution of funding and risk. A bank or finance company originates and screens loans, pools them, and transfers them to a special-purpose vehicle, which issues securities backed by the loan cash flows. Information production remains concentrated near origination, while funding and risk bearing can be distributed through securities markets.
+
+Marketable securities can also support intermediary funding. In a repo transaction, a financial institution obtains short-term funding against securities that it agrees to repurchase later. Securities held on intermediary balance sheets can therefore become collateral for money-market funding, linking securities markets to intermediary funding.
+
+Markets and intermediaries are therefore often complementary. The useful distinction is not whether an entire financing chain is market based or intermediated, but where information is produced, how funding is obtained, where liquidity is provided, and who ultimately bears risk.
+
+\section{Why Do Financial Intermediaries Exist?}
+
+Financial intermediation adds an organizational layer to financing but may reduce the costs of information production, contracting, monitoring, and trading through specialization and scale. These benefits must be weighed against the costs of intermediation.
+
+\subsection{Transaction Costs, Scale, and Specialization}
+
+Repeated transactions allow financial intermediaries to spread the costs of information systems, standardized procedures, and monitoring infrastructure across many borrowers. Experience with similar transactions can also improve their ability to assess and manage risk.
+
+One source of this advantage is that some costs do not increase proportionately with transaction volume. Suppose an activity has a fixed cost component $F$ and a variable cost $c$ per transaction. Its average cost over $n$ transactions is
+
+\begin{equation}
+AC(n)=\frac{F}{n}+c.
+\label{eq:ch4-scale-cost}
+\end{equation}
+
+As $n$ increases, the fixed cost per transaction declines. Scale also supports specialization: expertise in credit analysis, contracting, risk management, and transaction processing can be employed across many transactions rather than reproduced by individual investors. Standardized procedures can generate further savings when similar tasks are performed repeatedly.
+
+Lower transaction costs can make otherwise uneconomical financing viable. Suppose financing a small business generates an expected surplus of $S$ before information and contracting costs. If an individual investor incurs costs $k>S$, direct financing is uneconomical. An intermediary may make the transaction viable if its total cost of providing these services is below $S$.
+
+The gains from scale are not unlimited. As an intermediary grows, additional organizational layers can weaken internal incentives, increase procedural rigidity, and reduce the effective use of local or relationship-specific information. Organizational costs may therefore rise even as some transaction costs fall.
+
+\subsection{Information Production and Delegated Monitoring}
+
+Financial intermediaries produce information by collecting, verifying, and interpreting borrower-specific data. Before financing, this information supports screening and the setting of financing terms. After financing, monitoring updates the intermediary's assessment of the borrower and detects changes in behavior or credit quality. When financing is dispersed across many investors, concentrating these activities within an intermediary can avoid repeated information production.
+
+Consider monitoring after financing. Suppose $N$ investors finance the same borrower and each incurs monitoring cost $m$ if monitoring is performed separately. Total monitoring cost is
+
+\begin{equation}
+C_D=Nm.
+\label{eq:ch4-direct-monitoring}
+\end{equation}
+
+Monitoring can instead be delegated to a financial intermediary. Let $m_I$ denote the intermediary's monitoring cost and $g$ the agency cost created by delegation. Total cost under delegated monitoring is
+
+\begin{equation}
+C_I=m_I+g.
+\label{eq:ch4-delegated-monitoring}
+\end{equation}
+
+Delegated monitoring lowers total cost when
+
+\begin{equation}
+m_I+g<Nm.
+\label{eq:ch4-delegation-condition}
+\end{equation}
+
+The term $g$ captures the new agency problem created by delegation. Fund providers cannot fully observe the intermediary's monitoring effort or risk-taking decisions. The intermediary may therefore monitor borrowers less carefully or take more risk than fund providers would prefer.
+
+The size of $g$ depends on the incentives and constraints facing the intermediary. Equity capital exposes shareholders to losses from poor lending decisions or excessive risk taking. Audited financial reporting improves the information available to creditors, investors, and supervisors about the intermediary's asset quality, capital position, and risk exposure. Contractual restrictions and prudential regulation can further limit risk taking that shifts potential losses toward fund providers. These mechanisms can reduce, but not eliminate, the agency cost of delegation.
+
+\subsection{Private Information and Relationship Lending}
+
+Repeated interaction allows lenders to accumulate private information from repayment behavior, account activity, collateral conditions, and direct contact with management. Some of this information is difficult to quantify, codify, or communicate to outside investors and is often described as \emph{soft information}. It may include assessments of managerial competence and the persistence of financial difficulties.
+
+Relationship lending uses information accumulated through ongoing lender–borrower relationships to assess borrowers whose creditworthiness is difficult to evaluate from standardized disclosures. Such information may allow lenders to distinguish between firms that appear similar to outside investors, improving access to finance for borrowers with limited public information.
+
+The informational advantage also matters after financing has been provided. When a borrower experiences a temporary setback, a relationship lender may be better able to distinguish a short-term cash-flow shock from a deterioration in underlying creditworthiness and determine whether continued lending or renegotiation is warranted.
+
+Private information can also create borrower dependence. Information accumulated by one lender may not be readily transferable to competitors, increasing switching costs and strengthening the incumbent lender's bargaining power. Relationship lending thus involves a trade-off between improved credit assessment and the potential costs of borrower dependence and lender market power.
+
+\subsection{Liquidity, Maturity, and Risk Transformation}
+
+In addition to producing information, financial intermediaries transform the characteristics of financial claims. Liquidity transformation arises when fund providers value access to funds on short notice while borrowers require financing for long-lived, illiquid assets. A bank bridges this mismatch by issuing liquid deposits while holding less liquid loans.
+
+Pooling idiosyncratic liquidity needs across many depositors reduces uncertainty in aggregate withdrawals. The timing of liquidity needs is uncertain for any individual depositor, but aggregate withdrawals become more predictable when those needs are not perfectly correlated. A simple model illustrates this mechanism.
+
+Suppose there are $N$ depositors. Each has probability $\lambda$ of needing one unit of liquidity during the period. If liquidity needs are independent, the expected number of depositors requiring funds is
+
+\begin{equation}
+\mathbb{E}[L]=N\lambda.
+\label{eq:ch4-liquidity-expected}
+\end{equation}
+
+The variance is
+
+\begin{equation}
+\mathrm{Var}(L)=N\lambda(1-\lambda).
+\label{eq:ch4-liquidity-variance}
+\end{equation}
+
+The standard deviation grows with $\sqrt{N}$, while expected liquidity needs grow with $N$, so relative uncertainty declines as $N$ increases:
+
+\begin{equation}
+\frac{\sqrt{\mathrm{Var}(L)}}{\mathbb{E}[L]}
+=
+\sqrt{\frac{1-\lambda}{N\lambda}}.
+\label{eq:ch4-liquidity-relative-risk}
+\end{equation}
+
+Lower relative uncertainty in aggregate withdrawals allows an intermediary to hold more long-term, less liquid assets while still providing liquid claims to depositors.
+
+When withdrawals become highly correlated, a liquidity mismatch can expose an intermediary to severe funding pressure. The intermediary may need to obtain additional funding or sell illiquid assets to meet withdrawal demands.
+
+Liquidity transformation is often accompanied by maturity transformation. A bank can fund long-term loans with shorter-maturity liabilities, allowing borrowers to obtain long-term finance while fund providers hold shorter-term claims. The resulting maturity mismatch exposes the bank to refinancing risk, as maturing liabilities may need to be rolled over before sufficient cash flows are received from its assets.
+
+Alongside liquidity and maturity transformation, financial intermediaries also engage in risk transformation through diversification and the allocation of losses. By combining loans with imperfectly correlated credit risks, a bank can reduce its exposure to borrower-specific risk. Its capital structure also determines how losses are allocated across financial claims, with equity absorbing losses before creditors.
+
+\begin{table}[htbp]
+\centering
+\caption{Financial Transformation through Intermediaries}
+\label{tab:ch4-transformation}
+
+\renewcommand{\arraystretch}{1.15}
+
+\begin{tabularx}{\textwidth}{
+@{}
+>{\raggedright\arraybackslash}p{3.2cm}
+>{\raggedright\arraybackslash}X
+>{\raggedright\arraybackslash}X
+@{}
+}
+
+\toprule
+\textbf{Transformation}
+& \textbf{Assets or exposures}
+& \textbf{Claims issued to fund providers} \\
+\midrule
+
+Liquidity transformation
+& Relatively illiquid assets
+& More liquid or readily redeemable claims \\
+
+Maturity transformation
+& Longer-maturity assets
+& Shorter-maturity liabilities \\
+
+Risk transformation
+& Diversified loan portfolio
+& Equity and debt claims with different loss exposures \\
+
+\bottomrule
+\end{tabularx}
+
+\end{table}
+
+
+
+\section{Financial Structure: Markets, Banks, and Hybrid Systems}
+
+Financial structure describes how financing is organized through financial markets, intermediaries, and combinations of the two.
+
+\subsection{Market-Based versus Bank-Based Financial Systems}
+
+Financial systems differ in the relative importance of securities markets and banks in channeling funds to users of finance. The distinction is one of degree rather than a strict division between two types of systems.
+
+Market-based finance relies more heavily on standardized disclosure, transferable financial claims, and market prices. These arrangements facilitate financing by dispersed investors when relevant information can be evaluated at relatively low cost. Contractual rights and governance mechanisms provide additional means of investor oversight.
+
+Bank-based finance relies more heavily on private information and continuing borrower relationships. Concentrated monitoring and adaptable loan contracts can be advantageous when borrower information is difficult to verify publicly or financing requires ongoing adjustment.
+
+The relative costs of market and bank financing depend on firm characteristics and financial-system conditions. Larger financing amounts allow fixed issuance costs to be spread more widely, while credible public disclosure reduces information costs for dispersed investors. Bank financing may be more economical when borrower assessment requires private information, continuing monitoring, or renegotiation. Securities-market depth and liquidity, together with banks' funding and regulatory constraints, also influence the relative costs of the two channels.
+
+At the system level, the composition of firms influences the relative importance of market and bank financing. Economies with more large and transparent firms may rely more heavily on securities markets, while bank finance may play a greater role where borrower-specific information and continuing monitoring are important. Legal institutions, disclosure standards, market infrastructure, and financial regulation also influence the development of the two channels.
+
+\begin{table}[htbp]
+\centering
+\caption{Market-Based and Bank-Based Financing}
+\label{tab:ch4-market-bank}
+
+\renewcommand{\arraystretch}{1.15}
+
+\begin{tabularx}{\textwidth}{
+@{}
+>{\raggedright\arraybackslash}p{3.0cm}
+>{\raggedright\arraybackslash}X
+>{\raggedright\arraybackslash}X
+@{}
+}
+
+\toprule
+& \textbf{Market financing}
+& \textbf{Bank financing} \\
+\midrule
+
+Information
+& Greater reliance on standardized public information
+& Greater use of privately produced borrower information \\
+
+Monitoring
+& Investor oversight through disclosure, governance, and delegated monitoring
+& Concentrated within a specialized intermediary \\
+
+Contracting
+& More standardized and transferable claims
+& Greater scope for customized contracts \\
+
+Liquidity for fund providers
+& Through secondary-market trading
+& Through liquid bank liabilities, such as deposits \\
+
+Renegotiation
+& More difficult when claims are widely dispersed
+& Often easier within a continuing lending relationship \\
+
+Conditions favoring the channel
+& Large financing needs and greater public transparency
+& Greater opacity and stronger need for monitoring or renegotiation \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Hybrid and Platform-Based Financial Systems}
+
+Hybrid financial systems combine market-based and intermediary-based mechanisms within interconnected financing chains. Household savings may reach securities markets through investment funds, while bank-originated loans may be transferred to investors through securitization.
+
+Digital platforms can separate financial functions traditionally combined within a single intermediary. A lending platform may collect borrower data, verify applications, assess creditworthiness, standardize contracts, and service repayments, while the resulting claims may be retained by the platform, transferred to banks, or sold to institutional investors. When claims are transferred while servicing remains with the platform, information processing and loan servicing become separated from funding and risk bearing.
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title={Financial Perspective: Financial Functions and Institutional Forms},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+Institutional labels do not necessarily identify the
+economic functions an organization performs.
+A platform that arranges and services loans while
+transferring the resulting claims has different
+risk exposures from one that retains the loans.
+The relevant distinctions concern who provides
+funding, holds financial claims, exercises control,
+and bears losses.
+
+\end{tcolorbox}
+
+\begin{example}{China's Hybrid Financial Structure}
+{china-hybrid-financial-structure}
+
+China's financial system combines substantial bank
+intermediation with bond and equity markets.
+The People's Bank of China's Aggregate Financing
+to the Real Economy framework records financing
+through bank loans, corporate bonds, equity issuance,
+and other channels. Credit-asset securitization
+further connects banking and securities markets
+by allowing bank-originated loans to be transferred
+to structures that issue securities to investors.
+
+\end{example}
+
+\section{What Shapes Financial Structure?}
+
+\subsection{Legal Institutions and Investor Protection}
+
+Legal institutions influence financial structure through the protection and enforcement of financial claims. For creditors, bankruptcy procedures, priority rules, and collateral rights affect expected recovery. For outside shareholders, legal and governance protections can limit the diversion of corporate resources and protect their rights in corporate decision-making.
+
+These protections are particularly important in securities markets, where dispersed investors have limited scope for individual negotiation and monitoring. Standardized disclosure, investor rights, and effective enforcement can support financing through a broad investor base.
+
+Bank financing relies more heavily on borrower-specific contracts and concentrated monitoring, but also depends on enforceable creditor rights. Weak or uncertain enforcement can reduce expected recovery and restrict credit supply.
+
+Investor protection also influences ownership and control structures. Stronger protection of outside shareholders can support dispersed ownership, while weaker protection may encourage concentrated ownership and monitoring by large shareholders. Concentrated control, however, may also allow controlling shareholders to extract private benefits at the expense of minority investors.
+
+\subsection{Economic Development and Financial Deepening}
+
+Economic development can affect financial structure by increasing the demand for financial services and making a wider range of financial arrangements economically viable. Growth in income, wealth, and economic activity can expand the scale of financial activity. Larger transaction volumes can, in turn, spread the fixed costs of information production, financial infrastructure, and securities issuance over a broader base.
+
+Financial deepening refers to an increase in the scale and range of financial intermediation and market activity relative to the size of the economy. It can occur through the expansion of bank credit, securities markets, institutional investors, and financial infrastructure. These components can reinforce one another. Growth of institutional investors can increase demand for marketable securities, while well-developed government bond markets can provide benchmark yields for pricing other securities and collateral for financial transactions.
+
+\begin{figure}[htbp]
+\centering
+
+\begin{tikzpicture}[
+    >=Latex,
+    box/.style={
+        draw=FinanceBlue,
+        rounded corners=2pt,
+        align=center,
+        minimum height=1.05cm,
+        text width=2.8cm,
+        inner xsep=1pt,
+        inner ysep=4pt
+    },
+    arrow/.style={
+        -Latex,
+        line width=0.8pt
+    }
+]
+
+% Nodes
+\node[box] (development) at (0,0)
+{Economic development};
+
+\node[box] (demand) at (3.8,1.15)
+{Greater demand for\\financial services};
+
+\node[box] (volume) at (3.8,-1.15)
+{Larger transaction\\volumes};
+
+\node[box] (cost) at (7.1,-1.15)
+{Lower average\\fixed costs};
+
+\node[box] (deepening) at (10.6,0)
+{Financial deepening};
+
+% Arrows
+\draw[arrow] (development.east) -- ++(0.45,0) |- (demand.west);
+\draw[arrow] (development.east) -- ++(0.45,0) |- (volume.west);
+
+\draw[arrow] (demand.east) -| ([xshift=-0.45cm]deepening.west) -- (deepening.west);
+\draw[arrow] (volume.east) -- (cost.west);
+\draw[arrow] (cost.east) -| ([xshift=-0.45cm]deepening.west) -- (deepening.west);
+
+\end{tikzpicture}
+
+\caption{Economic development and financial deepening}
+\label{fig:ch4-financial-deepening}
+\end{figure}
+
+Economic development can support both financial intermediaries and securities markets. As financial systems deepen, the two can become increasingly interconnected through funding, investment, and liquidity relationships.
+
+Financial depth, however, is not equivalent to financial efficiency. An increase in credit, market capitalization, or financial assets does not by itself imply more efficient resource allocation. Credit may expand toward projects with low expected returns, leverage may increase financial fragility, and securities markets may grow without corresponding improvements in disclosure or enforcement. The economic value of financial deepening depends on whether the expansion of finance improves capital allocation, information production, risk sharing, liquidity, and access relative to the costs and vulnerabilities it introduces.
+
+\subsection{Technology and Financial Infrastructure}
+
+Technological advances can influence financial structure by reducing the costs of information processing and financial transactions. Digital information systems may lower screening and verification costs, while electronic trading systems can reduce securities transaction costs.
+
+These effects need not be symmetric across markets and intermediaries. When technology lowers the cost of standardizing and publicly verifying borrower information, market finance may become more feasible for borrowers that are difficult for dispersed investors to assess. By contrast, when proprietary transaction data improve screening and monitoring, banks or platforms with extensive data may gain a relative informational advantage.
+
+Financial infrastructure provides another channel through which technology influences financial structure. Markets and intermediaries depend on systems that record claims, transfer funds, exchange information, and settle transactions. The reliability and interoperability of these systems can affect the efficiency of different financing channels.
+
+
+\subsection{Regulation and Institutional Change}
+
+Regulation can affect financial structure by changing the costs and constraints associated with different financial arrangements. Capital, liquidity, disclosure, and investment rules can alter the conditions under which banks, securities issuers, and institutional investors operate, even when their primary objectives are prudential regulation or investor protection.
+
+Differences in regulatory treatment can affect how financial activities are organized. If regulation raises the cost of holding a particular credit exposure on a bank balance sheet, part of that activity may shift toward securities markets or nonbank intermediaries. The underlying function of credit provision may remain similar even as the institutional form changes. Such shifts can reallocate rather than eliminate risk, as market-based and nonbank arrangements may involve different combinations of leverage, funding structures, and liquidity risk.
+
+Regulation also interacts with financial innovation. New financing arrangements may prompt regulatory responses, which in turn influence their viability and organization.
+
+%========================================================
+% Summary
+%========================================================
+
+\TailModule{summary}{Summary}
+
+Financial structure concerns how financing, information production, monitoring, liquidity provision, and risk allocation are organized across markets and intermediaries. In direct finance, investors hold claims issued by the ultimate users of funds. In indirect finance, an intermediary holds claims on borrowers and issues its own financial claims to fund providers. Modern financial systems commonly combine both forms within interconnected financing chains.
+
+Market finance becomes more effective when information can be standardized and publicly evaluated and when financing scale spreads fixed issuance costs. Intermediaries can create value through specialization, economies of scale, private information production, and delegated monitoring. Delegation can reduce duplicated monitoring by dispersed investors but introduces an agency problem between fund providers and the intermediary.
+
+Intermediaries also transform the characteristics of financial claims. Pooling liquidity needs can support liquid liabilities backed by less liquid assets, while maturity transformation permits longer-term assets to be financed with shorter-term liabilities. Risk transformation operates through pooling and the allocation of losses across financial claims. These transformations provide financial services while also creating potential sources of fragility.
+
+The relative roles of markets and intermediaries depend on both the characteristics of financing and the broader economic and institutional environment. Legal protection and enforcement, economic development, technology, financial infrastructure, and regulation can alter the costs and feasibility of alternative financial arrangements. Financial structure evolves as markets, intermediaries, and hybrid arrangements adapt to changing economic and institutional conditions.
+
+%========================================================
+% Mind Map
+%========================================================
+
+\TailModule{mindmap}{Mind Map}
+
+\begin{figure}[H]
+\centering
+
+\begin{tikzpicture}[
+  >=Latex,
+  main/.style={
+    draw,
+    rounded corners,
+    minimum height=0.9cm,
+    align=center,
+    fill=gray!10,
+    inner xsep=5pt,
+    inner ysep=4pt
+  },
+  sub/.style={
+    draw,
+    rounded corners,
+    minimum height=0.85cm,
+    align=center,
+    inner xsep=4pt,
+    inner ysep=4pt
+  },
+  flow/.style={
+    -Latex,
+    line width=0.75pt
+  }
+]
+
+% Top
+\node[main, text width=3.4cm] (functions) at (0,4.2)
+{Financial functions};
+
+% Organizational forms
+\node[sub, text width=3.2cm] (markets) at (-5.0,2.2)
+{Markets and\\direct finance};
+
+\node[sub, text width=3.2cm] (inter) at (0,2.2)
+{Intermediaries and\\indirect finance};
+
+\node[sub, text width=3.2cm] (hybrid) at (5.0,2.2)
+{Hybrid financing\\arrangements};
+
+% Mechanisms
+\node[sub, text width=3.5cm] (marketmech) at (-5.0,0)
+{Public information\\and tradability};
+
+\node[sub, text width=3.8cm] (intermech) at (0,0)
+{Information, monitoring,\\and transformation};
+
+\node[sub, text width=3.8cm] (hybridmech) at (5.0,0)
+{Functions shared across\\markets and intermediaries};
+
+% Financial structure
+\node[main, text width=3.4cm] (structure) at (0,-2.2)
+{Financial structure};
+
+% Environment
+\node[sub, text width=5.2cm] (environment) at (0,-4.2)
+{Law, development, technology,\\infrastructure, and regulation};
+
+% Arrows
+\draw[flow] (functions) -- (markets);
+\draw[flow] (functions) -- (inter);
+\draw[flow] (functions) -- (hybrid);
+
+\draw[flow] (markets) -- (marketmech);
+\draw[flow] (inter) -- (intermech);
+\draw[flow] (hybrid) -- (hybridmech);
+
+\draw[flow] (marketmech) -- (structure);
+\draw[flow] (intermech) -- (structure);
+\draw[flow] (hybridmech) -- (structure);
+
+\draw[flow] (environment) -- (structure);
+
+\end{tikzpicture}
+
+\caption*{From financial functions to financial structure}
+\end{figure}
+
+%========================================================
+% Key Terms
+%========================================================
+
+\TailModule{keyterms}{Key Terms}
+
+Direct finance; indirect finance; financial intermediary; financing chain; hybrid financial system; economies of scale; delegated monitoring; relationship lending; liquidity pooling; liquidity transformation; maturity transformation; risk transformation; financial structure; market-based financial system; bank-based financial system; financial deepening; investor protection; financial infrastructure; platform-based finance; non-bank financial intermediation
+
+%========================================================
+% Financial AI Lab
+%========================================================
+
+\TailModule{aiprompt}{Financial AI Lab}
+
+\textbf{Lab: Reconstruct the Financing Chain}
+
+Choose a contemporary financing arrangement, such as a digital lending platform, private credit fund, securitization vehicle, crowdfunding platform, or online wealth-management product. Ask an AI system to classify the arrangement as direct or indirect finance, and treat its initial classification as provisional.
+
+Reconstruct the full financing chain. Identify the ultimate supplier and user of funds, the financial claims created at each stage, and the party that holds each claim. Then determine who performs screening and monitoring, who provides liquidity, and who ultimately bears credit losses.
+
+Compare your reconstruction with the AI classification. If market and intermediary functions are combined within the same financing chain, explain why a simple direct--indirect classification may be insufficient. Verify the institutional structure and allocation of risk using primary documents from the relevant financial institution, regulator, exchange, or platform.
+
+%========================================================
+% Discussion Questions
+%========================================================
+
+\TailModule{questions}{Discussion Questions}
+
+\begin{enumerate}
+
+\item Why does the involvement of an investment bank in a corporate bond issue not necessarily make the transaction indirect finance?
+
+\item Explain the delegated-monitoring argument for financial intermediation. How can delegation reduce duplicated monitoring while creating a new agency problem?
+
+\item How does an increase in the number of depositors reduce the relative uncertainty of aggregate liquidity needs when individual liquidity needs are not perfectly correlated?
+
+\item Why is the distinction between market-based and bank-based financial systems better understood as a matter of degree rather than a binary classification?
+
+\item How can the same technological change affect securities markets and financial intermediaries differently?
+
+\end{enumerate}
+
+%========================================================
+% Data Application
+%========================================================
+
+\TailModule{dataapp}{Data Application}
+
+\textbf{Financial Structure in China and International Comparison}
+
+Use the IMF Financial Development Index database to compare the Financial Institutions Index and the Financial Markets Index for China and at least three other economies over a common period. Choose economies with meaningfully different financial structures and examine whether financial development has occurred primarily through institutions, markets, or both. Interpret the indices as measures of different dimensions of financial development rather than as rankings of superior and inferior financial systems.
+
+For China, use the People's Bank of China's Aggregate Financing to the Real Economy statistics to examine the composition of financing. Compare RMB loans with selected direct-financing categories, such as corporate bonds and domestic equity financing by non-financial corporations. Explain why financing flows measured by AFRE and the IMF indices capture different dimensions of financial structure.
+
+Use the evidence to evaluate one proposition from this chapter, such as the continuing importance of bank intermediation, the development of market-based finance, or the coexistence of both channels. Report the indicator definitions, sample period, economies selected, and primary data sources.
+
+%========================================================
+% Further Reading
+%========================================================
+
+\TailModule{furtherread}{Further Reading}
+
+\begin{itemize}
+
+\item Diamond, Douglas W. (1984), ``Financial Intermediation and Delegated Monitoring,'' 
+\emph{The Review of Economic Studies}, 51(3), 393--414.
+
+\item Allen, Franklin, and Douglas Gale (2000), 
+\emph{Comparing Financial Systems}, MIT Press.
+
+\item Levine, Ross (2002), ``Bank-Based or Market-Based Financial Systems: Which Is Better?'' 
+\emph{Journal of Financial Intermediation}, 11(4), 398--428.
+
+\item Beck, Thorsten, Asli Demirg\"{u}\c{c}-Kunt, and Ross Levine (2003), 
+``Law and Finance: Why Does Legal Origin Matter?'' 
+\emph{Journal of Comparative Economics}, 31(4), 653--675.
+
+\item Svirydzenka, Katsiaryna (2016), 
+``Introducing a New Broad-based Index of Financial Development,'' 
+IMF Working Paper No.~16/5.
+
+\end{itemize}
+
+\ChapterTail{summary,mindmap,keyterms,aiprompt,questions,dataapp,furtherread}
