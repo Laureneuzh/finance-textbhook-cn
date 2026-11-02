@@ -1,0 +1,1157 @@
+\chapter{利率与资本配置}
+\label{chap:Interest_Rates_and_Capital_Allocation}
+
+\begin{openingcase}{哪一种利率才是相关利率？}
+
+一家企业正在考虑一项为期一年的投资，今天需要投入人民币~1000~万元，预计一年后产生~1060~万元收入。初看之下，决策似乎很简单：将项目~6\%~的预期回报率与“利率”进行比较。
+
+但应当使用哪一种利率？
+
+银行可能报出一种借款利率，而同期限政府证券提供另一种利率。利率还可能随期限、通胀预期、信用风险和流动性而变化。因而，并不存在适用于所有金融决策的单一市场利率。
+
+同一个项目，在一种必要报酬率下可能具有吸引力，在另一种必要报酬率下却可能不值得投资。理解市场利率为何不同，以及这些差异如何影响融资和投资决策，是理解金融市场如何配置资本的关键。
+
+\end{openingcase}
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=FinanceBlue!6,
+  colframe=FinanceBlue,
+  boxrule=0.6pt,
+  sharp corners,
+  left=8pt,
+  right=8pt,
+  top=7pt,
+  bottom=7pt,
+  before skip=1em,
+  after skip=1.6em,
+  title=\textbf{核心问题},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  attach boxed title to top left={xshift=6pt,yshift=-2mm},
+  boxed title style={
+    boxrule=0pt,
+    sharp corners,
+    left=5pt,
+    right=5pt,
+    top=2pt,
+    bottom=2pt
+  }
+]
+\begin{enumerate}[
+  leftmargin=*,
+  label=\textcolor{FinanceBlue}{\textbf{\arabic*.}},
+  itemsep=0.55em,
+  topsep=0.2em
+]
+
+\item 为什么利率是跨期交换的价格，而不仅仅是借款成本？
+
+\item 为什么不同期限、借款人和金融工具的利率存在差异？
+
+\item 利率如何影响储蓄、借款、投资和资本配置？
+
+\end{enumerate}
+\end{tcolorbox}
+
+\section{利率作为跨期交换的价格}
+
+利率是当期购买力与未来购买力交换的价格。它决定推迟使用资金所获得的回报，以及在未来收入实现之前取得资金的成本。
+
+\subsection{跨期选择与资金机会成本}
+
+对于一期投资，今天的一单位购买力在下一期增长为~\(1+r\)。等价地，下一期收到一单位购买力的现值为
+
+\[
+PV_0=\frac{1}{1+r}.
+\]
+
+这一关系从未来回报和现值两个角度表达了同一种跨期价格。
+
+储蓄、借款和投资决策都需要比较资金的不同用途或来源。储蓄者考虑推迟消费所能获得的回报，借款人评估不同融资安排的成本，投资者则将项目预期回报与其他可行投资的回报进行比较。相关机会成本取决于可获得的最佳替代选择，同时需要考虑风险、期限和流动性。
+
+假设投资者购买一种一年期证券可获得~4\%~的回报率，其风险与拟投资项目相当。如果该项目的预期回报率仅为~3\%，那么在风险和期限相当的情况下，替代证券提供了更高的回报。
+
+这一机会成本原则将市场利率与资本配置直接联系起来。设某项目今天需要投资~$I_0$，一期后产生确定的支付~$CF_1$。如果资金机会成本为~$r$，则项目在满足下式时创造价值：
+
+\begin{equation*}
+\frac{CF_1}{1+r}>I_0.
+\label{eq:ch6-one-period-investment-condition}
+\end{equation*}
+
+等价地，
+
+\begin{equation*}
+\frac{CF_1-I_0}{I_0}>r.
+\label{eq:ch6-return-hurdle-simple}
+\end{equation*}
+
+相关机会成本是风险和期限相近的可比替代投资的回报率。风险或期限的差异相应意味着必要报酬率的差异。
+
+在实际市场中，借入与贷出资金的利率可能不同，不同借款人面临的信用利差也可能不同。这些差异影响市场参与者面临的机会成本。
+
+\begin{example}{机会成本与一年期投资}{opportunity-cost-one-year-investment}
+
+假设一家企业可以将人民币~1000~万元投入一年期项目，确定获得~1050~万元，项目回报率为~5\%。
+
+如果相关机会成本为~3\%，支付的现值为
+
+$$
+PV=\frac{10.5}{1.03}=10.19
+$$
+百万元，项目的净现值为正。如果机会成本升至~6\%，
+
+$$
+PV=\frac{10.5}{1.06}=9.91
+$$
+百万元，项目的净现值为负。
+
+现金流没有变化；机会成本提高改变了投资决策。
+
+\end{example}
+
+\subsection{利率报价、复利与有效利率}
+
+利率描述购买力的跨期交换，但给定期限内积累的金额取决于利息的计算方式。金融市场的报价规定利率适用的期间及相应的复利计息惯例。
+
+设~$r$~表示每期利率。将~$P_0$~投资一期，其终值为
+
+\begin{equation}
+P_1=P_0(1+r).
+\label{eq:ch6-one-period-growth}
+\end{equation}
+
+如果投资持续~$T$~期，每期复利计息一次，则
+
+\begin{equation}
+P_T=P_0(1+r)^T.
+\label{eq:ch6-compound-growth}
+\end{equation}
+
+在复利计息下，每期利息计入本金，并在以后各期继续产生利息。相比之下，单利仅以初始本金计算利息：
+
+\begin{equation}
+P_T=P_0(1+rT).
+\label{eq:ch6-simple-interest}
+\end{equation}
+
+当利率为正时，单利与复利之间的差距随投资期限延长而扩大。例如，将人民币~100~元按~5\%~的利率投资三年，单利计息下增长为
+
+$$
+100(1+0.05\times 3)=115
+$$
+（单利计息）；按年复利计息则增长为
+
+$$
+100(1.05)^3=115.76
+$$
+因此，复利计息惯例影响利率报价所代表的有效回报率。
+
+\paragraph{名义年利率与复利计息频率。}
+
+许多市场利率以年率报价，即使实际复利计息频率高于每年一次。设~$j$~为每年复利计息~$m$~次的名义年利率，则每期利率为
+
+\begin{equation}
+r=\frac{j}{m}.
+\end{equation}
+
+相应的有效年利率记为~$EAR$，其表达式为
+
+\begin{equation}
+EAR=
+\left(1+\frac{j}{m}\right)^m-1.
+\label{eq:ch6-ear}
+\end{equation}
+
+有效年利率衡量名义年利率及其复利计息频率所隐含的一年期回报率。在名义年利率给定时，复利计息越频繁，有效年利率越高，如表~\ref{tab:ch6-compounding-frequency}~所示。
+
+\begin{table}[H]
+\centering
+\caption{名义年利率为~6\%~时不同复利计息频率的比较}
+\label{tab:ch6-compounding-frequency}
+
+\begin{tabular}{@{}l c c@{}}
+\toprule
+\textbf{复利计息方式} & \textbf{每年计息期数} & \textbf{有效年利率} \\
+\midrule
+每年 & 1 & 6.000\% \\
+每半年 & 2 & 6.090\% \\
+每季度 & 4 & 6.136\% \\
+每月 & 12 & 6.168\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+有效年利率为比较不同复利计息频率下的报价提供了统一基础。
+\paragraph{连续复利。}
+
+随着复利计息频率增加，离散复利逐渐趋近连续复利。设~$r_c$~为连续复利年利率，在~$T$~年内，
+
+\begin{equation}
+P_T=P_0 e^{r_c T}.
+\label{eq:ch6-continuous-compounding}
+\end{equation}
+
+连续复利利率与有效年利率的关系为
+
+\begin{equation}
+EAR=e^{r_c}-1,
+\label{eq:ch6-continuous-to-ear}
+\end{equation}
+等价地，
+
+\begin{equation}
+r_c=\ln(1+EAR).
+\label{eq:ch6-ear-to-continuous}
+\end{equation}
+
+连续复利便于比较不同期限的利率，广泛用于金融建模。
+
+\paragraph{不足一年的期间利率。}
+
+利率也可能需要表示为不足一年的期间利率。如果~$EAR$~为有效年利率，则一年中~$\tau$~这一时间比例对应的复利利率为
+
+\begin{equation}
+r_{\tau}=(1+EAR)^{\tau}-1.
+\label{eq:ch6-fractional-period-rate}
+\end{equation}
+
+这一换算假定不足一年的期间也采用复利计息。实践中，一些市场采用不同的报价与日计数惯例，货币市场工具尤其如此。
+
+\begin{tcolorbox}[
+enhanced,
+breakable,
+colback=white,
+colframe=FinanceBlue,
+boxrule=0.7pt,
+sharp corners,
+borderline west={2.2pt}{0pt}{FinanceBlue},
+title=\textbf{金融视角：在可比基础上比较},
+coltitle=white,
+colbacktitle=FinanceBlue,
+fonttitle=\bfseries,
+before skip=1.2em,
+after skip=1.2em
+]
+
+比较利率之前，应将其换算到统一基础。期限、复利计息频率、日计数惯例，以及名义报价与有效报价的差异，都可能使相同的报价百分比对应不同的有效回报率。
+
+\end{tcolorbox}
+
+\subsection{名义利率与实际利率}
+
+名义利率以货币金额衡量资金回报，实际利率则以购买力衡量回报。当价格水平变化时，两者便出现区别：部分名义回报可能仅反映价格上涨，而非未来金额所能购买的商品和服务数量增加。
+
+假设一单位货币在一年后增长为~$1+i$，其中~$i$~为名义利率。如果同期价格水平上涨~$\pi$，则相对于今天的价格水平，未来金额的购买力增长为
+
+\begin{equation}
+1+r
+=
+\frac{1+i}{1+\pi},
+\label{eq:ch6-fisher-exact}
+\end{equation}
+其中，$r$~为已实现实际利率。
+
+整理这一关系，可得精确的费雪方程：
+
+\begin{equation}
+i=r+\pi+r\pi.
+\label{eq:ch6-fisher-expanded}
+\end{equation}
+
+当~$r$~和~$\pi$~不大时，交叉乘积项~$r\pi$~相对于一次项较小，从而得到近似式
+
+\begin{equation}
+i\approx r+\pi.
+\label{eq:ch6-fisher-approx}
+\end{equation}
+
+在通胀尚未实现时作决策，相关的是预期通胀，而非已实现通胀。如果~$\pi^e$~表示预期通胀率，$r^e$~表示预期实际利率，则近似的费雪关系为
+
+\begin{equation}
+i\approx r^e+\pi^e.
+\label{eq:ch6-fisher-expected}
+\end{equation}
+
+预期通胀与已实现通胀的差异，会使固定名义请求权的已实现实际回报偏离预期实际回报。假设贷款人发放一年期固定利率贷款，名义利率为~6\%，当时预期通胀率为~2\%，则预期实际回报率约为~4\%。如果最终实现的通胀率为~5\%，已实现实际回报率就降至约~1\%。
+
+在固定名义契约下，非预期通胀由此在借款人与贷款人之间重新分配购买力。通胀高于预期会降低贷款人的已实现实际回报，并使借款人相对于原有条款受益；通胀低于预期则产生相反效果。
+
+名义利率与实际利率服务于不同的分析目的。金融契约通常采用名义金额表述：借款人支付名义金额，债券承诺名义票息，政策利率也以名义利率报价。实际利率则以购买力衡量回报与融资成本，尤其适用于从实际量角度评估储蓄、投资及资本配置决策。名义利率与预期通胀的关系，将名义金融契约与其实际经济影响联系起来。
+
+\section{利率的决定因素}
+
+利率是受多种相互作用力量影响的市场价格。这些力量包括资金供求、通胀预期、货币与流动性条件，以及风险和期限差异。它们的相对重要性因市场、工具和期限而异。
+
+\subsection{储蓄、投资与资金需求}
+
+一个简单的分析起点，是将利率视为平衡资金供给与资金需求的价格。储蓄者通过推迟当期支出提供资金，借款人则寻求资金，用于投资和其他支出。
+
+设资金供给为
+
+\begin{equation}
+S=S(r),
+\qquad
+S'(r)>0,
+\label{eq:ch6-saving-supply}
+\end{equation}
+资金需求为
+
+\begin{equation}
+D=D(r),
+\qquad
+D'(r)<0.
+\label{eq:ch6-investment-demand}
+\end{equation}
+
+均衡利率~$r^{*}$~满足
+
+\begin{equation}
+S(r^{*})=D(r^{*}).
+\label{eq:ch6-funds-equilibrium}
+\end{equation}
+
+向上倾斜的供给曲线反映：利率提高通常使推迟当期支出更具吸引力。向下倾斜的需求曲线反映：利率提高通常会减少预期回报超过资金成本的投资机会。
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  >=Latex,
+  axis/.style={-Latex, line width=0.8pt},
+  curve/.style={line width=1.0pt},
+  guide/.style={dashed, gray, line width=0.6pt}
+]
+
+\draw[axis] (0,0) -- (7.2,0) node[right] {资金数量};
+\draw[axis] (0,0) -- (0,5.5) node[above] {利率};
+
+\draw[curve, FinanceBlue] (1.0,1.0) -- (6.2,4.5);
+\draw[curve] (1.0,4.6) -- (6.2,1.1);
+
+\node[FinanceBlue, right] at (6.2,4.5) {$S(r)$};
+\node[right] at (6.2,1.1) {$D(r)$};
+
+\coordinate (E) at (3.674,2.80);
+\fill (E) circle (2pt);
+\node[above, yshift=3pt] at (E) {$E$};
+
+\draw[guide] (E) -- (0,2.80) node[left] {$r^{*}$};
+\draw[guide] (E) -- (3.674,0) node[below] {$F^{*}$};
+
+\end{tikzpicture}
+\caption{简化的资金市场}
+\label{fig:ch6-funds-market}
+\end{figure}
+
+该模型为比较静态分析提供了简单框架。预期生产率提高或其他有利可图的投资机会增加，会使资金需求曲线向右移动。在其他条件不变时，均衡利率与资金数量均上升。各利率水平下储蓄意愿增强，会使资金供给曲线向右移动，降低均衡利率，并增加均衡资金数量。
+
+这些结果描述的是简化模型中的比较静态关系，并非市场利率的完整理论。实际金融体系中的融资条件还反映货币政策、银行资产负债表、资本流动和制度约束。资金供给不应被理解为可供放贷的、事先形成的固定储蓄存量。这一框架仅以简单模型说明资金供求变动如何影响利率与融资规模。
+
+\subsection{通胀预期与货币条件}
+
+预期通胀通过改变维持购买力所需的名义回报，影响名义利率。费雪关系表明，在预期实际利率给定时，预期通胀越高，对应的名义利率越高。
+
+这种变化未必一比一发生。预期实际利率也可能变化，风险溢价可能调整，货币政策也可能对通胀预期作出反应。费雪关系识别的是名义利率的一项组成因素，并不能完整解释观察到的利率变动。
+
+货币条件对短期名义利率尤其重要。中央银行通常通过政策利率，以及准备金和短期融资的供给条件，影响短期市场利率。政策立场变化还可能通过对未来短期利率、通胀、经济活动和风险溢价的预期，影响较长期利率。
+
+政策利率降低可能减少短期融资成本。如果市场预期较低的政策利率将持续，较长期收益率也可能下降。不过，如果通胀预期上升，长期名义收益率的降幅可能较小，甚至可能上升。即使政策利率下降，风险溢价或流动性溢价扩大，也可能提高部分私人部门借款人的借款成本。
+
+\subsection{风险结构与利差}
+
+在其他方面可比、期限相同的工具之间，利率差异构成利率的风险结构。信用风险与市场流动性是这些差异的主要决定因素，契约、税收和制度因素也会影响必要报酬率。
+
+\paragraph{信用风险。}
+
+信用风险来自承诺支付可能无法足额或按时履行。预期信用损失越大，或者偿还的不确定性越高，投资者要求的回报通常就越高。在债务市场中，相对于可比低风险基准的利率差额，通常称为信用利差。
+
+\begin{example}{信用风险与必要报酬率} {credit-risk-required-return}
+
+假设一种一年期低风险政府证券的回报率为~3\%，另一种其他特征可比的一年期企业债务工具，其必要报酬率为~5.5\%。两者之差为
+
+\[
+5.5\%-3.0\%=2.5\%
+\]
+该差额代表企业债务工具相对于基准的信用利差。
+
+较高的必要报酬率反映企业承诺支付可能无法足额或按时履行。利差未必等于预期信用损失，因为投资者还可能要求对偿还不确定性给予补偿。
+
+\end{example}
+
+风险补偿不仅取决于预期损失，还取决于损失发生的状态。两种一年期工具可能具有相同的预期支付，但损失集中的状态不同。一种工具若主要在衰退期提供较低支付，那么在投资者收入及其他资产价值也可能较低时，它提供的保护就较少。相较于主要在经济景气时支付较低的工具，投资者可能要求更高的补偿。
+
+其他风险只要改变预期现金流、偿还风险，或投资者对不利状态的风险暴露，也可能影响必要报酬率。
+
+\begin{table}[htbp]
+\centering
+\caption{影响可比工具必要报酬率的因素}
+\label{tab:ch6-rate-differences}
+
+\begin{tabularx}{\textwidth}{@{}p{3.2cm}Y Y@{}}
+\toprule
+\textbf{因素} &
+\textbf{经济原因} &
+\textbf{对必要报酬率的影响} \\
+\midrule
+
+信用风险 & 承诺支付可能延迟、减少或无法足额履行 & 预期信用损失及承担违约风险所需的补偿可能提高必要报酬率 \\
+
+不利状态下的风险暴露 & 当投资者收入及其他资产价值较低时，支付也可能较低 & 此类风险暴露在不利条件下提供的保护较少，可能提高必要补偿 \\
+
+市场流动性 & 若不作较大价格让步，工具可能难以迅速出售 & 较低的流动性可能提高必要报酬率 \\
+
+契约特征 & 嵌入式期权及其他条款改变未来现金流的时点与分布 & 对必要报酬率的影响取决于这些特征如何改变各方支付与风险 \\
+
+税收与制度待遇 & 税收规则、抵押品资格和监管约束可能影响持有工具的净收益 & 税后回报和制度性收益的差异可能导致必要报酬率不同 \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\paragraph{市场流动性。}
+
+市场流动性影响金融工具在不作较大价格让步的情况下出售的难易程度。投资者通常重视较高的流动性，而流动性较低的工具可能需要提供高于其他方面可比工具的回报。
+
+金融压力时期，流动性可能恶化。交易商可能减少库存，融资条件可能收紧，买方可能要求更大的价格让步。即使预期信用损失变化不大，流动性恶化也可能扩大利差。
+
+\paragraph{基准利率与利差。}
+
+市场利率常与基准利率比较，后者为期限相近的工具提供参照。某种工具利率与基准利率之差称为其利差。对于期限为~$T$~的工具~$i$，
+
+\begin{equation}
+r_{i,T}=r_{b,T}+s_{i,T},
+\label{eq:ch6-benchmark-spread}
+\end{equation}
+其中，$r_{b,T}$~为期限~$T$~的基准利率，$s_{i,T}$~为工具~$i$~相对于该基准的利差。该工具利率的变化可写为
+
+\begin{equation}
+\Delta r_{i,T}=\Delta r_{b,T}+\Delta s_{i,T}.
+\label{eq:ch6-benchmark-spread-change}
+\end{equation}
+
+如果许多同期限工具的利率共同变动，基准利率变化可能解释其中相当一部分。货币条件和通胀预期可能促成此类共同变化。如果基准利率变化不大，而特定工具利率上升，利差扩大可能反映信用风险增加、市场流动性下降，或其他工具特有因素。
+
+观察到的利差不能揭示单一的深层原因。信用条件、市场流动性、契约特征、税收待遇、监管和投资者需求，都可能影响相对于基准利率的利差。
+
+图~\ref{fig:ch6-china-10y-yields}~使用中国债券市场的十年期收益率说明这些模式。各序列期限相同，共同变动可能反映整体市场条件的变化，而收益率水平差异可能反映信用风险、流动性及其他工具特有特征。
+
+\begin{figure}[H]
+\centering
+
+\IfFileExists{ChinaBond_10Y_Yields_2016_2026.pdf}{\includegraphics[width=0.9\textwidth]{ChinaBond_10Y_Yields_2016_2026.pdf}}{\fbox{\parbox[c][32mm][c]{0.85\textwidth}{\centering 原稿外部图文件尚未提供\\[4pt]\small\texttt{\detokenize{ChinaBond_10Y_Yields_2016_2026.pdf}}}}}
+
+\caption{不同债券类别的中债十年期收益率，2016--2026~年}
+\label{fig:ch6-china-10y-yields}
+
+\vspace{0.15em}
+
+\begin{minipage}{0.9\textwidth}
+\footnotesize
+\noindent\textit{资料来源：中央国债登记结算有限责任公司（中债）。}
+\end{minipage}
+
+\end{figure}
+
+跨期限比较引入了利率差异的另一个维度，即利率的期限结构。
+
+\section{利率期限结构}
+
+利率期限结构描述其他方面可比的工具，其利率与期限之间的关系。其图形表示为收益率曲线。
+
+\subsection{即期利率、远期利率与收益率曲线}
+
+即期利率是当前适用于某项零息请求权的年化利率，该请求权仅在特定未来日期支付一次。远期利率是当前隐含的、适用于未来某一期间借入或贷出资金的利率。
+
+设~$s_t$~表示无违约零息请求权的年化~$t$~期即期利率。按年复利计息时，$t$~时点支付一单位的现值为
+
+\begin{equation}
+P(0,t)=\frac{1}{(1+s_t)^t}.
+\label{eq:ch6-spot-discount-factor}
+\end{equation}
+
+例如，假设一年期即期利率为~3\%，两年期即期利率为~4\%，相应的贴现因子为
+
+\[
+P(0,1)=\frac{1}{1.03},
+\qquad
+P(0,2)=\frac{1}{(1.04)^2}.
+\]
+
+为推导从今天起一年后开始的一年期远期利率，记该利率为~$f_{1,2}$。在无套利条件下，按两年期即期利率投资两年，与先按一年期即期利率投资一年、再按事先锁定的远期利率投资一年，应产生相同终值。因此，
+
+\begin{equation}
+(1+s_2)^2
+=
+(1+s_1)(1+f_{1,2}),
+\label{eq:ch6-forward-from-spot}
+\end{equation}
+其中，$s_1$~和~$s_2$~分别为一年期和两年期即期利率。因此，
+
+\begin{equation}
+f_{1,2}
+=
+\frac{(1+s_2)^2}{1+s_1}-1.
+\label{eq:ch6-forward-rate}
+\end{equation}
+
+代入例中的利率，得到隐含远期利率约为~5.01\%。远期利率并非两种即期利率的算术差。
+
+更一般地，设~$s_m$~和~$s_n$~分别表示~$m$~年期和~$n$~年期即期利率，$f_{m,n}$~表示第~$m$~年至第~$n$~年的年化远期利率，其中~$n>m$。按年复利计息时，
+
+\begin{equation}
+f_{m,n}
+=
+\left[
+\frac{(1+s_n)^n}{(1+s_m)^m}
+\right]^{\frac{1}{n-m}}
+-1.
+\label{eq:ch6-general-forward-rate}
+\end{equation}
+
+将零息即期利率与其期限绘制在图中，可得即期利率曲线，即由零息利率构成的收益率曲线。在更广泛的市场用法中，收益率曲线表示可比债务证券的收益率与期限之间的关系。附息债券的到期收益率未必等于即期利率。
+
+\begin{example}{构造即期利率曲线}
+{spot-rate-curve}
+
+假设一年、两年、三年、五年和十年期的年化即期利率如下：
+
+\begin{center}
+\begin{tabular}{lccccc}
+\toprule
+\textbf{期限（年）} & 1 & 2 & 3 & 5 & 10 \\
+\midrule
+\textbf{即期利率（\%）} & 3.00 & 4.00 & 4.40 & 4.70 & 4.90 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+将这些利率与期限对应绘图，可得下图所示的即期利率曲线。
+
+\begin{center}
+\begin{tikzpicture}
+
+\begin{axis}[
+    width=0.88\linewidth,
+    height=5.2cm,
+    xmin=0,
+    xmax=10.5,
+    ymin=2.0,
+    ymax=5.2,
+    xtick={1,2,3,5,10},
+    ytick={2.5,3.0,3.5,4.0,4.5,5.0},
+    xlabel={剩余期限~$T$（年）},
+    ylabel={即期利率~$s_T$（\%）},
+    axis lines=box,
+    tick align=outside,
+    enlargelimits=false,
+    grid=none,
+]
+
+\addplot[
+    FinanceBlue,
+    thick,
+    smooth,
+    mark=*,
+    mark size=1.8pt
+]
+coordinates {
+    (1,3.00)
+    (2,4.00)
+    (3,4.40)
+    (5,4.70)
+    (10,4.90)
+};
+
+\end{axis}
+
+\end{tikzpicture}
+\end{center}
+\end{example}
+
+\begin{figure}[H]
+\centering
+
+\IfFileExists{China_Government_Yield_Curves_Typical.pdf}{\includegraphics[width=1.0\textwidth]{China_Government_Yield_Curves_Typical.pdf}}{\fbox{\parbox[c][32mm][c]{0.85\textwidth}{\centering 原稿外部图文件尚未提供\\[4pt]\small\texttt{\detokenize{China_Government_Yield_Curves_Typical.pdf}}}}}
+
+\caption{中国国债收益率曲线示例}
+\label{fig:ch6-china-gov-yield-curves}
+
+\vspace{0.15em}
+\begin{minipage}{1.0\textwidth}
+\footnotesize
+\noindent\textit{资料来源：中央国债登记结算有限责任公司（中债）；作者计算。}
+\end{minipage}
+
+\end{figure}
+
+即期利率曲线可能向上倾斜、近似水平、倒挂，或呈现更复杂的形态。市场收益率曲线也有类似形态。图~\ref{fig:ch6-china-gov-yield-curves}~列示了中国国债市场的若干例子。
+
+传统期限结构理论通过未来短期利率预期、不同期限市场之间的分割，以及投资者偏好的期限区间，解释这些形态。现代期限结构分析通常将较长期利率分解为预期短期利率路径与时变期限溢价。
+
+\subsection{预期假说}
+纯预期假说认为，在投资者的投资组合中，不同期限债券是完全替代品。投资者依据预期回报选择期限，不要求为持有较长期债券获得额外期限溢价。 
+
+考虑两年投资期限，今天投入一单位资金。投资者可以采用两种策略。第一种是按当前两年期即期利率~$s_2$~投资两年；第二种是按当前一年期即期利率~$s_1$~投资一年，再按届时的一年期短期利率投资第二年。设~$\widetilde{r}_{1,2}$~表示第~1~年至第~2~年之间届时适用的一年期短期利率。在时点~0，该利率尚未确定，其当前预期为~$\mathrm{E}_0[\widetilde{r}_{1,2}]$。
+
+\begin{figure}[H]
+\centering
+
+\begin{tikzpicture}[
+    >=Latex,
+    timeline/.style={line width=0.8pt},
+    lab/.style={font=\small}
+]
+
+% 策略~A
+\node[lab, anchor=east] at (-0.3,2.2) {策略~A};
+
+\draw[timeline,->] (0,2.2) -- (7,2.2);
+
+\foreach \x/\t in {0/0,3.5/1,7/2} {
+    \fill (\x,2.2) circle (1.5pt);
+    \node[lab, below=3pt] at (\x,2.2) {$t=\t$};
+}
+
+\node[lab, above=5pt] at (3.5,2.4)
+    {按~$s_2$~投资两年};
+
+\node[lab, above=5pt, anchor=east] at (7,2.25)
+    {$(1+s_2)^2$};
+
+% 策略~B
+\node[lab, anchor=east] at (-0.3,-0.0) {策略~B};
+
+\draw[timeline,->] (0,-0.0) -- (7,-0.0);
+
+\foreach \x/\t in {0/0,3.5/1,7/2} {
+    \fill (\x,-0.0) circle (1.5pt);
+    \node[lab, below=3pt] at (\x,-0.0) {$t=\t$};
+}
+
+\node[lab, above=5pt] at (1.75,0.2)
+    {按~$s_1$~投资};
+
+\node[lab, above=5pt] at (5.25,0.2)
+    {按~$\widetilde{r}_{1,2}$~再投资};
+
+\node[lab, above=5pt, anchor=east] at (7,0.15)
+    {$(1+s_1)(1+\widetilde{r}_{1,2})$};
+
+\end{tikzpicture}
+
+\caption{两年期限内的两种投资策略}
+\label{fig:ch6-expectations-strategies}
+\end{figure}
+
+图~\ref{fig:ch6-expectations-strategies}~比较了两年期限内的两种策略，其终值分别为~$(1+s_2)^2$~和~$(1+s_1)(1+\widetilde{r}_{1,2})$。在纯预期假说下，不同期限债券是完全替代品。投资者因而对两种策略无差异，它们在相同投资期限内应提供相等的预期回报：
+
+\begin{equation}
+(1+s_2)^2=(1+s_1)
+\left(1+\mathrm{E}_0[\widetilde{r}_{1,2}]\right).
+\label{eq:ch6-expectations-gross}
+\end{equation}
+
+展开式~(\ref{eq:ch6-expectations-gross})，可得
+
+\[
+1+2s_2+s_2^2
+=
+1+s_1+\mathrm{E}_0[\widetilde{r}_{1,2}]
++s_1\mathrm{E}_0[\widetilde{r}_{1,2}].
+\]
+
+当利率不大时，二阶项较小。忽略这些项，可得
+
+\begin{equation}
+s_2
+\approx
+\frac{s_1+\mathrm{E}_0[\widetilde{r}_{1,2}]}{2}.
+\label{eq:ch6-expectations-two-year}
+\end{equation}
+
+两年期即期利率近似等于当前一年期即期利率与第~1~年至第~2~年之间预期一年期短期利率的平均值。
+
+这一假说也赋予远期利率一种解释。将式~(\ref{eq:ch6-expectations-gross})~与前面推导的远期利率关系结合，可得
+
+\begin{equation}
+f_{1,2}
+=
+\mathrm{E}_0[\widetilde{r}_{1,2}].
+\label{eq:ch6-forward-expectation}
+\end{equation}
+
+在预期假说下，远期利率等于预期未来短期利率。
+
+同样的推理可扩展至更长期限。$n$~年期即期利率与一系列一年期远期利率之间的关系为
+
+\begin{equation}
+(1+s_n)^n
+=
+(1+s_1)
+\prod_{j=1}^{n-1}
+(1+f_{j,j+1}).
+\label{eq:ch6-spot-forward-general}
+\end{equation}
+
+利用
+\[
+f_{j,j+1}
+=
+\mathrm{E}_0[\widetilde{r}_{j,j+1}],
+\]
+上述关系变为
+
+\begin{equation}
+(1+s_n)^n
+=
+(1+s_1)
+\prod_{j=1}^{n-1}
+\left(1+\mathrm{E}_0[r_{j,j+1}]\right).
+\label{eq:ch6-expectations-general-gross}
+\end{equation}
+
+当利率不大时，一阶近似给出
+
+\begin{equation}
+s_n
+\approx
+\frac{1}{n}
+\left[
+s_1
++
+\sum_{j=1}^{n-1}
+\mathrm{E}_0[r_{j,j+1}]
+\right].
+\label{eq:ch6-expectations-general}
+\end{equation}
+
+\begin{example}{在预期假说下解读期限结构} {expectations-term-structure}
+
+假设当前一年期即期利率为~3\%，第~2~年至第~5~年的预期一年期短期利率依次为~3.5\%、4.0\%、4.5\%~和~5.0\%。在预期假说下，
+
+\[
+s_5
+\approx
+\frac{
+3.0\%+3.5\%+4.0\%+4.5\%+5.0\%
+}{5}
+=
+4.0\%.
+\]
+
+在预期假说下，五年期即期利率~\(s_5\approx4.0\%\)~高于当前一年期即期利率~\(s_1=3.0\%\)，反映预期未来短期利率的平均水平高于当前短期利率。
+
+\end{example}
+
+当不同期限证券并非完全替代品，且各期限区间的供求条件不同时，仅凭预期无法决定期限结构。
+
+\subsection{市场分割与偏好期限}
+
+投资者需求可能集中于特定期限区间。货币市场基金和管理短期流动性需求的企业往往持有短期工具；养老基金与寿险公司通常具有长期负债，因而对较长期资产形成需求。
+
+市场分割理论将不同期限证券视为不完全替代品。各期限区间的供求可能影响相应利率。在供给不变时，长期债券需求增加会提高其价格、降低其收益率。因此，即使未来短期利率预期不变，长期利率也可能相对于短期利率下降。
+
+偏好期限理论承认跨期限替代并不完全。投资者可能偏好特定期限区间，但预期补偿足够时，也愿意持有该区间之外的证券。期限偏好能够影响利率，却并不意味着不同期限市场完全分割。
+
+关键区别在于跨期限替代程度：市场分割假定替代十分有限，而偏好期限理论允许投资者在补偿足够时转向其他期限。
+
+供给条件也可能因期限而异。例如，政府债券发行期限结构的变化，会改变短期与长期证券的相对供给，并可能影响其相对利率。
+
+\subsection{期限溢价}
+
+现代期限结构分析允许较长期利率通过时变期限溢价，偏离预期未来短期利率路径。因此，远期利率未必等于预期未来短期利率。
+
+与其他特征相近的短期限证券相比，长期限固定收益证券通常对市场利率变化更敏感。市场利率上升时，较远期固定现金流的现值下降更明显。这种更高的价格敏感性增加了投资者的利率风险暴露，是期限溢价的重要来源。
+
+考虑期限溢价后，$n$~期即期利率可以近似表示为
+
+\begin{equation}
+s_n
+\approx
+\frac{1}{n}
+\left[
+s_1
++
+\sum_{j=1}^{n-1}
+\mathrm{E}_0[r_{j,j+1}]
+\right]
++
+TP_n,
+\label{eq:ch6-term-premium-decomposition}
+\end{equation}
+其中，$TP_n$~为期限溢价，即较长期利率中无法由预期短期利率路径解释的部分。
+
+期限溢价的符号与大小均可能变化。正的期限溢价表明，相较于反复投资短期限证券，投资者要求持有长期限证券获得额外预期回报。当长期限证券具有分散化或套期保值效益时，期限溢价可能较低，在某些情况下甚至可能为负。
+
+向上倾斜的期限结构可能反映对未来短期利率上升的预期、正的期限溢价，或两者共同作用。仅凭斜率无法识别其相对贡献。
+
+\begin{example}
+{同一长期利率的不同分解}
+{term-premium-sources}
+
+例~\ref{ex:expectations-term-structure}~表明，五年期即期利率~$s_5\approx4.0\%$，可以与当前一年期即期利率~$s_1=3.0\%$，以及第~2~年至第~5~年依次为~$3.5\%$、$4.0\%$、$4.5\%$~和~$5.0\%$~的预期一年期短期利率相一致。在预期假说下，这一组合意味着~$TP_5\approx0$。
+
+现保持~$s_1=3.0\%$~和~$s_5=4.0\%$~不变，但假设第~2~年至第~5~年的预期一年期短期利率均为~$3.0\%$。预期短期利率路径的平均值便为~3.0\%。式~(\ref{eq:ch6-term-premium-decomposition})~意味着
+
+\[
+TP_5
+\approx
+4.0\%-3.0\%
+=
+1.0\%.
+\]
+
+同样的五年期即期利率，此时反映正的期限溢价，而非对未来短期利率上升的预期。
+
+\end{example}
+
+长期利率变动可能反映预期未来短期利率或期限溢价的变化。由预期未来短期利率上升推动的利率上升，与主要由期限溢价提高推动的利率上升，具有不同的经济含义。期限溢价提高表明，投资者要求在预期未来短期利率之外，获得更多补偿，以持有长期限证券并承担相应利率风险。
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{金融视角：解读收益率曲线},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+收益率曲线的斜率不应被解释为对未来短期利率的直接预测。长期利率还可能反映时变期限溢价与不同期限的供求条件。同一条观察到的收益率曲线，可以对应不同的预期、期限溢价和各期限供求组合。
+\end{tcolorbox}
+
+\section{资本配置与投资决策}
+
+利率通过改变资金机会成本，影响储蓄、借款和投资决策，也影响资本在不同投资用途之间的配置。通过这些决策，利率将金融市场价格与实际资源配置联系起来。
+
+\subsection{利率与储蓄、借款和投资}
+
+利率变化会改变当期消费与未来消费的相对价格。对于储蓄者，利率提高会增加给定当期储蓄所支持的未来消费。这种替代效应通常鼓励储蓄。总体反应还取决于收入效应和财富效应。利息收入增加提高终身资源后，净储蓄者可能增加当期消费，净借款人则面临相反影响。总储蓄对利率变化的反应未必一致。
+
+借款对融资成本的反应更直接。借款利率提高，会增加给定借款金额所要求的未来偿还额，通常降低信贷需求。当较高利率与逆向选择、抵押约束或贷款人资产负债表条件相互作用时，这种反应可能被放大，使信贷需求与信贷可得性同时下降。
+
+投资会对资金机会成本变化作出反应。市场利率上升会提高替代金融请求权可获得的回报，在其他条件不变时，提高投资的必要报酬率。预期回报相对较低的投资机会更难获得融资，而回报足以补偿其风险的投资机会仍较有吸引力。
+
+在总量层面，必要报酬率变化同时影响总投资和资本配置。市场利率的共同变化未必同等影响所有投资机会，因为项目的预期回报和风险不同，借款人面临的融资条件也不同。利率变化由此既影响总体投资水平，也影响资本在不同投资用途之间的分布。
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  >=Latex,
+  box/.style={
+    draw,
+    rounded corners=2pt,
+    align=center,
+    text width=2.4cm,
+    minimum height=0.9cm,
+    inner sep=4pt
+  },
+  box1/.style={
+    draw,
+    rounded corners=2pt,
+    align=center,
+    text width=2.0cm,
+    minimum height=0.9cm,
+    inner sep=4pt
+  },
+  flow/.style={
+    -Latex,
+    line width=0.8pt,
+    FinanceBlue
+  }
+]
+
+% Financing conditions
+\node[box] (rates) at (-0.6,1.6)
+  {基准利率\\与利差};
+
+\node[box] (finance) at (2.5,1.6)
+  {融资成本\\与可得性};
+
+% Investment fundamentals
+\node[box] (projects) at (2.5,-1.5)
+  {预期项目\\现金流与风险};
+
+% Investment choice
+\node[box] (ranking) at (5.8,0.05)
+  {不同投资用途的\\相对吸引力};
+
+\node[box1] (allocation) at (8.8,0.05)
+  {资本\\配置};
+
+% Arrows
+\draw[flow] (rates.east) -- (finance.west);
+
+\draw[flow] (finance.east) -| (ranking.north);
+
+\draw[flow] (projects.east) -| (ranking.south);
+
+\draw[flow] (ranking.east) -- (allocation.west);
+
+\end{tikzpicture}
+
+\caption{融资条件与资本配置}
+\label{fig:ch6-capital-allocation}
+\end{figure}
+
+图~\ref{fig:ch6-capital-allocation}~概括了这些关系。基准利率与利差影响融资成本和外部资金可得性，预期项目现金流与风险则决定不同投资用途的预期回报。由于各借款人的融资条件不同，市场利率的共同变化未必同等影响所有项目。利率变化因而既可能改变总投资，也可能改变资本在借款人与经济活动之间的配置。
+
+\subsection{必要报酬率与资本配置}
+
+市场利率为必要报酬率提供基准。某一借款人或金融请求权的必要报酬率，可以表示为基准利率加上反映借款人或工具特有特征的利差。即使基准利率相同，信用风险、流动性、抵押品、信息质量和契约条款的差异，也可能产生不同的必要报酬率。
+
+基准利率与利差变化，对不同借款人的融资条件可能产生不均衡影响。表~\ref{tab:ch6-borrower-financing-rates}~说明了这一区别。
+
+\begin{table}[H]
+
+\centering
+
+\caption{基准利率、利差与融资利率的变化}
+
+\label{tab:ch6-borrower-financing-rates}
+
+\begin{tabular}{@{}lccc@{}}
+
+\toprule
+
+\textbf{借款人} &
+\textbf{基准利率} &
+\textbf{利差} &
+\textbf{融资利率} \\
+
+\midrule
+
+较低风险借款人
+& 3.0\% $\rightarrow$ 4.0\%
+& 1.0\% $\rightarrow$ 1.0\%
+& 4.0\% $\rightarrow$ 5.0\% \\
+
+较高风险借款人
+& 3.0\% $\rightarrow$ 4.0\%
+& 3.0\% $\rightarrow$ 4.0\%
+& 6.0\% $\rightarrow$ 8.0\% \\
+
+\bottomrule
+
+\end{tabular}
+
+\end{table}
+
+两类借款人面临相同的基准利率增幅，但利差扩大使较高风险借款人的融资利率上升更多。其借款与投资可能对融资条件恶化作出更强反应。
+
+融资成本差异影响资本配置。基准利率上升会提高一般的资金机会成本，利差变化则改变借款人之间的相对融资成本。当利差不均衡扩大时，资本可能转向融资条件较有利的借款人。利率既影响总投资，也影响投资在借款人与经济活动之间的配置。
+
+%========================================================
+% Summary
+%========================================================
+
+\TailModule{summary}{本章小结}
+
+利率是当期购买力与未来购买力交换的价格。它既是贷款人的回报、借款人的成本，也是投资决策的基准，将不同日期的现金流联系起来。利率报价取决于期限和复利计息惯例。有效年利率为比较不同计息频率或连续复利下的报价提供了统一基础。名义利率与实际利率的区别，将货币金额变化与购买力变化区分开来。
+
+观察到的利率反映多种经济力量。储蓄与投资影响融资供求，预期通胀影响名义利率，货币条件影响短期利率及预期，风险和流动性差异则形成工具之间的利差。仅凭观察到的利率较高，无法识别单一原因。
+
+期限结构描述利率如何随期限变化。即期利率用于贴现特定未来日期的现金流，远期利率则适用于未来期间，可在无套利条件下由当前即期利率推导。预期假说将较长期利率与预期未来短期利率联系起来。市场分割、期限偏好及各期限的特定供求，也可能影响不同期限的利率。现代期限结构分析将较长期利率分解为预期短期利率成分与时变期限溢价。
+
+利率既影响资本数量，也影响资本配置。基准利率变化改变一般的资金机会成本，利差差异使不同借款人面临不同融资条件。必要报酬率提高通常会减少边际投资机会获得的融资，但对各借款人或资本用途的影响未必一致。金融市场通过相对融资成本以及总体利率水平配置资本。
+
+%========================================================
+% Key Terms
+%========================================================
+
+\TailModule{keyterms}{关键术语}
+
+利率（interest rate）；资金机会成本（opportunity cost of funds）；单利（simple interest）；复利（compound interest）；复利计息频率（compounding frequency）；名义年利率（nominal annual rate）；有效年利率（effective annual rate）；连续复利（continuous compounding）；名义利率（nominal interest rate）；实际利率（real interest rate）；预期通胀（expected inflation）；费雪关系（Fisher relation）；政策利率（policy rate）；基准利率（benchmark rate）；信用利差（credit spread）；风险溢价（risk premium）；利率期限结构（term structure of interest rates）；即期利率（spot rate）；远期利率（forward rate）；收益率曲线（yield curve）；预期假说（expectations hypothesis）；市场分割（market segmentation）；偏好期限（preferred habitat）；期限溢价（term premium）；必要报酬率（required return）；资本配置（capital allocation）。
+
+%========================================================
+% Financial AI Lab
+%========================================================
+
+\TailModule{aiprompt}{金融~AI~实验室}
+
+\textbf{实验~1：审核利率比较}
+
+请~AI~系统比较三种采用不同复利计息惯例的利率报价，其中至少包含一种连续复利利率。要求~AI~将各利率换算到相同的时间和计息基础，并列明换算使用的全部假设。
+
+独立审核回答。检查期限是否可比，名义利率与有效利率是否正确区分，以及换算后各替代选择的排序是否变化。
+
+引入预期通胀，扩展练习。要求~AI~区分名义利率和实际利率，并运用费雪关系。检查其是否区分基于预期通胀的预期实际利率，以及基于实际通胀的已实现实际利率。
+
+\textbf{实验~2：审核收益率曲线解释}
+
+请~AI~系统解释一条向上倾斜的收益率曲线，并说明其对未来短期利率有何含义。
+
+检查回答是否将远期利率视为确定预测，或将曲线斜率完全归因于短期利率上升预期。结合预期未来短期利率与期限溢价的区别，以及各期限供求条件，修正这一解释。
+
+对水平或倒挂的收益率曲线重复练习。判断哪些结论可由观察到的曲线推出，哪些需要对预期或期限溢价增加假设。
+
+%========================================================
+% Discussion Questions
+%========================================================
+
+\TailModule{questions}{讨论题}
+
+\begin{enumerate}
+
+\item 即使企业完全用内部资金投资，为什么利率仍是一种机会成本？
+
+\item 为什么两笔年利率报价相同的贷款，可能具有不同的有效借款成本？
+
+\item 为什么中央银行降低政策利率时，高风险企业面临的借款利率仍可能上升？
+
+\item 为什么不应直接将远期利率解释为市场对未来短期利率的无偏预测？
+
+\item 为什么相同的基准利率增幅，可能对不同借款人的投资产生不同影响？
+
+\end{enumerate}
+
+%========================================================
+% Applied Problems
+%========================================================
+
+\TailModule{appprobs}{应用题}
+
+\begin{enumerate}
+
+\item \textbf{复利与有效利率。}
+
+一家银行报出的存款名义年利率为~5.4\%，按月复利计息。第二种存款按年复利计息，利率为~5.5\%。第三种存款的连续复利年利率报价为~5.35\%。
+
+\begin{enumerate}
+
+\item 计算第一种存款的月利率。
+
+\item 计算第一种存款的有效年利率。
+
+\item 计算连续复利存款的有效年利率。
+
+\item 比较三种存款的有效年度回报率。
+
+\item 将三种存款按有效年度回报率从高到低排序。
+
+\end{enumerate}
+
+\item \textbf{名义回报与实际回报。}
+
+某投资者一年内获得~7.5\%~的名义回报率。
+
+\begin{enumerate}
+
+\item 如果通胀率为~2.5\%，计算精确的实际回报率。
+
+\item 使用费雪近似关系计算近似实际回报率。
+
+\item 如果通胀率为~6\%，重新计算上述两项指标。
+
+\item 解释为什么随着利率和通胀率上升，近似的准确性下降。
+
+\end{enumerate}
+
+\item \textbf{即期利率与远期利率。}
+
+一年期即期利率为~3.0\%，两年期即期利率为~4.2\%，均按年复利计息。
+
+\begin{enumerate}
+
+\item 计算从今天起一年后开始的一年期远期利率。
+
+\item 验证按两年期即期利率投资两年，与先按一年期即期利率投资一年、再按隐含远期利率投资一年，产生相同终值。
+
+\item 解释为什么远期利率未必等于预期未来一年期短期利率。
+
+\end{enumerate}
+
+\item \textbf{预期与期限溢价。}
+
+当前一年期利率为~3\%。第~2~年和第~3~年的预期一年期短期利率分别为~4\%~和~5\%。
+
+\begin{enumerate}
+
+\item 在预期假说下，计算近似的三年期即期利率。
+
+\item 假设三年期期限溢价为~0.6~个百分点，相应的近似三年期即期利率为多少？
+
+\item 解释为什么仅观察三年期即期利率，无法识别预期未来短期利率。
+
+\end{enumerate}
+
+\item \textbf{基准利率、利差与资本配置。}
+
+两类借款人最初面临相同的基准利率~3.0\%。较低风险借款人的信用利差为~1.0\%，较高风险借款人的利差为~3.0\%。
+
+随后，基准利率升至~4.0\%。较低风险借款人的利差不变，较高风险借款人的利差扩大至~4.0\%。
+
+\begin{enumerate}
+
+\item 计算各类借款人最初的融资利率。
+
+\item 计算各类借款人新的融资利率。
+
+\item 哪类借款人的融资成本增幅更大？
+
+\item 解释相对融资条件变化如何影响资本在借款人之间的配置。
+
+\item 解释为什么仅凭基准利率变化，不足以确定整个市场的融资条件如何变化。
+
+\end{enumerate}
+
+\end{enumerate}
+
+%========================================================
+% Data Application
+%========================================================
+
+\TailModule{dataapp}{数据应用}
+
+\textbf{解读收益率曲线}
+
+从权威数据来源获取所选日期的多种期限政府证券收益率。中国数据可采用中央国债登记结算有限责任公司发布的中债收益率曲线数据。开展国际比较时，可使用中央银行、财政部门、政府债务管理机构或其他权威市场来源的数据。
+
+选取信用质量、工具类型和收益率定义尽可能可比的期限数据，构造收益率曲线。
+
+描述曲线是向上倾斜、近似水平、倒挂，还是非单调。考虑观察到的形态可能来自以下三方面：
+
+\begin{itemize}
+
+\item 对未来短期利率的预期；
+
+\item 期限溢价；
+
+\item 各期限特定的供给、需求或流动性条件。
+
+\end{itemize}
+
+仅凭观察到的曲线，无法识别预期未来政策利率。解释作出这种解读，需要对期限溢价及其他期限特有效应作出哪些假设。
+
+如果能获得两个日期的数据，比较曲线如何变化。判断变化集中在短端、长端，还是遍及整条曲线，并讨论在给出因果解释之前，还需要哪些证据。
+
+报告观察日期、期限、收益率定义和原始数据来源。
+
+%========================================================
+% Further Reading
+%========================================================
+
+\TailModule{furtherread}{延伸阅读}
+
+\begin{itemize}
+
+\item Fisher, Irving (1930), \emph{The Theory of Interest: As Determined by Impatience to Spend Income and Opportunity to Invest It（利息理论：由消费收入的急切程度与投资收入的机会所决定）}, The Macmillan Company.
+
+\item Hicks, John R. (1939), \emph{Value and Capital: An Inquiry into Some Fundamental Principles of Economic Theory（价值与资本：对经济理论若干基本原理的探讨）}, Clarendon Press.
+
+\item Lutz, Friedrich A. (1940), ``The Structure of Interest Rates（利率结构）,'' \emph{每季度 Journal of Economics}, 55(1), 36--63.
+
+\item Modigliani, Franco, and Richard Sutch (1966), ``Innovations in Interest Rate Policy（利率政策创新）,'' \emph{American Economic Review}, 56(1/2), 178--197.
+
+\item Campbell, John Y., Andrew W. Lo, and A. Craig MacKinlay (1997), \emph{The Econometrics of Financial Markets（金融市场计量经济学）}, Princeton University Press.
+
+\end{itemize}
+
+\ChapterTail{summary,keyterms,aiprompt,questions,appprobs,dataapp,furtherread}

@@ -1,0 +1,1224 @@
+\chapter{Interest Rates and Capital Allocation}
+\label{chap:Interest_Rates_and_Capital_Allocation}
+
+\begin{openingcase}{Which Interest Rate Matters?}
+
+A firm is considering a one-year investment that requires RMB~10 million today and is expected to generate RMB~10.6 million one year from now. At first glance, the decision appears simple: compare the project's 6\% expected return with ``the interest rate.''
+
+But which interest rate?
+
+A bank may quote one borrowing rate, while a government security of the same maturity offers another. Rates may also differ with maturity, inflation expectations, credit risk, and liquidity. There is therefore no single market interest rate that applies to every financial decision.
+
+The firm's project may be attractive at one required return and unattractive at another. Understanding why market rates differ, and how those differences affect financing and investment decisions, is central to understanding how financial markets allocate capital.
+
+\end{openingcase}
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=FinanceBlue!6,
+  colframe=FinanceBlue,
+  boxrule=0.6pt,
+  sharp corners,
+  left=8pt,
+  right=8pt,
+  top=7pt,
+  bottom=7pt,
+  before skip=1em,
+  after skip=1.6em,
+  title=\textbf{Core Questions},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  attach boxed title to top left={xshift=6pt,yshift=-2mm},
+  boxed title style={
+    boxrule=0pt,
+    sharp corners,
+    left=5pt,
+    right=5pt,
+    top=2pt,
+    bottom=2pt
+  }
+]
+\begin{enumerate}[
+  leftmargin=*,
+  label=\textcolor{FinanceBlue}{\textbf{\arabic*.}},
+  itemsep=0.55em,
+  topsep=0.2em
+]
+
+\item Why is an interest rate a price of intertemporal exchange rather than simply a borrowing cost?
+
+\item Why do interest rates differ across maturities, borrowers, and financial instruments?
+
+\item How do interest rates influence saving, borrowing, investment, and the allocation of capital?
+
+\end{enumerate}
+\end{tcolorbox}
+
+\section{Interest Rates as the Price of Intertemporal Exchange}
+
+An interest rate is the price at which purchasing power today is exchanged for purchasing power in the future. It determines the return associated with postponing the use of funds and the cost of obtaining funds before future income becomes available.
+
+\subsection{Intertemporal Choice and the Opportunity Cost of Funds}
+
+For a one-period investment, one unit of purchasing power today grows to \(1+r\) next period. Equivalently, the present value of one unit received next period is
+
+\[
+PV_0=\frac{1}{1+r}.
+\]
+
+This relationship expresses the same intertemporal price in terms of both future returns and present values.
+
+Saving, borrowing, and investment decisions involve comparing alternative uses or sources of funds. A saver considers the return available from postponing consumption, a borrower evaluates the cost of alternative financing arrangements, and an investor compares a project's expected return with that of other feasible investments. The relevant opportunity cost is determined by the best available alternative, with risk, maturity, and liquidity taken into account.
+
+Suppose an investor can earn 4\% on a one-year security with risk comparable to that of a proposed project. If the project is expected to return only 3\%, the alternative security offers the higher return for comparable risk and maturity.
+
+This opportunity-cost principle connects market interest rates directly to capital allocation. Let a project require investment $I_0$ today and generate a certain payoff $CF_1$ one period later. If the opportunity cost of funds is $r$, the project creates value when
+
+\begin{equation*}
+\frac{CF_1}{1+r}>I_0.
+\label{eq:ch6-one-period-investment-condition}
+\end{equation*}
+
+Equivalently,
+
+\begin{equation*}
+\frac{CF_1-I_0}{I_0}>r.
+\label{eq:ch6-return-hurdle-simple}
+\end{equation*}
+
+The relevant opportunity cost is the return on a comparable alternative with similar risk and maturity. Differences in risk or maturity therefore imply different required returns.
+
+In actual markets, borrowing and lending rates may differ, and borrowers may face different credit spreads. These differences affect the opportunity costs faced by market participants.
+
+\begin{example}{Opportunity Cost and a One-Year Investment}{opportunity-cost-one-year-investment}
+
+Suppose a firm can invest RMB~10 million in a one-year project that will produce a certain RMB~10.5 million. The project return is 5\%.
+
+If the relevant opportunity cost is 3\%, the present value of the payoff is
+
+$$
+PV=\frac{10.5}{1.03}=10.19
+$$
+million renminbi, giving the project a positive NPV. If the opportunity cost rises to 6\%,
+
+$$
+PV=\frac{10.5}{1.06}=9.91
+$$
+million renminbi, and the project has a negative NPV.
+
+The cash flow is unchanged; the higher opportunity cost changes the investment decision.
+
+\end{example}
+
+
+
+\subsection{Interest Rate Quotations, Compounding, and Effective Rates}
+
+Interest rates describe the exchange of purchasing power across time, but the amount accumulated over a given horizon depends on how interest is calculated. Financial-market quotations specify the period to which a rate applies and the associated compounding convention.
+
+Let $r$ denote the interest rate per period. If $P_0$ is invested for one period, its future value is
+
+\begin{equation}
+P_1=P_0(1+r).
+\label{eq:ch6-one-period-growth}
+\end{equation}
+
+If the investment extends over $T$ periods and interest is compounded once per period,
+
+\begin{equation}
+P_T=P_0(1+r)^T.
+\label{eq:ch6-compound-growth}
+\end{equation}
+
+Under compound interest, interest earned in each period is added to principal and earns interest in subsequent periods. By contrast, under simple interest, interest is calculated only on the initial principal:
+
+\begin{equation}
+P_T=P_0(1+rT).
+\label{eq:ch6-simple-interest}
+\end{equation}
+
+For positive interest rates, the difference between simple and compound interest increases with the investment horizon. For example, RMB~100 invested for three years at 5\%grows to
+
+$$
+100(1+0.05\times 3)=115
+$$
+under simple interest and to
+
+$$
+100(1.05)^3=115.76
+$$
+under annual compounding. The compounding convention therefore affects the effective return represented by a quoted rate.
+
+\paragraph{Nominal annual rates and compounding frequency.}
+
+Many market interest rates are quoted on an annual basis even when interest is compounded more frequently. Let $j$ denote a nominal annual rate compounded $m$ times per year. The periodic rate is
+
+\begin{equation}
+r=\frac{j}{m}.
+\end{equation}
+
+The corresponding effective annual rate, denoted $EAR$, is
+
+\begin{equation}
+EAR=
+\left(1+\frac{j}{m}\right)^m-1.
+\label{eq:ch6-ear}
+\end{equation}
+
+The effective annual rate measures the one-year return implied by the nominal rate and its compounding frequency. For a given nominal annual rate, more frequent compounding produces a higher effective annual rate, as shown in Table~\ref{tab:ch6-compounding-frequency}.
+
+\begin{table}[H]
+\centering
+\caption{A 6\%nominal annual rate under different compounding frequencies}
+\label{tab:ch6-compounding-frequency}
+
+\begin{tabular}{@{}l c c@{}}
+\toprule
+\textbf{Compounding} & \textbf{Periods per year} & \textbf{Effective annual rate} \\
+\midrule
+Annual & 1 & 6.000\% \\
+Semiannual & 2 & 6.090\% \\
+Quarterly & 4 & 6.136\% \\
+Monthly & 12 & 6.168\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The effective annual rate provides a common basis for comparing rates quoted with different compounding frequencies.
+\paragraph{Continuous compounding.}
+
+As the compounding frequency increases, discrete compounding approaches continuous compounding. Let $r_c$ denote the continuously compounded annual rate. Over $T$ years,
+
+\begin{equation}
+P_T=P_0 e^{r_c T}.
+\label{eq:ch6-continuous-compounding}
+\end{equation}
+
+The continuously compounded rate and the effective annual rate are related by
+
+\begin{equation}
+EAR=e^{r_c}-1,
+\label{eq:ch6-continuous-to-ear}
+\end{equation}
+or equivalently,
+
+\begin{equation}
+r_c=\ln(1+EAR).
+\label{eq:ch6-ear-to-continuous}
+\end{equation}
+
+Continuous compounding is particularly convenient for comparing rates across horizons and is widely used in financial modeling.
+
+\paragraph{Rates over fractions of a year.}
+
+Interest rates may also need to be expressed over horizons shorter than one year. If $EAR$ is the effective annual rate, the compound rate over a fraction $\tau$ of a year is
+
+\begin{equation}
+r_{\tau}=(1+EAR)^{\tau}-1.
+\label{eq:ch6-fractional-period-rate}
+\end{equation}
+
+This conversion assumes compound interest over the fractional period. In practice, some markets use different quotation and day-count conventions, particularly for money-market instruments.
+
+\begin{tcolorbox}[
+enhanced,
+breakable,
+colback=white,
+colframe=FinanceBlue,
+boxrule=0.7pt,
+sharp corners,
+borderline west={2.2pt}{0pt}{FinanceBlue},
+title=\textbf{Financial Perspective: Compare Like with Like},
+coltitle=white,
+colbacktitle=FinanceBlue,
+fonttitle=\bfseries,
+before skip=1.2em,
+after skip=1.2em
+]
+
+Interest rates should be placed on a common basis before they are compared. Differences in time horizon, compounding frequency, day-count convention, or nominal versus effective quotation can produce different effective returns from the same stated percentage rate.
+
+\end{tcolorbox}
+
+
+\subsection{Nominal and Real Interest Rates}
+
+A nominal interest rate measures the return on funds in monetary terms, whereas a real interest rate measures the return in terms of purchasing power. The distinction arises when the price level changes: part of the nominal return may reflect higher prices rather than an increase in the quantity of goods and services that the future amount can purchase.
+
+Suppose one unit of currency grows to $1+i$ over one year, where $i$ is the nominal interest rate. If the price level rises by rate $\pi$ over the same period, the purchasing power of the future amount relative to today's price level grows by
+
+\begin{equation}
+1+r
+=
+\frac{1+i}{1+\pi},
+\label{eq:ch6-fisher-exact}
+\end{equation}
+where $r$ is the realized real interest rate.
+
+Rearranging this relation gives the exact Fisher equation:
+
+\begin{equation}
+i=r+\pi+r\pi.
+\label{eq:ch6-fisher-expanded}
+\end{equation}
+
+For moderate values of $r$ and $\pi$, the cross-product term $r\pi$ is small relative to the linear terms, yielding the approximation
+
+\begin{equation}
+i\approx r+\pi.
+\label{eq:ch6-fisher-approx}
+\end{equation}
+
+For decisions made before inflation is known, expected rather than realized inflation is relevant. If $\pi^e$ denotes expected inflation and $r^e$ the expected real interest rate, the approximate Fisher relation is
+
+\begin{equation}
+i\approx r^e+\pi^e.
+\label{eq:ch6-fisher-expected}
+\end{equation}
+
+The difference between expected and realized inflation affects the realized real return on a fixed nominal claim relative to its expected real return. Suppose a lender makes a one-year fixed-rate loan at a nominal interest rate of 6\%, when inflation is expected to be 2\%. The expected real return is approximately 4\%. If realized inflation is instead 5\%, the realized real return falls to about 1\%.
+
+Unexpected inflation therefore redistributes purchasing power between borrowers and lenders under fixed nominal contracts. Higher-than-expected inflation reduces the lender's realized real return and benefits the borrower relative to the original terms; lower-than-expected inflation has the opposite effect.
+
+Nominal and real interest rates serve different analytical purposes. Financial contracts are commonly stated in nominal terms: borrowers make nominal payments, bonds promise nominal coupons, and policy rates are quoted in nominal terms. Real interest rates, by contrast, measure returns and financing costs in terms of purchasing power. They are particularly useful when saving, investment, and capital-allocation decisions are evaluated in real terms. The relation between nominal rates and expected inflation links nominal financial contracts to their real economic implications.
+
+\section{Determinants of Interest Rates}
+
+Interest rates are market prices influenced by several interacting forces. These include the supply and demand for funds, inflation expectations, monetary and liquidity conditions, and differences in risk and maturity. Their relative importance varies across markets, instruments, and maturities.
+
+\subsection{Saving, Investment, and the Demand for Funds}
+
+A simple starting point treats the interest rate as the price that balances the supply of funds with the demand for funds. Savers make funds available by postponing current expenditure, while borrowers seek funds to finance investment and other expenditures.
+
+Let the supply of funds be
+
+\begin{equation}
+S=S(r),
+\qquad
+S'(r)>0,
+\label{eq:ch6-saving-supply}
+\end{equation}
+and the demand for funds be
+
+\begin{equation}
+D=D(r),
+\qquad
+D'(r)<0.
+\label{eq:ch6-investment-demand}
+\end{equation}
+
+The equilibrium rate $r^{*}$ satisfies
+
+\begin{equation}
+S(r^{*})=D(r^{*}).
+\label{eq:ch6-funds-equilibrium}
+\end{equation}
+
+The upward-sloping supply curve reflects the tendency for a higher interest rate to make postponing current expenditure more attractive. The downward-sloping demand curve reflects the tendency for a higher interest rate to reduce the number of investment opportunities whose expected returns exceed the cost of funds.
+
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  >=Latex,
+  axis/.style={-Latex, line width=0.8pt},
+  curve/.style={line width=1.0pt},
+  guide/.style={dashed, gray, line width=0.6pt}
+]
+
+\draw[axis] (0,0) -- (7.2,0) node[right] {Funds};
+\draw[axis] (0,0) -- (0,5.5) node[above] {Interest rate};
+
+\draw[curve, FinanceBlue] (1.0,1.0) -- (6.2,4.5);
+\draw[curve] (1.0,4.6) -- (6.2,1.1);
+
+\node[FinanceBlue, right] at (6.2,4.5) {$S(r)$};
+\node[right] at (6.2,1.1) {$D(r)$};
+
+\coordinate (E) at (3.674,2.80);
+\fill (E) circle (2pt);
+\node[above, yshift=3pt] at (E) {$E$};
+
+\draw[guide] (E) -- (0,2.80) node[left] {$r^{*}$};
+\draw[guide] (E) -- (3.674,0) node[below] {$F^{*}$};
+
+\end{tikzpicture}
+\caption{A stylized market for funds}
+\label{fig:ch6-funds-market}
+\end{figure}
+
+The model provides a simple framework for comparative statics. An increase in expected productivity or other profitable investment opportunities shifts the demand curve for funds to the right. Other things equal, both the equilibrium interest rate and the quantity of funds increase. Greater willingness to save at each interest rate shifts the supply curve for funds to the right, lowering the equilibrium interest rate and increasing the equilibrium quantity of funds.
+
+These results describe comparative statics within a stylized model rather than a complete theory of market interest rates. In actual financial systems, financing conditions also reflect monetary policy, bank balance sheets, capital flows, and institutional constraints. The supply of funds should not be interpreted as a fixed stock of prior saving available for lending. The framework provides a simple model of how shifts in the supply of and demand for funds affect interest rates and the volume of financing.
+
+
+\subsection{Inflation Expectations and Monetary Conditions}
+
+Expected inflation affects nominal interest rates by changing the nominal return required to preserve purchasing power. For a given expected real rate, higher expected inflation is associated with a higher nominal interest rate, as indicated by the Fisher relation.
+
+The response need not be one-for-one. Expected real rates may also change, risk premia may move, and monetary policy may respond to inflation expectations. The Fisher relation identifies one component of nominal interest rates rather than providing a complete explanation of observed rate movements.
+
+Monetary conditions are particularly important for short-term nominal rates. Central banks typically influence short-term market rates through policy rates and the conditions under which reserves and short-term funding are supplied. Changes in the policy stance can also affect longer-term rates through expectations of future short rates, inflation, economic activity, and risk premia.
+
+A lower policy rate may reduce short-term funding costs. If the lower stance is expected to persist, longer-maturity yields may also fall. If inflation expectations rise, however, long-term nominal yields may fall less or even increase. Wider risk or liquidity premia can likewise raise borrowing costs for some private borrowers even when the policy rate declines.
+
+\subsection{Risk Structure and Interest-Rate Spreads}
+
+Interest-rate differences across otherwise comparable instruments of the same maturity form the risk structure of interest rates. Credit risk and market liquidity are major determinants of these differences, while contractual, tax, and institutional factors can also affect required returns.
+
+\paragraph{Credit risk.}
+
+Credit risk arises from the possibility that promised payments will not be made in full or on time. Greater expected credit losses or greater uncertainty about repayment generally raise the return required by investors. In debt markets, the difference in rates relative to a comparable low-risk benchmark is commonly referred to as a credit spread.
+
+\begin{example}{Credit Risk and the Required Return} {credit-risk-required-return}
+
+Suppose a one-year low-risk government security offers a return of 3\%, while a one-year corporate debt instrument with otherwise comparable characteristics requires a return of 5.5\%. The difference is
+
+\[
+5.5\%-3.0\%=2.5\%
+\]
+and represents the corporate instrument's credit spread relative to the benchmark.
+
+The higher required return reflects the possibility that the promised corporate payments may not be made in full or on time. The spread need not equal expected credit loss, since investors may also require compensation for uncertainty about repayment.
+
+\end{example}
+
+Risk compensation depends not only on expected loss but also on the states in which losses occur. Two one-year instruments can have the same expected payoff yet differ in the states in which losses are concentrated. An instrument that delivers lower payoffs mainly during recessions provides less protection when investors' income and the value of their other assets are also likely to be low. It may therefore require greater compensation than an instrument whose lower payoffs occur mainly in strong economic conditions.
+
+Other risks can affect required returns insofar as they alter expected cash flows, repayment risk, or investors' exposure to adverse states.
+
+
+\begin{table}[htbp]
+\centering
+\caption{Factors Affecting Required Returns on Comparable Instruments}
+\label{tab:ch6-rate-differences}
+
+\begin{tabularx}{\textwidth}{@{}p{3.2cm}Y Y@{}}
+\toprule
+\textbf{Factor} &
+\textbf{Economic reason} &
+\textbf{Effect on required return} \\
+\midrule
+
+Credit risk &
+Promised payments may be delayed, reduced, or not made in full &
+Expected credit losses and compensation for bearing default risk can raise the required return \\
+
+Exposure to adverse states &
+Payoffs may be low when investors' income and the value of their other assets are also weak &
+Such exposure provides less protection in adverse conditions and can increase required compensation \\
+
+Market liquidity &
+The instrument may be costly to sell quickly without a substantial price concession &
+Lower liquidity can raise the required return \\
+
+Contractual features &
+Embedded options and other provisions alter the timing and distribution of future cash flows &
+The effect on required return depends on how these features affect payoffs and risk for each party \\
+
+Tax and institutional treatment &
+Tax rules, collateral eligibility, and regulatory constraints can affect the net benefits of holding an instrument &
+Differences in after-tax returns and institutional benefits can lead to different required returns \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\paragraph{Market liquidity.}
+
+Market liquidity affects the ease with which an instrument can be sold without a substantial price concession. Investors generally value greater liquidity, while less liquid instruments may require higher returns than otherwise comparable instruments.
+
+Liquidity can deteriorate during periods of financial stress. Dealers may reduce inventories, funding conditions may tighten, and buyers may demand larger price concessions. Deteriorating liquidity can widen interest-rate spreads even when expected credit losses change little.
+
+\paragraph{Benchmark rates and spreads.}
+
+Market interest rates are often compared with a benchmark rate, which serves as a reference for instruments of similar maturity. The difference between an instrument's rate and the benchmark is its spread. For instrument $i$ with maturity $T$,
+
+\begin{equation}
+r_{i,T}=r_{b,T}+s_{i,T},
+\label{eq:ch6-benchmark-spread}
+\end{equation}
+where $r_{b,T}$ is the benchmark rate for maturity $T$ and $s_{i,T}$ is the spread of instrument $i$ over that benchmark. Changes in the instrument's rate can then be written as
+
+\begin{equation}
+\Delta r_{i,T}=\Delta r_{b,T}+\Delta s_{i,T}.
+\label{eq:ch6-benchmark-spread-change}
+\end{equation}
+
+If rates on many instruments of the same maturity move together, changes in the benchmark rate may explain much of the movement. Monetary conditions and inflation expectations can contribute to such common changes. When the benchmark rate changes little but rates on particular instruments rise, wider spreads may reflect greater credit risk, lower market liquidity, or other instrument-specific factors.
+
+Observed spreads do not reveal a single underlying cause. Credit conditions, market liquidity, contractual features, tax treatment, regulation, and investor demand may all affect the spread over a benchmark rate.
+
+Figure~\ref{fig:ch6-china-10y-yields} illustrates these
+patterns using ten-year yields from China's bond market.
+Since all series have the same maturity, common movements
+may reflect changes in market-wide conditions, while
+differences in yield levels may reflect credit risk,
+liquidity, and other instrument-specific characteristics.
+
+\begin{figure}[H]
+\centering
+
+\includegraphics[width=0.9\textwidth]{ChinaBond_10Y_Yields_2016_2026.pdf}
+
+\caption{Ten-year ChinaBond yields across selected bond categories, 2016--2026}
+\label{fig:ch6-china-10y-yields}
+
+\vspace{0.15em}
+
+\begin{minipage}{0.9\textwidth}
+\footnotesize
+\noindent\textit{Source: China Central Depository \& Clearing Co., Ltd. (ChinaBond).}
+\end{minipage}
+
+\end{figure}
+
+Comparisons across different maturities introduce another
+dimension of interest-rate differences, giving rise to
+the term structure of interest rates.
+
+\section{The Term Structure of Interest Rates}
+
+The term structure of interest rates describes the relationship between interest rates and maturity for otherwise comparable instruments. Its graphical representation is a yield curve.
+
+\subsection{Spot Rates, Forward Rates, and Yield Curves}
+
+A spot rate is the annualized interest rate applicable today
+to a zero-coupon claim that makes a single payment at a
+specified future date. A forward rate is the rate implied
+today for borrowing or lending over a future interval.
+
+Let $s_t$ denote the annualized $t$-period spot rate for
+a default-free zero-coupon claim. Under annual compounding,
+the present value of one unit paid at date $t$ is
+
+\begin{equation}
+P(0,t)=\frac{1}{(1+s_t)^t}.
+\label{eq:ch6-spot-discount-factor}
+\end{equation}
+
+For example, suppose the one-year spot rate is 3\% and
+the two-year spot rate is 4\%. The corresponding discount
+factors are
+
+\[
+P(0,1)=\frac{1}{1.03},
+\qquad
+P(0,2)=\frac{1}{(1.04)^2}.
+\]
+
+To derive the one-year forward rate beginning one year
+from today, let $f_{1,2}$ denote this rate. Under
+no-arbitrage, investing for two years at the two-year
+spot rate must generate the same terminal value as
+investing for one year at the one-year spot rate and
+then reinvesting at the forward rate. Thus,
+
+\begin{equation}
+(1+s_2)^2
+=
+(1+s_1)(1+f_{1,2}),
+\label{eq:ch6-forward-from-spot}
+\end{equation}
+where $s_1$ and $s_2$ are the one-year and two-year
+spot rates. Hence,
+
+\begin{equation}
+f_{1,2}
+=
+\frac{(1+s_2)^2}{1+s_1}-1.
+\label{eq:ch6-forward-rate}
+\end{equation}
+
+Using the rates in the example, the implied forward
+rate is approximately 5.01\%. The forward rate is not the arithmetic difference between
+spot rates.
+
+More generally, let $s_m$ and $s_n$ denote the
+$m$-year and $n$-year spot rates, and let $f_{m,n}$
+denote the annualized forward rate from year $m$
+to year $n$, where $n>m$. Under annual compounding,
+
+\begin{equation}
+f_{m,n}
+=
+\left[
+\frac{(1+s_n)^n}{(1+s_m)^m}
+\right]^{\frac{1}{n-m}}
+-1.
+\label{eq:ch6-general-forward-rate}
+\end{equation}
+
+Plotting zero-coupon spot rates against their maturities
+produces a spot-rate curve, which is a yield curve
+constructed from zero-coupon rates. In broader market
+usage, a yield curve plots yields on comparable debt
+securities against maturity. Yields to maturity on
+coupon-bearing bonds need not equal spot rates.
+
+
+\begin{example}{Constructing a Spot-Rate Curve}
+{spot-rate-curve}
+
+Suppose the annual spot rates for maturities of one, two, three, five, and ten years are:
+
+\begin{center}
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Maturity (years)} & 1 & 2 & 3 & 5 & 10 \\
+\midrule
+\textbf{Spot rate (\%)} & 3.00 & 4.00 & 4.40 & 4.70 & 4.90 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Plotting these rates against maturity gives the spot-rate curve shown below.
+
+\begin{center}
+\begin{tikzpicture}
+
+\begin{axis}[
+    width=0.88\linewidth,
+    height=5.2cm,
+    xmin=0,
+    xmax=10.5,
+    ymin=2.0,
+    ymax=5.2,
+    xtick={1,2,3,5,10},
+    ytick={2.5,3.0,3.5,4.0,4.5,5.0},
+    xlabel={Time to maturity, $T$ (years)},
+    ylabel={Spot rate, $s_T$ (\%)},
+    axis lines=box,
+    tick align=outside,
+    enlargelimits=false,
+    grid=none,
+]
+
+\addplot[
+    FinanceBlue,
+    thick,
+    smooth,
+    mark=*,
+    mark size=1.8pt
+]
+coordinates {
+    (1,3.00)
+    (2,4.00)
+    (3,4.40)
+    (5,4.70)
+    (10,4.90)
+};
+
+\end{axis}
+
+\end{tikzpicture}
+\end{center}
+\end{example}
+
+
+
+\begin{figure}[H]
+\centering
+
+\includegraphics[width=1.0\textwidth]{China_Government_Yield_Curves_Typical.pdf}
+
+\caption{Selected Chinese government bond yield curves}
+\label{fig:ch6-china-gov-yield-curves}
+
+\vspace{0.15em}
+\begin{minipage}{1.0\textwidth}
+\footnotesize
+\noindent\textit{Source: China Central Depository \& Clearing Co., Ltd. (ChinaBond); authors' calculations.}
+\end{minipage}
+
+\end{figure}
+
+Spot-rate curves may be upward sloping, approximately flat, inverted, or more complex. Market yield curves exhibit similar configurations. Figure~\ref{fig:ch6-china-gov-yield-curves} shows selected examples from China's government bond market.
+
+Traditional theories of the term structure explain these configurations through expectations about future short-term rates, market segmentation across maturities, and investors' preferred maturity habitats. Modern term-structure analysis commonly decomposes longer-term rates into an expected path of short-term rates and a time-varying term premium. 
+
+\subsection{The Expectations Hypothesis}
+The pure expectations hypothesis holds that bonds of different maturities are perfect substitutes in investors' portfolios. Investors base their maturity choices on expected returns and do not require an additional term premium for holding longer-term bonds. 
+
+Consider a two-year horizon and one unit of funds invested today. An investor can follow either of two strategies. The first is to invest for two years at the current two-year spot rate $s_2$. The second is to invest for one year at the current one-year spot rate $s_1$ and then reinvest for the second year at the one-year short rate prevailing at that time. Let $\widetilde{r}_{1,2}$ denote the one-year short rate that will prevail between years 1 and 2. At time 0, this rate is not yet known, and its current expectation is $\mathrm{E}_0[\widetilde{r}_{1,2}]$.
+
+\begin{figure}[H]
+\centering
+
+\begin{tikzpicture}[
+    >=Latex,
+    timeline/.style={line width=0.8pt},
+    lab/.style={font=\small}
+]
+
+% Strategy A
+\node[lab, anchor=east] at (-0.3,2.2) {Strategy A};
+
+\draw[timeline,->] (0,2.2) -- (7,2.2);
+
+\foreach \x/\t in {0/0,3.5/1,7/2} {
+    \fill (\x,2.2) circle (1.5pt);
+    \node[lab, below=3pt] at (\x,2.2) {$t=\t$};
+}
+
+\node[lab, above=5pt] at (3.5,2.4)
+    {Two-year investment at $s_2$};
+
+\node[lab, above=5pt, anchor=east] at (7,2.25)
+    {$(1+s_2)^2$};
+
+
+% Strategy B
+\node[lab, anchor=east] at (-0.3,-0.0) {Strategy B};
+
+\draw[timeline,->] (0,-0.0) -- (7,-0.0);
+
+\foreach \x/\t in {0/0,3.5/1,7/2} {
+    \fill (\x,-0.0) circle (1.5pt);
+    \node[lab, below=3pt] at (\x,-0.0) {$t=\t$};
+}
+
+\node[lab, above=5pt] at (1.75,0.2)
+    {Invest at $s_1$};
+
+\node[lab, above=5pt] at (5.25,0.2)
+    {Reinvest at $\widetilde{r}_{1,2}$};
+
+\node[lab, above=5pt, anchor=east] at (7,0.15)
+    {$(1+s_1)(1+\widetilde{r}_{1,2})$};
+
+\end{tikzpicture}
+
+\caption{Two investment strategies over a two-year horizon}
+\label{fig:ch6-expectations-strategies}
+\end{figure}
+
+Figure~\ref{fig:ch6-expectations-strategies} compares the two strategies over the two-year horizon. They produce $(1+s_2)^2$ and $(1+s_1)(1+\widetilde{r}_{1,2})$, respectively. Under the pure expectations hypothesis, bonds of different maturities are perfect substitutes.
+Investors are therefore indifferent between the two
+strategies, which must offer equal expected returns
+over the same investment horizon:
+
+\begin{equation}
+(1+s_2)^2=(1+s_1)
+\left(1+\mathrm{E}_0[\widetilde{r}_{1,2}]\right).
+\label{eq:ch6-expectations-gross}
+\end{equation}
+
+Expanding Equation~(\ref{eq:ch6-expectations-gross}) yields
+
+\[
+1+2s_2+s_2^2
+=
+1+s_1+\mathrm{E}_0[\widetilde{r}_{1,2}]
++s_1\mathrm{E}_0[\widetilde{r}_{1,2}].
+\]
+
+When interest rates are moderate, the second-order terms are small. Ignoring these terms gives
+
+\begin{equation}
+s_2
+\approx
+\frac{s_1+\mathrm{E}_0[\widetilde{r}_{1,2}]}{2}.
+\label{eq:ch6-expectations-two-year}
+\end{equation}
+
+The two-year spot rate is approximately the average of the current one-year spot rate and the expected one-year short rate between years 1 and 2.
+
+The hypothesis also gives an interpretation to the forward rate. Combining Equation~(\ref{eq:ch6-expectations-gross}) with the forward-rate relation derived earlier gives
+
+\begin{equation}
+f_{1,2}
+=
+\mathrm{E}_0[\widetilde{r}_{1,2}].
+\label{eq:ch6-forward-expectation}
+\end{equation}
+
+Under the expectations hypothesis, the forward rate equals the expected future short-term rate.
+
+The same reasoning extends to longer maturities. The $n$-year spot rate is linked to the sequence of one-year forward rates by
+
+\begin{equation}
+(1+s_n)^n
+=
+(1+s_1)
+\prod_{j=1}^{n-1}
+(1+f_{j,j+1}).
+\label{eq:ch6-spot-forward-general}
+\end{equation}
+
+Using
+\[
+f_{j,j+1}
+=
+\mathrm{E}_0[\widetilde{r}_{j,j+1}],
+\]
+the relation becomes
+
+\begin{equation}
+(1+s_n)^n
+=
+(1+s_1)
+\prod_{j=1}^{n-1}
+\left(1+\mathrm{E}_0[r_{j,j+1}]\right).
+\label{eq:ch6-expectations-general-gross}
+\end{equation}
+
+For moderate interest rates, a first-order approximation gives
+
+\begin{equation}
+s_n
+\approx
+\frac{1}{n}
+\left[
+s_1
++
+\sum_{j=1}^{n-1}
+\mathrm{E}_0[r_{j,j+1}]
+\right].
+\label{eq:ch6-expectations-general}
+\end{equation}
+
+\begin{example}{Interpreting the Term Structure under the Expectations Hypothesis} {expectations-term-structure}
+
+Suppose the current one-year spot rate is 3\%, and the expected one-year short rates for years 2 through 5 are 3.5, 4.0, 4.5, and 5.0\%. Under the expectations hypothesis,
+
+\[
+s_5
+\approx
+\frac{
+3.0\%+3.5\%+4.0\%+4.5\%+5.0\%
+}{5}
+=
+4.0\%.
+\]
+
+Under the expectations hypothesis, the five-year spot rate \(s_5\approx4.0\%\) exceeds the current one-year spot rate \(s_1=3.0\%\), reflecting expected future short-term rates that are, on average, higher than the current short-term rate.
+
+\end{example}
+
+Expectations alone do not determine the term structure when securities of different maturities are imperfect substitutes and supply and demand conditions differ across maturity segments.
+
+\subsection{Market Segmentation and Preferred Habitat}
+
+Investor demand may be concentrated in particular maturity ranges. Money-market funds and firms managing short-term liquidity needs tend to hold short-maturity instruments, while pension funds and life insurers often have long-dated liabilities that support demand for longer-maturity assets.
+
+The market-segmentation theory treats securities of different maturities as imperfect substitutes. Supply and demand within each maturity segment can affect the corresponding interest rate. An increase in demand for long-term bonds, with supply unchanged, raises their prices and lowers their yields. Consequently, long-term rates may decline relative to short-term rates even when expectations of future short-term rates remain unchanged.
+
+The preferred-habitat theory recognizes imperfect substitution across maturities. Investors may prefer particular maturity ranges but are willing to hold securities outside those ranges when expected compensation is sufficient. Maturity preferences can influence rates without implying complete segmentation of maturity markets.
+
+The key distinction is the degree of substitution across maturities: market segmentation assumes very limited substitution, whereas preferred habitat allows investors to shift across maturities when compensation is sufficient.
+
+Supply conditions can also vary across maturities. Changes in the maturity composition of government bond issuance, for example, alter the relative supply of short- and long-maturity securities and can influence their relative interest rates.
+
+\subsection{Term Premia}
+
+Modern term-structure analysis allows longer-term rates to differ from the expected path of future short-term rates through a time-varying term premium. Accordingly, forward rates need not equal expected future short-term rates.
+
+Longer-maturity fixed-income securities are generally more sensitive to changes in market interest rates than otherwise similar shorter-maturity securities. When market rates rise, the present value of more distant fixed cash flows falls more sharply. This greater price sensitivity increases investors' exposure to interest-rate risk and is an important source of term premia.
+
+Allowing for a term premium, the $n$-period spot rate can be represented approximately as
+
+\begin{equation}
+s_n
+\approx
+\frac{1}{n}
+\left[
+s_1
++
+\sum_{j=1}^{n-1}
+\mathrm{E}_0[r_{j,j+1}]
+\right]
++
+TP_n,
+\label{eq:ch6-term-premium-decomposition}
+\end{equation}
+where $TP_n$ is the term premium, the component of the longer-term rate not accounted for by the expected path of short-term rates.
+
+The sign and magnitude of the term premium can vary. A positive term premium indicates that investors require additional expected return for holding longer-maturity securities rather than repeatedly investing in shorter-maturity securities. The term premium can be lower when longer-maturity securities provide diversification or hedging benefits, and in some circumstances it can become negative.
+
+An upward-sloping term structure can reflect expectations of higher future short-term rates, a positive term premium, or both. The slope alone does not reveal their relative contributions.
+
+\begin{example}
+{Decomposing the Same Long-Term Rate}
+{term-premium-sources}
+
+Example~\ref{ex:expectations-term-structure} showed that a five-year spot rate of $s_5\approx4.0\%$ can be consistent with a current one-year spot rate of $s_1=3.0\%$ and expected one-year short rates of $3.5\%$, $4.0\%$, $4.5\%$, and $5.0\%$ over years 2 through 5. Under the expectations hypothesis, this configuration implies $TP_5\approx0$.
+
+Now retain $s_1=3.0\%$ and $s_5=4.0\%$, but suppose the expected one-year short rates for years 2 through 5 are all $3.0\%$. The expected path of short-term rates then averages 3.0 \%. Equation~(\ref{eq:ch6-term-premium-decomposition}) implies
+
+\[
+TP_5
+\approx
+4.0\%-3.0\%
+=
+1.0\%.
+\]
+
+The same five-year spot rate now reflects a positive term premium rather than expectations of higher future short-term rates.
+
+\end{example}
+
+Movements in long-term rates can reflect changes in either expected future short-term rates or the term premium. A rise driven by higher expected future short-term rates has a different economic interpretation from one driven primarily by a higher term premium. A higher term premium indicates that investors require greater compensation, over and above expected future short-term rates, for holding longer-maturity securities and bearing the associated interest-rate risk.
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{Finance Perspective: Interpreting the Yield Curve},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+
+The slope of the yield curve should not be interpreted as a direct forecast of future short-term interest rates. Long-term rates can also reflect time-varying term premia and supply and demand conditions across maturities. The same observed yield curve can be consistent with different combinations of expectations, term premia, and maturity-specific supply and demand.
+\end{tcolorbox}
+
+\section{Capital Allocation and Investment Decisions}
+
+Interest rates affect saving, borrowing, and investment decisions by changing the opportunity cost of funds. They affect how capital is allocated across alternative investments. Through these decisions, interest rates link financial-market prices to the allocation of real resources.
+
+\subsection{Interest Rates and Saving, Borrowing, and Investment}
+
+A change in interest rates alters the relative price of current and future consumption. For savers, a higher interest rate increases the future consumption supported by a given amount of current saving. This substitution effect tends to encourage saving. The overall response also depends on income and wealth effects. A net saver may increase current consumption as higher interest income raises lifetime resources, while a net borrower experiences the opposite effect. Aggregate saving need not respond uniformly to changes in interest rates.
+
+Borrowing responds more directly to the cost of finance. A higher borrowing rate raises the future repayment required for a given amount borrowed and tends to reduce credit demand. This response may be amplified when higher rates interact with adverse selection, collateral constraints, or lender balance-sheet conditions, reducing both credit demand and credit availability.
+
+Investment responds to changes in the opportunity cost of funds. An increase in market interest rates raises the returns available on alternative financial claims and, other things equal, increases the required return on investment. Investment opportunities with relatively low prospective returns become less likely to receive financing, while those offering returns sufficient to compensate for their risk remain more attractive.
+
+At the aggregate level, changes in required returns affect both aggregate investment and the allocation of capital. A common change in market interest rates need not affect all investment opportunities equally, since projects differ in their expected returns and risks, while borrowers face different financing conditions. Interest-rate changes can therefore influence not only the overall level of investment but also the distribution of capital across investment uses.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  >=Latex,
+  box/.style={
+    draw,
+    rounded corners=2pt,
+    align=center,
+    text width=2.4cm,
+    minimum height=0.9cm,
+    inner sep=4pt
+  },
+  box1/.style={
+    draw,
+    rounded corners=2pt,
+    align=center,
+    text width=2.0cm,
+    minimum height=0.9cm,
+    inner sep=4pt
+  },
+  flow/.style={
+    -Latex,
+    line width=0.8pt,
+    FinanceBlue
+  }
+]
+
+% Financing conditions
+\node[box] (rates) at (-0.6,1.6)
+  {Benchmark rates\\and spreads};
+
+\node[box] (finance) at (2.5,1.6)
+  {Financing costs\\and availability};
+
+% Investment fundamentals
+\node[box] (projects) at (2.5,-1.5)
+  {Expected project\\cash flows and risk};
+
+% Investment choice
+\node[box] (ranking) at (5.8,0.05)
+  {Relative attractiveness\\of investment uses};
+
+\node[box1] (allocation) at (8.8,0.05)
+  {Allocation\\of capital};
+
+% Arrows
+\draw[flow] (rates.east) -- (finance.west);
+
+\draw[flow] (finance.east) -| (ranking.north);
+
+\draw[flow] (projects.east) -| (ranking.south);
+
+\draw[flow] (ranking.east) -- (allocation.west);
+
+\end{tikzpicture}
+
+\caption{Financing Conditions and the Allocation of Capital}
+\label{fig:ch6-capital-allocation}
+\end{figure}
+
+Figure~\ref{fig:ch6-capital-allocation} summarizes these
+relationships. Benchmark rates and spreads affect
+financing costs and the availability of external funds,
+while expected project cash flows and risk shape the
+prospective returns on alternative investment uses.
+Because financing conditions differ across borrowers,
+a common change in market interest rates need not affect
+all projects equally. Interest-rate changes can therefore
+alter not only aggregate investment but also the
+allocation of capital across borrowers and activities.
+
+\subsection{Required Returns and Capital Allocation}
+
+Market interest rates provide benchmarks for required returns. The required return on a particular borrower or financial claim can be expressed as a benchmark rate plus a spread reflecting borrower- or instrument-specific characteristics. Differences in credit risk, liquidity, collateral, information quality, and contractual terms can produce different required returns even when the benchmark rate is the same.
+
+Changes in benchmark rates and spreads can alter financing conditions unevenly across borrowers. Table~\ref{tab:ch6-borrower-financing-rates} illustrates this distinction.
+
+\begin{table}[H]
+
+\centering
+
+\caption{Changes in benchmark rates, spreads, and financing rates}
+
+\label{tab:ch6-borrower-financing-rates}
+
+\begin{tabular}{@{}lccc@{}}
+
+\toprule
+
+\textbf{Borrower} &
+\textbf{Benchmark rate} &
+\textbf{Spread} &
+\textbf{Financing rate} \\
+
+\midrule
+
+Lower-risk borrower
+& 3.0\% $\rightarrow$ 4.0\%
+& 1.0\% $\rightarrow$ 1.0\%
+& 4.0\% $\rightarrow$ 5.0\% \\
+
+Higher-risk borrower
+& 3.0\% $\rightarrow$ 4.0\%
+& 3.0\% $\rightarrow$ 4.0\%
+& 6.0\% $\rightarrow$ 8.0\% \\
+
+\bottomrule
+
+\end{tabular}
+
+\end{table}
+
+Both borrowers face the same increase in the benchmark rate, but the widening spread produces a larger increase in the financing rate of the higher-risk borrower. Its borrowing and investment may respond more strongly to the deterioration in financing conditions.
+
+These differences in financing costs affect capital allocation. A rise in benchmark rates increases the general opportunity cost of funds, while changes in spreads alter relative financing costs across borrowers. When spreads widen unevenly, capital may shift toward borrowers facing more favorable financing conditions. Interest rates influence both aggregate investment and its allocation across borrowers and activities.
+
+%========================================================
+% Summary
+%========================================================
+
+\TailModule{summary}{Summary}
+
+An interest rate is the price at which purchasing power today is exchanged for purchasing power in the future. It represents a return to lenders, a cost to borrowers, and a benchmark for investment decisions, linking cash flows across dates. Interest-rate quotations depend on the time horizon and compounding convention. Effective annual rates provide a common basis for comparing rates quoted with different compounding frequencies or under continuous compounding. The distinction between nominal and real rates separates changes in money values from changes in purchasing power.
+
+Observed interest rates reflect several economic forces. Saving and investment affect the supply of and demand for financing, expected inflation influences nominal rates, monetary conditions affect short-term rates and expectations, and differences in risk and liquidity create spreads across instruments. A higher observed rate does not, by itself, identify a single underlying cause.
+
+The term structure describes how interest rates vary across maturities. Spot rates discount cash flows at specific future dates, while forward rates apply to future periods and can be derived from current spot rates under no-arbitrage conditions. The expectations hypothesis links longer-term rates to expected future short-term rates. Market segmentation, maturity preferences, and maturity-specific supply and demand can also affect rates across maturities. Modern term-structure analysis separates longer-term rates into an expected short-rate component and a time-varying term premium.
+
+Interest rates influence both the volume and the allocation of capital. Changes in benchmark rates alter the general opportunity cost of funds, while differences in spreads generate different financing conditions across borrowers. Higher required returns tend to reduce financing for marginal investment opportunities, but the effects need not be uniform across borrowers or uses of capital. Financial markets allocate capital through relative financing costs as well as through the general level of interest rates.
+
+%========================================================
+% Key Terms
+%========================================================
+
+\TailModule{keyterms}{Key Terms}
+
+Interest rate; opportunity cost of funds; simple interest; compound interest; compounding frequency; nominal annual rate; effective annual rate; continuous compounding; nominal interest rate; real interest rate; expected inflation; Fisher relation; policy rate; benchmark rate; credit spread; risk premium; term structure of interest rates; spot rate; forward rate; yield curve; expectations hypothesis; market segmentation; preferred habitat; term premium; required return; capital allocation.
+
+%========================================================
+% Financial AI Lab
+%========================================================
+
+\TailModule{aiprompt}{Financial AI Lab}
+
+\textbf{Lab 1: Audit an Interest-Rate Comparison}
+
+Ask an AI system to compare three interest-rate quotations that use different compounding conventions, including at least one continuously compounded rate. Require the AI to place the rates on a common time and compounding basis and to state all assumptions used in the conversion.
+
+Audit the answer independently. Check whether the time horizons are comparable, whether nominal and effective rates are distinguished correctly, and whether the ranking of the alternatives changes after conversion.
+
+Extend the exercise by introducing expected inflation. Ask the AI to distinguish nominal and real interest rates and to apply the Fisher relation. Check whether it distinguishes an expected real rate based on expected inflation from a realized real rate based on actual inflation.
+
+\textbf{Lab 2: Audit a Yield-Curve Interpretation}
+
+Ask an AI system to interpret an upward-sloping yield curve and explain what it implies about future short-term interest rates.
+
+Examine whether the response treats forward rates as certain forecasts or attributes the slope entirely to expectations of rising short-term rates. Revise the interpretation using the distinction between expected future short-term rates and term premia, together with maturity-specific supply and demand conditions.
+
+Repeat the exercise for a flat or inverted yield curve. Determine which conclusions follow from the observed curve and which require additional assumptions about expectations or term premia.
+
+%========================================================
+% Discussion Questions
+%========================================================
+
+\TailModule{questions}{Discussion Questions}
+
+\begin{enumerate}
+
+\item Why is the interest rate an opportunity cost even for a firm that finances an investment entirely with internal funds?
+
+\item Why can two loans with the same quoted annual percentage rate have different effective borrowing costs?
+
+\item How can a central bank reduce its policy rate while the borrowing rate faced by a risky firm rises?
+
+\item Why should a forward rate not automatically be interpreted as the market's unbiased forecast of a future short-term rate?
+
+\item Why can the same increase in a benchmark interest rate affect investment differently across borrowers?
+
+\end{enumerate}
+
+%========================================================
+% Applied Problems
+%========================================================
+
+\TailModule{appprobs}{Applied Problems}
+
+\begin{enumerate}
+
+\item \textbf{Compounding and effective rates.}
+
+A bank quotes a nominal annual deposit rate of 5.4\% compounded monthly. A second deposit pays 5.5\% with annual compounding. A third deposit quotes a continuously compounded annual rate of 5.35\%.
+
+\begin{enumerate}
+
+\item Calculate the monthly rate on the first deposit.
+
+\item Calculate the effective annual rate on the first deposit.
+
+\item Calculate the effective annual rate on the continuously compounded deposit.
+
+\item Compare the effective annual returns on all three deposits.
+
+\item Rank the three deposits from highest to lowest effective annual return.
+
+\end{enumerate}
+
+
+\item \textbf{Nominal and real returns.}
+
+An investor earns a nominal return of 7.5\% over one year.
+
+\begin{enumerate}
+
+\item Calculate the exact real return if inflation is 2.5\%.
+
+\item Calculate the approximate real return using the Fisher approximation.
+
+\item Recalculate both measures if inflation is 6\%.
+
+\item Explain why the approximation becomes less accurate as the rates increase.
+
+\end{enumerate}
+
+
+\item \textbf{Spot and forward rates.}
+
+The one-year spot rate is 3.0\% and the two-year spot rate is 4.2\%, with annual compounding.
+
+\begin{enumerate}
+
+\item Calculate the one-year forward rate beginning one year from today.
+
+\item Verify that investing for two years at the two-year spot rate produces the same final value as investing for one year at the one-year spot rate and then at the implied forward rate.
+
+\item Explain why the forward rate need not equal the expected future one-year short rate.
+
+\end{enumerate}
+
+
+\item \textbf{Expectations and term premia.}
+
+The current one-year rate is 3\%. The expected one-year short rates for years 2 and 3 are 4\% and 5\%.
+
+\begin{enumerate}
+
+\item Under the expectations hypothesis, calculate the approximate three-year spot rate.
+
+\item Suppose the three-year term premium is 0.6 percentage point. What approximate three-year spot rate would result?
+
+\item Explain why observing the three-year spot rate alone does not identify expected future short-term rates.
+
+\end{enumerate}
+
+
+\item \textbf{Benchmark rates, spreads, and capital allocation.}
+
+Two borrowers initially face the same benchmark interest rate of 3.0\%. The lower-risk borrower has a credit spread of 1.0\%, while the higher-risk borrower has a spread of 3.0\%.
+
+The benchmark rate subsequently rises to 4.0\%. The lower-risk borrower's spread remains unchanged, while the higher-risk borrower's spread widens to 4.0\%.
+
+\begin{enumerate}
+
+\item Calculate the initial financing rate for each borrower.
+
+\item Calculate the new financing rate for each borrower.
+
+\item Which borrower experiences the larger increase in financing cost?
+
+\item Explain how the change in relative financing conditions can affect the allocation of capital across borrowers.
+
+\item Explain why a change in the benchmark rate alone is insufficient to determine how financing conditions change across the market.
+
+\end{enumerate}
+
+\end{enumerate}
+
+%========================================================
+% Data Application
+%========================================================
+
+\TailModule{dataapp}{Data Application}
+
+\textbf{Reading the Yield Curve}
+
+Obtain government-security yields across several maturities for a selected date from an authoritative data source. For China, suitable data include ChinaBond yield-curve data published by China Central Depository \& Clearing Co., Ltd. For an international comparison, use data from a central bank, treasury, government debt-management office, or another authoritative market source.
+
+Construct a yield curve using maturities that are as comparable as possible in credit quality, instrument type, and yield definition.
+
+Describe whether the curve is upward sloping, approximately flat, inverted, or non-monotonic. Consider three possible contributors to the observed pattern:
+
+\begin{itemize}
+
+\item expectations of future short-term rates;
+
+\item term premia;
+
+\item maturity-specific supply, demand, or liquidity conditions.
+
+\end{itemize}
+
+The observed curve alone does not identify expected future policy rates. Explain what assumptions about term premia and other maturity-specific effects would be required for such an interpretation.
+
+If data for two dates are available, compare how the curve changed. Identify whether the change was concentrated at short maturities, long maturities, or across the curve, and discuss what additional evidence would be needed before assigning a causal interpretation.
+
+Report the observation dates, maturities, yield definitions, and primary data source.
+
+%========================================================
+% Further Reading
+%========================================================
+
+\TailModule{furtherread}{Further Reading}
+
+\begin{itemize}
+
+\item Fisher, Irving (1930), \emph{The Theory of Interest: As Determined by Impatience to Spend Income and Opportunity to Invest It}, The Macmillan Company.
+
+\item Hicks, John R. (1939), \emph{Value and Capital: An Inquiry into Some Fundamental Principles of Economic Theory}, Clarendon Press.
+
+\item Lutz, Friedrich A. (1940), ``The Structure of Interest Rates,'' \emph{Quarterly Journal of Economics}, 55(1), 36--63.
+
+\item Modigliani, Franco, and Richard Sutch (1966), ``Innovations in Interest Rate Policy,'' \emph{American Economic Review}, 56(1/2), 178--197.
+
+\item Campbell, John Y., Andrew W. Lo, and A. Craig MacKinlay (1997), \emph{The Econometrics of Financial Markets}, Princeton University Press.
+
+\end{itemize}
+
+\ChapterTail{summary,keyterms,aiprompt,questions,appprobs,dataapp,furtherread}
