@@ -1,0 +1,840 @@
+\chapter{Asset Management and Institutional Investment}
+\label{chap:Asset_Management_and_Institutional_Investment}
+
+\begin{openingcase}{Whose Interests Does the Manager Serve?}
+
+A pension fund invests retirement savings on behalf of thousands of beneficiaries. The beneficiaries ultimately bear the investment gains and losses, but they do not select individual securities or trade the portfolio themselves. Instead, the fund delegates much of this responsibility to professional asset managers.
+
+One manager identifies an investment opportunity that would require a substantial departure from the benchmark and may take several years to pay off. If the investment succeeds, the gains accrue largely to the pension beneficiaries. If it underperforms the benchmark in the short run, however, the pension fund may reduce or terminate the mandate, cutting the manager's fee income. The manager may therefore hesitate to take a position that is consistent with the beneficiaries' long-term interests but exposes the mandate to short-term performance risk.
+
+\end{openingcase}
+
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=FinanceBlue!6,
+  colframe=FinanceBlue,
+  boxrule=0.6pt,
+  sharp corners,
+  left=8pt,
+  right=8pt,
+  top=7pt,
+  bottom=7pt,
+  before skip=1em,
+  after skip=1.6em,
+  title=\textbf{Core Questions},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  attach boxed title to top left={xshift=6pt,yshift=-2mm},
+  boxed title style={
+    boxrule=0pt,
+    sharp corners,
+    left=5pt,
+    right=5pt,
+    top=2pt,
+    bottom=2pt
+  }
+]
+\begin{enumerate}[
+  leftmargin=*,
+  label=\textcolor{FinanceBlue}{\textbf{\arabic*.}},
+  itemsep=0.55em,
+  topsep=0.2em
+]
+
+
+\item Why do investors delegate portfolio decisions, and how do mandates, benchmarks, fees, and fiduciary responsibilities affect the relationship between investors and asset managers?
+
+\item How do different asset-management vehicles and institutional investors differ in liquidity, control, investment horizon, and risk allocation?
+
+\item How do asset managers produce information, affect markets and corporate governance, and respond to passive and technology-driven investment?
+
+
+\end{enumerate}
+\end{tcolorbox}
+
+\section{The Economics of Delegated Asset Management}
+
+Asset management separates capital ownership from many investment decisions. Investors bear the portfolio's gains and losses, while professional managers receive authority to select, trade, monitor, and sometimes vote the securities within a defined mandate.
+
+\subsection{Direct and Delegated Investment}
+
+An individual investor can hold and manage financial assets directly or delegate portfolio decisions to a professional manager. Direct investment gives the investor control over security selection, trading, and portfolio monitoring, but also requires time, information, and investment expertise. Under delegated investment, the investor retains the economic exposure to the portfolio, while the manager receives authority to make specified investment decisions within a defined mandate. The precise legal arrangement depends on whether the assets are held through a pooled vehicle, a separate account, or another structure.
+
+Delegation can create value when portfolio management requires expertise, scale, or infrastructure that is costly for individual investors to reproduce. Managers can spread the costs of research, trading systems, risk measurement, reporting, and administration across many clients. Pooled investment vehicles can also provide diversification at lower transaction and monitoring costs than many investors could achieve individually.
+
+This structure differs from deposit-taking intermediation. A commercial bank finances much of its asset portfolio by issuing deposits and other liabilities on its own balance sheet. An asset manager, by contrast, typically manages client assets or pooled funds without financing those assets primarily with its own liabilities. Portfolio gains and losses are therefore generally passed through to investors, subject to the legal structure of the vehicle and any contractual commitments or capital provided by the manager.
+
+A simple delegated-investment relationship can be written as
+
+\begin{equation}
+W_T=W_0(1+r_{gross})-F,
+\label{eq:ch14-investor-terminal-wealth}
+\end{equation}
+where $W_0$ is the investor's initial capital, $r_{gross}$ is the
+gross portfolio return over the period, and $F$ represents
+the total fees and other charges, expressed as a monetary
+amount. Compared with direct investment, delegation changes who makes portfolio decisions and introduces management costs, while the investor generally remains exposed to portfolio performance.
+
+\subsection{Asset Management Contracts, Fees, and Incentives}
+
+Delegated asset management is governed by contracts that define decision rights, investment constraints, and compensation. An investment mandate may specify eligible assets, benchmarks, risk limits, leverage, investment horizon, and reporting requirements. In pooled vehicles, fund terms may also govern liquidity and withdrawals. Together, these provisions define the manager's decision space and the basis for performance evaluation.
+
+A benchmark provides a reference portfolio or return against which portfolio performance can be assessed. If $r_P$ is the portfolio return and $r_B$ the benchmark return, active return is
+
+\begin{equation}
+r_{active}=r_P-r_B.
+\label{eq:ch14-active-return}
+\end{equation}
+
+Benchmarking makes relative performance and portfolio deviations more visible, but it can also affect investment decisions. A manager evaluated closely against a benchmark may limit large deviations that could generate substantial relative underperformance.
+
+Compensation commonly includes an asset-based management fee. If the annual fee rate is $f$ and $A$ is the relevant fee base, the management fee can be written as
+
+\begin{equation}
+F_M=fA.
+\label{eq:ch14-management-fee}
+\end{equation}
+
+Some arrangements also include performance-based compensation. A simplified performance fee is
+
+\begin{equation}
+F_P=\alpha\max\{r_P-h,0\}A,
+\label{eq:ch14-performance-fee}
+\end{equation}
+where $\alpha$ is the performance-fee rate, $h$ is a hurdle or reference return, and $A$ is the fee base. More detailed contracts may include high-water marks, loss carryforwards, or benchmark adjustments.
+
+Fee design affects managerial incentives. Asset-based fees link revenue to assets under management and can increase the value of attracting and retaining investor capital. Performance fees make compensation more sensitive to investment outcomes, but asymmetric participation in gains and losses may encourage greater risk taking under some conditions. The resulting incentives depend on the contract as a whole and on any capital that the manager has invested alongside clients.
+
+\begin{example}{Management Fees and Net Investor Return}{management-fee-net-return}
+
+A fund begins the year with RMB~100 million and earns a gross portfolio return of 8\%. Suppose the management fee is 1\% of beginning assets and there are no other fees or cash flows.
+
+The management fee is
+
+\[
+F_M=0.01\times100=1
+\]
+
+million renminbi. Portfolio gains increase the fund's assets to RMB~108 million before fees. After the management fee is deducted, net assets are RMB~107 million, corresponding to a simplified net return of 7\%.
+
+The one-percentage-point difference between gross and net return reflects the management fee under the stated convention.
+
+\end{example}
+
+\subsection[Principal--Agent Problems and Fiduciary Responsibility]{Principal--Agent Problems and Fiduciary \\Responsibility}
+
+Delegated asset management creates a principal--agent relationship. Investors entrust investment authority to managers, but managerial objectives may not always coincide fully with investor interests. Compensation, career concerns, asset gathering, and business relationships can influence how that authority is exercised.
+
+Agency conflicts can take several forms. Managers may assume additional risk when compensation is asymmetric, remain close to a benchmark to reduce career risk, trade more than investment considerations justify, or favor affiliated products or counterparties. Such outcomes are not inherent in delegation; their importance depends on contract design, organizational structure, and the regulatory environment.
+
+Fiduciary responsibility constrains the use of delegated authority. Its legal content varies across jurisdictions and institutional forms, but the underlying economic principle is that managers should exercise entrusted authority with due regard to client interests and manage conflicts of interest appropriately. Disclosure, internal controls, independent oversight, and restrictions on conflicted transactions can support this objective.
+
+Investors can also discipline managers through monitoring and exit. Institutional clients may negotiate mandates, review performance, and replace managers, while retail investors rely more heavily on standardized disclosure, fund governance, regulation, and the ability to redeem or switch funds. Reputation provides an additional constraint when future mandates and asset flows depend on investor confidence.
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{Financial Perspective: Fiduciary Responsibility Does Not Eliminate Agency Problems},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+Fiduciary responsibility constrains how managers use delegated authority, but it does not make investor and manager incentives identical. Investment outcomes are uncertain, managerial actions are not always fully observable, and conflicts of interest may remain. Contracts, monitoring, governance, and reputation therefore continue to matter even when fiduciary obligations apply.
+
+\end{tcolorbox}
+
+\section{Collective Investment Vehicles}
+
+One common way to organize delegated investment is through a collective investment vehicle. Instead of managing each investor's portfolio separately, the vehicle pools capital from many investors and invests the combined resources under a common mandate.
+
+\subsection{Open-End Mutual Funds}
+
+An open-end mutual fund issues shares that investors can subscribe to or redeem with the fund. Subscriptions create new shares, while redemptions cancel existing shares, so the number of shares outstanding changes with investor flows.
+
+The net asset value per share is
+
+\begin{equation}
+\textit{NAV}_t=
+\frac{A_t-L_t}{N_t},
+\label{eq:ch14-nav}
+\end{equation}
+
+where $A_t$ is the market value of fund assets, $L_t$ is fund liabilities, and $N_t$ is the number of shares outstanding. NAV converts the net value of the fund's portfolio into a value per share.
+
+Investor flows can affect portfolio management. Subscriptions provide cash that may be invested in additional assets, while redemptions require the fund to provide cash to departing investors. The fund can meet redemptions from cash holdings, offsetting subscriptions, permitted borrowing, or asset sales. When redemptions are large relative to available liquidity, the manager may need to sell assets even when the underlying investment view has not changed.
+
+Open-end pooling can provide diversification and economies in trading and administration, but it also creates a link between investor liquidity and portfolio liquidity. The cost of meeting redemptions therefore depends partly on how readily the underlying assets can be sold.
+
+\begin{example}{A Mutual Fund Subscription at NAV}{mutual-fund-subscription-nav}
+
+A mutual fund has RMB~500 million of assets, RMB~5 million of liabilities, and 45 million shares outstanding. Its NAV per share is
+
+\[
+\textit{NAV}=\frac{500-5}{45}=11.00.
+\]
+
+An investor contributes RMB~1.1 million at this NAV and, abstracting from fees, receives
+
+\[
+\frac{1.1\text{ million}}{11.00}=100{,}000
+\]
+
+new fund shares. The subscription increases fund assets to RMB~501.1 million and shares outstanding to 45.1 million. Under the stated assumptions, NAV remains RMB~11.00 per share.
+
+\end{example}
+
+\subsection[Exchange-Traded Funds and the Creation--Redemption Mechanism]{Exchange-Traded Funds and the Creation--\\Redemption Mechanism}
+
+An exchange-traded fund (ETF) holds a portfolio of underlying assets while its shares trade in the secondary market. Most investors buy and sell ETF shares without transacting directly with the fund. Authorized participants, however, can create or redeem large blocks of shares through transactions with the fund.
+
+In a creation, an authorized participant delivers a specified basket of securities, cash, or a combination of the two and receives newly issued ETF shares. In a redemption, ETF shares are returned to the fund in exchange for a corresponding basket or cash settlement. This mechanism allows the supply of ETF shares to adjust in response to conditions in the ETF and its underlying portfolio.
+
+Let $P_t^{ETF}$ denote the market price of an ETF share and $\textit{NAV}_t$ its net asset value per share. A simple premium or discount measure is
+
+\begin{equation}
+\pi_t=
+\frac{P_t^{ETF}-\textit{NAV}_t}{\textit{NAV}_t}.
+\label{eq:ch14-etf-premium-discount}
+\end{equation}
+
+When an ETF trades at a sufficiently large premium, authorized participants can create new shares and sell them in the secondary market, tending to reduce the premium. When it trades at a sufficiently large discount, redemption can work in the opposite direction. The effectiveness of this mechanism depends on transaction costs, funding conditions, taxes, market hours, and the liquidity of the underlying assets.
+
+\begin{example}{ETF Creation When the Fund Trades at a Premium}{etf-creation-premium}
+
+Suppose an ETF has a NAV of RMB~10.00 per share but trades in the secondary market at RMB~10.10. Ignoring transaction costs and other frictions, an authorized participant can acquire the underlying basket at a value equivalent to RMB~10.00 per ETF share, deliver the basket to the fund, and receive newly created ETF shares.
+
+If those shares are then sold at RMB~10.10, the price difference creates an arbitrage opportunity. The creation increases the supply of ETF shares and tends to reduce the premium.
+
+In practice, creation becomes attractive only when the price difference is large enough to cover transaction costs, funding costs, taxes, and other frictions.
+
+\end{example}
+
+Unlike an ordinary open-end mutual fund, an ETF does not require the fund itself to transact whenever an investor buys or sells shares. Secondary-market trading can therefore absorb many investor transactions without directly changing the underlying portfolio. Creation and redemption nevertheless provide a channel through which trading pressure can pass between ETF shares and the underlying assets.
+
+\subsection{Fund Liquidity, NAV, and Redemption Risk}
+
+The liquidity of a fund claim and the liquidity of its underlying assets are related but distinct. A fund may offer frequent subscriptions and redemptions even when some portfolio assets trade less frequently. This arrangement is easier to maintain when investor flows are small relative to available cash and market liquidity.
+
+Large redemptions can require asset sales. When portfolio assets are relatively illiquid, such sales may involve transaction costs, price concessions, or market impact. If these costs are not fully reflected in the price received by redeeming investors, part of the cost may be borne by investors who remain in the fund. Under such conditions, expectations of further outflows can create an incentive to redeem earlier.
+
+Fund design can affect how these costs are distributed. Cash buffers and liquid holdings can reduce the need for immediate asset sales, while redemption fees, swing pricing, notice periods, and other liquidity-management tools can shift more of the cost toward investors whose transactions generate it. Their use depends on the structure of the fund, the liquidity of its assets, and applicable rules.
+
+Illiquid assets can also complicate NAV measurement. When market prices are unavailable or infrequent, valuation may rely more heavily on models, dealer quotations, comparable securities, or other estimation methods. NAV remains a useful measure of investor claims, but valuation uncertainty may increase when observable market prices provide less information.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  >=Latex,
+  box/.style={
+    draw=FinanceBlue,
+    rounded corners=2pt,
+    align=center,
+    text width=3.0cm,
+    minimum height=0.9cm,
+    inner sep=5pt
+  },
+  flow/.style={-Latex, line width=0.8pt, FinanceBlue}
+]
+
+\node[box] (redeem) at (0,0) {Investor redemptions};
+\node[box] (cash) at (4.3,0) {Need for cash};
+\node[box] (sales) at (8.6,0) {Portfolio asset sales};
+
+\node[box] (costs) at (8.6,-2.0) {Trading costs and market impact};
+\node[box] (remain) at (4.3,-2.0) {Costs borne partly by remaining investors};
+\node[box] (incentive) at (0,-2.0) {Possible incentive to redeem earlier};
+
+\draw[flow] (redeem) -- (cash);
+\draw[flow] (cash) -- (sales);
+\draw[flow] (sales) -- (costs);
+\draw[flow] (costs) -- (remain);
+\draw[flow] (remain) -- (incentive);
+
+\end{tikzpicture}
+\caption{Redemption pressure and liquidity costs in an open-end fund}
+\label{fig:ch14-redemption-liquidity}
+\end{figure}
+
+\section{Institutional Investors and Alternative Asset Management}
+
+Beyond collective investment vehicles, delegated investment is also organized through institutions with different liability structures, investment horizons, liquidity needs, and governance arrangements. These characteristics influence the assets they can hold, the risks they can bear, and the way they interact with financial markets and corporate issuers.
+
+\subsection{Pension Funds and Liability-Driven Investment}
+
+Pension funds invest assets to meet future benefit obligations. Their asset strategy therefore depends on the timing, inflation sensitivity, and uncertainty of those payments as well as on expected asset returns.
+
+Let expected pension payments be $B_t$ at dates $t=1,\ldots,T$. A simplified present value of liabilities is
+
+\begin{equation}
+L_0=\sum_{t=1}^{T}\frac{B_t}{(1+y_t)^t},
+\label{eq:ch14-pension-liability-pv}
+\end{equation}
+where $y_t$ is the discount rate applied to the payment at date $t$. A simple measure of funding status is
+
+\begin{equation}
+FR=\frac{A_0}{L_0},
+\label{eq:ch14-pension-funding-ratio}
+\end{equation}
+where $A_0$ is the market value of pension assets.
+
+Liability-driven investment (LDI) manages assets relative to the value and sensitivity of pension liabilities. Long-duration bonds, for example, can reduce the sensitivity of the funding position to interest-rate changes when their duration is closer to that of the liabilities. Other assets may be held to seek higher expected returns. The allocation depends on funding status, benefit design, contribution policy, regulatory constraints, and tolerance for funding volatility.
+
+Long-dated liabilities can also give pension funds greater capacity to hold less liquid assets when near-term benefit payments and collateral needs remain manageable. A long investment horizon does not eliminate liquidity risk; it can broaden the feasible investment set when sufficient liquidity is available to meet shorter-term obligations.
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{Financial Perspective: LDI Focuses on the Funding Position, Not Assets Alone},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+Liability-driven investment evaluates asset risk relative to pension liabilities. An asset portfolio can perform well in isolation while the funding position deteriorates if liabilities rise by more. The relevant question is therefore how asset values and liability values move together.
+
+\end{tcolorbox}
+
+\subsection{Sovereign Wealth Funds, Endowments, and Long-Horizon Capital}
+
+Sovereign wealth funds, endowments, foundations, and similar institutions often invest over long horizons, but their sources of capital and spending obligations differ substantially. Sovereign funds may be financed by commodity revenues, fiscal surpluses, foreign-exchange reserves, or intergenerational saving, while endowments typically support recurring institutional expenditures and seek to preserve purchasing power over time.
+
+These differences affect liquidity needs and asset allocation. A long investment horizon can increase the capacity to hold less liquid assets such as private equity, infrastructure, and real estate, provided that near-term cash requirements remain manageable. Horizon alone is therefore not sufficient; the institution must also have the liquidity and governance capacity to maintain long-term positions.
+
+
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{Financial Perspective: A Long Horizon Does Not Eliminate Liquidity Constraints},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+A long investment horizon can increase an institution's capacity to hold less liquid assets, but horizon alone is not enough. Spending needs, possible withdrawals, collateral requirements, and governance constraints can still require access to cash. The ability to invest for the long term therefore depends on both investment horizon and liquidity capacity.
+
+\end{tcolorbox}
+
+Spending rules and institutional objectives further influence portfolio choice. An endowment with relatively stable annual distributions may place greater emphasis on long-run real returns, while a sovereign fund with stabilization objectives may hold more liquid assets if withdrawals are likely to rise during adverse economic conditions.
+
+Long-horizon capital can also reduce the need for forced sales during temporary market stress. Institutions with sufficient liquidity may be able to maintain positions through short-run price declines when doing so remains consistent with their mandate and risk capacity.
+
+\subsection{Private Equity and Venture Capital}
+
+Private equity and venture capital commonly organize investment through closed-end funds in which limited partners commit capital and a general partner makes investment decisions. Investors generally cannot redeem their interests on demand, giving the fund greater capacity to hold illiquid investments over extended periods.
+
+A central feature of private-market investing is concentrated ownership and active monitoring. Buyout funds may acquire substantial or controlling interests and influence financing, governance, management, and operating decisions. Venture-capital investors typically finance younger firms in stages and may combine capital with board participation and close monitoring. These arrangements can be especially important when information is limited and firm value depends heavily on future development.
+
+Manager compensation commonly combines a management fee with a performance-linked share of investment gains, often referred to as carried interest. This gives the general partner a direct stake in investment outcomes while leaving room for incentive conflicts. Fund terms, distribution rules, and capital contributed by the manager can affect how gains, losses, and incentives are shared between general and limited partners.
+
+Valuation is more difficult when portfolio companies are not continuously traded. Fund values may rely on models, comparable transactions, or other valuation methods between observable market transactions. Reported values may therefore adjust more gradually than public-market prices and contain greater estimation uncertainty.
+
+\subsection{Hedge Funds and Alternative Investment Strategies}
+
+Hedge funds often operate under relatively flexible investment mandates and may use short selling, derivatives, leverage, relative-value positions, event-driven strategies, or concentrated exposures. These tools allow managers to express both positive and negative views, hedge selected risks, and construct positions that are difficult to implement in traditional long-only portfolios.
+
+Such strategies can introduce funding, margin, liquidity, and model risk in addition to the market risk of the underlying positions. Their risk therefore depends not only on the assets held but also on how positions are financed, combined, and collateralized.
+
+Investor liquidity terms are often designed to reflect the liquidity of the strategy. Notice periods, lockups, gates, and similar restrictions can reduce the need for forced asset sales following withdrawals, while limiting investors' ability to exit quickly.
+
+Leverage can magnify changes in fund equity. If a fund has assets $A$ financed partly by equity $E$, a simple balance-sheet leverage measure is $A/E$.
+
+This ratio does not capture all forms of economic leverage. Derivatives, short positions, and other contingent exposures can create sensitivities that are not fully reflected in balance-sheet assets. Risk analysis therefore also depends on portfolio exposures, collateral requirements, and funding conditions.
+
+\section[Asset Managers as Information and Governance Intermediaries]{Asset Managers as Information and\\ Governance Intermediaries}
+
+Once investment decisions are delegated, asset managers can affect more than portfolio allocation. Through research, trading, voting, and engagement, they can influence the information reflected in market prices and the governance of firms whose securities they hold.
+
+\subsection{Information Production, Research, and Security Selection}
+
+Active asset management produces and uses information to identify securities or portfolio exposures whose expected returns appear attractive relative to their prices and risks. Research may draw on financial statements, industry and macroeconomic conditions, company information, quantitative models, and other permitted data sources. Its value depends on whether relevant information can be obtained and incorporated into investment decisions before it is fully reflected in prices.
+
+Information production and implementation are costly. Research requires analysts, data, and technology, while investment views must be translated into portfolio positions through trading. The value of an informational advantage may also decline as other market participants obtain and act on similar information.
+
+If $r_{gross}$ denotes the portfolio return before management and implementation costs, and $f$ and $c$ denote the corresponding cost rates, a simplified net return is
+
+\begin{equation}
+r_{net}=r_{gross}-f-c.
+\label{eq:ch14-net-portfolio-return}
+\end{equation}
+
+Active management adds value to investors only when the contribution from information, security selection, and execution is sufficient to offset these costs.
+
+Scale can affect this process in different ways. Research, data, and technology may exhibit economies of scale, while large portfolios can be more difficult to deploy in limited-capacity opportunities or to trade without affecting prices. The value of additional assets under management therefore depends on the strategy and the liquidity of the markets in which it operates.
+
+\subsection{Institutional Ownership and Corporate Governance}
+
+Institutional investors can influence corporate governance
+through active oversight and changes in their investment
+positions. The effectiveness of these channels depends on
+ownership size, voting rights, ownership concentration, and
+the terms of the investment mandate.
+
+Stewardship refers to the active oversight of investee
+companies on behalf of clients or beneficiaries. Subject to
+their investment mandates, asset managers may exercise the
+voting rights attached to shares held in client portfolios,
+including votes on director elections, executive remuneration, mergers, and other shareholder resolutions. They may also engage with boards and management on corporate strategy, performance, and governance. By coordinating these activities across multiple investee companies, asset managers can achieve economies of scale in shareholder oversight and help address the collective-action problems associated with dispersed share ownership.
+
+Institutional ownership can also create governance concerns.
+Large asset managers may exercise substantial voting influence
+across many firms, while conflicts of interest can arise from
+business relationships with investee companies or differences
+among the interests of their clients. Common ownership of
+competing firms has also attracted attention because overlapping
+institutional shareholdings may affect firms' incentives to
+compete. The significance of these concerns remains subject
+to debate, with empirical findings varying across markets
+and ownership structures.
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{Financial Perspective: Passive Investing Does Not Preclude Active Stewardship},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+An index fund follows a benchmark-based investment strategy,
+which limits discretion over security selection and portfolio
+weights. This does not prevent its manager from exercising
+voting rights, engaging with investee companies, or monitoring corporate governance. Since selling a constituent solely in response to governance concerns may create tracking error, voting and engagement can serve as important channels of influence for passive institutional investors.
+
+\end{tcolorbox}
+
+\subsection{Institutional Trading and Market Liquidity}
+
+Institutional investors trade securities to implement portfolio decisions, rebalance portfolios, accommodate investor flows, and manage risk. Their orders can supply liquidity when they take the opposite side of other trades or demand liquidity when they seek immediate execution.
+
+Large orders create a trade-off between execution speed and market impact. Faster execution reduces exposure to price movements while an order remains incomplete, but may require larger price concessions. Slower execution can reduce immediate market impact while increasing exposure to price changes during execution.
+
+Implementation shortfall (IS) measures the execution cost
+relative to the price prevailing when the investment decision
+is made. For a fully executed purchase, let $P_0$ denote the
+decision price, $\bar{P}$ the average execution price, and
+$Q$ the quantity purchased. Ignoring commissions and other
+transaction costs,
+
+\begin{equation}
+IS=Q(\bar{P}-P_0).
+\label{eq:ch14-implementation-shortfall}
+\end{equation}
+
+A positive value indicates that the average execution price
+exceeds the decision price, implying an execution cost
+relative to that benchmark. For a sale, the sign is reversed.
+
+Institutional trading can affect market liquidity when large or correlated orders exceed the depth available at prevailing prices. The resulting price impact depends on order size, execution strategy, market depth, and the willingness of other participants to take the opposite side.
+
+\section{The Transformation of Asset Management}
+
+New investment structures and technologies are changing how asset-management functions are performed. They can reduce the cost of portfolio construction and execution, while shifting some decisions from discretion toward rules and models.
+
+\subsection{Passive Investing, Indexing, and Rules-Based Allocation}
+
+Passive investing seeks to replicate the performance of a
+specified benchmark rather than generate excess returns
+through discretionary security selection. Index funds and
+passive ETFs are common implementation vehicles, although
+similar strategies can also be used in separately managed
+accounts and institutional portfolios.
+
+Rules-based allocation uses predetermined criteria to
+determine portfolio exposures or asset weights. Indexing
+is one form of rules-based investing, but not all
+rules-based strategies are passive. Some systematically
+adjust portfolio weights or exposures in response to
+specified market conditions, investment signals, or
+allocation rules.
+
+A simple example is a fixed-weight portfolio that allocates
+60\% to equities and 40\% to bonds. As market prices change,
+the actual weights may move away from these targets. A
+predetermined rebalancing rule can require the manager to
+restore the original weights periodically or when deviations
+exceed specified thresholds. Other rules-based strategies
+may adjust portfolio exposures according to predefined
+volatility targets, valuation measures, or momentum signals.
+These approaches reduce reliance on discretionary decisions,
+although the choice of indicators, thresholds, and rebalancing rules still requires investment judgment.
+
+Passive strategies can reduce research and portfolio-management
+costs while providing transparent exposure to a market or
+factor. The difference between a passive portfolio's return
+and its benchmark return is known as the tracking difference.
+It is measured using the active-return definition in
+equation~\eqref{eq:ch14-active-return}. A negative tracking
+difference indicates underperformance relative to the
+benchmark. It may reflect management fees, taxes, transaction
+costs, cash holdings, sampling, and rebalancing frictions,
+while securities-lending revenue may offset some of these
+effects.
+
+Passive investing limits discretion over continuous security
+selection but does not eliminate investment choices. Index
+providers determine benchmark composition through decisions
+about eligible securities, inclusion criteria, and weighting
+methods. Asset managers, in turn, choose how to replicate
+the benchmark, execute trades, manage cash holdings, and
+control tracking deviations. Investment discretion is thus
+constrained by the benchmark methodology and concentrated
+in portfolio implementation.
+
+\subsection{Robo-Advisory and Algorithmic Portfolio Management}
+
+Robo-advisory uses digital systems to translate investor information into portfolio recommendations and automate parts of implementation and rebalancing. Information about investment horizon, risk tolerance, income needs, and other constraints is mapped into an asset allocation and a set of investment vehicles.
+
+Automation can reduce the cost of delivering and maintaining diversified portfolios when these tasks can be standardized. It can also allow recommendations to reflect a wider set of investor characteristics. The quality of the resulting advice depends on the information collected, the model used to interpret it, and the constraints built into the system.
+
+Algorithmic portfolio management extends these methods beyond retail advice. Asset managers may use optimization, execution algorithms, machine learning, and large data sets in research, portfolio construction, and trading. These tools can expand information-processing capacity and automate parts of investment management, while investment objectives, risk limits, and legal responsibilities continue to constrain their use.
+
+\subsection{Model Risk, Automation, and Human Oversight}
+
+Model-based asset management translates data, assumptions, and decision rules into portfolio choices. Model risk arises when the information or relationships embedded in a model do not adequately represent the investment problem, or when the model's objective differs from the investor's actual objective.
+
+Automation can extend the speed and scale at which model-based decisions are implemented. It can also amplify errors or common responses. If many portfolios react to similar signals in the same direction, trading pressure may become concentrated when market liquidity is limited. The effect depends on portfolio size, market depth, and the diversity of strategies in use.
+
+Artificial intelligence can expand information-processing capacity and automate parts of research, forecasting, classification, and communication. These applications may improve efficiency, but their reliability still depends on the quality of the data, the design of the model, and the verification of its outputs.
+
+Human oversight remains important because investment objectives and acceptable risks cannot be determined by automation alone. Oversight includes defining objectives, setting risk limits, reviewing model assumptions and outputs, interpreting unusual conditions, and deciding when automated rules require intervention.
+
+\begin{table}[H]
+
+\centering
+
+\caption{Automation in asset management: potential gains and remaining constraints}
+
+\label{tab:ch14-automation-asset-management}
+
+\begin{tabularx}{0.94\textwidth}{@{}p{0.30\textwidth} X X@{}}
+
+\toprule
+
+\textbf{Function} & \textbf{Potential gain from automation} & \textbf{Remaining constraint} \\
+
+\midrule
+
+Client assessment
+& Lower processing cost and greater consistency
+& Incomplete or inaccurate client information \\
+
+Research
+& Faster processing of large data sets
+& Data quality and model reliability \\
+
+Portfolio construction
+& Consistent application of allocation and rebalancing rules
+& Objective specification and estimation error \\
+
+Trading
+& Faster and more systematic execution
+& Market impact, liquidity, and changing market conditions \\
+
+\bottomrule
+
+\end{tabularx}
+
+\end{table}
+
+%========================================================
+% Summary
+%========================================================
+
+\TailModule{summary}{Summary}
+
+Asset management delegates portfolio decisions from investors
+to specialized managers. Delegation can exploit economies of
+scale and specialization in information production, trading,
+diversification, and administration, but it also creates
+agency problems. Investment mandates, benchmarks, fees,
+fiduciary duties, and governance arrangements help align
+managerial decisions with investor interests. Investors
+generally continue to bear the portfolio's gains and losses.
+
+Collective investment vehicles differ in how investment
+claims are issued, traded, and redeemed. Traditional open-end
+mutual funds issue and redeem shares at net asset value (NAV),
+whereas ETFs trade on exchanges and combine secondary-market
+transactions with a creation--redemption mechanism. The
+liquidity of fund shares therefore depends not only on
+trading arrangements but also on the liquidity of underlying
+assets and the allocation of transaction and redemption costs.
+
+Institutional investors differ in their liabilities,
+investment horizons, liquidity needs, and governance
+arrangements. Pension funds manage assets relative to future
+benefit obligations; sovereign wealth funds and endowments
+often have longer investment horizons; private equity and
+venture capital funds combine committed capital with active
+ownership; and hedge funds employ more flexible strategies,
+including leverage and short selling.
+
+Asset managers also produce information, exercise ownership
+rights, and participate in securities markets. Passive,
+rules-based, and automated strategies change how these
+functions are performed rather than eliminate them. Model
+design, market liquidity, incentive structures, and human
+oversight remain important as investment decisions become
+increasingly systematic and technology-enabled.
+
+%========================================================
+% Key Terms
+%========================================================
+
+\TailModule{keyterms}{Key Terms}
+
+Asset management; delegated investment; investment mandate;
+principal-agent problem; fiduciary duty; management fee;
+benchmark; active return; stewardship; mutual fund;
+net asset value; exchange-traded fund; redemption risk; liability-driven investing;
+funding ratio; private equity; venture capital; hedge fund;
+institutional ownership; passive investing; index fund;
+rules-based allocation; tracking difference; 
+implementation shortfall; robo-advisory;
+model risk.
+
+%========================================================
+% Financial AI Lab
+%========================================================
+
+\TailModule{aiprompt}{Financial AI Lab}
+
+\textbf{Lab: Audit an AI-Generated Fund Recommendation}
+
+Ask an AI system to compare two investment funds that provide exposure to the same broad asset class and recommend one of them. Require the system to explain the fund structure, benchmark, fees, liquidity, portfolio composition, historical tracking difference where relevant, and major investment risks.
+
+Audit the recommendation in four stages.
+
+\begin{enumerate}
+
+\item \textbf{Check the fund structure.}
+
+Identify whether each vehicle is an open-end mutual fund, ETF, closed-end fund, private fund, or another structure. Verify how investors enter and exit and whether transactions occur at market prices or values based on NAV.
+
+\item \textbf{Check the benchmark and costs.}
+
+Verify the stated benchmark, management fees, and other material charges using official fund disclosures. Recalculate any performance comparison using consistent periods and return definitions.
+
+\item \textbf{Check the liquidity mechanism.}
+
+Compare the liquidity available to investors with the liquidity of the underlying assets. Identify conditions under which redemptions, market impact, or ETF premiums and discounts could become important.
+
+\item \textbf{Check the recommendation logic.}
+
+Determine whether the recommendation relies on investor characteristics or future outcomes that were not provided. In particular, identify assumptions about investment horizon, risk tolerance, liquidity needs, tax position, or expected returns.
+
+\end{enumerate}
+
+The final report should distinguish verifiable fund characteristics from forecasts, assumptions, and investor-specific judgments that require additional information.
+
+%========================================================
+% Discussion Questions
+%========================================================
+
+\TailModule{questions}{Discussion Questions}
+
+\begin{enumerate}
+
+\item Why can delegated asset management create a principal--agent problem even when both investors and managers prefer higher portfolio returns?
+
+\item How does an ETF's creation--redemption mechanism differ from redemption in an open-end mutual fund, and why does this difference matter for portfolio trading?
+
+\item Why might a pension fund with long-dated liabilities hold a different portfolio from a mutual fund whose investors can redeem daily?
+
+\item How can passive asset managers influence corporate governance even when they do not rely on discretionary security selection?
+
+\item Which asset-management functions can be performed more
+efficiently through automation, and which aspects of investment management still require careful attention to incentives, market liquidity, governance, and human judgment?
+
+\end{enumerate}
+
+%========================================================
+% Applied Problems
+%========================================================
+
+\TailModule{appprobs}{Applied Problems}
+
+\begin{enumerate}
+
+\item \textbf{Fees and delegated performance.}
+
+A fund begins the year with RMB~200 million and earns a gross return of 9\%.
+The management fee is 1.2\% of beginning assets. A performance fee equals
+15\% of the gross return above a 6\% hurdle, calculated on beginning
+assets and before the management fee. Ignore other cash flows and costs.
+
+\begin{enumerate}
+
+\item Calculate the management fee.
+
+\item Calculate the performance fee.
+
+\item Calculate ending assets after both fees.
+
+\item Calculate the investor's simplified net return.
+
+\end{enumerate}
+
+\item \textbf{Mutual-Fund NAV and Redemption.}
+
+An open-end fund has assets of RMB~840 million, liabilities of RMB~12 million,
+and 72 million shares outstanding.
+
+\begin{enumerate}
+
+\item Calculate NAV per share.
+
+\item An investor redeems 600,000 shares at NAV. Calculate the cash required,
+ignoring fees and market impact.
+
+\item Suppose the fund incurs RMB~0.6 million of trading costs to meet the redemption,
+and these costs are borne by the remaining fund. Calculate the resulting NAV per share
+and explain who bears the cost.
+
+\item Identify one fund-design tool that could alter the allocation of such redemption costs.
+
+\end{enumerate}
+
+\item \textbf{ETF Premium and Discount.}
+
+An ETF has NAV per share of RMB~4.00 and trades at RMB~4.08.
+
+\begin{enumerate}
+
+\item Calculate the percentage premium to NAV.
+
+\item Describe the sequence of a potential creation trade when the premium is large
+enough to cover transaction and funding costs.
+
+\item Explain why a premium or discount need not disappear immediately when the
+underlying securities are illiquid or their markets are closed.
+
+\end{enumerate}
+
+\item \textbf{Pension Funding and Liability Sensitivity.}
+
+A pension fund has assets of RMB~95 billion and the present value of expected
+liabilities is RMB~100 billion.
+
+\begin{enumerate}
+
+\item Calculate the funding ratio.
+
+\item If the liability value rises to RMB~106 billion while assets remain unchanged,
+calculate the new funding ratio.
+
+\item Explain how a fall in long-term discount rates can increase the present value
+of long-dated liabilities.
+
+\end{enumerate}
+
+\item \textbf{Institutional Trading and Implementation Shortfall.}
+
+A fund decides to buy 500,000 shares when the reference price is RMB~20.00.
+The average execution price is RMB~20.12.
+
+\begin{enumerate}
+
+\item Calculate implementation shortfall using
+Equation~\ref{eq:ch14-implementation-shortfall}, ignoring commissions.
+
+\item Express the shortfall as a percentage of the reference value of the order.
+
+\item Explain the trade-off between completing the order more quickly and reducing
+market impact.
+
+\end{enumerate}
+
+\end{enumerate}
+
+%========================================================
+% Data Application
+%========================================================
+
+\TailModule{dataapp}{Data Application}
+
+\textbf{Publicly Offered Funds, ETFs, and Passive Investment in China}
+
+Use official or primary-source data from the Asset Management Association of China, the Shanghai Stock Exchange, the Shenzhen Stock Exchange, fund prospectuses, and periodic fund reports. Select a small sample of actively managed funds and index funds or ETFs that can be compared over a common period.
+
+First, document fund size, subscriptions or redemptions where available, management fees, and stated benchmarks. For ETFs, collect market prices and reported NAV or indicative NAV for selected dates and calculate premiums or discounts using Equation~\ref{eq:ch14-etf-premium-discount}. State clearly how market prices and NAV measures are matched in time.
+
+Second, compare each passive fund's return with its stated benchmark over consistent periods and calculate tracking difference. Use fund disclosures to examine whether fees, cash holdings, sampling, rebalancing, or other implementation factors help explain the observed difference. Do not interpret past tracking performance as evidence of future performance.
+
+Third, examine how the selected funds exercise ownership rights. Where disclosures are available, use voting records, periodic reports, or other stewardship-related information to assess whether passive portfolio construction is accompanied by active voting or engagement.
+
+Report the fund names and share classes, sample period, benchmark definitions, fee definitions, data sources, and any adjustments made to returns or NAV. Distinguish documented facts from interpretations about investor demand, governance, or market impact.
+
+%========================================================
+% Further Reading
+%========================================================
+
+\TailModule{furtherread}{Further Reading}
+
+\begin{itemize}
+
+\item Chevalier, Judith, and Glenn Ellison (1997),
+
+``Risk Taking by Mutual Funds as a Response to Incentives,''
+
+\emph{Journal of Political Economy}, 105(6), 1167--1200.
+
+\item Sirri, Erik R., and Peter Tufano (1998),
+
+``Costly Search and Mutual Fund Flows,''
+
+\emph{The Journal of Finance}, 53(5), 1589--1622.
+
+\item Berk, Jonathan B., and Richard C. Green (2004),
+
+``Mutual Fund Flows and Performance in Rational Markets,''
+
+\emph{Journal of Political Economy}, 112(6), 1269--1295.
+
+\item Appel, Ian R., Todd A. Gormley, and Donald B. Keim (2016),
+
+``Passive Investors, Not Passive Owners,''
+
+\emph{Journal of Financial Economics}, 121(1), 111--141.
+
+\item Ben-David, Itzhak, Francesco Franzoni, and Rabih Moussawi (2018),
+
+``Do ETFs Increase Volatility?''
+
+\emph{The Journal of Finance}, 73(6), 2471--2535.
+
+\end{itemize}
+
+\ChapterTail{summary,keyterms,aiprompt,questions,appprobs,dataapp,furtherread}

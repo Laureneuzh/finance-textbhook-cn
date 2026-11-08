@@ -1,0 +1,1084 @@
+\chapter{Derivatives Markets and Contingent Claims}
+\label{chap:Derivatives_Markets_and_Contingent_Claims}
+
+\begin{openingcase}{How Can a Contract Change Risk Without Changing the Underlying Business?}
+
+A manufacturer expects to buy 1,000 tonnes of copper in three months. At today's price, the purchase would cost about RMB~80 million. The firm is not trying to speculate on copper. Its concern is that a higher copper price would raise production costs before it can adjust the prices charged to customers.
+
+The firm can enter a forward contract that fixes a purchase price for copper in three months. It can instead buy a call option that limits the cost of a large price increase while allowing the firm to benefit if copper prices fall. The physical need for copper is unchanged in either case. What changes is the state-contingent pattern of the firm's future cash flows.
+
+How can a contract redistribute the financial consequences of an uncertain future without transferring the underlying asset itself?
+
+\end{openingcase}
+
+
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=FinanceBlue!6,
+  colframe=FinanceBlue,
+  boxrule=0.6pt,
+  sharp corners,
+  left=8pt,
+  right=8pt,
+  top=7pt,
+  bottom=7pt,
+  before skip=1em,
+  after skip=1.6em,
+  title=\textbf{Core Questions},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  attach boxed title to top left={xshift=6pt,yshift=-2mm},
+  boxed title style={
+    boxrule=0pt,
+    sharp corners,
+    left=5pt,
+    right=5pt,
+    top=2pt,
+    bottom=2pt
+  }
+]
+\begin{enumerate}[
+  leftmargin=*,
+  label=\textcolor{FinanceBlue}{\textbf{\arabic*.}},
+  itemsep=0.55em,
+  topsep=0.2em
+]
+
+
+\item How do derivatives use state-contingent claims to unbundle and reallocate financial exposures?
+
+\item How do no-arbitrage and replication connect derivative prices to the prices of other traded claims?
+
+\item How do exchange trading, bilateral contracting, collateral, netting, and central clearing affect counterparty risk and the allocation of risk in derivative markets?
+
+
+\end{enumerate}
+\end{tcolorbox}
+
+\section[Why Derivatives Exist: Contingent Claims and Risk Allocation]{Why Derivatives Exist:\\ Contingent Claims and Risk Allocation}
+
+A derivative is a financial contract whose payoff depends on the value of an underlying asset, rate, index, event, or other specified condition. Its economic role is not confined to speculation. Derivatives allow participants to separate exposures that are bundled together in ordinary business and financial positions and to transfer selected parts of those exposures to other market participants.
+
+\subsection{State-Contingent Payoffs}
+
+A contingent claim is a financial claim whose payoff
+depends on the future state of the world. Let the
+possible states at date $T$ be indexed by
+$s=1,\ldots,S$. The payoff of a claim in state $s$
+is denoted by $X_T(s)$.
+
+A state represents the future conditions relevant
+to the contractual payoff. These conditions may
+include the price of an underlying asset, an interest
+rate, an exchange rate, a commodity price, or the
+occurrence of a specified credit event. A contingent
+claim therefore specifies how a contractual payment
+varies across possible future states.
+
+A forward contract illustrates a linear
+state-contingent payoff. It specifies the purchase
+and sale of an underlying asset at a future date $T$
+for a delivery price $K$ agreed upon at inception.
+The party obligated to purchase the underlying asset
+holds the long position, while the party obligated
+to deliver it holds the short position.
+
+At maturity, the payoff per unit of the underlying
+asset to the long forward position is
+
+\begin{equation}
+X_T^{\mathrm{long}}
+=
+S_T-K.
+\label{eq:ch11-forward-long-payoff}
+\end{equation}
+
+The short forward position has the opposite payoff:
+
+\begin{equation}
+X_T^{\mathrm{short}}
+=
+K-S_T
+=
+-X_T^{\mathrm{long}}.
+\label{eq:ch11-forward-short-payoff}
+\end{equation}
+
+Here, $S_T$ denotes the market price of the underlying
+asset at maturity. The two positions have equal and
+opposite payoffs before transaction costs and
+counterparty losses.
+
+Options also create state-contingent claims, but
+their holders possess exercise rights rather than
+an unconditional obligation to transact. Their
+nonlinear payoff structures are examined in
+later chapters.
+
+The same state-contingent perspective applies more
+broadly to debt, equity, insurance contracts, and
+guarantees. These claims distribute payments
+differently across future states, reflecting
+differences in contractual priority, risk allocation,
+and the conditions governing payment.
+
+\subsection{Exposure Decomposition and Risk Unbundling}
+
+Financial and operating positions often contain several sources of risk at the same time, and these exposures may interact. For example, the cash flow of an importing firm may be affected by both commodity prices and exchange rates, while joint movements in the two variables can amplify or partially offset changes in the firm's domestic-currency input costs. The risk of a position therefore depends not only on its individual exposures, but also on how those exposures move together.
+
+Exposure decomposition separates an overall position into economically distinct sources of risk and identifies how each source affects the position's cash flows or value. This makes it possible to distinguish exposures that may be retained from those that may be reduced or otherwise modified.
+
+Once distinct exposures have been identified, derivatives can be used to modify them separately. A derivative linked to a particular price, rate, index, or event creates a payoff that responds to that source of risk without requiring the underlying business activity or asset position to be changed. In this way, an exposure embedded in a broader position can be unbundled and modified separately from the other components of the position.
+
+To illustrate risk unbundling, suppose an existing position has value $V_T$ at date $T$ and is exposed to several risk factors. A derivative linked to one of these factors has payoff $X_T$. The combined position is
+
+\begin{equation}
+V_T^{D}=V_T+X_T.
+\label{eq:ch11-combined-derivative-position}
+\end{equation}
+
+Because $X_T$ responds to a selected risk factor, that component of the original exposure can be modified separately from the others. If the derivative payoff offsets part of the cash-flow variation associated with that factor, the combined position becomes less sensitive to it. If the payoff reinforces the existing exposure, sensitivity to the factor can increase.
+
+Hedging is one application of this mechanism. By taking a derivative position with an offsetting payoff, a participant can reduce a selected exposure while leaving other components of the original position largely unchanged.
+
+\subsection{Risk Sharing and Market Completeness}
+
+Risk sharing becomes more flexible when market participants can trade claims with different state-contingent payoffs. A firm seeking more stable cash flows may transfer part of an exposure to another participant willing to bear it in exchange for compensation or because the exposure fits the participant's other positions. Derivatives facilitate such transfers by creating contractual payoffs tied to particular future states.
+
+The extent of risk sharing depends on the range of payoffs that can be constructed from traded claims. Consider a simple economy with two future states, denoted by $u$ and $d$. Suppose two traded securities have payoff vectors
+
+\begin{equation}
+\mathbf{x}_1=
+\begin{bmatrix}
+x_{1u}\\
+x_{1d}                                                      
+\end{bmatrix},
+\qquad
+\mathbf{x}_2=
+\begin{bmatrix}
+x_{2u}\\
+x_{2d}
+\end{bmatrix}.
+\label{eq:ch11-two-security-payoffs}
+\end{equation}
+
+A portfolio with holdings $a$ and $b$ in the two
+securities produces the following state-contingent
+payoff vector:
+
+\begin{equation}
+\mathbf{x}_p
+=
+a\mathbf{x}_1+b\mathbf{x}_2
+=
+\begin{bmatrix}
+ax_{1u}+bx_{2u}\\
+ax_{1d}+bx_{2d}
+\end{bmatrix},
+\label{eq:ch11-spanning-portfolio}
+\end{equation}
+
+Positive values of $a$ and $b$ represent long
+positions in the respective securities, whereas
+negative values represent short positions.
+
+If the two payoff vectors are linearly independent,
+they span the two-dimensional state-payoff space.
+Consequently, suitable portfolio holdings can
+generate any payoff vector across the two states.
+A market in which every relevant state-contingent
+payoff can be constructed from available traded
+claims is called a \emph{complete market}.
+
+If the available claims cannot generate all relevant state-contingent payoffs, the market is incomplete. Some desired patterns of cash flows cannot then be constructed exactly, and participants may continue to bear residual exposures after trading the available instruments.
+
+In actual markets, transaction costs, trading restrictions, nontradable risks, model uncertainty, and a limited range of contracts may prevent some desired state-contingent payoffs from being constructed.
+
+Derivatives can expand the range of available state-contingent payoffs by introducing claims linked to risks not fully represented by existing securities. This can increase the range of risks that can be transferred and shared across market participants. Derivatives do not create additional economic resources; they redistribute future cash flows and risks across states and participants.
+
+\subsection{Financial Innovation and New Claims}
+
+In an incomplete market, some desired state-contingent payoffs cannot be constructed from existing claims. Financial innovation can partly address this gap by creating new derivatives linked to particular prices, rates, indices, events, or maturities. These new claims can expand the range of exposures that can be transferred or hedged.
+
+New claims can be designed by changing either the reference basis or the payoff rule. A contract may be linked to a new commodity index, volatility measure, or credit event. Its payoff structure may also be redesigned through caps, floors, barrier features, or path-dependent conditions. By altering what the contract is linked to or how its payoff is determined, innovation changes the state-contingent cash flows available to market participants.
+
+A closer match, however, does not eliminate all risk. A customized claim may reduce basis risk by tracking the underlying exposure more closely, but it may trade less actively or create greater dependence on a particular counterparty. A standardized claim may offer greater liquidity while providing a less exact match to the exposure being managed. Financial innovation therefore changes not only which risks can be transferred, but also the form of the residual risks that remain.
+
+\section{No-Arbitrage and Replication}
+
+Derivative markets rely on two related mechanisms
+to maintain pricing consistency. No-arbitrage
+restricts the relative prices of claims according
+to their state-contingent payoffs, while replication
+uses portfolios of traded securities to construct
+equivalent payoffs. Together, these mechanisms
+provide the basis for valuing derivative contracts.
+
+\subsection{Arbitrage Opportunities and Price Consistency}
+
+The law of one price requires derivative positions
+with identical state-contingent cash flows to have
+the same current price. A meaningful comparison
+requires matching underlying references, notional
+amounts, maturities, payment dates, settlement
+currencies, and other payoff-determining contractual
+terms. Differences in these features may produce
+different cash flows and do not necessarily indicate
+inconsistent pricing.
+
+An arbitrage opportunity can take two forms.
+The first involves a zero initial net investment
+and nonnegative future payoffs in every state,
+with a strictly positive payoff in at least one
+state. The second generates a positive initial
+cash inflow without creating any future net payment
+obligation. Both forms allow a trader to obtain
+a gain without bearing an offsetting future loss.
+
+\paragraph{First Type: Arbitrage from Payoff Dominance.}
+
+A first form of arbitrage arises when two
+derivative claims have the same current price,
+but one provides at least as much as the other
+in every future state and strictly more in at
+least one state. Suppose
+
+\begin{equation}
+P_A=P_B,
+\qquad
+X_A(s)\geq X_B(s), \quad \forall s,
+\label{eq:ch11-payoff-dominance}
+\end{equation}
+with strict inequality in at least one possible
+state. An investor can purchase $A$ and sell $B$
+short. The strategy requires zero initial net
+investment:
+
+\begin{equation}
+\Pi_0=P_B-P_A=0.
+\end{equation}
+
+Its future net payoff satisfies
+
+\begin{equation}
+\Pi_T(s)=X_A(s)-X_B(s)\geq 0,
+\qquad \forall s,
+\end{equation}
+with a strictly positive payoff in at least
+one state. This strategy generates nonnegative
+future payoffs without requiring an initial
+investment and constitutes an arbitrage
+opportunity.
+
+Under the no-arbitrage condition, a claim that
+provides at least as much as another in every
+relevant state and strictly more in at least one
+state must have a strictly higher current price,
+provided the corresponding trading positions
+can be established.
+
+\paragraph{Second Type: Arbitrage between Equivalent-Payoff Claims.}
+
+Consider two traded derivative positions, $A$ and
+$B$, with identical contractual cash flows at the
+same dates in every relevant future state. Let
+$P_A$ and $P_B$ denote their current prices, and
+let $X_A(s)$ and $X_B(s)$ denote their respective
+payoffs in state $s$. Their payoff equivalence
+requires
+
+\begin{equation}
+X_A(s)=X_B(s),
+\qquad \forall s.
+\label{eq:ch11-equivalent-derivative-payoffs}
+\end{equation}
+
+If $P_A<P_B$, an investor can purchase $A$ and
+sell $B$ short. The initial net cash inflow is
+
+\begin{equation}
+\Pi_0=P_B-P_A>0,
+\end{equation}
+
+while the future net payoff is
+
+\begin{equation}
+\Pi_T(s)=X_A(s)-X_B(s)=0,
+\qquad \forall s.
+\end{equation}
+
+The strategy generates a positive initial cash
+inflow without creating a future net payment
+obligation. If $P_A>P_B$, reversing the two
+positions produces the corresponding opportunity.
+Under the no-arbitrage condition, equivalent
+derivative positions must therefore have the
+same current price.
+
+\begin{example}{Arbitrage from Payoff Dominance}
+{ch11-payoff-dominance-arbitrage}
+
+Consider two derivative claims with the same
+maturity and settlement currency. Their current
+prices and payoffs across two possible states are:
+
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Position}
+& \textbf{State 1}
+& \textbf{State 2} \\
+\midrule
+Claim A (price 9) & 12 & 20 \\
+Claim B (price 9) & 10 & 20 \\
+\midrule
+Long A, short B & 2 & 0 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Purchasing A and selling B short requires no
+initial net investment. The resulting position
+generates a positive payoff in state 1 and zero
+payoff in state 2. The equal current prices are
+therefore inconsistent with the no-arbitrage
+condition. In an arbitrage-free market, claim A
+must have a higher current price than claim B.
+
+\end{example}
+
+In actual markets, theoretical arbitrage opportunities
+may not be fully exploitable. Transaction costs,
+bid--ask spreads, short-sale restrictions, funding
+and collateral requirements, and counterparty risk
+affect the feasibility and net returns of arbitrage
+strategies. 
+
+Price consistency may also be assessed against
+portfolios of traded securities when no single
+traded claim provides an equivalent payoff.
+
+
+\subsection{Replication and Synthetic Positions}
+
+Replication concerns the construction of a portfolio
+whose state-contingent payoffs match those of a target
+financial claim. A portfolio that reproduces the
+payoffs of another claim is called a
+\emph{synthetic position}. When replication is exact,
+the two positions have identical future cash flows
+and must have the same current value under
+no-arbitrage conditions.
+
+Consider a market with $J$ traded securities and
+$S$ possible future states. Let $X_j(s)$ denote the
+payoff of security $j$ in state $s$, and let $P_j$
+denote its current price. A portfolio holding
+$\theta_j$ units of each security generates the
+payoff
+
+\begin{equation}
+X_p(s)
+=
+\sum_{j=1}^{J}\theta_j X_j(s),
+\qquad s=1,\ldots,S.
+\label{eq:ch11-replicating-portfolio-payoff}
+\end{equation}
+
+Suppose a target claim has payoff $X(s)$ in state
+$s$. Replication requires the portfolio to satisfy
+
+\begin{equation}
+\sum_{j=1}^{J}\theta_j X_j(s)
+=
+X(s),
+\qquad s=1,\ldots,S.
+\label{eq:ch11-replication-conditions}
+\end{equation}
+
+In matrix notation, this condition is
+
+\begin{equation}
+\mathbf{X}\boldsymbol{\theta}
+=
+\mathbf{x},
+\label{eq:ch11-replication-matrix}
+\end{equation}
+where $\mathbf{X}$ is the matrix of traded-security
+payoffs, $\boldsymbol{\theta}$ is the vector of
+portfolio holdings, and $\mathbf{x}$ is the target
+claim's payoff vector.
+
+The current cost of the replicating portfolio is
+
+\begin{equation}
+P_p
+=
+\sum_{j=1}^{J}\theta_j P_j.
+\label{eq:ch11-replicating-portfolio-cost}
+\end{equation}
+
+If the portfolio exactly reproduces the target
+claim's contractual cash flows, no-arbitrage
+requires the claim's current price $P_X$ to equal the
+replication cost:
+
+\begin{equation}
+P_X=P_p
+=
+\sum_{j=1}^{J}\theta_j P_j.
+\label{eq:ch11-replication-pricing}
+\end{equation}
+
+If the target claim trades above the replication
+cost, an investor can purchase the replicating
+portfolio and sell the claim. If it trades below
+the replication cost, the reverse position applies.
+In either case, the difference in current prices
+can be captured while the future payoffs offset
+in every state.
+
+\begin{example}{Replicating a Contingent Protection Claim}
+{ch11-contingent-protection-replication}
+
+Consider an economy with three possible future
+states: expansion, slowdown, and severe downturn.
+Three securities are traded in the market. Their
+current prices are RMB~44.20, RMB~65.00, and
+RMB~48.00, respectively. Their payoffs per unit
+across the three states are shown below.
+
+\begin{center}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\textbf{State}
+& \textbf{Security 1}
+& \textbf{Security 2}
+& \makecell{\textbf{Risk-free}\\\textbf{security}} \\
+\midrule
+Expansion       & 100 & 20  & 50 \\
+Slowdown        & 50  & 50  & 50 \\
+Severe downturn & 20  & 100 & 50 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Suppose a business-interruption protection claim
+pays RMB~0 in an expansion, RMB~50 in a slowdown,
+and RMB~100 in a severe downturn. Its payoff vector
+is
+
+\[
+\mathbf{x}
+=
+\begin{bmatrix}
+0\\
+50\\
+100
+\end{bmatrix}.
+\]
+
+A portfolio of the three traded securities can
+reproduce this payoff. Let $\theta_1$, $\theta_2$,
+and $\theta_3$ denote the respective holdings.
+The replication conditions are
+
+\begin{align*}
+100\theta_1+20\theta_2+50\theta_3&=0,\\
+50\theta_1+50\theta_2+50\theta_3&=50,\\
+20\theta_1+100\theta_2+50\theta_3&=100.
+\end{align*}
+
+Solving these equations gives
+
+\[
+\theta_1=-0.625,\qquad
+\theta_2=0.625,\qquad
+\theta_3=1.
+\]
+
+The replicating portfolio therefore consists of
+a short position in 0.625 units of Security 1,
+a long position in 0.625 units of Security 2,
+and a long position in one unit of the risk-free
+security.
+
+Its current cost is
+
+\begin{align*}
+P_p
+&=-0.625(44.20)+0.625(65)+48\\
+&=61.
+\end{align*}
+
+The portfolio reproduces the protection claim's
+payoffs in all three states. Under the stated
+no-arbitrage conditions, the current value of
+the claim is therefore RMB~61.
+
+\end{example}
+
+Replication is distinct from hedging in a broader
+sense. A hedge may reduce the sensitivity of an
+existing position to selected risk factors without
+eliminating all state-dependent differences.
+Exact replication, by contrast, requires the
+portfolio to match the target claim's payoff in
+every relevant state.
+
+\section{Derivative Market Architecture and Risk Infrastructure}
+
+Derivative market architecture determines how trading relationships are formed, how exposures are offset, and how counterparty risk is redistributed. Standardization and centralized trading can concentrate liquidity and improve price discovery, while collateral, netting, and clearing limit bilateral exposure and reorganize the transmission of losses across market participants.
+
+\subsection{Trading Venues: Exchange-Traded and Over-the-Counter Markets}
+
+Derivatives can trade on organized exchanges or through over-the-counter (OTC) arrangements. Exchange-traded derivatives generally use standardized contract terms, including contract size, maturity, settlement terms, and other specifications. Standardization allows many participants to trade contracts with common terms and makes positions more interchangeable.
+
+OTC derivatives are negotiated between counterparties, often under standardized legal documentation while allowing economic terms to be tailored. Notional amount, maturity, reference variable, and settlement provisions can therefore be adjusted to match a particular exposure more closely. Greater customization, however, can make contracts less interchangeable and positions more difficult to transfer.
+
+The distinction is not absolute. Some OTC derivatives use highly standardized terms and may be centrally cleared, while electronic trading platforms have reduced the traditional separation between exchange and dealer-based execution. Trading venue, contract design, and clearing arrangement are therefore related but distinct dimensions of derivative-market organization.
+
+Major derivative exchanges provide concrete examples of how standardized contracts are organized within formal trading venues. Table~\ref{tab:ch11-major-derivative-exchanges} presents selected examples from China and major international markets.
+
+\begin{table}[H]
+\centering
+\caption{Examples of Major Exchange-Traded Derivative Markets}
+\label{tab:ch11-major-derivative-exchanges}
+
+\begin{tabularx}{\textwidth}{p{3.8cm} p{3.2cm} X}
+\toprule
+\textbf{Exchange} &
+\textbf{Market Focus} &
+\textbf{Representative Derivatives} \\
+\midrule
+
+China Financial Futures Exchange (CFFEX) &
+Financial derivatives &
+Equity-index futures and options; government-bond futures \\
+
+Shanghai Futures Exchange (SHFE) &
+Commodity derivatives &
+Metals, energy, and other commodity futures and options \\
+
+Dalian Commodity Exchange (DCE) &
+Commodity derivatives &
+Agricultural, industrial, and chemical futures and options \\
+
+Zhengzhou Commodity Exchange (ZCE) &
+Commodity derivatives &
+Agricultural, energy, and industrial futures and options \\
+
+Guangzhou Futures Exchange (GFEX) &
+Commodity and emerging derivatives &
+Contracts linked to selected industrial and emerging-market exposures \\
+
+Shanghai and Shenzhen Stock Exchanges &
+Securities derivatives &
+Exchange-traded ETF and other approved options \\
+
+\addlinespace
+CME Group &
+Financial and commodity derivatives &
+Interest-rate, equity-index, foreign-exchange, and commodity derivatives \\
+
+Eurex &
+Financial derivatives &
+Equity-index, interest-rate, and other derivatives \\
+
+ICE &
+Financial and commodity derivatives &
+Energy, interest-rate, equity, and other derivatives \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Liquidity and Price Discovery}
+
+Derivative-market design affects where trading activity and information are concentrated. Standardized contracts can bring participants with similar exposures into common instruments, which may support trading liquidity and make market prices more observable. Customized contracts can match individual exposures more closely, but trading is often distributed across more heterogeneous positions.
+
+Liquid markets can also contribute to price discovery. When participation is broad and transactions occur frequently, quoted and traded prices can incorporate new information and provide reference values for related instruments and underlying markets. This informational role depends on market depth, participation, and trading conditions; standardization alone does not ensure an active or informative market.
+
+
+\subsection{Counterparty Exposure, Collateral, and Netting}
+
+A derivative can acquire positive or negative market value as market conditions change. When a bilateral contract has positive value to one party, that party has a claim on the counterparty and may suffer a loss if the counterparty fails to perform. Counterparty exposure therefore changes with the market value of the contract and can evolve over time.
+
+Counterparty credit risk is distinct from the market risk of the derivative. Market risk arises from changes in the underlying price, rate, or other risk factor, while counterparty credit risk arises from the possibility that a contractual obligation will not be fulfilled. The two risks can interact when market movements increase exposure at the same time that the counterparty's credit quality deteriorates.
+
+Margin requirements provide a mechanism for
+controlling counterparty exposure as derivative
+values change. Two forms of margin serve different
+purposes. Initial margin is collateral posted to
+cover potential future exposure that may arise
+during the period required to close out or replace
+a defaulted position. Variation margin reflects
+changes in the current market value of a contract
+and is transferred between counterparties as
+these values change.
+
+In exchange-traded futures markets, contracts are
+marked to market at the end of each trading day.
+Daily gains and losses are calculated using the
+change in the settlement price and credited to
+or debited from the participants' margin accounts.
+For a long futures position involving $n$ contracts
+with contract multiplier $m$, the daily variation
+margin is
+
+\begin{equation}
+VM_t=nm(F_t-F_{t-1}),
+\label{eq:ch11-daily-variation-margin}
+\end{equation}
+
+where $F_t$ and $F_{t-1}$ denote the current and
+previous settlement prices, respectively. A short
+position has the opposite variation margin.
+
+Daily settlement transfers gains and losses as
+they arise rather than allowing market-value
+changes to accumulate as unsecured contractual
+exposures. Initial margin provides additional
+protection against potential losses during the
+close-out period following a participant's default.
+
+Collateral and netting are two important mechanisms for reducing unsecured bilateral exposure. Collateral places assets behind an obligation as contract values change. Legally enforceable netting allows positive and negative positions between the same counterparties to be considered together rather than treated separately. Netting reduces the exposure to which collateral may need to be applied, while collateral reduces the unsecured portion of the remaining obligation.
+
+\subsection{Central Clearing and the Redistribution of Counterparty Risk}
+
+Collateral and netting reduce counterparty exposure within bilateral relationships. Central clearing changes the structure of those relationships. Once an eligible derivative is accepted for clearing, a central counterparty (CCP) is interposed between the original parties, and each clearing member faces the CCP for the cleared obligation. Exposures that would otherwise remain bilateral are therefore reorganized within the clearing system.
+
+\begin{figure}[htbp]
+
+\centering
+
+\begin{tikzpicture}[
+    >=Latex,
+    dealer/.style={
+        draw,
+        rounded corners,
+        minimum width=20mm,
+        minimum height=8mm,
+        align=center,
+        font=\small
+    },
+    ccp/.style={
+        draw=FinanceBlue,
+        fill=FinanceBlue!8,
+        rounded corners,
+        minimum width=24mm,
+        minimum height=12mm,
+        align=center,
+        font=\small
+    },
+    bilateral/.style={
+        Latex-Latex,
+        line width=0.7pt,
+        draw=FinanceBlue
+    },
+    title/.style={
+        font=\small\itshape
+    }
+]
+
+% Left panel: bilateral structure
+\node[title] at (2.5,3.5) {Bilateral market structure};
+
+\node[dealer] (A1) at (0.8,2.4) {Dealer A};
+\node[dealer] (B1) at (4.2,2.4) {Dealer B};
+\node[dealer] (C1) at (0.8,0.4) {Dealer C};
+\node[dealer] (D1) at (4.2,0.4) {Dealer D};
+
+\draw[bilateral] (A1) -- (B1);
+\draw[bilateral] (A1) -- (C1);
+\draw[bilateral] (A1) -- (D1);
+\draw[bilateral] (B1) -- (C1);
+\draw[bilateral] (B1) -- (D1);
+\draw[bilateral] (C1) -- (D1);
+
+\node[align=center, font=\scriptsize]
+at (2.5,-0.55)
+{Multiple bilateral exposures};
+
+% Arrow between structures
+\draw[->, line width=0.9pt, gray!70]
+(5.25,1.4) -- (6.25,1.4);
+
+% Right panel: centrally cleared structure
+\node[title] at (9.0,3.5) {Centrally cleared structure};
+
+\node[dealer] (A2) at (7.3,2.5) {Dealer A};
+\node[dealer] (B2) at (10.7,2.5) {Dealer B};
+\node[dealer] (C2) at (7.3,0.3) {Dealer C};
+\node[dealer] (D2) at (10.7,0.3) {Dealer D};
+
+\node[ccp] (CCP) at (9.0,1.4) {Central\\Counterparty};
+
+\draw[line width=0.8pt, FinanceBlue] (A2) -- (CCP);
+\draw[line width=0.8pt, FinanceBlue] (B2) -- (CCP);
+\draw[line width=0.8pt, FinanceBlue] (C2) -- (CCP);
+\draw[line width=0.8pt, FinanceBlue] (D2) -- (CCP);
+
+\node[align=center, font=\scriptsize]
+at (9.0,-0.55)
+{Exposures reorganized through the CCP};
+
+\end{tikzpicture}
+
+\caption{Bilateral and centrally cleared counterparty relationships}
+
+\label{fig:ch11-bilateral-central-clearing}
+
+\end{figure}
+
+Central clearing can also support multilateral netting across cleared positions. Obligations that would otherwise remain in separate bilateral relationships can be offset within the clearing system, reducing some gross exposures.
+
+Central clearing therefore redistributes counterparty risk rather than eliminating it. Counterparty relationships become organized around the CCP rather than dispersed across many bilateral pairs, making the CCP a central node in the cleared market.
+
+%========================================================
+% Summary
+%========================================================
+
+\TailModule{summary}{Summary}
+
+Derivative markets provide an institutional framework
+for trading contracts whose cash flows depend on
+underlying assets, rates, indices, or specified
+events. These contracts create contingent claims
+that allocate payments across possible future states.
+By separating selected risk exposures from broader
+business and financial positions, derivatives
+facilitate risk transfer and sharing among market
+participants. The range of attainable contingent
+claims depends on the available traded instruments
+and the completeness of the market.
+
+Prices of contingent claims are linked through
+no-arbitrage relationships among traded positions.
+Payoff dominance imposes restrictions on relative
+prices, while claims with identical state-contingent
+payoffs must have the same current price. When a
+claim can be replicated by a portfolio of traded
+securities, its price must equal the cost of that
+portfolio. The availability of traded instruments
+therefore determines which claims can be replicated
+exactly and, for claims that cannot, the range of
+prices consistent with no-arbitrage.
+
+Derivative-market architecture shapes trading,
+settlement, and counterparty risk management.
+Exchange-traded and OTC markets differ in
+standardization and contractual flexibility.
+Margin requirements, collateral, and netting
+manage counterparty exposure, while central
+clearing reorganizes bilateral exposures through
+a central counterparty. These arrangements
+redistribute risk without eliminating it.
+
+%========================================================
+% Key Terms
+%========================================================
+
+\TailModule{keyterms}{Key Terms}
+Contingent claims; state-contingent payoffs;
+exposure decomposition; risk unbundling; risk sharing;
+market completeness; financial innovation;
+law of one price; arbitrage; payoff dominance;
+replication; synthetic positions;
+exchange-traded derivatives; over-the-counter (OTC)
+derivatives; liquidity; price discovery;
+counterparty exposure; margin requirements;
+collateral and netting; central clearing and
+central counterparty (CCP).
+
+%========================================================
+% Financial AI Lab
+%========================================================
+
+\TailModule{aiprompt}{Financial AI Lab}
+
+%========================================================
+% Financial AI Lab
+%========================================================
+
+\TailModule{aiprompt}{Financial AI Lab}
+
+%========================================================
+% Financial AI Lab
+%========================================================
+
+\TailModule{aiprompt}{Financial AI Lab}
+
+\textbf{Lab: Audit Counterparty Exposure and Risk
+Management in Derivative Markets}
+
+Ask an AI system to assess the counterparty exposure
+of a firm's OTC derivatives portfolio. Consider a
+firm with the following positions, valued from the
+firm's perspective on the same date. All amounts
+are measured in RMB millions.
+
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Counterparty}
+& \textbf{Contract}
+& \textbf{Market Value} \\
+\midrule
+Dealer A & Contract 1 & $+6.0$ \\
+Dealer A & Contract 2 & $-4.0$ \\
+Dealer B & Contract 3 & $+3.0$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The two contracts with Dealer A are subject to
+the same legally enforceable close-out netting
+agreement. Dealer A has posted variation margin
+of RMB~1.2 million to the firm, measured after
+applicable collateral haircuts. The contract with
+Dealer B is subject to a separate netting agreement,
+and no collateral has been received.
+
+Require the AI system to calculate the firm's
+current unsecured counterparty exposure and
+evaluate how different risk-management arrangements
+affect this exposure.
+
+Audit the answer in four stages.
+
+\begin{enumerate}
+
+\item \textbf{Calculate net counterparty exposure.}
+
+Determine the net current exposure to each dealer
+after applying legally enforceable netting.
+Account for collateral received and explain why
+positions with different counterparties cannot
+automatically be offset against each other.
+
+\item \textbf{Distinguish market risk from
+counterparty credit risk.}
+
+Explain how changes in underlying prices affect
+the market value of the contracts and the firm's
+counterparty exposure. Identify why a positive
+replacement value creates exposure to the
+counterparty's failure to perform.
+
+\item \textbf{Evaluate margin and collateral
+arrangements.}
+
+Distinguish initial margin from variation margin.
+Explain how daily mark-to-market and variation
+margin transfers affect current exposure, while
+initial margin provides protection against
+potential future exposure during the close-out
+period. Identify risks that may remain despite
+collateralization.
+
+\item \textbf{Assess the role of central clearing.}
+
+Explain how interposing a central counterparty
+changes the original bilateral relationships.
+Discuss multilateral netting, margin requirements,
+default resources, and the concentration of
+counterparty risk within the clearing system.
+Distinguish the redistribution of counterparty
+risk from the elimination of market risk.
+
+\end{enumerate}
+
+The final report should verify the exposure
+calculations, identify the legal and operational
+assumptions underlying netting and collateral,
+and distinguish risk reduction from risk transfer
+and risk concentration.
+
+%========================================================
+% Discussion Questions
+%========================================================
+
+\TailModule{questions}{Discussion Questions}
+
+\begin{enumerate}
+
+\item How can a derivative modify a selected financial
+exposure without changing the firm's underlying
+business activity?
+
+\item How does market completeness affect the ability
+to replicate contingent claims, and what pricing
+uncertainty may remain when exact replication is
+not feasible?
+
+\item Why can a customized OTC contract provide a
+closer match to an underlying exposure while
+increasing the importance of collateral, margin
+requirements, and bilateral netting arrangements?
+
+\item How does central clearing reorganize counterparty
+relationships, and why does this make the central
+counterparty's risk management and resilience
+important?
+
+\end{enumerate}
+
+%========================================================
+% Applied Problems
+%========================================================
+
+\TailModule{appprobs}{Applied Problems}
+
+\begin{enumerate}
+
+\item \textbf{State-contingent payoffs and forward hedging.}
+
+A commodity producer expects to sell one unit of
+a commodity at date $T$. The spot price at that
+date may be 70, 100, or 140. The producer enters
+a cash-settled short forward contract with a
+delivery price of 100 and the same maturity.
+
+\begin{enumerate}
+
+\item Calculate the payoff of the short forward
+position in each state.
+
+\item Calculate the producer's combined cash flow
+from the physical sale and the forward position
+in each state.
+
+\item Explain how the forward contract changes
+the distribution of the producer's cash flows
+across states.
+
+\end{enumerate}
+
+
+\item \textbf{Exposure decomposition and risk unbundling.}
+
+A firm will purchase 500 units of an imported
+commodity at date $T$. The commodity price in
+foreign currency is $P_T$, and the domestic-currency
+price of one unit of foreign currency is $S_T$.
+The firm's domestic-currency purchase cost is
+
+\[
+C_T=500P_TS_T.
+\]
+
+\begin{enumerate}
+
+\item Identify the two market risk factors affecting
+the firm's purchase cost.
+
+\item Explain how changes in each risk factor affect
+the firm's domestic-currency cash outflow.
+
+\item Suppose the firm uses a derivative linked
+only to the commodity price $P_T$. Which exposure
+is modified, and which exposure remains?
+
+\end{enumerate}
+
+
+\item \textbf{Replication of a contingent claim.}
+
+Two securities are traded in a two-state market.
+Their current prices and payoffs are as follows:
+
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Security}
+& \textbf{Current Price}
+& \textbf{Up State}
+& \textbf{Down State} \\
+\midrule
+Security A & 8 & 12 & 6 \\
+Security B & 9 & 4 & 10 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+A contingent claim pays 20 in the up state and
+2 in the down state.
+
+\begin{enumerate}
+
+\item Determine the holdings of securities A
+and B required to replicate the contingent claim.
+
+\item Identify which positions are long and
+which are short.
+
+\item Calculate the current cost of the
+replicating portfolio.
+
+\item Explain why the claim's current value
+must equal the replication cost under the
+no-arbitrage condition.
+
+\end{enumerate}
+
+
+\item \textbf{Arbitrage opportunities and price consistency.}
+
+Consider two pairs of derivative claims.
+
+For the first pair, claims A and B have identical
+payoffs of 15 in state 1 and 8 in state 2. Their
+current prices are 13 and 10, respectively.
+
+For the second pair, claims C and D have the
+same current price of 11. Their payoffs are:
+
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Claim}
+& \textbf{State 1}
+& \textbf{State 2} \\
+\midrule
+Claim C & 14 & 20 \\
+Claim D & 12 & 20 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{enumerate}
+
+\item For the first pair, identify the arbitrage
+strategy and calculate its initial cash flow
+and future net payoffs.
+
+\item For the second pair, identify the arbitrage
+strategy and calculate its initial cash flow
+and future net payoffs.
+
+\item Why does an investment with a high expected
+return not necessarily constitute an arbitrage
+opportunity?
+
+\end{enumerate}
+
+
+\end{enumerate}
+%========================================================
+% Further Reading
+%========================================================
+
+\TailModule{furtherread}{Further Reading}
+
+\begin{itemize}
+
+\item Duffie, Darrell, and Chi-Fu Huang (1985),
+``Implementing Arrow-Debreu Equilibria by Continuous Trading of Few Long-Lived Securities,''
+\emph{Econometrica}, 53(6), 1337--1356.
+
+\end{itemize}
+
+\ChapterTail{summary,keyterms,aiprompt,questions,appprobs,furtherread}

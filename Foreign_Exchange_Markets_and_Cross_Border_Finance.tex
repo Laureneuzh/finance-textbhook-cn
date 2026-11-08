@@ -1,0 +1,1208 @@
+\chapter{Foreign Exchange Markets and Cross-Border Finance}
+\label{chap:Foreign_Exchange_Markets_and_Cross_Border_Finance}
+
+\begin{openingcase}{How Much Is a Foreign-Currency Receivable Worth?}
+
+A Chinese manufacturer has sold equipment to an overseas customer for USD~10 million, payable in three months. At today's spot exchange rate of RMB~7.20 per U.S. dollar, the receivable is worth RMB~72 million. But the company will receive the dollars only in three months, when the spot exchange rate may be different.
+
+The firm can leave the currency exposure open and convert the dollars when payment arrives, or sell the future dollar receipts forward and lock in an exchange rate today. The sales contract determines the dollar cash flow; the foreign exchange market determines its RMB value and how the exchange-rate risk is allocated.
+
+\end{openingcase}
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=FinanceBlue!6,
+  colframe=FinanceBlue,
+  boxrule=0.6pt,
+  sharp corners,
+  left=8pt,
+  right=8pt,
+  top=7pt,
+  bottom=7pt,
+  before skip=1em,
+  after skip=1.6em,
+  title=\textbf{Core Questions},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  attach boxed title to top left={xshift=6pt,yshift=-2mm},
+  boxed title style={
+    boxrule=0pt,
+    sharp corners,
+    left=5pt,
+    right=5pt,
+    top=2pt,
+    bottom=2pt
+  }
+]
+\begin{enumerate}[
+  leftmargin=*,
+  label=\textcolor{FinanceBlue}{\textbf{\arabic*.}},
+  itemsep=0.55em,
+  topsep=0.2em
+]
+
+\item How do foreign exchange markets connect
+international trade, investment, and cross-border
+funding when cash flows are denominated in different
+currencies?
+
+\item How are spot exchange rates formed through
+currency demand and supply, and how do capital flows,
+expectations, and market liquidity influence
+exchange-rate movements and price discovery?
+
+\item How are spot and forward exchange rates linked
+through interest-rate differentials and covered
+interest parity, and how can firms and investors
+use foreign exchange instruments to manage
+exchange-rate risk?
+
+\end{enumerate}
+
+\end{tcolorbox}
+
+\section{The Architecture of Foreign Exchange Markets}
+
+An exchange rate is the price of one currency in terms
+of another. Foreign exchange markets provide the
+mechanisms through which cross-border payments,
+investment, and funding are converted between
+currencies.
+
+\subsection{International Trade, Investment, and Funding Needs}
+
+Cross-border transactions create currency exposure when
+the denomination currency of a contractual cash flow
+differs from the currency in which the relevant firm
+or investor measures its value. The denomination
+currency specifies the currency in which contractual
+payments are expressed, whereas the valuation currency
+is the currency used to measure the economic value of
+the claim or liability. When these currencies differ,
+the contractual amount may remain fixed while its
+value in the valuation currency changes with the
+exchange rate.
+
+Let $S_t$ denote units of domestic currency per unit of foreign currency. An increase in $S_t$ therefore represents a depreciation of the domestic currency.
+
+Suppose a domestic exporter will receive $F$ units
+of foreign currency at date $T$. If the receipt is
+converted at the spot exchange rate prevailing at
+that date, its domestic-currency value is
+
+\begin{equation}
+V_{D,T}=S_T V_{F,T}.
+\label{eq:ch10-export-receivable-value}
+\end{equation}
+
+The commercial contract fixes the foreign-currency
+amount, but its domestic-currency value varies
+with $S_T$. A higher $S_T$ increases the domestic-
+currency value of a foreign-currency receivable.
+A foreign-currency payable creates the opposite
+net exposure, as a higher $S_T$ increases the
+domestic-currency cost of meeting the obligation.
+
+Cross-border investment combines foreign-asset returns with exchange-rate movements. Suppose a domestic investor converts one unit of domestic currency into foreign currency at $S_0$, earns a foreign-currency return $r^{*}$, and converts the proceeds back at $S_1$. The domestic-currency gross return is
+
+\begin{equation}
+1+r_d=(1+r^{*})\frac{S_1}{S_0}.
+\label{eq:ch10-foreign-investment-return}
+\end{equation}
+
+The domestic-currency return depends on both the foreign-asset return and the change in the exchange rate. An appreciation of the domestic currency can reduce the domestic-currency value of foreign investment returns, while a depreciation can increase it.
+
+Cross-border borrowing places currency exposure on the liability side. A foreign-currency loan may carry a lower contractual interest rate, but its domestic-currency repayment cost also depends on the future exchange rate. Comparing domestic and foreign funding therefore requires both borrowing terms and currency exposure to be considered on a common basis.
+
+\subsection[Market Participants, Dealers, and Electronic Trading Platforms]{Market Participants, Dealers, and Electronic Trading\ Platforms}
+
+The foreign exchange market is a decentralized network rather than a single exchange. Banks, non-bank dealers, corporations, asset managers, hedge funds, central banks, and other institutions trade through dealer networks, electronic venues, and bilateral relationships.
+
+Participants enter the market to execute currency
+conversions arising from trade, investment, and
+funding transactions. Dealers intermediate these
+flows by quoting exchange rates, providing immediate
+execution, and managing the resulting currency
+positions.
+
+Dealer intermediation creates several layers of trading. A corporate customer may trade with a bank, while the bank can offset the resulting position against another customer flow, with another dealer, or through an electronic venue. A customer transaction may therefore lead to additional trades as currency positions are redistributed through the market.
+
+\begin{figure}[H]
+\centering
+
+\begin{tikzpicture}[
+  >=Latex,
+  box/.style={
+    draw,
+    rounded corners,
+    align=center,
+    minimum width=3.0cm,
+    minimum height=0.9cm,
+    inner sep=5pt
+  },
+  two/.style={
+    Latex-Latex,
+    line width=0.85pt,
+    FinanceBlue
+  }
+]
+
+\node[box] (corp) at (-4.3,1.7)
+  {Corporations and\\cross-border borrowers};
+
+\node[box] (asset) at (-4.3,-1.7)
+  {Asset managers and\\institutional investors};
+
+\node[box] (dealer) at (0,0)
+  {Banks and\\FX dealers};
+
+\node[box] (inter) at (4.3,1.7)
+  {Interdealer trading and\\electronic platforms};
+
+\node[box] (policy) at (4.3,-1.7)
+  {Central banks and\\official institutions};
+
+\draw[two] (corp) -- (dealer);
+\draw[two] (asset) -- (dealer);
+\draw[two] (dealer) -- (inter);
+\draw[two] (dealer) -- (policy);
+
+\end{tikzpicture}
+
+\caption{A simplified architecture of foreign exchange trading}
+\label{fig:ch10-fx-market-architecture}
+\end{figure}
+
+The figure is schematic. Some institutional investors
+and non-bank financial institutions also access
+electronic trading platforms and other liquidity
+providers directly. Central banks participate mainly
+through official transactions, including reserve
+management and foreign exchange intervention.
+
+Electronic trading has reduced search and execution
+costs in many segments of the market by allowing
+quotes and orders from multiple sources to be compared
+and matched more rapidly. However, large trades,
+less liquid currency pairs, and customized contracts
+may rely more heavily on dealer relationships and
+bilateral credit arrangements.
+
+Foreign exchange trading also creates settlement obligations. The two parties deliver different currencies, often through payment systems in different jurisdictions. If one currency is delivered before the other is received, the party that has already paid is exposed to settlement risk. Payment-versus-payment arrangements can reduce this exposure by linking the settlement of the two currency legs, although liquidity, operational, and legal risks may remain.
+
+These institutional arrangements provide the setting
+in which spot exchange rates are quoted and currency
+positions are traded across the market.
+
+\subsection{Spot Quotes, Market Liquidity, and Price Discovery}
+
+A spot exchange rate is the price at which two currencies are exchanged under the market's standard near-term settlement convention. Settlement timing can differ across currency pairs, so the applicable settlement date remains part of the transaction terms.
+
+Under this quotation convention, $S_t$ is a direct
+quote from the perspective of a domestic participant.
+The reciprocal quote is
+
+\begin{equation}
+\widetilde{S}_t=\frac{1}{S_t},
+\label{eq:ch10-reciprocal-quote}
+\end{equation}
+measured as units of foreign currency per unit of domestic currency. If the exchange rate is RMB~7.20 per U.S. dollar, the reciprocal quote is approximately $1/7.20=0.1389$ U.S. dollars per renminbi.
+
+The quote convention determines how exchange-rate movements are interpreted. Under a domestic-currency-per-foreign-currency quote, a rise in $S_t$ means that more domestic currency is required to purchase one unit of foreign currency. Thus, a movement from RMB~7.20 to RMB~7.40 per dollar represents a depreciation of the renminbi against the dollar.
+
+Spot transactions are generally quoted with a bid and an ask. For a quote expressed as domestic currency per unit of foreign currency, the bid is the price at which the dealer buys the foreign currency, while the ask is the price at which the dealer sells it. If the quote is 7.1980--7.2020 RMB per dollar, the quoted spread is
+
+\begin{equation*}
+\text{Spread}=7.2020-7.1980=0.0040.
+\label{eq:ch10-fx-spread}
+\end{equation*}
+
+The bid--ask spread is one dimension of market liquidity. A narrower spread generally implies a lower immediate transaction cost for a trade of the quoted size. Liquidity also depends on market depth and price impact. Depth refers to the quantity available near the current price, while price impact refers to the change in execution prices associated with larger orders. These conditions can vary across currency pairs, trading hours, market conditions, and trade sizes.
+
+Cross rates link prices across currency pairs. Suppose the market quotes $S^{\mathrm{CNY/USD}}=7.20$ renminbi per dollar and $S^{\mathrm{USD/EUR}}=1.10$ dollars per euro. The implied renminbi-per-euro cross rate is
+
+\begin{equation*}
+S^{\mathrm{CNY/EUR}}
+=S^{\mathrm{CNY/USD}}\times
+S^{\mathrm{USD/EUR}}
+=7.92.
+\label{eq:ch10-cross-rate}
+\end{equation*}
+
+Differences between directly quoted and implied cross rates can create arbitrage opportunities when they are large enough to cover transaction costs and execution constraints. Trading across related currency pairs tends to keep these prices closely aligned.
+
+\begin{example}{Cross Rates and Triangular Arbitrage}{fx-triangular-arbitrage}
+
+Suppose the market quotes RMB~7.20 per U.S. dollar and USD~1.10 per euro, implying a cross rate of RMB~7.92 per euro. If the direct RMB/EUR quote were RMB~8.00 per euro, the euro would be more expensive in the direct market than through the dollar.
+
+Ignoring transaction costs, a trader could obtain euros indirectly through dollars and sell them at the higher direct RMB/EUR rate. Such transactions tend to reduce price differences across related currency pairs. In practice, the difference must be sufficient to cover bid--ask spreads and other execution costs.
+
+\end{example}
+
+Price discovery occurs as customer and investor
+orders interact with dealer quotes. Order flow can
+reveal changes in buying and selling pressure and
+affect dealer inventories, prompting quote adjustments
+and position reallocation. Observed exchange rates
+therefore reflect the interaction of trading activity
+with available liquidity and market-making capacity.
+
+An observed exchange-rate movement may therefore reflect several forces at the same time. Changes in policy rates, inflation expectations, economic conditions, and risk perceptions can interact, so the exchange-rate response depends on how the broader information set changes expected returns across currencies.
+
+
+\section{Exchange-Rate Measures, Regimes, and Dynamics}
+
+Changes in monetary conditions, capital flows,
+expectations, and risk create pressures on currency
+values. How these pressures are reflected in market
+exchange rates, official intervention, or other
+policy adjustments depends on the exchange-rate regime.
+
+\subsection{Nominal, Real, and Effective Exchange Rates}
+
+The nominal exchange rate expresses the price of
+one currency in terms of another, without adjusting
+for differences in domestic and foreign price levels.
+It converts foreign-currency prices into domestic
+currency, but does not by itself determine the
+relative price of domestic and foreign goods.
+
+Let $P_t$ denote the domestic price level and $P_t^*$
+the foreign price level. The term $S_tP_t^*$ converts
+the foreign price level into domestic currency.
+Comparing this amount with the domestic price level
+gives the real exchange rate:
+
+\begin{equation}
+q_t
+=
+\frac{S_t P_t^{*}}{P_t}.
+\label{eq:ch10-real-exchange-rate}
+\end{equation}
+
+Under this convention, a rise in $q_t$ means that foreign goods become more expensive relative to domestic goods and represents a real depreciation of the domestic currency. A decline represents a real appreciation.
+
+For proportional changes,
+
+\begin{equation}
+\frac{\Delta q}{q}
+\approx
+\frac{\Delta S}{S}
++
+\pi^{*}
+-\pi,
+\label{eq:ch10-real-exchange-rate-change}
+\end{equation}
+
+where $\pi$ and $\pi^{*}$ are domestic and foreign inflation rates. The real exchange rate therefore reflects both nominal exchange-rate movements and inflation differentials. A nominal depreciation need not produce a real depreciation if domestic prices rise sufficiently faster than foreign prices.
+
+\begin{example}{Nominal and Real Exchange-Rate Movements}{nominal-real-exchange-rate}
+
+Suppose the domestic currency depreciates from 7.00 to 7.21 units per unit of foreign currency, approximately 3\%. Over the same period, domestic prices rise by 5\% and foreign prices by 2\%.
+
+Using the approximate relation,
+
+$$
+\frac{\Delta q}{q}
+\approx
+3\%+2\%-5\%=0.
+$$
+
+The nominal depreciation is approximately offset by the inflation differential, leaving the real exchange rate broadly unchanged.
+
+\end{example}
+
+A bilateral exchange rate captures the relation between two currencies. When a country trades with several partners, movements against a single currency may not represent the broader external value of its currency. An effective exchange rate therefore combines bilateral exchange rates using a set of weights, commonly related to trade patterns.
+
+A nominal effective exchange rate summarizes weighted nominal currency movements. A real effective exchange rate adds relative price or cost adjustment, extending the same logic used in the bilateral real exchange rate to a group of trading partners.
+
+Effective exchange rates can therefore differ from individual bilateral rates when a currency moves differently against different trading partners. Their interpretation, however, depends on the weights and price or cost indexes used, so they remain summary measures rather than complete measures of external competitiveness.
+
+
+\subsection{Fixed, Floating, and Managed Exchange-Rate Regimes}
+
+Exchange-rate regimes differ in how foreign-exchange market pressure is absorbed between movements in the exchange rate and policy actions by the monetary authority.
+
+Under a fixed or tightly pegged regime, the authority seeks to maintain the exchange rate near a specified parity or within a narrow range. Market pressure is therefore absorbed more through intervention and related policy adjustment, although sustained pressure may eventually require a change in the exchange-rate arrangement.
+
+Under a floating regime, more adjustment occurs through movements in the exchange rate. The absence of a fixed parity generally gives monetary policy greater scope to respond to domestic conditions, although intervention may still occur.
+
+Managed regimes combine these two forms of adjustment. The exchange rate responds to market conditions, while the authorities retain scope to influence its movement through intervention or other operating arrangements. China provides an example: the renminbi is officially described as operating under a managed floating regime based on market supply and demand with reference to a basket of currencies.
+
+Exchange-rate regimes also interact with capital mobility and monetary-policy autonomy. The open-economy policy trilemma implies that a tightly fixed exchange rate, high capital mobility, and fully independent monetary policy cannot generally be maintained simultaneously. With a tight peg and relatively open capital flows, domestic monetary conditions tend to become more closely linked to external conditions.
+
+\begin{table}[H]
+\centering
+\caption{Stylized exchange-rate regimes and adjustment mechanisms}
+\label{tab:ch10-exchange-rate-regimes}
+\begin{tabularx}{\textwidth}{@{}p{2.7cm}X X@{}}
+\toprule
+\textbf{Regime}
+& \textbf{Main adjustment channel}
+& \textbf{Policy implication} \\
+\midrule
+Fixed or tightly pegged
+& Intervention and policy adjustment
+& Less monetary-policy autonomy \\
+Managed
+& Exchange-rate movement and intervention
+& Intermediate policy flexibility \\
+Floating
+& Exchange-rate movement
+& Greater monetary-policy autonomy \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Capital Flows, Expectations, and Exchange-Rate Dynamics}
+
+Investors compare expected returns on domestic and
+foreign assets, taking account of interest-rate
+differentials and expected exchange-rate movements.
+Greater perceived exchange-rate or asset risk may
+raise the return investors require, while limited
+market liquidity increases the costs of entering
+or exiting positions. Capital controls and regulatory
+restrictions can further limit the ability to move
+funds across currencies.
+
+When risk-adjusted expected returns change relative
+to one another, investors may rebalance their
+portfolios across currencies. These adjustments
+generate capital flows and alter currency demand,
+contributing to exchange-rate movements. Because
+expected exchange-rate changes also affect expected
+returns, capital flows and exchange rates are
+jointly determined.
+
+These portfolio adjustments are also influenced
+by investors' funding capacity and ability to bear
+risk. When leverage constraints tighten or losses
+trigger margin requirements, investors may reduce
+foreign-currency exposures or repatriate funds. Such adjustments can amplify exchange-rate movements
+and generate short-term volatility that is not
+necessarily matched by changes in the underlying
+long-term economic outlook.
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{Financial Perspective: Interest Rates and Exchange Rates},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+A higher domestic interest rate does not necessarily
+lead to an appreciation of the domestic currency.
+Its exchange-rate effect depends on the expected
+path of monetary policy, inflation, and risk, as well
+as the resulting changes in expected returns across
+currencies.
+
+\end{tcolorbox}
+
+
+\section{Parity Relations and Cross-Currency Valuation}
+
+Parity relations link prices and returns across currencies through arbitrage and expectations. Arbitrage tends to align the values of equivalent cash flows across markets, while expectation-based relations depend on views of future prices or exchange rates. These relations provide valuation benchmarks under stated assumptions rather than universal empirical identities.
+
+\subsection{The Law of One Price and Purchasing Power Parity}
+
+The law of one price applies to an identical tradable
+good sold in different markets. Let $p_{i,t}$ denote
+the domestic-currency price of good $i$ and
+$p_{i,t}^{*}$ its foreign-currency price. With negligible
+trade barriers and transaction costs, arbitrage tends
+to align the two prices after conversion at the spot
+exchange rate:
+
+\begin{equation}
+p_{i,t}=S_t p_{i,t}^{*}.
+\label{eq:ch10-law-of-one-price}
+\end{equation}
+
+If the domestic price exceeds the converted foreign
+price by more than the costs of purchasing and
+transporting the good, traders can buy abroad and
+sell domestically. Such arbitrage tends to narrow
+the price difference. The law of one price is therefore
+more likely to hold for highly tradable goods with
+low transportation costs and limited market
+segmentation.
+
+Purchasing power parity (PPP) extends this logic
+from individual goods to aggregate price levels.
+Absolute PPP requires comparable baskets of goods
+and services to have the same cost when expressed
+in a common currency. Given the real exchange rate
+defined earlier, absolute PPP corresponds to
+$q_t=1$. It therefore implies
+
+\begin{equation}
+S_t=\frac{P_t}{P_t^{*}}.
+\label{eq:ch10-absolute-ppp}
+\end{equation}
+
+In practice, national price indexes often include
+different combinations of tradable and nontradable
+goods and services. Differences in consumption
+patterns, taxes, transportation costs, and market
+conditions can also prevent absolute PPP from holding.
+
+Relative PPP focuses on changes in exchange rates
+and price levels rather than their absolute levels.
+It follows from the assumption that the real exchange
+rate remains approximately constant over time.
+As implied by the real exchange rate relation derived
+earlier, the nominal exchange rate adjusts to offset
+the domestic--foreign inflation differential.
+Under the quotation convention used here, higher
+domestic inflation is therefore associated with
+depreciation of the domestic currency.
+
+Relative PPP does not require absolute PPP to hold.
+The real exchange rate may remain stable at a level
+different from one.
+
+The relationship can be illustrated with a simple
+numerical example.
+
+\begin{example}{Relative Purchasing Power Parity}
+{relative-ppp-example}
+
+Suppose domestic inflation is expected to be 5\%
+and foreign inflation 2\% over the next year. The
+initial exchange rate is 7.20 domestic currency
+units per unit of foreign currency.
+
+Under relative PPP, the domestic currency is expected
+to depreciate by approximately 3\%. The corresponding
+PPP benchmark for the future exchange rate is
+
+\[
+S_1
+\approx
+7.20(1+0.05-0.02)
+=
+7.416
+\approx 7.42.
+\]
+
+This benchmark reflects the expected inflation
+differential rather than a precise forecast of the
+future exchange rate.
+
+\end{example}
+
+Observed exchange rates can deviate from the levels
+implied by absolute PPP for extended periods.
+Transport costs, trade barriers, nontradable goods,
+and market segmentation limit goods-market arbitrage,
+while price stickiness slows the adjustment of national
+price levels. Financial-market news can also move
+nominal exchange rates more rapidly than goods prices
+adjust. Absolute PPP is therefore best viewed as a
+long-run benchmark for exchange-rate levels, whereas
+relative PPP provides a benchmark for long-run
+exchange-rate changes associated with inflation
+differentials. Neither provides a reliable short-run
+forecast of exchange rates.
+
+
+\subsection{Covered Interest Parity and Forward Exchange Rates}
+
+Covered interest parity (CIP) is a no-arbitrage
+condition that equates the domestic-currency returns
+on two investment strategies: investing directly
+in domestic assets, or converting funds into a
+foreign currency, investing in foreign assets, and
+using a forward contract to hedge the exchange-rate
+risk. For investments with comparable maturities
+and credit characteristics, the two strategies
+must provide the same domestic-currency return
+in the absence of arbitrage opportunities.
+
+Consider one unit of domestic currency invested for one period. Investing domestically produces $1+r_d$.  Alternatively, the investor can convert the domestic currency into foreign currency at the spot rate $S_0$, invest at the foreign interest rate $r_f$, and sell the future foreign-currency proceeds forward at $F_0$. The resulting domestic-currency payoff is
+
+\begin{equation*}
+\frac{F_0}{S_0}(1+r_f).
+\label{eq:ch10-cip-foreign-payoff}
+\end{equation*}
+
+If the two strategies have the same maturity and comparable credit and liquidity characteristics, arbitrage tends to align their covered returns:
+
+\begin{equation*}
+1+r_d
+=
+\frac{F_0}{S_0}(1+r_f).
+\label{eq:ch10-cip}
+\end{equation*}
+
+Solving for the forward rate gives
+
+\begin{equation}
+F_0
+=S_0\frac{1+r_d}{1+r_f}.
+\label{eq:ch10-forward-from-cip}
+\end{equation}
+
+For moderate interest rates over the same horizon,
+
+\begin{equation}
+\frac{F_0-S_0}{S_0}
+\approx
+r_d-r_f.
+\label{eq:ch10-forward-premium-approx}
+\end{equation}
+
+Under the quotation convention, a domestic interest rate above the foreign rate is therefore associated with a forward price of the foreign currency above its spot price.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+> =Latex,
+box/.style={
+draw,
+rounded corners,
+align=center,
+minimum width=3.3cm,
+minimum height=0.9cm,
+inner sep=5pt
+},
+flow/.style={-Latex, line width=0.85pt, FinanceBlue}
+]
+\node[box] (start) at (0,0)
+{1 unit of\\domestic currency};
+
+\node[box] (dom) at (5.0,1.6)
+{Domestic investment\\at $r_d$};
+
+\node[box] (for) at (5.0,-1.6)
+{Convert, invest abroad,\\and hedge forward};
+
+\node[box] (domend) at (10.0,1.6)
+{$1+r_d$};
+
+\node[box] (forend) at (10.0,-1.6)
+{$\dfrac{F_0}{S_0}(1+r_f)$};
+
+\draw[flow] (start) -- (dom);
+\draw[flow] (start) -- (for);
+\draw[flow] (dom) -- (domend);
+\draw[flow] (for) -- (forend);
+
+\end{tikzpicture}
+\caption{Two covered investment paths underlying interest parity}
+\label{fig:ch10-cip-paths}
+\end{figure}
+
+With continuously compounded rates over a horizon of $T$ years, the same relation can be written as
+
+\begin{equation}
+F_{0,T}
+=S_0 e^{(r_d-r_f)T},
+\label{eq:ch10-cip-continuous}
+\end{equation}
+where $r_d$ and $r_f$ are the corresponding domestic and foreign rates for the same maturity.
+
+\begin{example}{A Forward Rate from Covered Interest Parity}{cip-forward-example}
+
+Suppose the spot exchange rate is 7.20 domestic currency units per unit of foreign currency. The one-year domestic interest rate is 4\% and the comparable foreign rate is 2\%. Under the simplified CIP assumptions,
+
+$$
+F_0
+=
+7.20\times\frac{1.04}{1.02}
+\approx
+7.34.
+$$
+
+The foreign currency therefore trades at a forward premium under this quotation convention.
+
+\end{example}
+
+In practice, transaction costs, collateral terms, funding conditions, counterparty risk, regulation, and balance-sheet constraints can cause covered returns to differ from the simple parity benchmark. Such deviations indicate that the two funding paths are not economically identical once market frictions are taken into account.
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{Financial Perspective: A Forward Rate Is Not a Forecast},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+An investor who purchases a foreign-currency asset
+and sells the maturity proceeds forward locks in
+a domestic-currency return. Without this hedge, the
+realized return depends on the spot exchange rate
+at maturity. The forward rate is therefore the price
+of a contracted future exchange, whereas the expected
+future spot rate reflects investors' expectations
+and the compensation required for bearing exchange-rate
+risk. The two need not coincide.
+
+\end{tcolorbox}
+
+
+\subsection{Uncovered Interest Parity and Currency Risk Premia}
+
+Uncovered interest parity (UIP) compares expected
+returns across currencies when exchange-rate risk
+is not hedged. An investor in a foreign deposit
+therefore remains exposed to the future spot
+exchange rate. Unlike CIP, UIP does not eliminate
+exchange-rate risk through a forward contract.
+Its parity condition therefore concerns expected
+returns rather than returns locked in by contractual
+hedging.
+
+Let $r_d$ and $r_f$ denote the domestic and foreign
+interest rates over the same investment horizon.
+The expected domestic-currency gross return on the
+foreign deposit is
+
+\begin{equation*}
+(1+r_f)\frac{\mathrm{E}_0[S_1]}{S_0}.
+\label{eq:ch10-uip-foreign-return}
+\end{equation*}
+
+A simple UIP benchmark equates this expected return
+with the domestic gross return:
+
+\begin{equation}
+1+r_d
+=
+(1+r_f)\frac{\mathrm{E}_0[S_1]}{S_0}.
+\label{eq:ch10-uip-exact}
+\end{equation}
+
+For moderate interest rates and exchange-rate changes,
+
+\begin{equation}
+\mathrm{E}_0\left[\frac{S_1-S_0}{S_0}\right]
+\approx
+r_d-r_f.
+\label{eq:ch10-uip-approx}
+\end{equation}
+
+When the domestic interest rate exceeds the foreign
+interest rate, the UIP benchmark implies an expected
+depreciation of the domestic currency. 
+
+When investors require compensation for bearing
+currency risk, the expected domestic-currency return
+on an unhedged foreign deposit may differ from the
+return on a domestic deposit. Let $\rho$ denote the
+difference between these two expected returns.
+
+\begin{equation}
+\rho
+=
+(1+r_f)\frac{\mathrm{E}_0[S_1]}{S_0}
+-
+(1+r_d).
+\label{eq:ch10-currency-risk-premium}
+\end{equation}
+
+Since
+
+\[
+\frac{\mathrm{E}_0[S_1]}{S_0}
+=
+1+
+\mathrm{E}_0\left[\frac{S_1-S_0}{S_0}\right],
+\]
+substitution gives
+
+\begin{align}
+\rho
+={}&r_f-r_d
++\mathrm{E}_0\left[\frac{S_1-S_0}{S_0}\right]
++r_f\mathrm{E}_0\left[\frac{S_1-S_0}{S_0}\right].
+\end{align}
+
+For moderate interest rates and exchange-rate changes,
+the product term can be neglected as a second-order
+term. The resulting first-order approximation is
+
+\begin{equation}
+\rho
+\approx
+r_f-r_d
++
+\mathrm{E}_0\left[\frac{S_1-S_0}{S_0}\right].
+\label{eq:ch10-currency-risk-premium-approx}
+\end{equation}
+
+Rearranging gives
+
+\begin{equation}
+\mathrm{E}_0\left[\frac{S_1-S_0}{S_0}\right]
+\approx
+r_d-r_f+\rho.
+\label{eq:ch10-uip-with-risk-premium}
+\end{equation}
+
+When $\rho=0$, the expected returns on the two
+positions are equal, and the standard UIP benchmark
+is recovered. When $\rho$ differs from zero, the
+expected exchange-rate change also reflects the
+compensation associated with bearing currency risk.
+
+
+\section[Currency Exposure and Cross-Border Risk Allocation]{Currency Exposure and Cross-Border Risk\\ Allocation}
+
+Currency exposure arises when cash flows, assets, or liabilities are denominated in currencies different from the currency in which their value is measured. Exchange-rate movements then redistribute value across contractual positions, while hedging and financing decisions determine how that risk is allocated among firms, investors, and financial intermediaries.
+
+\subsection{Currency Denomination and Contractual Cash Flows}
+
+Currency denomination specifies the unit in which
+a contract promises payment. A dollar-denominated
+bond promises dollar payments, while a
+renminbi-denominated loan requires renminbi
+repayment. Whether the denomination creates
+exchange-rate exposure for a firm depends on its
+valuation currency and the currency composition
+of its revenues, assets, and other obligations.
+
+For a firm with a foreign-currency liability,
+the domestic-currency repayment cost varies with
+the spot exchange rate. A depreciation of the
+domestic currency increases the amount of domestic
+currency required to meet the obligation. If the
+firm's revenues are mainly denominated in domestic
+currency, the foreign-currency debt creates a
+currency mismatch. Foreign-currency revenues or
+assets can offset part of this exposure and provide
+a natural hedge.
+
+Contract denomination does not capture all
+exchange-rate exposure. A firm may reduce its
+direct transaction exposure by choosing its
+invoicing currency or hedging contractual cash
+flows, while remaining exposed through changes
+in revenues, input costs, competitive conditions,
+and the value of foreign operations. The firm's
+overall currency exposure therefore depends on
+how exchange-rate movements affect its combined
+operating and financial cash flows.
+
+
+\subsection{Transaction Exposure}
+
+Transaction exposure arises when a contracted foreign-currency cash flow is settled at a future date and its domestic-currency value remains sensitive to the exchange rate. It commonly arises from receivables, payables, and foreign-currency debt service.
+
+Differentiating Equation~\eqref{eq:ch10-export-receivable-value}
+with respect to $S_T$, holding the foreign-currency
+receivable fixed, gives
+
+\begin{equation}
+\frac{\partial V_D,T}{\partial S_T}=V_{F,T}.
+\label{eq:ch10-transaction-exposure-sensitivity}
+\end{equation}
+
+A rise in $S_T$ increases the domestic-currency value of a foreign-currency receivable and the domestic-currency cost of a foreign-currency payable. The economic effect therefore depends on the direction of the contractual cash flow.
+
+Because transaction exposure is often associated with a specified amount and settlement date, it can frequently be matched with a forward or other hedging contract when the timing and amount are sufficiently predictable.
+
+\begin{example}{Transaction Exposure on an Export Receivable}
+{transaction-exposure-exporter}
+
+A Chinese exporter will receive USD~5 million in
+90 days. If the spot exchange rate at settlement
+is RMB~7.00 per dollar, the receipt converts to
+RMB~35.0 million. If the exchange rate instead
+reaches RMB~7.40 per dollar, the receipt converts
+to RMB~37.0 million.
+
+The increase of RMB~0.40 per dollar raises the
+domestic-currency value of the receivable by
+RMB~2.0 million:
+
+\[
+\Delta V_{D,T}
+=
+V_{F,T}\Delta S_T
+=
+5\times 0.40
+=
+\text{RMB }2.0\text{ million}.
+\]
+
+The example illustrates the exchange-rate
+sensitivity of a fixed foreign-currency receivable:
+a higher $S_T$ increases its domestic-currency
+value, while a lower $S_T$ reduces it.
+
+\end{example}
+
+
+\subsection{Translation Exposure}
+
+Translation exposure arises when foreign-currency financial statements or balance-sheet positions are converted into a firm's reporting currency. It is particularly relevant for multinational firms with foreign operations.
+
+Suppose a parent company reports in domestic currency while a foreign subsidiary keeps its accounts in another currency. Changes in the exchange rate can alter the reported domestic-currency value of the subsidiary's assets, liabilities, revenues, and expenses even when no corresponding cash flow occurs between the subsidiary and the parent.
+
+Translation exposure therefore differs from transaction exposure. Transaction exposure arises from contracted foreign-currency cash flows that will be settled, whereas translation exposure arises from converting accounting amounts into the reporting currency. A translation loss does not by itself create an immediate cash payment.
+
+Translation effects can nevertheless influence reported equity, earnings, leverage, and other financial measures. Their significance depends on the firm's balance-sheet structure, reporting framework, and any contractual or regulatory provisions linked to reported accounting values.
+
+Accounting treatment determines where translation effects appear in the financial statements. The specific treatment varies across accounting frameworks, so exposure analysis should distinguish the underlying foreign-currency position from its accounting representation.
+
+\subsection{Economic Exposure}
+
+Economic exposure, sometimes called operating exposure, is the sensitivity of the present value of future operating cash flows to exchange-rate changes. It extends beyond contracted foreign-currency receivables and payables.
+
+A firm can face economic exposure even when its sales and contracts are denominated in domestic currency. Exchange-rate movements can alter the relative prices of domestic and foreign products, the cost of imported inputs, and the competitive position of the firm. These changes can affect sales volumes, margins, and future operating cash flows.
+
+The direction and magnitude of economic exposure depend on the structure of the firm's revenues and costs. A domestic-currency depreciation may increase the value of foreign revenues, but imported inputs, foreign-currency debt, or competitive responses can offset part of that effect. Economic exposure therefore cannot always be inferred from the currency denomination of existing contracts.
+
+
+\begin{table}[htbp]
+\centering
+\caption{Three forms of currency exposure}
+\label{tab:ch10-currency-exposure-types}
+
+\begin{tabularx}{\textwidth}{@{}p{3.1cm}X X@{}}
+\toprule
+\textbf{Exposure}
+& \textbf{Source}
+& \textbf{Illustrative effect} \\
+\midrule
+
+Transaction exposure
+& Contracted foreign-currency cash flows
+& Domestic value changes before settlement \\
+
+Translation exposure
+& Conversion of foreign operations into the reporting currency
+& Reported accounting values change with the translation rate \\
+
+Economic exposure
+& Exchange-rate effects on prices, costs, demand, and competition
+& Present value of future operating cash flows changes \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Economic exposure can also change as firms adjust sourcing, production, pricing, and financing. Short-run exposure based on current operating arrangements may therefore differ from longer-run exposure after firms respond to exchange-rate changes. The main sources and effects of transaction, translation, and economic exposure are summarized in Table~\ref{tab:ch10-currency-exposure-types}.
+The three forms of exposure can overlap. A foreign operation may create translation and economic exposure, while a specific foreign-currency contract can create transaction exposure within the firm's broad
+
+
+\subsection{Hedging Logic and the Allocation of Exchange-Rate Risk}
+
+Hedging changes the sensitivity of a position to exchange-rate movements. The objective is generally to offset an identified exposure rather than to predict the direction of the exchange rate.
+
+Consider an exporter with a foreign-currency
+receivable of $V_{F,T}$ due at date $T$. If the
+exporter sells a fraction $h$ of the receivable
+forward at the rate $F_{0,T}$, the settlement
+gain or loss on the forward position relative
+to conversion at the spot rate is
+
+\begin{equation}
+hV_{F,T}\times(F_{0,T}-S_T).
+\label{eq:ch10-export-forward-payoff}
+\end{equation}
+
+Combining the forward payoff with the conversion
+of the remaining unhedged receivable gives the
+domestic-currency value of the hedged position:
+
+\begin{equation}
+V_{D,T}^{H}
+=
+V_{F,T}\left[(1-h)S_T+hF_{0,T}\right].
+\label{eq:ch10-partial-forward-hedge}
+\end{equation}
+
+When $h=0$, the receivable remains fully exposed
+to the future spot rate. When $h=1$ and the
+forward contract matches the amount and maturity
+of the receivable,
+
+\begin{equation}
+V_{D,T}^{H}=F_{0,T}V_{F,T}.
+\label{eq:ch10-full-forward-hedge}
+\end{equation}
+
+The hedge therefore replaces part or all of the
+uncertain future conversion rate with a rate
+fixed in advance. It reduces the exchange-rate
+sensitivity of the specified cash flow, while
+other risks associated with the underlying
+transaction remain.
+
+\begin{example}{A Full and Partial Forward Hedge}{forward-hedge-example}
+
+A firm will receive USD~4 million in six months, and the six-month forward rate is RMB~7.25 per dollar. A full forward hedge locks in
+
+$$
+4\times 7.25)=29.0
+$$
+million renminbi.
+
+If the firm instead hedges 60\% of the receivable, the domestic-currency value becomes
+
+$$
+4\times\left[0.4S_T+0.6\times 7.25\right].
+$$
+
+At a future spot rate of RMB~7.00 per dollar, the receipt is RMB~28.6 million; at RMB~7.50 per dollar, it is RMB~29.4 million. Partial hedging reduces, but does not eliminate, sensitivity to the future spot rate.
+
+\end{example}
+
+The same logic applies to other hedging instruments. Futures provide standardized contracts, options alter the distribution of exchange-rate outcomes, and currency swaps can transform streams of cash flows across currencies. Firms may also create natural hedges by aligning the currencies of revenues, costs, assets, and liabilities. The relevant question in each case is how the hedge payoff offsets the underlying exposure.
+
+The hedge ratio need not equal one. If the amount or timing of the underlying cash flow is uncertain, a full hedge can leave the firm with a new currency position when the realized exposure differs from the amount hedged. Derivative hedges can also create collateral or liquidity requirements before the underlying cash flow is received.
+
+Exchange-rate risk can also be allocated through the commercial or financing contract itself. An exporter that invoices in domestic currency shifts more transaction exposure to the foreign buyer; borrowing in the currency of future revenues can place part of the exposure on the liability side. Contract denomination, operating choices, and financial hedging therefore provide alternative ways of distributing exchange-rate risk across participants.
+
+\begin{tcolorbox}[
+enhanced,
+breakable,
+colback=white,
+colframe=FinanceBlue,
+boxrule=0.7pt,
+sharp corners,
+borderline west={2.2pt}{0pt}{FinanceBlue},
+title=\textbf{Financial Perspective: Hedge the Exposure, Not the Forecast},
+coltitle=white,
+colbacktitle=FinanceBlue,
+fonttitle=\bfseries,
+before skip=1.2em,
+after skip=1.2em
+]
+
+A hedge is most effective when the amount, currency, and timing of the hedging position correspond to the underlying exposure. The purpose is to alter the distribution of cash-flow outcomes, not to establish a view about the future exchange rate.
+
+\end{tcolorbox}
+
+
+%========================================================
+% Summary
+%========================================================
+
+\TailModule{summary}{Summary}
+
+Foreign exchange markets connect claims denominated in different currencies. Trade, investment, and cross-border funding create currency-conversion needs when cash flows and valuation currencies differ. Dealers and electronic venues redistribute these flows across a decentralized market, while trading and settlement arrangements influence liquidity and execution.
+
+Exchange-rate interpretation begins with the quote convention. In this chapter, the exchange rate is domestic currency per unit of foreign currency, so an increase represents domestic-currency depreciation. Real exchange rates incorporate relative price levels, while effective exchange rates summarize movements against multiple trading partners. Exchange-rate regimes differ in how market pressure is absorbed between exchange-rate adjustment and policy action.
+
+Parity relations provide benchmarks under stated assumptions. The law of one price and purchasing power parity link goods prices to exchange rates through goods-market arbitrage. Covered interest parity links spot rates, forward rates, and interest rates through covered return comparisons, while uncovered interest parity links interest differentials to expected exchange-rate changes under assumptions about expected returns and currency risk premia. The forward rate therefore need not equal the expected future spot rate.
+
+Currency exposure arises through contracts, accounting positions, operating cash flows, and financing. Transaction exposure concerns contracted foreign-currency cash flows, translation exposure concerns the conversion of foreign operations into the reporting currency, and economic exposure concerns the sensitivity of future operating cash flows to exchange-rate movements. Financial hedges and natural hedges can reduce or redistribute these exposures when their amount, timing, and currency correspond sufficiently closely to the underlying position.
+
+
+%========================================================
+% Key Terms
+%========================================================
+
+\TailModule{keyterms}{Key Terms}
+
+Foreign exchange market; spot exchange rate; direct quote;  bid--ask spread; cross rate; triangular arbitrage; market liquidity; nominal exchange rate; real exchange rate; nominal effective exchange rate; real effective exchange rate; fixed exchange-rate regime; floating exchange-rate regime; managed exchange-rate regime; foreign exchange intervention; law of one price; purchasing power parity; covered interest parity; forward exchange rate; uncovered interest parity; currency risk premium; currency denomination; transaction exposure; translation exposure; economic exposure; forward hedge; hedge ratio.
+
+%========================================================
+% Financial AI Lab
+%========================================================
+
+\TailModule{aiprompt}{Financial AI Lab}
+
+\textbf{Lab: Audit an FX Quote, a Parity Calculation, and a Hedge}
+
+Ask an AI system to analyze a one-year cross-currency investment using a spot exchange rate, domestic and foreign interest rates, and a one-year forward rate. Require it to state the exchange-rate quote convention before performing any calculation.
+
+Audit the analysis in four stages.
+
+\begin{enumerate}
+
+\item \textbf{Check the quote direction.} Identify the currencies in the numerator and denominator and verify that appreciation and depreciation are interpreted consistently with the quote.
+
+\item \textbf{Check covered interest parity.} Place the two interest rates on the same maturity and compounding basis. Calculate the forward rate implied by covered interest parity and compare it with the supplied forward rate. Before treating any difference as an arbitrage opportunity, consider transaction costs, funding and collateral conditions, and other relevant market frictions.
+
+\item \textbf{Separate pricing from forecasting.} Ask the AI to interpret the forward rate as a possible forecast of the future spot rate. Check whether it distinguishes the covered pricing relation from expectations about future exchange rates and currency risk premia.
+
+\item \textbf{Audit the hedge.} Give the AI a foreign-currency receivable and ask it to calculate the domestic-currency cash flow under no hedge, a partial forward hedge, and a full forward hedge. Verify the direction of the forward position and test the results under both appreciation and depreciation of the domestic currency.
+
+\end{enumerate}
+
+
+%========================================================
+% Discussion Questions
+%========================================================
+
+\TailModule{questions}{Discussion Questions}
+
+\begin{enumerate}
+
+\item Why can a foreign investment earn a positive return in its local currency but generate a negative return for a domestic investor after currency conversion?
+
+\item Why can a country with a floating exchange rate still intervene in the foreign exchange market? How does such intervention differ from maintaining a fixed parity?
+
+\item Why does covered interest parity provide a stronger arbitrage benchmark than uncovered interest parity?
+
+\item A firm's export contracts are denominated entirely in its domestic currency. Why can the firm still have economic exposure to exchange-rate movements?
+
+\end{enumerate}
+
+
+%========================================================
+% Applied Problems
+%========================================================
+
+\TailModule{appprobs}{Applied Problems}
+
+\begin{enumerate}
+
+\item \textbf{Quotes, appreciation, and cross rates.}
+
+The spot exchange rate is RMB~7.24 per U.S. dollar and USD~1.08 per euro.
+
+\begin{enumerate}
+
+\item Calculate the reciprocal USD/RMB quote.
+
+\item If RMB/USD rises to 7.38, has the renminbi appreciated or depreciated against the dollar under the quotation convention used in this chapter?
+
+\item Calculate the implied RMB/EUR cross rate using the original quotations.
+
+\item Explain what trading pressure could arise if the directly quoted RMB/EUR rate differed from the implied cross rate by more than transaction costs and other execution frictions.
+
+\end{enumerate}
+
+\item \textbf{Nominal and real exchange rates.}
+
+The domestic currency depreciates by 6\% over one year under the quotation convention used in this chapter. Domestic inflation is 4\% and foreign inflation is 2\%.
+
+\begin{enumerate}
+
+\item Using the approximation in Equation~(\ref{eq:ch10-real-exchange-rate-change}), estimate the percentage change in the real exchange rate.
+
+\item Recalculate the real exchange-rate change if domestic inflation is 9\%, holding the other values unchanged.
+
+\item Explain why nominal depreciation need not imply real depreciation.
+
+\end{enumerate}
+
+\item \textbf{Covered interest parity.}
+
+The spot exchange rate is 7.20 domestic currency units per unit of foreign currency. The one-year domestic interest rate is 4.5\% and the comparable foreign rate is 2.0\%.
+
+\begin{enumerate}
+
+\item Calculate the one-year forward rate implied by covered interest parity.
+
+\item Calculate the forward premium as a percentage of the spot rate.
+
+\item Suppose the observed forward rate is 7.30. What additional information would be needed before concluding that a tradable arbitrage opportunity exists?
+
+\item Explain why the CIP-implied forward rate is not necessarily a forecast of the future spot rate.
+
+\end{enumerate}
+
+\item \textbf{Uncovered returns and currency risk premia.}
+
+The domestic one-year interest rate is 5\% and the foreign rate is 3\%. The domestic currency is expected to depreciate by 4\% over the year.
+
+\begin{enumerate}
+
+\item Using the first-order approximation in Equation~\ref{eq:ch10-currency-risk-premium}, calculate the expected excess return on the unhedged foreign deposit relative to the domestic deposit.
+
+\item Does the zero-risk-premium UIP benchmark hold under these expectations?
+
+\item What expected exchange-rate change would be consistent with zero-risk-premium UIP?
+
+\item Explain how a time-varying currency risk premium affects the interpretation of the interest differential.
+
+\end{enumerate}
+
+\item \textbf{Currency exposure and hedging.}
+
+A domestic exporter will receive USD~8 million in six months. The six-month forward rate is RMB~7.18 per dollar, and the firm chooses a hedge ratio of 75\%.
+
+\begin{enumerate}
+
+\item Calculate the domestic-currency value of the hedged receipt if the future spot rate is RMB~6.95 per dollar.
+
+\item Recalculate the value if the future spot rate is RMB~7.45 per dollar.
+
+\item Using the same two exchange-rate outcomes, compare the range of hedged receipts with the range under no hedge.
+
+\item Calculate the domestic-currency value locked in under a full hedge.
+
+\item Identify one risk that remains even under a full currency hedge.
+
+\end{enumerate}
+
+\end{enumerate}
+
+
+%========================================================
+% Data Application
+%========================================================
+
+\TailModule{dataapp}{Data Application}
+
+\textbf{Bilateral, Nominal Effective, and Real Effective Exchange Rates of the Renminbi}
+
+Obtain a monthly RMB exchange rate against the U.S. dollar from an authoritative Chinese source and nominal and real effective exchange-rate indexes for China from an authoritative source with documented methodology.
+
+Use a sample of at least five years. Convert the series to a common starting value of 100 where appropriate, and plot the bilateral RMB/USD rate, the nominal effective exchange-rate index, and the real effective exchange-rate index. State the quotation convention for the bilateral rate and the direction in which an increase in each index is defined.
+
+Identify at least two periods in which the bilateral exchange rate and the effective-rate indexes moved differently. Explain how movements in other trading-partner currencies could contribute to the divergence. Then compare the nominal and real effective indexes and relate their differences to relative price or cost changes.
+
+Interpret the effective exchange-rate measures with care. They summarize currency movements across trading partners but do not provide a complete measure of international competitiveness. Discuss at least two additional factors that may affect the broader economic interpretation.
+
+Report the sample period, frequency, index definitions, source institutions, and any transformations applied to the data.
+
+
+%========================================================
+% Further Reading
+%========================================================
+
+\TailModule{furtherread}{Further Reading}
+
+\begin{itemize}
+
+\item Dornbusch, R"udiger (1976),
+``Expectations and Exchange Rate Dynamics,''
+\emph{Journal of Political Economy}, 84(6), 1161--1176.
+
+\item Meese, Richard A., and Kenneth Rogoff (1983),
+``Empirical Exchange Rate Models of the Seventies: Do They Fit Out of Sample?''
+\emph{Journal of International Economics}, 14(1--2), 3--24.
+
+\item Fama, Eugene F. (1984),
+``Forward and Spot Exchange Rates,''
+\emph{Journal of Monetary Economics}, 14(3), 319--338.
+
+\item Obstfeld, Maurice, and Kenneth Rogoff (1995),
+``The Mirage of Fixed Exchange Rates,''
+\emph{Journal of Economic Perspectives}, 9(4), 73--96.
+
+\item Du, Wenxin, Alexander Tepper, and Adrien Verdelhan (2018),
+``Deviations from Covered Interest Rate Parity,''
+\emph{The Journal of Finance}, 73(3), 915--957.
+
+\end{itemize}
+
+
+\ChapterTail{summary,keyterms,aiprompt,questions,appprobs,dataapp,furtherread}

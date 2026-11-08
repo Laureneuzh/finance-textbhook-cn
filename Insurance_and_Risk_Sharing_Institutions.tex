@@ -1,0 +1,909 @@
+\chapter{Insurance and Risk-Sharing Institutions}
+\label{chap:Insurance_and_Risk_Sharing_Institutions}
+
+
+\begin{openingcase}{A Small Premium for a Large Promise}
+
+A household owns a home worth RMB~2 million. A severe fire is unlikely in any particular year, but if it occurs, the financial loss could be devastating. Rather than retain this risk, the household buys insurance and pays an annual premium that is only a small fraction of the amount the insurer may eventually have to pay.
+
+The transaction appears asymmetric. The household pays a relatively small and certain amount today, while the insurer assumes a potentially large contingent liability. Yet insurers enter thousands or millions of such contracts at the same time.
+
+\end{openingcase}
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=FinanceBlue!6,
+  colframe=FinanceBlue,
+  boxrule=0.6pt,
+  sharp corners,
+  left=8pt,
+  right=8pt,
+  top=7pt,
+  bottom=7pt,
+  before skip=1em,
+  after skip=1.6em,
+  title=\textbf{Core Questions},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  attach boxed title to top left={xshift=6pt,yshift=-2mm},
+  boxed title style={
+    boxrule=0pt,
+    sharp corners,
+    left=5pt,
+    right=5pt,
+    top=2pt,
+    bottom=2pt
+  }
+]
+\begin{enumerate}[
+  leftmargin=*,
+  label=\textcolor{FinanceBlue}{\textbf{\arabic*.}},
+  itemsep=0.55em,
+  topsep=0.2em
+]
+
+
+\item Why can insurance improve risk sharing, and when does pooling make aggregate losses more predictable?
+
+\item How do insurance contracts address adverse selection and moral hazard while preserving incentives for policyholders?
+
+\item How do insurers price insurance contracts, value and fund their liabilities, manage assets and capital, and transfer risk through reinsurance and capital markets?
+
+\end{enumerate}
+\end{tcolorbox}
+
+\section{Insurance, Risk Pooling, and Insurability}
+
+Insurance reallocates the financial consequences of uncertain events through contracts, exchanging a known premium for protection against specified losses. By combining many such contracts, insurers can pool risk and make aggregate losses more predictable, while the feasibility of this arrangement depends on whether the underlying risks are insurable.
+
+\subsection{Individual Risk and the Demand for Insurance}
+
+An individual may face a low-probability loss that is large
+relative to initial wealth. Let $W$ denote initial wealth,
+and suppose the random loss $\tilde{L}$ takes the value $L$
+with probability $p$ and zero with probability $1-p$.
+Without insurance, terminal wealth is
+
+\begin{equation}
+W_T=
+\begin{cases}
+W-L, & \text{with probability } p,\\
+W, & \text{with probability } 1-p.
+\end{cases}
+\label{eq:ch15-uninsured-wealth}
+\end{equation}
+
+The expected monetary loss is
+
+\begin{equation}
+\mathbb{E}[\tilde{L}]=pL.
+\label{eq:ch15-expected-loss-simple}
+\end{equation}
+
+Expected loss alone does not capture the policyholder's
+exposure to different states of the world. Insurance reallocates wealth across states of the world:
+the policyholder pays a premium regardless of whether a
+loss occurs but receives compensation if it does. When utility is concave in wealth, this reduction
+in variation across states can increase expected utility.
+A risk-averse policyholder may therefore be willing to
+pay a premium exceeding the expected loss in exchange
+for protection against a large adverse outcome.
+
+Suppose full coverage is available for premium $P$. Abstracting from exclusions and claims frictions, terminal wealth with respect to this loss becomes
+
+\begin{equation}
+W_T^{I}=W-P.
+\label{eq:ch15-fully-insured-wealth}
+\end{equation}
+
+Full insurance replaces state-dependent wealth with a more stable wealth position. It can remain valuable when the premium exceeds the expected loss, provided that the value of reducing wealth risk exceeds the premium loading.
+
+Insurance may also reduce the need to hold precautionary liquid assets against low-frequency, high-severity losses. This effect is more important when borrowing or liquidating assets after a loss would be costly or difficult.
+
+\begin{example}{A Large Loss Relative to Household Wealth}{household-insurance-demand}
+
+A household has initial wealth of RMB~1 million and faces
+a 2\% probability of incurring a loss of RMB~400,000 during
+the year. Without insurance, terminal wealth is RMB~600,000
+if the loss occurs and RMB~1 million otherwise.
+
+The expected loss is
+
+$$
+0.02\times 400{,}000=8{,}000.
+$$
+
+With full insurance at premium $P$, terminal wealth becomes RMB~$1{,}000{,}000-P$ in either state. A risk-averse household may therefore accept a premium above RMB~8,000 if the value of reducing exposure to the large adverse state is sufficient to cover the premium loading.
+
+\end{example}
+
+
+\subsection{Risk Pooling and the Law of Large Numbers}
+
+Risk pooling becomes more effective when an insurer combines many exposures whose losses are sufficiently weakly related. As a benchmark, consider $n$ policyholders with independent loss indicators $X_i$, where
+
+$$
+X_i=
+\begin{cases}
+1, & \text{if policyholder } i \text{ experiences the loss},\\
+0, & \text{otherwise},
+\end{cases}
+$$
+and each loss occurs with probability $p$. The number of claims is
+
+\begin{equation}
+N=\sum_{i=1}^{n}X_i.
+\label{eq:ch15-number-of-claims}
+\end{equation}
+
+Its expected value is
+
+\begin{equation}
+\mathbb{E}[N]=np,
+\label{eq:ch15-expected-claims}
+\end{equation}
+and, under independence,
+
+\begin{equation}
+\operatorname{Var}(N)=np(1-p).
+\label{eq:ch15-claims-variance}
+\end{equation}
+
+The observed claim frequency is defined as
+
+\begin{equation}
+\hat p=\frac{N}{n}
+=\frac{1}{n}\sum_{i=1}^{n}X_i.
+\end{equation}
+
+Its variance under independence is
+
+\begin{equation}
+\operatorname{Var}(\hat p)
+=\frac{1}{n^2}\operatorname{Var}(N)=\frac{p(1-p)}{n}.
+\label{eq:ch15-frequency-variance}
+\end{equation}
+
+As the pool grows, the variance of claim frequency declines
+inversely with the number of policyholders. The total number
+of claims remains uncertain, but claim experience becomes
+more predictable on a per-policy basis. This is the
+statistical foundation of risk pooling and allows insurers
+to estimate portfolio losses with greater reliability.
+
+The gain in predictability depends on the dependence among
+losses. Pooling is more effective when losses are weakly
+correlated, while common shocks can generate many claims
+at the same time and limit the diversification benefit.
+
+\begin{example}{Pooling Independent Claims}{pooling-independent-claims}
+
+Suppose 10,000 similar policies each cover a loss of RMB~20,000, and the annual claim probability is 1\%.
+
+The expected number of claims is
+
+$$
+10{,}000\times 0.01=100.
+$$
+
+The standard deviation of the number of claims is
+
+$$
+\sqrt{10{,}000\times 0.01\times 0.99}
+\approx 9.95.
+$$
+
+The expected claim frequency is 1\%, while its standard deviation is
+
+$$
+\frac{9.95}{10{,}000}
+\approx 0.001,
+$$
+
+or about 0.10 percentage points.
+
+The loss experienced by any one policyholder remains uncertain, while claim frequency becomes more stable across the pool.
+
+\end{example}
+
+
+\subsection{Insurability and the Limits of Risk Pooling}
+
+The diversification benefit of a larger pool depends on the dependence among individual losses. To see this, let $X_i$ denote the loss on policy $i$. Suppose individual losses have common variance $\sigma^2$ and each pair has common correlation $\rho$. The variance of average loss is
+
+\begin{equation}
+\operatorname{Var}(\bar{X})=
+\frac{\sigma^2}{n}
++
+\frac{n-1}{n}\rho\sigma^2.
+\label{eq:ch15-correlated-pooling}
+\end{equation}
+
+When $\rho=0$, the variance of average loss declines toward zero as the pool expands. When $\rho>0$, the first component declines with pool size, but the correlated component remains. Pooling can therefore reduce idiosyncratic variation without eliminating exposure to common shocks.
+
+This distinction helps explain why some risks are more readily insurable than others. Isolated household fires and many automobile losses contain substantial policy-specific variation and can often be pooled across broad populations. Earthquakes, regional floods, pandemics, and systemic cyber incidents may generate losses across many policyholders at the same time, leaving a larger component of aggregate risk that cannot be diversified within the pool.
+
+Insurability therefore depends on more than expected loss. The event and covered loss need to be sufficiently definable and verifiable, loss frequency and severity need to be estimated with reasonable reliability, and potential aggregate claims need to remain supportable relative to premiums and available risk-bearing capacity. Information and incentive problems can further limit the coverage that can be offered on sustainable terms.
+
+\begin{tcolorbox}[
+enhanced,
+breakable,
+colback=white,
+colframe=FinanceBlue,
+boxrule=0.7pt,
+sharp corners,
+borderline west={2.2pt}{0pt}{FinanceBlue},
+title=\textbf{Financial Perspective: When Pooling Is Not Enough},
+coltitle=white,
+colbacktitle=FinanceBlue,
+fonttitle=\bfseries,
+before skip=1.2em,
+after skip=1.2em
+]
+
+When a material part of loss exposure is driven by common shocks, the insurer must decide how much risk to retain and how much to transfer. Geographic diversification may reduce exposure to localized events, while reinsurance and insurance-linked securities can transfer part of the risk to other balance sheets. Capital provides a buffer for losses that remain with the insurer.
+
+These mechanisms do not eliminate the underlying risk. They redistribute its financial consequences across different risk bearers and determine how much concentrated loss the insurer can support.
+
+\end{tcolorbox}
+
+
+\section{Insurance Contracts and Information Problems}
+
+Insurance contracts specify which losses are covered, which remain with the insured, and how claims are verified and paid. These terms also help manage information and incentive problems that arise before and after coverage begins.
+
+
+\subsection{Coverage, Contractual Payoffs, and Claims}
+
+An insurance policy defines the insured event, coverage period, benefits or indemnities, exclusions, deductibles, limits, and claims conditions. Together, these terms determine when payment is triggered and how much the insurer pays.
+
+For an indemnity policy covering a realized loss $L$, let $d$ denote the deductible and $C$ the maximum insurer payment. A simplified payoff function is
+
+\begin{equation}
+I(L)=\min\left\{\max(L-d,0), C\right\}.
+\label{eq:ch15-insurance-payoff}
+\end{equation}
+
+The portion of the loss retained by the insured is
+
+\begin{equation}
+R(L)=L-I(L).
+\label{eq:ch15-retained-loss}
+\end{equation}
+
+The contract therefore reallocates the financial loss rather than eliminating it. The deductible leaves part of the loss with the insured, while the payment limit restricts the insurer's maximum exposure.
+
+This payoff structure is most direct for indemnity insurance. Life insurance generally promises a stated benefit when a specified event occurs, rather than reimbursement of a measured property loss. Health insurance may combine reimbursement, contractual benefits, provider arrangements, and cost sharing. The form of the payoff therefore depends on the nature of the insured event and on what can be observed and verified.
+
+Claims administration implements the contractual payoff. The insurer determines whether a claim falls within coverage, verifies the relevant loss or event, applies the policy terms, and makes the resulting payment. Verification and settlement procedures also influence the information and incentives surrounding the contract.
+
+\begin{example}{Deductible and Coverage Limit}{deductible-and-limit}
+
+A property policy has a deductible of RMB~20,000 and a maximum insurer payment of RMB~300,000.
+
+If the covered loss is RMB~80,000, the insurer pays
+
+$$
+I(80{,}000)=80{,}000-20{,}000=60{,}000.
+$$
+
+If the covered loss is RMB~500,000, the insurer pays
+
+$$
+I(500{,}000)=300{,}000,
+$$
+
+leaving RMB~200,000 of the loss with the insured.
+
+The deductible determines how much of smaller losses remains with the insured, while the payment limit caps the insurer's exposure to larger losses.
+
+\end{example}
+
+
+\subsection{Adverse Selection, Underwriting, and Risk Classification}
+
+Adverse selection can arise when potential policyholders have information about their own risk that the insurer cannot fully observe. If different risk types are offered the same terms, higher-risk individuals may be more willing to purchase or retain coverage, while lower-risk individuals may reduce their participation. The insured pool can then become riskier than the insurer anticipated when the premium was set.
+
+Suppose there are two risk types. Type $L$ has expected loss $\ell_L$ and type $H$ has expected loss $\ell_H$, with
+
+\begin{equation}
+\ell_H>\ell_L.
+\label{eq}
+\end{equation}
+
+A pooled premium based on both types will generally be high relative to the expected loss of type $L$ and low relative to that of type $H$. If participation shifts toward type $H$, the average expected loss of the insured pool rises, placing upward pressure on premiums or requiring changes in contract terms.
+
+Underwriting addresses this information problem by gathering and evaluating information when deciding whether and on what terms to insure an exposure. Depending on the product and legal environment, the insurer may consider loss history, property characteristics, health information, business activities, geographic exposure, and other permitted indicators.
+
+Risk classification uses such information to group exposures with similar expected claim characteristics. More informative classification can improve the alignment of premiums and contract terms with expected losses, although its effectiveness depends on the quality, relevance, and permissible use of the underlying information.
+
+Underwriting and risk classification help insurers respond to adverse selection by improving the information used to assess and price insured risks. The relevant assessment centers on the expected frequency and severity of losses and, where important, their dependence across exposures.
+
+\subsection{Moral Hazard, Risk Sharing, and Incentive Design}
+
+Moral hazard can arise when insurance changes behavior after coverage begins. By reducing the financial consequences borne by the insured, coverage may weaken incentives to prevent losses, maintain insured assets, limit loss severity, or control covered expenditures when these actions are costly and imperfectly observable.
+
+Insurance contracts can respond by sharing losses between the insurer and the policyholder rather than transferring them completely. With a deductible $d$, the insured bears the initial portion of a covered loss. Under coinsurance, the insured also bears a fraction of losses above the deductible. If the insurer covers fraction $\alpha$ after the deductible, a simplified payment is
+
+
+\begin{equation}
+I(L)
+=\alpha\max(L-d,0),
+\qquad 0\leq\alpha\leq 1,
+\label{eq:ch15-coinsurance-payoff}
+\end{equation}
+subject to any coverage limit.
+
+Greater retention leaves the insured with more exposure to the consequences of loss and can strengthen incentives for prevention and cost control. More complete coverage provides greater protection against adverse states. Contract design therefore balances risk sharing against incentive effects.
+
+Monitoring and claims verification can complement this form of risk sharing. Insurers may require preventive measures, inspect insured property, verify losses and documentation, use approved provider networks, or condition coverage on specified actions. Such mechanisms can improve incentives and reduce claims costs, but their effectiveness depends on observability and the cost of monitoring.
+
+\begin{tcolorbox}[
+enhanced,
+breakable,
+colback=white,
+colframe=FinanceBlue,
+boxrule=0.7pt,
+sharp corners,
+borderline west={2.2pt}{0pt}{FinanceBlue},
+title=\textbf{Financial Perspective: More Coverage Can Weaken Incentives},
+coltitle=white,
+colbacktitle=FinanceBlue,
+fonttitle=\bfseries,
+before skip=1.2em,
+after skip=1.2em
+]
+
+Complete risk transfer provides the strongest protection against loss, but it can also reduce the financial consequences of actions taken by the insured. Retaining part of the loss can preserve incentives, at the cost of leaving the policyholder with greater exposure to adverse outcomes.
+
+The appropriate degree of risk sharing therefore depends on the nature of the risk, the observability of behavior, the cost of monitoring, and the policyholder's capacity to bear retained losses.
+
+\end{tcolorbox}
+
+
+\section{Insurance Pricing and Liability Management}
+
+Insurance pricing determines the premium required to support uncertain future claims and related costs. These claims give rise to liabilities that may extend beyond the receipt of premiums, requiring insurers to manage reserves, assets, liquidity, capital, and risk transfer over time.
+
+
+\subsection{Expected Losses, Premiums, and Risk Loading}
+
+Insurance pricing begins with the expected value of future claim payments. Let $L$ denote the random present value of insured losses associated with one policy. The expected loss is
+
+\begin{equation}
+EL=\mathbb{E}[L].
+\label{eq:ch15-expected-loss}
+\end{equation}
+
+A simplified indicated premium can be written as
+
+\begin{equation}
+P=EL+E+R,
+\label{eq:ch15-premium-decomposition}
+\end{equation}
+
+where $E$ represents expected acquisition and operating expenses and $R$ is a risk loading for uncertainty and the capital required to support risk that is not captured by expected claims.
+
+Expected loss reflects both claim frequency and claim severity. In a simple setting with at most one claim during the period, if a claim occurs with probability $p$ and expected severity conditional on a claim is $\mathbb{E}[S\mid \text{claim}]$, then
+
+\begin{equation}
+EL=
+p,\mathbb{E}[S\mid \text{claim}].
+\label{eq:ch15-frequency-severity}
+\end{equation}
+
+The risk loading reflects the cost of bearing uncertainty around expected losses. It tends to be more important when claims are volatile, correlated, difficult to diversify, or subject to substantial model uncertainty. Reinsurance, regulation, competition, investment conditions, and contract design can further influence the premium ultimately charged.
+
+Pricing is therefore forward looking. Historical loss experience provides information, but premiums may need to adjust when claim frequency, severity, input costs, legal conditions, catastrophe exposure, or policy terms change.
+
+\begin{example}{From Expected Loss to Premium}{expected-loss-to-premium}
+
+An insurer estimates an annual claim probability of 4\% and expected claim severity, conditional on a claim, of RMB~50,000. The expected loss per policy is
+
+$$
+EL=0.04(50{,}000)=2{,}000.
+$$
+
+Suppose expected acquisition and operating expenses are RMB~500 and the insurer applies an RMB~300 risk loading. The indicated premium is
+
+$$
+P=2{,}000+500+300=2{,}800.
+$$
+
+The difference between the expected loss and the indicated premium reflects the expenses and risk loading required under this simplified pricing convention.
+
+\end{example}
+
+
+\subsection{Insurance Liability Valuation and Reserves}
+
+Pricing converts estimates of future claims into current premium terms. Once coverage is written, those same future claims become liabilities whose amount and timing must be measured over the life of the contract.
+
+Let $C_t$ denote uncertain claim cash flows at future dates $t=1,\ldots,T$. As a simplified valuation benchmark, the present value of expected claim payments can be written as
+
+\begin{equation}
+V_L=\sum_{t=1}^{T}
+\frac{\mathbb{E}[C_t]}{(1+r_t)^t},
+\label{eq:ch15-insurance-liability-pv}
+\end{equation}
+
+where $r_t$ denotes the discount rate appropriate to the maturity and valuation basis. The expression illustrates the role of expected cash flows and discounting; a fuller liability measure may also reflect expenses, contractual features, uncertainty, and other adjustments required by the relevant valuation framework.
+
+Reserves express these future obligations as current liability measures under the applicable accounting or regulatory framework. Depending on the contract, they may reflect claims that have occurred but remain unpaid or unreported, as well as future benefits associated with longer-duration insurance contracts. Life and annuity liabilities, for example, can depend on mortality, longevity, lapse behavior, expenses, guarantees, and discount rates.
+
+A reserve is therefore not simply cash set aside for future claims. It is a liability measure supported by the insurer's assets and capital. Changes in claims experience, assumptions, or discount rates can alter the measured liability and the insurer's financial position.
+
+The timing of expected payments also matters. Longer-duration liabilities are generally more sensitive to changes in discount rates than otherwise similar near-term liabilities, linking insurance liability valuation to the broader time-value-of-money framework.
+
+
+
+\subsection{Asset--Liability Management and Solvency}
+
+Valuation and reserving translate future insurance obligations into liabilities with particular timing, sensitivity, and uncertainty. Insurers then manage assets against these liabilities and maintain capital to absorb adverse deviations between the two sides of the balance sheet. Asset--liability management therefore focuses on the alignment of asset and liability cash flows, liquidity, duration, and risk.
+
+Let $A$ denote the economic value of assets and $L$ the economic value of insurance and other liabilities. A simplified measure of economic surplus is
+
+\begin{equation}
+S=A-L.
+\label{eq:ch15-economic-surplus}
+\end{equation}
+
+Changes in either side of the balance sheet can affect this surplus. Interest-rate movements are one important source of such changes. A decline in rates generally increases the value of long-duration liabilities, while assets with similar duration characteristics can offset part of that exposure.
+
+A simplified duration-gap measure is
+
+\begin{equation}
+DG=D_A-\frac{L}{A}D_L,
+\label{eq:ch15-insurer-duration-gap}
+\end{equation}
+
+where $D_A$ and $D_L$ denote the effective durations of assets and liabilities. The duration gap provides a first-order measure of the sensitivity of economic surplus to interest-rate changes. Actual exposure can be more complex when insurance liabilities contain guarantees, surrender options, lapse behavior, or other nonlinear features.
+
+Liquidity adds a separate dimension to asset--liability management. Property--casualty insurers may face concentrated claim payments after catastrophes, while life insurers may experience surrenders or benefit payments. An insurer can have sufficient long-term asset value yet face short-term pressure if cash outflows arise before assets can be converted into funds at reasonable cost.
+
+Solvency concerns the insurer's capacity to absorb adverse changes in assets and liabilities. Capital provides loss-absorbing capacity against unexpected claims, asset losses, model error, and other adverse outcomes. Regulatory capital requirements vary across jurisdictions, but the underlying economic role is to provide a buffer when realized outcomes are less favorable than those reflected in expected liabilities and asset values.
+
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+> =Latex,
+box/.style={
+ draw,
+ rounded corners,
+ align=center,
+ text width=5.0cm,
+ minimum height=0.95cm,
+ inner sep=4pt
+ },
+ main/.style={
+ draw=FinanceBlue,
+ fill=FinanceBlue!8,
+ rounded corners,
+ align=center,
+ text width=5.0cm,
+ minimum height=1.0cm,
+ inner sep=4pt
+ },
+ flow/.style={-Latex, line width=0.8pt, FinanceBlue},
+ link/.style={<->, line width=0.8pt, FinanceBlue}
+ ]
+\node[box] (assets) at (-3.4,1.6)
+{Assets\\liquidity, duration, credit quality};
+
+\node[box] (liab) at (3.4,1.6)
+{Liabilities\\timing, amount, sensitivity};
+
+\node[main] (alm) at (0,-0.5)
+{Asset--liability \\ management};
+
+\node[box] (capital) at (0,-2.2)
+{Capital\\loss-absorbing capacity};
+
+\draw[link] (assets) -- (liab);
+\draw[flow] (assets) -- (alm);
+\draw[flow] (liab) -- (alm);
+\draw[flow] (capital) -- (alm);
+
+\end{tikzpicture}
+
+\caption{Asset--liability management and loss-absorbing capacity}
+\label{fig}
+\end{figure}
+
+
+\section{Insurance Institutions and the Transfer of Risk}
+
+Insurance institutions assume risks through insurance contracts but need not retain all of those risks on their own balance sheets. Depending on the nature and concentration of the exposure, insurers can retain risk, transfer part of it to reinsurers, or transfer selected risks to capital-market investors.
+
+\subsection{Primary Insurers and Major Lines of Insurance}
+
+Within the insurance system, primary insurers assume risks directly from households, firms, and other policyholders across major lines such as life, health, and property--casualty insurance.
+
+Life insurance provides benefits linked to mortality or survival. Some contracts extend over long horizons and may include savings components, guarantees, or policyholder options, making liabilities sensitive to mortality, longevity, lapse behavior, and interest rates.
+
+Health insurance covers medical expenses or specified health-related benefits. Claims can be frequent, while utilization may respond to coverage, making information and incentive problems important in many health insurance arrangements.
+
+Property--casualty insurance covers property damage, liability, motor, business interruption, and other non-life risks. Claim settlement can range from relatively short periods to many years, while catastrophe events can generate large correlated losses across policies.
+
+These differences translate into different liability profiles, affecting premium setting, reserve horizons, liquidity needs, asset--liability management, and the demand for reinsurance.
+
+
+
+\begin{table}[H]
+
+\centering
+
+\caption{Selected insurance lines and liability characteristics}
+
+\label{tab}
+
+\begin{tabularx}{0.92\textwidth}{@{}p{0.20\textwidth} X X@{}}
+
+\toprule
+
+\textbf{Line} & \textbf{Typical insured exposure} & \textbf{Liability characteristics} \\
+
+\midrule
+
+Life insurance
+& Mortality, survival, and long-term household protection
+& Often long duration; may include guarantees and policyholder options \\
+
+Health insurance
+& Medical expenses and health-related benefits
+& Claims may be frequent; utilization and information problems can be important \\
+
+Property--casualty
+& Property damage, liability, motor, and business interruption
+& Claim duration varies by line; catastrophe and liability exposures can create large or delayed payments \\
+
+\bottomrule
+
+\end{tabularx}
+
+\end{table}
+
+
+\subsection{Reinsurance and the Redistribution of Insurance Risk}
+
+
+The differences in liability profiles described above can create different needs for risk transfer. Reinsurance allows a primary insurer to transfer part of its underwriting exposure to a reinsurer in exchange for a reinsurance premium, thereby redistributing insured losses across institutions.
+
+
+Reinsurance can limit exposure to individual large losses, reduce retained losses from catastrophe events, stabilize underwriting results, and increase the insurer's capacity to write additional business. The form of protection depends on how premiums and losses are divided between the primary insurer and the reinsurer.
+
+Under proportional reinsurance, premiums and losses are shared according to an agreed proportion. If the reinsurer's share is $\alpha$, the ceded loss is
+
+\begin{equation}
+C(L)=\alpha L.
+\label{eq:ch15-proportional-reinsurance-payoff}
+\end{equation}
+
+Under excess-of-loss reinsurance, the reinsurer pays the portion of a covered loss above a retention $K$, subject to a maximum payment $M$:
+
+\begin{equation}
+C(L)=\min\left\{\max(L-K,0),,M\right\}.
+\label{eq:ch15-excess-of-loss}
+\end{equation}
+
+The primary insurer therefore retains losses up to $K$ and any amount above $K+M$. The contract changes the insurer's retained-loss distribution, particularly in adverse states.
+
+\begin{example}{Excess-of-Loss Reinsurance}{excess-loss-reinsurance}
+
+An insurer purchases catastrophe reinsurance that attaches at RMB~100 million and provides a maximum payment of RMB~200 million.
+
+If covered catastrophe losses are RMB~80 million, the reinsurer pays zero.
+
+If losses are RMB~180 million, the reinsurer pays
+
+[
+180-100=80
+]
+
+million renminbi.
+
+If losses are RMB~400 million, the reinsurer pays the maximum RMB~200 million. The primary insurer retains the first RMB~100 million and the RMB~100 million above the reinsurance layer.
+
+\end{example}
+
+By accepting ceded risks from multiple primary insurers, a reinsurer can pool exposures across firms, regions, and lines of business. The resulting diversification depends on the dependence among those exposures, while highly correlated events can leave substantial risk concentrated at the reinsurance level.
+
+Reinsurance also creates exposure to the reinsurer itself. The value of the protection therefore depends not only on the contractual terms, but also on the reinsurer's ability to meet its obligations when covered losses occur.
+
+
+\subsection{Insurance-Linked Securities and Catastrophe Bonds}
+
+Reinsurance transfers insurance risk to another insurance balance sheet, while insurance-linked securities can extend that transfer to capital-market investors. Catastrophe bonds are the most prominent example.
+
+In a typical catastrophe bond structure, investor principal is placed in a collateral arrangement and investors receive compensation for bearing specified event risk. If no contractual trigger occurs during the risk period, the principal is returned at maturity. If the trigger is met, part or all of the principal is released according to the contract, reducing the sponsor's exposure to the covered event.
+
+Let the bond principal be $F$. Abstracting from coupon payments, a simplified terminal principal payoff is
+
+\begin{equation}
+X_T=
+\begin{cases}
+F, & \text{if no trigger event occurs},\\
+(1-\theta)F, & \text{if the trigger produces a principal reduction of } \theta,
+\end{cases}
+\label{eq:ch15-cat-bond-payoff}
+\end{equation}
+
+where $0\leq\theta\leq1$ is determined by the contractual trigger and loss structure.
+
+Triggers may be based on the sponsor's actual losses, industry losses, physical event parameters, modelled losses, or combinations of these measures. The choice of trigger affects the allocation of basis risk as well as the transparency and speed of settlement.
+
+Catastrophe bonds broaden the sources of capital available to absorb concentrated insurance losses. They can complement reinsurance when catastrophe exposures are large or when additional risk-bearing capacity is valuable. Investors, in turn, receive compensation for assuming event risk that may have different drivers from conventional financial-market risks.
+
+This transfer is not costless. Structuring expenses, modelling uncertainty, basis risk, legal arrangements, and required investor returns affect the economic value of the instrument. Insurance-linked securities therefore complement rather than mechanically replace traditional reinsurance.
+
+\begin{tcolorbox}[
+enhanced,
+breakable,
+colback=white,
+colframe=FinanceBlue,
+boxrule=0.7pt,
+sharp corners,
+borderline west={2.2pt}{0pt}{FinanceBlue},
+title=\textbf{Financial Perspective: Extending Risk Transfer Beyond Insurance Balance Sheets},
+coltitle=white,
+colbacktitle=FinanceBlue,
+fonttitle=\bfseries,
+before skip=1.2em,
+after skip=1.2em
+]
+
+Insurance risk can move through a sequence of balance sheets:
+
+$$
+\text{Policyholder}
+\rightarrow
+\text{Primary insurer}
+\rightarrow
+\text{Reinsurer}
+\rightarrow
+\text{Capital-market investor}.
+$$
+
+Each step redistributes the financial consequences of specified losses without eliminating the underlying uncertainty.
+
+\end{tcolorbox}
+
+
+%========================================================
+% Summary
+%========================================================
+
+\TailModule{summary}{Summary}
+
+Insurance reallocates uncertain losses through state-contingent contracts. Policyholders pay a known premium for protection against specified losses, while insurers pool exposures and maintain the financial capacity to meet claims.
+
+Risk pooling can make losses more predictable across a large pool when individual losses are sufficiently weakly related. Correlation and common shocks limit this benefit and increase the need for capital and risk transfer.
+
+Insurance contracts also balance risk sharing with incentives. Underwriting and risk classification address adverse selection, while deductibles, coinsurance, monitoring, and claims verification can mitigate moral hazard.
+
+Pricing reflects expected losses, expenses, and the cost of bearing uncertainty. Reserves measure future obligations, asset--liability management coordinates assets with those liabilities, and capital provides loss-absorbing capacity.
+
+Risk need not remain with the primary insurer. Reinsurance transfers exposures across insurance institutions, while insurance-linked securities can extend selected risks to capital-market investors.
+
+
+%========================================================
+% Key Terms
+%========================================================
+
+\TailModule{keyterms}{Key Terms}
+
+Insurance; risk pooling; law of large numbers; insurability; correlated losses; adverse selection; underwriting; moral hazard; deductibles and coinsurance; expected loss; risk loading; insurance liability; reserves; asset--liability management; solvency; reinsurance; catastrophe bonds; insurance-linked securities.
+
+%========================================================
+% Financial AI Lab
+%========================================================
+
+\TailModule{aiprompt}{Financial AI Lab}
+
+\textbf{Lab: Audit an Insurance Pricing and Risk-Transfer Analysis}
+
+Ask an AI system to analyze a simplified property insurer. Provide the number of policies, expected claim frequency, expected claim severity, operating expenses, a proposed premium or risk loading, a deductible, and a simplified aggregate excess-of-loss reinsurance layer.
+
+Evaluate the analysis in four stages.
+
+\begin{enumerate}
+
+\item \textbf{Check expected loss and premium.}
+
+Verify that claim frequency and conditional severity are combined consistently. Distinguish expected loss per policy from aggregate expected loss, and check how expenses and any risk loading enter the indicated premium.
+
+\item \textbf{Inspect contract design.}
+
+Examine how the deductible changes the insurer's payment and the policyholder's retained loss. Determine whether the information provided is sufficient to calculate its effect on expected claims; a mean loss alone may not identify the expected payout after a deductible. Separate any claims about moral hazard from the assumptions actually supplied.
+
+\item \textbf{Trace the reinsurance layer.}
+
+Apply several aggregate-loss outcomes below the attachment point, within the covered layer, and above its limit. Recalculate the reinsurer's payment and the primary insurer's retained loss in each case.
+
+\item \textbf{Test a correlated-loss scenario.}
+
+Replace independent claims with a catastrophe state that raises losses across many policies at the same time. Explain why a larger pool can reduce idiosyncratic variation without eliminating exposure to the common shock.
+
+\end{enumerate}
+
+The final report should separate arithmetic results from assumptions about loss distributions, policyholder behavior, dependence across risks, and contract interpretation.
+
+
+%========================================================
+% Discussion Questions
+%========================================================
+
+\TailModule{questions}{Discussion Questions}
+
+\begin{enumerate}
+
+\item Why can a risk-averse household be willing to pay an insurance premium above the expected loss?
+
+\item How does the law of large numbers support risk pooling, and why does positive correlation limit this effect?
+
+\item How do deductibles and coinsurance affect both risk sharing and policyholder incentives?
+
+\item Why can a pooled premium create adverse-selection pressure when policyholders have private information about their own risk?
+
+\item What is the economic distinction between insurance reserves and insurer capital?
+
+\item How do reinsurance and catastrophe bonds redistribute insurance risk beyond the primary insurer?
+
+\end{enumerate}
+
+
+%========================================================
+% Applied Problems
+%========================================================
+
+\TailModule{appprobs}{Applied Problems}
+
+
+\begin{enumerate}
+
+\item \textbf{Expected loss and insurance demand.}
+
+A household faces a 3\% annual probability of a RMB~200,000 loss.
+
+\begin{enumerate}
+
+\item Calculate the expected annual loss.
+
+\item Compare the expected loss with an annual insurance premium of RMB~7,000.
+
+\item Explain why a risk-averse household may still prefer the insurance contract.
+
+\item Identify one factor other than risk aversion that could affect the household's decision.
+
+\end{enumerate}
+
+\item \textbf{Pooling independent claims.}
+
+An insurer covers 25,000 similar risks. Each has a 2\% annual claim probability, and claim outcomes are independent.
+
+\begin{enumerate}
+
+\item Calculate the expected number of claims.
+
+\item Calculate the standard deviation of the number of claims.
+
+\item Calculate the standard deviation of claim frequency.
+
+\item Explain how positive correlation among claim outcomes would affect the diversification benefit of pooling.
+
+\end{enumerate}
+
+\item \textbf{Deductibles and payment limits.}
+
+A policy has a RMB~10,000 deductible and a maximum insurer payment of RMB~150,000.
+
+\begin{enumerate}
+
+\item Calculate the insurer's payment for losses of RMB~8,000, RMB~60,000, and RMB~250,000.
+
+\item Calculate the insured's retained loss in each case.
+
+\item Explain how the deductible affects policyholder incentives relative to full reimbursement from the first renminbi of loss.
+
+\end{enumerate}
+
+\item \textbf{Premium decomposition.}
+
+An insurer estimates an expected loss of RMB~1,800 per policy, expected expenses of RMB~450, and a risk loading of RMB~250.
+
+\begin{enumerate}
+
+\item Calculate the indicated premium under Equation~\ref{eq:ch15-premium-decomposition}.
+
+\item Calculate the amount by which the indicated premium exceeds expected loss.
+
+\item Express this amount as a percentage of the indicated premium.
+
+\item Explain why the difference between premium and expected loss should not be interpreted as accounting profit.
+
+\end{enumerate}
+
+\item \textbf{Liability valuation and interest rates.}
+
+An insurer expects to pay RMB~20 million in three years. Use a flat annual discount rate of 4\%.
+
+\begin{enumerate}
+
+\item Calculate the present value of the expected payment.
+
+\item Recalculate the present value using a 3\% discount rate.
+
+\item Explain the direction of the change.
+
+\item Relate the result to the asset--liability management problem of a long-duration insurer.
+
+\end{enumerate}
+
+\item \textbf{Excess-of-loss reinsurance.}
+
+A primary insurer retains the first RMB~50 million of aggregate catastrophe losses and purchases a reinsurance layer providing up to RMB~150 million above that retention.
+
+\begin{enumerate}
+
+\item Calculate the reinsurer's payment for aggregate losses of RMB~30 million, RMB~100 million, RMB~180 million, and RMB~260 million.
+
+\item Calculate the primary insurer's retained loss in each case.
+
+\item Identify the attachment point and exhaustion point of the reinsurance layer.
+
+\item Explain how the contract changes the upper tail of the primary insurer's retained-loss distribution.
+
+\end{enumerate}
+
+\end{enumerate}
+
+
+%========================================================
+% Case Analysis
+%========================================================
+
+\TailModule{caseanalysis}{Case Analysis}
+
+\textbf{Case: The 2021 Henan Floods and Insurance Risk Sharing}
+
+Severe flooding struck Henan Province in July 2021, producing a large volume of insurance claims within a short period. By July 28, the province's insurance industry had received about 412,300 claim reports, with preliminary estimated insured losses of RMB~9.804 billion. About 43,400 claims had been settled, with claim payments of RMB~609 million at that point.
+
+The claims extended across several lines of insurance. Motor insurance accounted for about 226,400 reported claims and estimated losses of RMB~6.412 billion, while household-property and agricultural insurance also recorded substantial claims. The concentration of losses within the same region and event provides a useful setting for examining how insurance operates when many exposures are affected simultaneously.
+
+Analyze the episode from four perspectives. First, explain how geographic correlation affects the diversification benefit of risk pooling. Second, examine how policy limits, exclusions, deductibles, and insured values can create differences between physical damage and insured losses. Third, explain why insurers may need liquidity while the final amount and timing of claims remain uncertain. Fourth, discuss how reinsurance can redistribute part of the loss retained by primary insurers.
+
+The figures above were preliminary and should not be interpreted as final industry losses or claims payments.
+
+\emph{Primary source context: Henan provincial flood-relief press conference, July 29, 2021; official provincial information release published July 30, 2021, citing the Henan banking and insurance regulatory authority.}
+
+
+%========================================================
+% Further Reading
+%========================================================
+
+\TailModule{furtherread}{Further Reading}
+
+\begin{itemize}
+
+\item Arrow, Kenneth J. (1963),
+``Uncertainty and the Welfare Economics of Medical Care,''
+\emph{American Economic Review}, 53(5), 941--973.
+
+\item Pauly, Mark V. (1968),
+``The Economics of Moral Hazard: Comment,''
+\emph{American Economic Review}, 58(3), 531--537.
+
+\item Rothschild, Michael, and Joseph E. Stiglitz (1976),
+``Equilibrium in Competitive Insurance Markets: An Essay on the Economics of Imperfect Information,''
+\emph{The Quarterly Journal of Economics}, 90(4), 629--649.
+
+\item Froot, Kenneth A. (2001),
+``The Market for Catastrophe Risk: A Clinical Examination,''
+\emph{Journal of Financial Economics}, 60(2--3), 529--571.
+
+\end{itemize}
+
+
+\ChapterTail{summary,keyterms,aiprompt,questions,appprobs,caseanalysis,furtherread}
