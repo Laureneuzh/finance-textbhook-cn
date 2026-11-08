@@ -1,0 +1,1382 @@
+\chapter{Money Markets and Short-Term Liquidity Contracts}
+\label{chap:Money_Markets_and_Short_Term_Liquidity_Contracts}
+
+\begin{openingcase}{When Overnight Funding Suddenly Became Expensive}
+
+In June 2013, China's interbank money market experienced an unusually sharp liquidity squeeze. Short-term repo rates that had generally remained in low single digits rose abruptly, and on 20 June some benchmark overnight and seven-day repo rates reached exceptional intraday levels. Trading activity also contracted as banks became more cautious about lending to one another.
+
+The squeeze emerged in very short-term interbank funding rather than from an obvious deterioration in the long-term value of bank assets. Seasonal cash demands, tax payments, changes in capital flows, and tighter central-bank liquidity conditions coincided with the rise in short-term rates. As uncertainty increased, banks became more cautious about lending to one another, and trading activity weakened.
+
+Why could a market used routinely for day-to-day liquidity adjustment become so strained in such a short period?
+
+\end{openingcase}
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=FinanceBlue!6,
+  colframe=FinanceBlue,
+  boxrule=0.6pt,
+  sharp corners,
+  left=8pt,
+  right=8pt,
+  top=7pt,
+  bottom=7pt,
+  before skip=1em,
+  after skip=1.6em,
+  title=\textbf{Core Questions},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  attach boxed title to top left={xshift=6pt,yshift=-2mm},
+  boxed title style={
+    boxrule=0pt,
+    sharp corners,
+    left=5pt,
+    right=5pt,
+    top=2pt,
+    bottom=2pt
+  }
+]
+\begin{enumerate}[
+  leftmargin=*,
+  label=\textcolor{FinanceBlue}{\textbf{\arabic*.}},
+  itemsep=0.55em,
+  topsep=0.2em
+]
+
+\item Why do firms and financial institutions need short-term finance even when their underlying activities are long lived?
+
+\item How do unsecured and collateralized money-market contracts redistribute liquidity and determine the terms of short-term funding?
+
+\item How are short-term funding conditions priced, and why can normally liquid money markets become fragile under stress?
+
+\end{enumerate}
+\end{tcolorbox}
+
+\section{The Economics of Short-Term Finance}
+
+Short-term finance allows firms and financial institutions to meet payment needs without holding large amounts of idle cash. Its usefulness comes from liquidity and flexibility, but short maturity also creates a need for repeated refinancing.
+
+\subsection{Cash-Flow Timing and Short-Term Funding Needs}
+
+Cash receipts and cash payments do not always occur at
+the same time. A solvent firm may nevertheless face a
+temporary cash shortfall. Short-term funding bridges
+these timing gaps and reduces the amount of idle cash
+that participants need to hold.
+
+Consider a firm that has an initial cash balance of
+RMB 200,000. It must pay RMB 800,000 to employees and
+suppliers within one week, but expects to receive
+RMB 1 million from a customer in 45 days. The firm's
+cash position evolves as follows:
+
+\begin{itemize}
+\item At the beginning of the period, the firm has
+RMB 200,000 in cash.
+
+\item When the payment falls due on day 7, the firm
+faces a cash shortfall of RMB 600,000.
+
+\item On day 28, the customer pays RMB 1 million,
+allowing the firm to repay the short-term borrowing
+and retain a positive cash balance.
+\end{itemize}
+
+The firm therefore needs RMB 600,000 in temporary
+financing, even though its expected cash inflows exceed
+its scheduled cash outflows over the period. This example
+illustrates how differences in the timing of receipts
+and payments can create funding needs that are not
+apparent from end-of-period cash balances.
+
+Similar timing problems arise in financial institutions.
+Banks may face settlement outflows before incoming
+payments arrive, while securities dealers may need to
+renew overnight financing for securities inventories
+held over longer periods. Margin payments and
+concentrated payment obligations can also create
+temporary funding needs.
+
+A short-term cash shortfall does not necessarily imply
+insolvency. Solvency concerns whether the economic
+value of assets is sufficient to cover liabilities,
+whereas liquidity concerns whether payments can be
+made when they fall due. An institution may therefore
+be solvent and still face a liquidity shortage if it
+cannot convert assets into cash or obtain new funding
+in time to meet its payment obligations.
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  >=Latex,
+  axis/.style={-Latex, line width=0.8pt},
+  inflow/.style={-Latex, line width=1.0pt, FinanceBlue},
+  outflow/.style={-Latex, line width=1.0pt}
+]
+
+\draw[axis] (0,0) -- (10.5,0) node[right]{Time};
+
+% Tick labels
+\node[below=4pt] at (0,0) {0};
+\node[below=4pt] at (2.2,0) {7};
+\node[below=4pt] at (8,0) {28};
+
+% Initial cash
+\draw[inflow] (0,0) -- (0,0.5)
+  node[above=2pt, align=center]
+   {\small Initial cash balance\\\small RMB 200,000};
+% Cash outflow
+\draw[outflow] (2,0) -- (2,-1.5)
+  node[below=2pt, align=center]
+  {\small Payments to suppliers\\\small and employees\\\small RMB 800,000};
+
+% Cash inflow
+\draw[inflow] (8,0) -- (8,1.6)
+  node[above=2pt, align=center]
+  {\small Customer receivables\\\small RMB 1,000,000};
+
+\end{tikzpicture}
+
+\caption{A cash-flow timing gap and the role of short-term finance}
+\label{fig:ch7-cash-flow-timing}
+\end{figure}
+
+Similar timing problems also arise within the financial
+system. One institution may receive more cash than it
+needs today, while another faces a temporary deficit.
+Money markets redistribute these balances. In doing so,
+they allow participants to economize on idle liquidity
+and support the settlement of payments and securities
+transactions.
+
+The maturity of the funding arrangement affects risk.
+If the timing gap is genuinely temporary, short-term
+borrowing can match the underlying need closely.
+If short-term debt finances an asset that remains
+illiquid for years, however, the borrower must refinance
+repeatedly. This maturity mismatch creates rollover risk:
+the risk that replacement funding will become more
+expensive or unavailable when existing funding matures.
+
+\begin{example}{Managing Multiple Cash-Flow Obligations}
+{multiple-cash-flow-obligations}
+
+A manufacturing firm begins a 15-day period with a
+cash balance of RMB~2 million. During this period,
+it faces several payment obligations and expects
+customer receipts at different dates. Its projected
+cash flows before new financing are summarized below.
+
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+\textbf{Date} &
+\shortstack[c]{\textbf{Cash flow}\\\textbf{(RMB million)}} &
+\shortstack[c]{\textbf{Cumulative}\\\textbf{cash balance}} \\
+\midrule
+Beginning of period & 2.0 & 2.0 \\
+Day 2: Supplier payment & -5.0 & -3.0 \\
+Day 4: Customer receipt & 1.5 & -1.5 \\
+Day 5: Wages and taxes & -1.0 & -2.5 \\
+Day 8: Customer receipt & 4.0 & 1.5 \\
+Day 10: Transport and interest & -0.5 & 1.0 \\
+Day 15: Customer receipt & 2.0 & 3.0 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The firm faces its largest cash shortfall on day 2,
+when its projected cash balance falls to negative
+RMB~3 million. It therefore needs at least RMB~3
+million in temporary financing to meet its payment
+obligations. Subsequent customer receipts allow the
+firm to reduce or repay this borrowing.
+
+The example illustrates why short-term funding
+requirements depend on the sequence of cash flows,
+not merely on the difference between total receipts
+and total payments over a given period. Although
+the firm ends the period with a positive cash balance,
+it cannot meet all its obligations without temporary
+external financing.
+
+A committed credit line or a short-term loan can
+bridge this gap. The choice of financing depends on
+its availability, cost, maturity, and the reliability
+of expected customer payments.
+
+\end{example}
+
+\subsection{Working Capital, Liquidity Management, and Financial Flexibility}
+
+For nonfinancial firms, short-term funding is closely connected to working capital. Operating activity ties funds up in inventory and receivables before cash is collected, while trade credit from suppliers provides a source of short-term financing.
+
+A simplified measure of operating working capital is
+
+\begin{equation*}
+OWC=\text{Inventories}+\text{Receivables}-\text{Payables}.
+\label{eq:ch7-operating-working-capital}
+\end{equation*}
+
+An increase in inventories or receivables absorbs funds, while an increase in payables provides short-term financing. Rapid sales growth can increase short-term financing needs even for a profitable firm if cash must be committed before customers pay.
+
+Liquidity management concerns the assets and funding arrangements used to meet short-term cash needs. Firms may hold cash and marketable securities, maintain committed bank credit, or obtain short-term market funding. The choice among these alternatives reflects a trade-off between liquidity protection and financing cost. Larger liquidity buffers reduce exposure to temporary funding disruptions, but liquid assets generally offer lower returns than productive investment. Committed credit lines provide assured access to funds at a cost, whereas reliance on very short-term market funding increases exposure to rollover risk.
+
+Financial flexibility refers to the capacity to obtain funding or adjust financing arrangements without incurring substantial costs or disrupting investment and operations. It depends not only on current cash holdings but also on unused borrowing capacity, access to alternative funding markets, unencumbered collateral, the maturity structure of liabilities, and borrower creditworthiness. These factors determine the extent to which financing can be raised or restructured when conditions change.
+
+For financial institutions, liquidity management and financial flexibility depend heavily on the composition of assets and access to funding markets. Banks may hold high-quality liquid assets that can be sold or pledged, obtain funding in interbank markets, and access central-bank liquidity against eligible collateral. Securities dealers often finance inventories through repurchase agreements, so their funding capacity depends in part on collateral eligibility and haircuts. Money market funds hold short-term assets, but rapid redemptions can still create liquidity pressure when those assets cannot be sold readily without significant price concessions.
+
+Short-term finance therefore provides flexibility while also creating refinancing dependence. Short maturities allow funding conditions to adjust rapidly, but they also require borrowers to return to lenders or markets more frequently. Maturity determines not only the timing of repayment but also the frequency with which funding is repriced, renewed, or withdrawn.
+
+\begin{tcolorbox}[
+    enhanced,
+    breakable,
+    colback=white,
+    colframe=FinanceBlue,
+    boxrule=0.7pt,
+    sharp corners,
+    borderline west={2.2pt}{0pt}{FinanceBlue},
+    title=\textbf{Financial Perspective: Short Maturity and Rollover Dependence},
+    coltitle=white,
+    colbacktitle=FinanceBlue,
+    fonttitle=\bfseries,
+    before skip=1.2em,
+    after skip=1.2em
+]
+
+Short-term borrowing can provide flexibility by allowing financing terms to adjust frequently. The same feature, however, increases dependence on refinancing. A lender to a one-day loan commits funds only until maturity and may reprice or decline to renew the loan at the next rollover date. If the underlying funding need continues, the borrower remains exposed to changes in market conditions. Short maturity therefore increases the importance of rollover decisions and concentrates funding risk at refinancing dates.
+
+\end{tcolorbox}
+
+\section{Money Market Contracts and Instruments}
+
+Money-market instruments and contracts are short-term
+claims and funding arrangements used to meet temporary
+funding needs, manage cash balances, and finance
+securities positions. They differ in issuer or
+counterparty, collateral, credit exposure, tradability,
+and quotation conventions. These differences affect
+their pricing, liquidity, and risk.
+
+\subsection{Treasury Bills and Sovereign Short-Term Claims}
+
+Treasury bills are short-term debt securities issued by central governments. They typically make no periodic coupon payments and pay a fixed face value at maturity, with the return arising from the difference between the purchase price and the maturity value.
+
+If a bill with face value \(F\) is purchased for \(P\) and held for \(d\) days until maturity, its holding-period return is
+
+\begin{equation}
+HPR=\frac{F-P}{P}.
+\label{eq:ch7-tbill-hpr}
+\end{equation}
+
+To compare bills with different maturities, the holding-period return can be annualized on a simple-interest basis. The resulting yield depends on the market's quotation convention. A money-market yield based on the purchase price can be written as
+
+\begin{equation}
+y_m=\frac{F-P}{P}\frac{D}{d},
+\label{eq:ch7-money-market-yield}
+\end{equation}
+where $D$ denotes the annual day-count basis specified by market convention, commonly 360 or 365.
+
+Some bill markets also use a discount yield based on face value:
+
+\begin{equation}
+y_d=\frac{F-P}{F}\frac{D}{d}.
+\label{eq:ch7-discount-yield}
+\end{equation}
+
+\begin{example}{The Quotation Convention Changes the Reported Yield}{tbill-quotation-convention}
+
+A 91-day bill with face value 100 sells for 98.80. Using a 360-day basis, the holding-period return is
+
+\[
+HPR=\frac{100-98.80}{98.80}=1.2146\%.
+\]
+
+The annualized money-market yield is
+
+\[
+y_m=\frac{1.20}{98.80}\frac{360}{91}=4.805\%,
+\]
+while the discount yield is
+
+\[
+y_d=\frac{1.20}{100}\frac{360}{91}=4.747\%.
+\]
+
+Both yields refer to the same underlying cash flow. Their numerical difference arises solely from the quotation convention.
+
+\end{example}
+
+Treasury bills are the most common form of short-term sovereign debt, although the precise instruments, maturities, and issuance conventions differ across countries.
+
+Sovereign short-term securities play several roles beyond government financing. When credit risk is low and secondary-market liquidity is high, they provide instruments for temporary cash investment, collateral for secured funding, and benchmarks for the pricing of other short-term claims.
+
+Low credit risk does not imply a risk-free market price over every holding period. A bill sold before maturity can change in price as market rates change. Settlement, market liquidity, and sovereign credit conditions can also matter. Their short maturity generally results in lower interest-rate sensitivity than that of otherwise similar longer-maturity fixed-rate securities.
+
+\subsection{Commercial Paper and Short-Term Corporate Funding}
+
+Commercial paper (CP) is a short-term, typically unsecured
+debt instrument issued by corporations and financial
+institutions to meet short-term funding needs. Investors
+rely primarily on the issuer's creditworthiness and
+liquidity position. Commercial paper can be issued on
+a discount basis or an interest-bearing basis. Discount
+paper is issued below face value and repaid at face
+value at maturity, whereas interest-bearing paper pays
+stated interest in addition to principal.
+
+The two structures differ in how investors receive
+their returns. For discount paper, the return is
+generated by the difference between the purchase price
+and the face value. For interest-bearing paper, the
+return comes from the stated interest payment.
+
+\begin{example}{Discount and Interest-Bearing Commercial Paper}
+{commercial-paper-payment-structures}
+
+Consider two 90-day commercial paper issues, each with
+a principal or face value of RMB~10 million. Assume
+a 360-day year for interest calculations.
+
+\textbf{Discount commercial paper.}
+
+Suppose the paper is issued at RMB~9.85 million and
+redeemed at its face value of RMB~10 million after
+90 days. The investor earns RMB~0.15 million. The
+annualized discount rate is
+
+\[
+d=\frac{10-9.85}{10}\times\frac{360}{90}
+=6\%.
+\]
+
+The corresponding simple annualized investment yield,
+calculated using the purchase price as the denominator,
+is
+
+\[
+y=\frac{10-9.85}{9.85}\times\frac{360}{90}
+\approx 6.09\%.
+\]
+
+\textbf{Interest-bearing commercial paper.}
+
+Suppose the paper is issued at par with an annual
+interest rate of 6\%. Interest payable at maturity is
+
+\[
+I=10\times 6\%\times\frac{90}{360}
+=0.15\text{ million}.
+\]
+
+The investor receives RMB~10.15 million at maturity,
+consisting of principal and interest. Its simple
+annualized yield is 6\%.
+
+The example illustrates that discount rates and
+investment yields are not identical. The discount
+rate is calculated using face value, whereas the
+investment yield is calculated using the purchase
+price. Interest-bearing paper, when issued at par,
+expresses its return through the stated interest rate.
+
+Although both quoted rates are 6\%, the discount
+paper provides a slightly higher investment yield
+because its discount rate is calculated using face
+value rather than the purchase price.
+
+\end{example}
+
+Investors require compensation for the time value
+of money and for the credit and liquidity risks
+associated with the issuer. The required yield
+therefore reflects the benchmark rate for a comparable
+maturity and a spread associated with issuer-specific
+credit and liquidity conditions.
+
+For issuers with strong credit quality, commercial
+paper provides direct access to short-term market
+funding and may offer a lower-cost alternative to
+bank borrowing. However, reliance on repeated issuance
+creates rollover risk. A firm that relies on 30-day
+paper must repay maturing claims from available cash
+or obtain new financing at each maturity. If perceived
+credit quality deteriorates or investor demand weakens,
+spreads may widen and access to new issuance may become
+restricted. Firms therefore often support commercial
+paper programs with committed bank credit lines or
+liquidity reserves. Rollover risk can arise even when
+the issuer remains solvent.
+
+A related form of short-term market funding is
+asset-backed commercial paper (ABCP). Unlike ordinary
+corporate commercial paper, ABCP is issued by a
+special-purpose vehicle backed by pools of financial
+assets, such as receivables or loans. The program may
+also benefit from liquidity facilities or credit
+enhancement provided by sponsors or other institutions.
+
+\subsection{Certificates of Deposit and Bank Funding}
+
+A certificate of deposit is a bank liability that promises repayment of principal, usually with interest, at a specified maturity. A negotiable certificate of deposit can be transferred before maturity, allowing the original investor to obtain liquidity by selling the claim rather than asking the issuing bank to repay it early.
+
+From the bank's perspective, negotiable CDs are an instrument of liability management. They allow a bank to raise funds at market-determined rates rather than relying entirely on deposits generated through its retail customer base. The rate offered reflects the maturity of the claim, market liquidity, the bank's credit quality, and the supply of alternative short-term investments.
+
+Tradability changes how investors obtain liquidity before maturity. A nontransferable time deposit generally requires the depositor to retain the claim until maturity or seek early withdrawal from the bank. A negotiable CD can instead be sold in the secondary market, although its price may vary with market interest rates and the perceived credit quality of the issuing bank.
+
+\begin{table}[H]
+\centering
+\caption{Time deposits and negotiable certificates of deposit}
+\label{tab:ch7-cd-comparison}
+
+\begin{tabularx}{\textwidth}{lXX}
+\toprule
+ & \textbf{Nontransferable Time Deposit} & \textbf{Negotiable CD} \\
+\midrule
+
+Transferability
+& Generally nontransferable
+& Transferable in the secondary market \\
+
+Liquidity before maturity
+& Usually requires early withdrawal or other arrangements with the bank
+& Can be obtained by selling the claim \\
+
+Investor exposure
+& Primarily to the issuing bank
+& To the issuing bank, with market-price risk before maturity \\
+
+Funding role for the bank
+& Deposit funding
+& Market-based wholesale funding \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+China's interbank certificates of deposit provide an
+important example of market-based bank funding.
+Introduced under the People's Bank of China's
+2013 provisional rules, these book-entry time-deposit
+certificates are issued by eligible deposit-taking
+institutions in the national interbank market.
+Their issuance rates are market based, and publicly
+issued certificates can be traded in the secondary
+market. They provide banks with an additional source
+of wholesale funding and investors with a transferable
+claim on the issuing institution.
+
+\subsection{Interbank Loans and Overnight Unsecured Funding}
+
+Banks routinely receive and make payments on behalf of customers. These flows create temporary differences in liquidity positions. Interbank lending allows institutions with surplus funds to lend to those with short-term deficits.
+
+An unsecured interbank loan is a direct claim on the borrowing bank. No specific collateral supports repayment, so the lender relies on the borrower's creditworthiness and on bilateral or market-wide credit limits. The interest rate therefore reflects both general liquidity conditions and counterparty credit risk.
+
+Overnight maturities play a central role in the rapid
+redistribution of liquidity. A bank that experiences
+an unexpected settlement outflow today may borrow
+overnight and repay after incoming funds arrive the
+next day. Funding with maturities of several days or
+months allows liquidity to be secured for longer
+periods but extends the lender's exposure to the
+borrower.
+
+The unsecured nature of the claim becomes more
+consequential during periods of stress. A bank that
+is uncertain about a counterparty's creditworthiness
+can refuse to lend even when it has cash available.
+If many institutions behave similarly, the market
+can become segmented across counterparties: liquidity
+remains in the system but is not redistributed toward
+institutions that need it.
+
+Credit limits matter alongside the market interest rate. An offered rate can rise substantially without inducing additional lending if lenders are unwilling to increase unsecured exposure. In such circumstances, the quantity of available credit and the identity of counterparties become as important as the quoted price.
+
+\subsection{Repurchase Agreements and Collateralized Funding}
+
+A repurchase agreement, or repo, is a short-term funding contract in which one party receives cash against securities and agrees to reverse the transaction later at a specified repurchase price. Economically, a repo functions as collateralized short-term funding, although its legal structure varies across markets.
+
+From the perspective of the cash borrower, the transaction is a repo. From the perspective of the cash lender, the same transaction is a reverse repo. Let collateral with market value $V_0$ support a repo. If the lender applies haircut $h$, the cash advanced is
+
+\begin{equation}
+C_0=(1-h)V_0.
+\label{eq:ch7-repo-cash-haircut}
+\end{equation}
+
+The haircut provides a buffer against declines in collateral value and the costs of liquidation if the borrower defaults. If the repo lasts for fraction $\tau$ of a year and the repo rate is $r_{repo}$, the repurchase payment is
+
+\begin{equation}
+C_T=C_0(1+r_{repo}\tau),
+\label{eq:ch7-repo-repurchase-payment}
+\end{equation}
+under a simple-interest convention for the repo period.
+
+\begin{example}{Repo Funding and the Haircut}{repo-funding-haircut}
+
+A dealer holds government securities with a market value of RMB~100 million and finances them through a one-week repo. The cash lender applies a 2\% haircut.
+
+The cash advanced is
+
+\[
+C_0=(1-0.02)\times100=98
+\]
+
+million renminbi. If the annualized repo rate is 2.5\%  and the market uses a 365-day basis, the repurchase payment after seven days is
+
+\[
+C_T=98\times\left(1+0.025\times\frac{7}{365}\right)
+\approx 98.047
+\]
+million renminbi.
+
+The haircut and the repo rate perform different functions. The repo rate is the price of the cash funding; the haircut determines how much cash is advanced relative to the collateral value.
+
+\end{example}
+
+Collateral can reduce the lender's exposure to loss. The collateral price can fall, the security may become difficult to liquidate, or legal and operational problems can delay access to it. Repo contracts commonly use collateral eligibility rules, valuation procedures, haircuts, and margin arrangements.
+
+When collateral values change during the life of a repo, margin adjustments may require additional cash or securities to maintain the agreed level of protection. This mark-to-market mechanism protects the lender but can create liquidity pressure for the borrower when collateral values decline.
+
+Repos are central to securities-market intermediation by allowing dealers and other institutions to finance inventories of bonds and other eligible securities. They also connect the money market to the bond market: the value and liquidity of a security affect its usefulness as collateral, while the availability and cost of repo funding affect the willingness of intermediaries to hold the security.
+
+Table~\ref{tab:ch7-money-market-instruments} summarizes the main contractual differences among the instruments discussed in this section.
+
+\begin{table}[H]
+\centering
+\caption{Selected Money-Market Instruments and Their Contractual Structure}
+\label{tab:ch7-money-market-instruments}
+
+\begin{tabularx}{\textwidth}{
+@{}
+>{\raggedright\arraybackslash
+\hyphenpenalty=10000
+\exhyphenpenalty=10000}p{2.3cm}
+>{\raggedright\arraybackslash
+\hyphenpenalty=10000
+\exhyphenpenalty=10000}p{2.5cm}
+>{\raggedright\arraybackslash
+\hyphenpenalty=10000
+\exhyphenpenalty=10000}p{2.6cm}
+Y
+@{}
+}
+
+\toprule
+
+\textbf{Instrument}
+&
+\makecell[l]{\textbf{Typical issuer}\\\textbf{or borrower}}
+&
+\makecell[l]{\textbf{Collateral}\\\textbf{or credit basis}}
+&
+\makecell[l]{\textbf{Main economic role and risk}}
+\\
+
+\midrule
+
+Treasury bill
+& Central government
+& Sovereign obligation; typically unsecured
+& Short-term government funding and liquid investment; low credit risk in high-quality sovereign markets, with market-price risk before maturity
+\\
+
+Commercial paper
+& Corporation or financial institution
+& Typically unsecured; issuer credit
+& Flexible short-term market funding; issuer credit and rollover risk
+\\
+
+Negotiable CD
+& Bank
+& Bank deposit obligation; typically unsecured
+& Wholesale bank funding and a transferable bank claim; bank credit and rollover risk
+\\
+
+Interbank loan
+& Bank or other financial institution
+& Typically unsecured counterparty credit
+& Short-term liquidity redistribution; counterparty credit and rollover risk
+\\
+
+Repo
+& Dealer, bank, fund, or other participant
+& Collateralized under a sale-and-repurchase agreement
+& Securities financing and liquidity management; collateral valuation, haircut, counterparty, and rollover risk
+\\
+
+Asset-backed commercial paper
+& Special-purpose vehicle
+& Asset pools, often with liquidity or credit support
+& Asset-backed short-term funding; underlying asset quality, liquidity, and rollover risk
+\\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Money Market Architecture and Pricing}
+
+Money-market prices are formed through interactions among borrowers, cash investors, banks, dealers, and investment funds within the trading and settlement infrastructure of the market. Contractual terms determine the cash flows of an instrument, while market architecture affects access to funding, the redistribution of liquidity, price discovery and benchmark formation, and the execution and settlement of transactions.
+
+\subsection{Banks, Dealers, and Money Market Funds}
+
+Banks act as both borrowers and lenders in the money market. They borrow to manage settlement needs and short-term balance-sheet funding, and they lend when they have temporary surplus liquidity. Their activities connect short-term funding markets with the payment system and the broader banking system.
+
+Securities dealers connect short-term funding with trading in bonds and other securities. A dealer that holds securities in inventory may finance part of the position through repo. This balance-sheet capacity supports secondary-market liquidity by allowing dealers to hold inventories and provide immediacy to buyers and sellers. The cost and availability of repo funding affect the dealer's willingness to make markets.
+
+Money market funds pool investor cash and invest primarily in short-maturity, high-quality instruments. They provide households, firms, and institutions with diversified access to money-market assets while channeling cash toward governments, banks, corporations, and dealers. The fund's portfolio can include government bills, repos, commercial paper, and certificates of deposit, subject to the rules applying to the fund and jurisdiction.
+
+The structure of money market funds creates an
+important distinction between asset liquidity and
+investor liquidity. Investors may expect to redeem
+fund shares on short notice, while some portfolio
+assets may be difficult to sell quickly during
+periods of market stress.A fund that experiences large redemptions can respond by using cash and proceeds from maturing securities, selling assets, or reducing new purchases. These actions transmit investor withdrawals into the markets used by short-term borrowers.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  >=Latex,
+  box/.style={
+    draw,
+    rounded corners=2pt,
+    align=center,
+    minimum height=1.0cm,
+    text width=2.7cm,
+    inner sep=5pt
+  },
+  widebox/.style={
+    draw,
+    rounded corners=2pt,
+    align=center,
+    minimum height=1.0cm,
+    text width=3.6cm,
+    inner sep=5pt
+  },
+  fundbox/.style={
+    draw,
+    rounded corners=2pt,
+    align=center,
+    minimum height=1.0cm,
+    text width=1.5cm,
+    inner sep=5pt
+  },
+  flow/.style={
+    -Latex,
+    line width=0.9pt,
+    FinanceBlue
+  },
+  claim/.style={
+    -Latex,
+    dashed,
+    line width=0.9pt,
+    FinanceBlue
+  },
+abovelab/.style={
+  font=\small,
+  text=FinanceBlue,
+  fill=white,
+  align=center,
+  fill=white,
+  inner sep=1.5pt
+},
+  belowlab/.style={
+    font=\small,
+    text=black,
+    fill=white,
+    align=center,
+    inner sep=1.5pt
+  }
+]
+
+% =================================================
+% Top row: Money market funds
+% =================================================
+
+\node[fundbox] (inv) at (-0.5,3.0)
+  {Cash investors};
+
+\node[fundbox] (mmf) at (3.8,3.0)
+  {Money market\\funds};
+
+\node[widebox] (iss) at (9.2,3.0)
+  {Issuers of short-term claims\\
+   (governments, corporations, banks)};
+
+% Investor subscriptions and fund shares
+\draw[flow]
+  ([yshift=3pt]inv.east) --
+  node[abovelab, midway, above=3pt] {Cash\\subscriptions}
+  ([yshift=3pt]mmf.west);
+
+\draw[claim]
+  ([yshift=-3pt]mmf.west) --
+  node[belowlab, midway, below=3pt] {Fund shares}
+  ([yshift=-3pt]inv.east);
+
+% MMF investment in short-term claims
+\draw[flow]
+  ([yshift=3pt]mmf.east) --
+  node[abovelab, midway, above=3pt] {Cash\\investment}
+  ([yshift=3pt]iss.west);
+
+\draw[claim]
+  ([yshift=-3pt]iss.west) --
+  node[belowlab, midway, below=3pt]
+  {Treasury bills,\\ CP, CDs}
+  ([yshift=-3pt]mmf.east);
+
+
+% =================================================
+% Middle row: Interbank lending
+% =================================================
+
+\node[box] (bank1) at (0,0)
+  {Banks with\\surplus liquidity};
+
+\node[widebox] (bank2) at (9.2,0)
+  {Banks with temporary\\funding needs};
+
+% Cash and loan claim
+\draw[flow]
+  ([yshift=3pt]bank1.east) --
+  node[abovelab, midway, above=3pt]
+  {Interbank funds}
+  ([yshift=3pt]bank2.west);
+
+\draw[claim]
+  ([yshift=-3pt]bank2.west) --
+  node[belowlab, midway, below=3pt]
+  {Loan claim}
+  ([yshift=-3pt]bank1.east);
+
+
+% =================================================
+% Bottom row: Repo financing
+% =================================================
+
+\node[widebox] (cashl) at (0,-3.0)
+  {Cash lenders\\(banks, MMFs, other investors)};
+
+\node[widebox] (dealer) at (9.2,-3.0)
+  {Dealers holding securities\\inventories};
+
+% Repo cash and collateral
+\draw[flow]
+  ([yshift=3pt]cashl.east) --
+  node[abovelab, midway, above=3pt]
+  {Repo cash}
+  ([yshift=3pt]dealer.west);
+
+\draw[claim]
+  ([yshift=-3pt]dealer.west) --
+  node[belowlab, midway, below=3pt]
+  {Securities collateral}
+  ([yshift=-3pt]cashl.east);
+
+
+% =================================================
+% Legend
+% =================================================
+
+\draw[flow] (0.5,-4.5) -- (1.4,-4.5);
+\node[anchor=west, draw=none] at (1.5,-4.5)
+  {\small Cash flow};
+
+\draw[claim] (4.2,-4.5) -- (5.1,-4.5);
+\node[anchor=west, draw=none] at (5.2,-4.5)
+  {\small Claim or collateral transfer};
+
+\end{tikzpicture}
+
+\caption{Institutional Channels of Money Market Funding}
+\label{fig:ch7-money-market-channels}
+\end{figure}
+
+The figure is schematic. Banks can appear on both the lending and borrowing sides of the market, while money market funds and dealers perform different intermediation functions. The purpose is to show how short-term funds move through several institutional channels.
+
+\subsection{Benchmark Rates, Spreads, and Price Discovery}
+
+Central banks influence money-market conditions through
+the supply of settlement balances, open-market operations,
+and liquidity facilities. These operations affect
+very short-term interest rates and the overall availability
+of funding. Rates on individual instruments may nevertheless
+differ because of counterparty credit risk, collateral
+conditions, market segmentation, and institution-specific
+funding conditions.
+
+Money-market contracts are frequently priced relative
+to benchmark rates. A useful benchmark should represent
+a clearly defined market segment, be based on reliable
+information, and be supported by a transparent methodology
+and appropriate governance. Its economic meaning depends
+on the underlying transactions and the method used to
+construct the rate.
+
+Benchmarks differ in both the type of funding they measure
+and the way they are constructed. One distinction concerns
+whether funding is secured or unsecured. Secured rates
+reflect funding transactions backed by collateral, with
+the resulting rates affected by collateral quality and
+availability. Unsecured rates reflect borrowing without
+collateral and more directly incorporate counterparty
+credit conditions. Another distinction concerns the
+method of rate formation. Transaction-based benchmarks
+are derived from eligible market transactions, whereas
+quotation-based benchmarks rely on rates submitted by
+selected market participants.
+
+China's money market illustrates these differences.
+The Shanghai Interbank Offered Rate (Shibor) is a
+quotation-based unsecured benchmark derived from
+submissions by a panel of banks and published across
+several maturities. By contrast, the Depository-Institutions
+Repo Rate (DR) is a transaction-based secured rate based
+on pledged repo transactions among depository institutions
+using interest-rate bonds as collateral. DR007, the
+seven-day rate, is widely used as an indicator of
+banking-system liquidity and as a reference for
+money-market pricing.
+
+International benchmark reform has increased the use
+of transaction-based overnight rates. SOFR in the
+United States is based on secured Treasury repo
+transactions, whereas SONIA in the United Kingdom
+and €STR in the euro area are based on unsecured
+overnight transactions.
+
+The main characteristics of these benchmarks are
+summarized in Table~\ref{tab:ch7-benchmark-comparison}.
+
+\begin{table}[H]
+\centering
+\caption{Selected Money-Market Benchmarks and Their Characteristics}
+\label{tab:ch7-benchmark-comparison}
+
+\begin{tabularx}{\textwidth}{
+@{}
+>{\raggedright\arraybackslash}p{1.7cm}
+>{\raggedright\arraybackslash}p{3.2cm}
+>{\raggedright\arraybackslash}p{2.0cm}
+Y
+@{}
+}
+
+\toprule
+
+\textbf{Benchmark}
+&
+\textbf{Underlying market}
+&
+\textbf{Funding basis}
+&
+\textbf{Rate formation}
+\\
+
+\midrule
+
+Shibor
+& RMB interbank funding
+& Unsecured
+& Bank panel quotations
+\\
+
+DR007
+& Seven-day interbank pledged repo
+& Secured
+& Actual transaction-weighted rate
+\\
+
+SOFR
+& Overnight US Treasury repo
+& Secured
+& Transaction-based volume-weighted median
+\\
+
+SONIA
+& Overnight sterling deposits
+& Unsecured
+& Transaction-based trimmed mean
+\\
+
+€STR
+& Overnight euro wholesale funding
+& Unsecured
+& Transaction-based calculation
+\\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+For a short-term instrument and a benchmark of comparable
+maturity and market characteristics, the spread is
+
+\begin{equation}
+s_i=r_i-r_b.
+\label{eq:ch7-money-market-spread}
+\end{equation}
+where $r_i$ denotes the rate on a short-term instrument and $r_b$ an appropriate benchmark.
+
+A widening spread may reflect greater credit risk,
+lower market liquidity, tighter balance-sheet constraints,
+or weaker demand for the instrument. The same observed
+spread can therefore arise from different underlying
+conditions.
+
+Price discovery occurs as borrowers and lenders adjust
+rates in response to funding needs, new information,
+monetary operations, and trading conditions. The short
+maturities and frequent repricing of money-market claims
+make very short-term rates particularly sensitive to
+changes in funding conditions. Overnight rates may move
+sharply around tax or reporting dates, following changes
+in central-bank liquidity, or when institutions become
+less willing to lend.
+
+Benchmark rates are also used in contracts outside the
+money market. Floating-rate loans, bonds, swaps, and
+derivatives may reference short-term benchmarks when
+determining contractual payments. Money-market price
+discovery thus affects the pricing and valuation of a
+much broader range of financial claims.
+
+\subsection{Collateral, Clearing, and Settlement}
+
+Collateral provides the lender with an additional
+source of recovery beyond the borrower's general
+creditworthiness. Its effectiveness depends on three
+questions: what assets are eligible, how they are
+valued, and how quickly the lender can exercise rights
+over them after default.
+
+Government securities and other high-quality marketable securities often serve as money-market collateral. Their values are comparatively transparent, and they can generally be sold or financed more easily than less liquid assets. Other securities may also be eligible, but lenders can apply larger haircuts when price volatility, credit risk, or liquidation costs are greater.
+
+An initial haircut provides a buffer against declines
+in collateral value, but this buffer may become
+insufficient as market prices change. Repo contracts
+may therefore require collateral to be marked to
+market daily or intraday. If collateral value falls
+below the level required under the agreement, the
+borrower may need to provide additional securities
+or cash. Such margin calls limit the lender's exposure
+but can create liquidity pressure for the borrower,
+particularly when collateral prices fall sharply.
+
+Clearing establishes the obligations arising from a
+transaction and, where applicable, determines the
+amounts to be settled. Settlement completes those
+obligations through the transfer of cash and securities.
+In a securities transaction, the seller must deliver
+the securities and the buyer must make the corresponding
+cash payment. If these transfers occur at different
+times, either party may be exposed to the risk that
+the other fails to fulfill its obligation. Delivery-versus-payment
+(DvP) arrangements reduce this principal risk by
+linking securities delivery to the corresponding
+cash payment.
+
+China's interbank market illustrates the division
+between trading services and securities registration,
+custody, and settlement. The China Foreign Exchange
+Trade System (CFETS), also known as the National
+Interbank Funding Center, provides issuance, trading,
+and information services for interbank certificates
+of deposit. Shanghai Clearing House (SHCH) handles
+their registration, custody, and settlement. This
+arrangement separates the trading of these instruments
+from the institutions responsible for maintaining
+ownership records and completing settlement.
+
+These arrangements do not eliminate liquidity risk.
+Even valuable collateral may fail to provide timely
+funding when settlement is delayed or operational
+problems prevent its mobilization. Money-market
+liquidity therefore depends not only on the quality
+of financial claims but also on the infrastructure
+through which they are transferred.
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{Financial Perspective: Collateral Must Be Mobilizable},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+The value of collateral depends not only on its
+credit quality and market price but also on whether
+it can be transferred, accepted, and liquidated
+when funding is needed. Legal, operational, and
+settlement frictions can limit its usefulness as
+a source of immediate liquidity.
+
+\end{tcolorbox}
+
+\section{Liquidity Stress in Money Markets}
+
+Money markets can appear highly liquid under normal conditions. Short maturities and regular refinancing allow funds to move readily across institutions. The same features, however, can intensify stress when lenders become unwilling to renew funding. Large volumes of debt may mature within a short period, forcing borrowers to obtain cash before longer-term assets can be sold or mature.
+
+\subsection{Funding Runs and Market Freezes}
+
+A funding run occurs when short-term creditors withdraw
+funding, refuse to roll over maturing claims, or shorten
+the maturity of new lending. The resulting dynamics
+resemble those of a bank run, even when the institution
+relies on short-term wholesale funding rather than
+deposits. A market freeze occurs when trading or new funding
+falls sharply because market participants become
+unwilling or unable to transact at prevailing terms.
+
+Suppose a borrower finances long-lived assets with debt
+that matures daily or weekly. As long as lenders continue
+to renew the debt, the position can be maintained.
+Concerns about the quality of the borrower's assets,
+the borrower's creditworthiness, or lenders' own
+liquidity needs may make lenders less willing to
+roll over the funding. The borrower must then obtain cash
+as existing claims mature.
+
+To meet these obligations, the borrower may draw on
+committed credit, use cash reserves, pledge additional
+collateral, or sell assets. If many institutions face
+similar funding pressures, these responses can reinforce
+one another. Asset sales may depress market prices,
+while increased demand for liquidity puts further
+pressure on funding conditions. Falling asset prices
+can also weaken balance sheets and reduce collateral
+values, further increasing funding pressure. The process
+can become self-reinforcing:
+
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  >=Latex,
+  box/.style={draw, rounded corners, align=center, text width=4.0cm, minimum height=0.9cm},
+  flow/.style={-Latex, line width=0.8pt, FinanceBlue}
+]
+
+\node[box] (concern) at (0,3.2) {Concern about credit,\\liquidity, or collateral};
+\node[box] (roll) at (6.0,3.2) {Lenders shorten maturity\\or refuse rollover};
+\node[box] (cash) at (6.0,0.7) {Borrowers seek cash\\and sell assets};
+\node[box] (price) at (0,0.7) 
+{Asset prices fall, reducing\\collateral values and market liquidity};
+
+\draw[flow] (concern) -- (roll);
+\draw[flow] (roll) -- (cash);
+\draw[flow] (cash) -- (price);
+\draw[flow] (price) -- (concern);
+
+\end{tikzpicture}
+\caption{A short-term funding feedback loop}
+\label{fig:ch7-funding-run-loop}
+\end{figure}
+
+In unsecured markets, uncertainty about borrower quality can reduce lending even when aggregate liquidity remains ample. Institutions may prefer to retain liquidity rather than increase exposure to counterparties whose condition is difficult to assess. Funding stress can affect both price and quantity: spreads may rise while some borrowers lose access to funding altogether.
+
+Similar pressures can arise in commercial-paper markets and money market funds. Investors may shift from commercial paper toward government securities or cash, reducing the funding available to issuers and increasing reliance on committed bank credit lines. Rapid redemptions from money market funds reinforce this process if funds reduce purchases of commercial paper and certificates of deposit or sell assets to meet withdrawals. Stress thus pass from cash investors to short-term borrowers and, in turn, to bank balance sheets.
+
+The June 2013 Chinese interbank episode illustrates these
+mechanisms. As funding uncertainty intensified,
+institutions became more reluctant to lend, weakening
+the redistribution of liquidity across the banking
+system. Short-term rates rose sharply before declining
+as liquidity conditions and expectations stabilized.
+
+\subsection{Repo Haircuts, Collateral Pressure, and Flight to Quality}
+
+Repo funding conditions depend on both the repo rate and the haircut. The repo rate determines the cost of cash funding, while the haircut determines how much cash can be borrowed against a given amount of collateral.
+
+This distinction becomes especially important during
+periods of market stress. Consider a stylized dealer
+position financed entirely with repo borrowing and
+the dealer's own funds. Let $V$ denote the market
+value of the securities and $E$ the dealer's own-funds
+contribution. Under the standard haircut convention,
+a repo haircut $h$ means that the lender advances
+$(1-h)V$ against collateral worth $V$. The dealer
+must therefore finance the remaining amount with
+its own funds:
+
+\begin{equation*}
+E=hV.
+\label{eq:ch7-haircut-equity}
+\end{equation*}
+
+Under this simplified financing structure, the asset-to-equity ratio is
+
+\begin{equation*}
+\frac{V}{E}=\frac{1}{h}.
+\label{eq:ch7-haircut-leverage}
+\end{equation*}
+
+The financing implications become particularly
+significant when haircuts rise during periods of
+market stress.
+
+\begin{example}{A Haircut Increase Creates a Funding Need}{haircut-funding-need}
+
+A dealer finances securities with market value RMB~100 million through repo. With a 2\% haircut, the lender provides RMB~98 million and the dealer supplies RMB~2 million of its own funding.
+
+If the haircut rises to 5\% while the collateral value remains RMB~100 million, repo funding falls to RMB~95 million. The dealer must provide an additional RMB~3 million of cash or collateral to maintain the same position.
+
+If many dealers face the same change, they may reduce positions or sell securities to release cash. A haircut intended to protect individual lenders can contribute to system-wide deleveraging when it rises simultaneously across the market.
+
+\end{example}
+
+Collateral pressure intensifies when haircuts rise while collateral values fall. The borrower then faces both a lower borrowing capacity against each unit of collateral and a decline in the value of existing collateral. Margin calls may force asset sales into a falling market, reinforcing the interaction between funding liquidity and market liquidity.
+
+The quality of collateral also affects where liquidity
+moves. During stress, lenders often become more willing
+to accept government securities and less willing to
+accept private or less liquid collateral. Investors
+similarly shift cash toward claims perceived as safer
+and more liquid. This \emph{flight to quality} can lower
+yields on high-quality short-term government claims
+while spreads on private money-market instruments
+widen. It represents a reallocation of liquidity
+across assets and counterparties rather than
+necessarily a decline in aggregate liquidity.
+
+The interaction among collateral, haircuts, dealer
+balance sheets, and market liquidity explains why
+repo markets matter beyond their direct participants.
+If dealers lose financing capacity, their ability
+and willingness to intermediate bond markets can
+decline. Lower market liquidity can then increase
+price volatility and reduce the value of securities
+used as collateral. Lenders may respond by applying
+larger haircuts, further tightening financing
+conditions.
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{Financial Perspective: A Higher Haircut Can Tighten Funding Without a Higher Interest Rate},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+A repo rate can remain unchanged while funding
+conditions tighten substantially. A higher haircut
+reduces the amount of cash that can be raised against
+a given quantity of collateral. Borrowers must provide
+more of their own funds, pledge additional collateral,
+or reduce their positions. Haircuts therefore affect
+the quantity of financing available, even when the
+quoted repo rate changes little.
+
+\end{tcolorbox}
+
+%========================================================
+% Summary
+%========================================================
+
+\TailModule{summary}{Summary}
+
+Money markets redistribute liquidity and finance short-term cash-flow mismatches. A borrower may need short-term funds even when its underlying assets and projects have positive long-run value if cash inflows and outflows occur at different dates. Short-term finance reduces the need to hold large idle cash balances, but repeated refinancing creates rollover risk.
+
+Money-market instruments differ in contractual structure. Treasury bills are short-term sovereign claims; commercial paper is generally unsecured corporate or financial debt; negotiable certificates of deposit are transferable bank liabilities; interbank loans provide unsecured funding between financial institutions; and repos provide cash against securities. Quotation conventions matter, particularly for discount instruments, and the repo rate should be distinguished from the haircut applied to collateral.
+
+Money-market architecture affects pricing and liquidity. Banks act as both borrowers and lenders, dealers finance securities inventories, and money market funds channel investor cash into short-term claims. Benchmark rates differ according to whether they are secured or unsecured and whether they are based on transactions or quotations. Collateral eligibility and valuation, together with clearing and settlement arrangements, affect the ability to use short-term claims and securities to obtain liquidity.
+
+Liquidity stress can arise when lenders refuse to roll over short-term funding or when large redemptions reduce the supply of funds to money-market borrowers. In repo markets, higher haircuts reduce the amount of funding obtainable against collateral. If haircuts rise while collateral prices fall, margin calls and asset sales can reinforce the interaction between funding liquidity and market liquidity. Short maturity provides flexibility under normal conditions but can increase fragility when refinancing becomes uncertain.
+
+%========================================================
+% Key Terms
+%========================================================
+
+\TailModule{keyterms}{Key Terms}
+
+Money market; short-term finance; liquidity; cash-flow timing; working capital; financial flexibility; rollover risk; Treasury bill; holding-period return; discount yield; commercial paper; negotiable certificate of deposit; interbank loan; repurchase agreement; reverse repo; repo rate; collateral; haircut; margin call; money market fund; benchmark rate; transaction-based benchmark; quotation-based benchmark; Shibor; DR007; price discovery; delivery versus payment; funding run; market freeze; flight to quality; funding liquidity; market liquidity.
+
+%========================================================
+% Financial AI Lab
+%========================================================
+
+\TailModule{aiprompt}{Financial AI Lab}
+
+\textbf{Lab: Reconstruct and Stress-Test a Repo Transaction}
+
+Ask an AI system to construct a one-week repo in which a securities dealer finances a bond position. Require the response to specify the collateral market value, haircut, cash advanced, repo rate, day-count convention, and repurchase payment.
+
+Audit the transaction independently. Verify that the haircut is applied to the collateral value and determines the amount of cash advanced, while the repo rate determines the financing cost. Check also whether the AI correctly distinguishes the repo from the reverse-repo perspective.
+
+Next, impose two shocks: reduce the collateral value by 4\% and increase the haircut by 3 percentage points. Holding the original amount of repo funding constant, ask the AI to calculate the resulting funding shortfall and the additional cash or eligible collateral required to restore the original funding position. Verify the result using the contractual relations developed in the chapter.
+
+Finally, ask the AI to explain how rising haircuts can contribute to market-wide deleveraging. Examine whether the response incorrectly treats collateral as eliminating liquidity risk or assumes that collateral can always be sold or pledged immediately at its quoted market value.
+
+%========================================================
+% Discussion Questions
+%========================================================
+
+\TailModule{questions}{Discussion Questions}
+
+\begin{enumerate}
+
+\item Why can a profitable and solvent firm still need short-term finance? Distinguish a liquidity problem from a solvency problem.
+
+\item Compare commercial paper with a repurchase agreement. How does the presence or absence of collateral affect lender exposure, funding terms, and borrower rollover risk?
+
+\item Why can an unsecured interbank market become illiquid even when aggregate liquidity in the banking system appears sufficient?
+
+\item Why can the spread between an unsecured money-market rate and a secured repo rate widen for different reasons? What information is needed to interpret such a change?
+
+\end{enumerate}
+
+%========================================================
+% Applied Problems
+%========================================================
+
+\TailModule{appprobs}{Applied Problems}
+
+\begin{enumerate}
+
+\item \textbf{Cash-flow timing and short-term funding.}
+
+A firm begins the month with cash of RMB~4 million. During the month it expects cash receipts of RMB~18 million and payments of RMB~27 million.
+
+\begin{enumerate}
+
+\item Calculate the firm's net cash position before new financing.
+
+\item Calculate its short-term funding need.
+
+\item Suppose RMB~7 million of receivables originally expected this month are delayed until next month. Recalculate the funding need.
+
+\item Explain why the change does not by itself establish that the firm is insolvent.
+
+\end{enumerate}
+
+\item \textbf{Money-market quotation conventions.}
+
+A 90-day bill with face value 1,000 sells for 988. Use a 360-day basis.
+
+\begin{enumerate}
+
+\item Calculate the holding-period return.
+
+\item Calculate the annualized money-market yield based on the purchase price.
+
+\item Calculate the discount yield based on face value.
+
+\item Explain why the two annualized yields differ even though the underlying cash flows are identical.
+
+\end{enumerate}
+
+\item \textbf{Commercial-paper spreads.}
+
+A highly rated corporation issues 60-day commercial paper at an annualized rate of 3.8\% when the comparable short-term benchmark rate is 2.9\%.
+
+\begin{enumerate}
+
+\item Calculate the spread over the benchmark.
+
+\item Suppose the benchmark rises to 3.4\% and the spread widens to 1.6 percentage points. What is the new commercial-paper rate?
+
+\item Separate the increase in the funding rate into the benchmark component and the spread component.
+
+\item Give two economic reasons why the spread could widen.
+
+\end{enumerate}
+
+\item \textbf{Repo rate and haircut.}
+
+A dealer owns securities worth RMB~250 million and finances them with an overnight repo. The initial haircut is 3 percent and the annualized repo rate is 2.2\% on a 365-day basis.
+
+\begin{enumerate}
+
+\item Calculate the cash advanced.
+
+\item Calculate the next-day repurchase payment.
+
+\item If the haircut rises to 6\% with the collateral value unchanged, how much additional own funding must the dealer provide to maintain the same asset position?
+
+\item Explain why an increase in the haircut has a different economic effect from an equal percentage-point increase in the repo rate.
+
+\end{enumerate}
+
+\end{enumerate}
+
+%========================================================
+% Data Application
+%========================================================
+
+\TailModule{dataapp}{Data Application}
+
+\textbf{Liquidity Conditions in China's Money Market}
+
+Obtain daily observations for at least two short-term Chinese money-market rates from an authoritative source such as ChinaMoney or the People's Bank of China. A useful pair is DR007 and either the seven-day interbank repo rate or seven-day Shibor. If a central-bank seven-day open-market operation rate is included, distinguish it clearly from market-determined rates.
+
+Plot the selected rates over a sample period that includes both normal conditions and at least one episode of pronounced short-term volatility. Calculate the spread between the market rates and identify dates on which either the spread or the level of rates changed sharply.
+
+Interpret these movements in light of the underlying market structure. Identify whether each rate is secured or unsecured, which institutions participate, what collateral is eligible, and whether the benchmark is transaction based or quotation based. Examine whether month-end, quarter-end, tax-payment, holiday, or other liquidity-management dates coincide with unusual movements.
+
+Do not attribute changes in the spread to credit risk or monetary policy alone. Explain what additional evidence would be required to distinguish changes in aggregate liquidity, counterparty risk, collateral conditions, and market segmentation. Report the sample period, rate definitions, calculation conventions, and primary data sources.
+
+%========================================================
+% Case Analysis
+%========================================================
+
+\TailModule{caseanalysis}{Case Analysis}
+
+\textbf{Case: March 2020 and Stress in U.S. Short-Term Funding Markets}
+
+In March 2020, the rapid spread of COVID-19 generated an extraordinary demand for cash and highly liquid assets. Prime money market funds, particularly institutional prime funds, experienced heavy redemptions, while markets for commercial paper and other private short-term instruments came under severe pressure. As funds met redemptions, they reduced holdings and purchases of private short-term claims, adding to the difficulty faced by firms and financial institutions seeking to refinance maturing obligations.
+
+The Federal Reserve responded with several emergency facilities. The Commercial Paper Funding Facility (CPFF), announced on March 17, 2020, provided a liquidity backstop by purchasing eligible commercial paper through a special-purpose vehicle. The Money Market Mutual Fund Liquidity Facility (MMLF), announced on March 18, provided loans to eligible financial institutions secured by eligible assets purchased from money market funds. Stress in short-term funding markets eased following the announcement and implementation of these and other interventions.
+
+Analyze the episode using the framework of this chapter. Trace the financing chain from investors in money market funds to issuers of commercial paper. Explain how investor redemptions could reduce funding available to issuers even when the issuers themselves had not experienced an immediate deterioration in operating cash flow. Distinguish market liquidity from funding liquidity and identify where rollover risk entered the chain.
+
+Then compare the roles of the CPFF and the MMLF. What market friction did each facility address? How could the existence of a credible backstop improve market functioning even if direct use of the facility later remained limited? What incentive problems could arise if market participants expect public liquidity support during future episodes of short-term funding stress?
+
+\emph{Primary sources: Board of Governors of the Federal Reserve System, ``Commercial Paper Funding Facility,'' March 2020; Board of Governors of the Federal Reserve System, ``Money Market Mutual Fund Liquidity Facility,'' March 2020.}
+
+%========================================================
+% Further Reading
+%========================================================
+
+\TailModule{furtherread}{Further Reading}
+
+\begin{itemize}
+
+\item Stigum, Marcia L., and Anthony Crescenzi (2007),
+\emph{Stigum's Money Market}, 4th ed., McGraw-Hill.
+
+\item Gorton, Gary, and Andrew Metrick (2012),
+``Securitized Banking and the Run on Repo,''
+\emph{Journal of Financial Economics}, 104(3), 425--451.
+
+\item Covitz, Daniel, Nellie Liang, and Gustavo A. Suarez (2013),
+``The Evolution of a Financial Crisis: Collapse of the Asset-Backed Commercial Paper Market,''
+\emph{The Journal of Finance}, 68(3), 815--848.
+
+\item Krishnamurthy, Arvind, Stefan Nagel, and Dmitry Orlov (2014),
+``Sizing Up Repo,''
+\emph{The Journal of Finance}, 69(6), 2381--2417.
+
+\item Committee on the Global Financial System (2017),
+\emph{Repo Market Functioning},
+CGFS Papers No.~59, Bank for International Settlements.
+
+\end{itemize}
+
+\ChapterTail{summary,keyterms,aiprompt,questions,appprobs,dataapp,caseanalysis,furtherread}

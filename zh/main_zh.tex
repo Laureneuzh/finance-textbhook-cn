@@ -1,13 +1,13 @@
 % !TeX program = xelatex
 \documentclass[UTF8,11pt,a4paper,oneside,openany,fontset=fandol]{ctexbook}
 \usepackage[left=24mm,right=24mm,top=25mm,bottom=25mm,headheight=16pt]{geometry}
-\usepackage{amsmath,amssymb,booktabs,tabularx,array,float,graphicx,enumitem}
+\usepackage{amsmath,amssymb,booktabs,tabularx,array,float,graphicx,enumitem,makecell}
 \usepackage{xcolor,tikz,fancyhdr,etoolbox,pgfplots}
 \pgfplotsset{compat=1.18}
 \usetikzlibrary{calc,positioning,arrows.meta,shapes.arrows,shapes.geometric,decorations.pathreplacing}
 \usepackage[most]{tcolorbox}
 \usepackage{hyperref}
-\hypersetup{unicode=true,colorlinks=true,linkcolor=black,urlcolor=FinanceBlue,bookmarksnumbered=true,pdftitle={金融学基础：六章中文译稿}}
+\hypersetup{unicode=true,colorlinks=true,linkcolor=black,urlcolor=FinanceBlue,bookmarksnumbered=true,pdftitle={金融学基础：七章中文译稿}}
 \definecolor{FinanceBlue}{cmyk}{1,0.65,0,0.35}
 \setcounter{secnumdepth}{2}
 \setcounter{tocdepth}{1}
@@ -65,16 +65,16 @@
 \vspace*{38mm}
 {\Huge\bfseries 金融学基础\par}
 \vspace{12mm}
-{\Large 六章中文译稿\par}
+{\Large 七章中文译稿\par}
 \vspace{8mm}
 {\large 金融体系、货币支付、信息契约、金融中介、估值与利率\par}
 \vfill
-{\normalsize 根据提供的六章英文 LaTeX 原稿翻译\par}
+{\normalsize 根据提供的七章英文 LaTeX 原稿翻译\par}
 \vspace{4mm}
 {\small 2026 年 11 月\par}
 \end{titlepage}
 \chapter*{译稿说明}
-本稿依据所提供的六章英文原稿完整翻译，采用中国大陆金融学常用术语。原文的案例背景、货币单位、公式、数值、章节层级及习题均予保留。参考文献保留作者姓名、原文题名和出版信息，并附题名中译，便于检索。文中的 AI 实验、数据练习和案例研究要求均为教材内容，未代为作答。
+本稿依据所提供的七章英文原稿完整翻译，采用中国大陆金融学常用术语。原文的案例背景、货币单位、公式、数值、章节层级及习题均予保留。参考文献保留作者姓名、原文题名和出版信息，并附题名中译，便于检索。文中的 AI 实验、数据练习和案例研究要求均为教材内容，未代为作答。
 
 本稿中的金融概念以原文语境为准，例如“清算”与“结算”、“风险分担”与“风险转换”，以及“预期回报”与“必要报酬率”分别使用。正文及图示中的说明文字已译为中文，公式变量和交叉引用标识保持一致。各章关键术语附英文对照。
 \tableofcontents
@@ -88,4 +88,5 @@
 \include{The_Logic_of_Financial_Valuation}
 \part{金融市场}
 \include{Interest_Rates_and_Capital_Allocation}
+\include{Money_Markets_and_Short_Term_Liquidity_Contracts}
 \end{document}
