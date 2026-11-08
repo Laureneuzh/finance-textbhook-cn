@@ -1,0 +1,757 @@
+\chapter{Investment Banks: Capital Raising and Capital-Market Intermediation}
+\label{chap:Investment_Banks_Capital_Raising_and_Capital_Market_Intermediation}
+
+\begin{openingcase}{Why Does Direct Finance Need Investment Banks?}
+
+A rapidly growing company plans to raise RMB~6 billion by selling new shares to public investors. Its financial statements have been audited, a prospectus can disclose the relevant information, and investors will ultimately hold the shares issued by the company itself.
+
+Yet the company does not approach investors on its own. It hires an investment bank and pays substantial fees for its services. The bank becomes closely involved in preparing, pricing, and distributing the issue, and may also assume part of the risk associated with the offering.
+
+\end{openingcase}
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=FinanceBlue!6,
+  colframe=FinanceBlue,
+  boxrule=0.6pt,
+  sharp corners,
+  left=8pt,
+  right=8pt,
+  top=7pt,
+  bottom=7pt,
+  before skip=1em,
+  after skip=1.6em,
+  title=\textbf{Core Questions},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  attach boxed title to top left={xshift=6pt,yshift=-2mm},
+  boxed title style={
+    boxrule=0pt,
+    sharp corners,
+    left=5pt,
+    right=5pt,
+    top=2pt,
+    bottom=2pt
+  }
+]
+\begin{enumerate}[
+  leftmargin=*,
+  label=\textcolor{FinanceBlue}{\textbf{\arabic*.}},
+  itemsep=0.55em,
+  topsep=0.2em
+]
+
+\item Why do issuers use investment banks when securities already create direct claims between issuers and investors?
+
+\item How do investment banks use information, reputation, valuation, distribution networks, and balance-sheet capacity to support securities issuance, trading, and strategic transactions?
+
+\end{enumerate}
+\end{tcolorbox}
+
+\section{Capital-Market Intermediation and Certification}
+
+Investment banks help issuers access capital markets without replacing the securities ultimately held by investors. Their role is distinct from the balance-sheet intermediation of commercial banks, which commonly fund borrower claims with deposits and other bank liabilities.
+
+\subsection{Issuers, Investors, and Capital-Market Access}
+
+Issuers enter capital markets with different financing needs. A growing firm may raise equity to finance investment without adding fixed repayment obligations, while a corporation may issue bonds to obtain term funding, refinance existing debt, or diversify its funding sources. Governments and financial institutions also issue securities under different financing objectives and contractual structures.
+
+Capital-market access requires the financing need to be translated into a security that investors can evaluate and purchase. The issuer must provide relevant information, define the terms of the claim, reach potential investors, and set terms at which sufficient investor demand can be attracted. Legal, disclosure, and transaction costs also make the scale and design of the issue economically important.
+
+Investment banks help connect these two sides of the market. They advise on the structure and timing of an issue, organize the preparation and distribution process, and gather information about investor demand. This coordination can reduce search and transaction costs while improving the flow of information between issuers and investors. Figure~\ref{fig:ch13-direct-finance-intermediation} summarizes these relationships.
+
+\begin{figure}[H]
+
+\centering
+
+\begin{tikzpicture}[
+  >=Latex,
+  box/.style={
+    draw,
+    rounded corners,
+    align=center,
+    minimum width=1.8cm,
+    minimum height=0.9cm,
+    inner sep=5pt
+  },
+  service/.style={Latex-Latex, line width=0.85pt, FinanceBlue},
+  claim/.style={Latex-Latex, dashed, line width=0.75pt, draw=gray!75}
+]
+
+\node[box] (issuer) at (-4.6,0) {Issuer};
+\node[box] (ib) at (0.5,0) {Investment bank};
+\node[box] (investors) at (5.2,0) {Investors};
+
+\draw[service] (issuer) --
+  node[midway, above=2pt, font=\small,
+  text=FinanceBlue, align=center, text width=2.8cm]
+  {advisory and transaction\\ coordination}
+  (ib);
+
+% Investment bank to investors: distribution
+\draw[->, line width=0.85pt, FinanceBlue]
+  ([yshift=0.14cm]ib.east) --
+  node[midway, above=3pt, font=\small,
+       text=FinanceBlue, align=center]
+  {securities\\ distribution}
+  ([yshift=0.14cm]investors.west);
+
+% Investors to investment bank: demand information
+\draw[->, dashed, line width=0.75pt, FinanceBlue]
+  ([yshift=-0.14cm]investors.west) --
+  node[midway, below=1pt, font=\small,
+       align=center]
+  { demand\\information}
+  ([yshift=-0.14cm]ib.east);
+
+% Funds: Issuer -> Investors
+\coordinate (funds-start) at
+  ($(investors.south west)!0.25!(investors.south east)$);
+
+\coordinate (funds-end) at
+  ($(issuer.south west)!0.75!(issuer.south east)$);
+
+\coordinate (funds-level) at
+  ($(funds-start)!0.5!(funds-end)+(0,-0.75cm)$);
+
+\draw[->, dashed, line width=0.75pt, FinanceBlue]
+  (funds-start)
+  -- ++(0,-0.75cm)
+  -| (funds-end);
+
+\node[below=2pt, font=\small] at (funds-level) {Funds};
+
+% Funds: Investors -> Issuer
+\coordinate (funds-start) at
+  ($(investors.south west)!0.75!(investors.south east)$);
+
+\coordinate (funds-end) at
+  ($(issuer.south west)!0.25!(issuer.south east)$);
+
+\coordinate (funds-level) at
+  ($(funds-start)!0.5!(funds-end)+(0,-1.5cm)$);
+
+\draw[->, dashed, line width=0.75pt, FinanceBlue]
+  (funds-end)
+  -- ++(0,-1.5cm)
+  -| (funds-start);
+
+\node[below=2pt, font=\small] at (funds-level) {Securities};
+  
+\end{tikzpicture}
+
+\caption{Investment-bank support for capital-market access}
+
+\label{fig:ch13-direct-finance-intermediation}
+
+\end{figure}
+
+
+\subsection[Due Diligence, Information Certification, and Reputation]{Due Diligence, Information Certification, and\\ Reputation}
+
+Securities issuance depends on credible disclosure about the issuer, the security, and the risks of the transaction. Due diligence supports this process by examining information that may affect disclosure, valuation, or execution. It may include reviews of financial statements, business plans, material contracts, capital structure, ownership, litigation, and transaction-specific risks. Legal advisers, auditors, and other specialists often participate alongside the investment bank.
+
+Reputation affects the incentives behind this investigation. Issuers may enter capital markets only occasionally, whereas investment banks typically participate in repeated transactions. Weak screening or unreliable disclosure can therefore reduce investor confidence and make future transactions more difficult or costly for the investment bank.
+
+This reputational exposure can give the investment bank's involvement a certification role. When investors cannot reproduce the same investigation at reasonable cost, they may attach informational value to the participation of an intermediary whose future business depends partly on maintaining credibility in the market.
+
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{Financial Perspective: Certification Is Not a Guarantee},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+Certification can reduce information frictions without eliminating investment risk. An investment bank may investigate the issuer, review disclosure, and place its reputation at risk by participating in an offering. These actions can make its involvement informative to investors.
+
+The investment bank does not, however, guarantee the issuer's future cash flows or the market value of the security. Certification affects the credibility of information; it does not remove uncertainty from the underlying claim.
+
+\end{tcolorbox}
+
+\subsection{Security Design and Issuer--Investor Matching}
+
+Security design translates an issuer's financing needs into a claim that investors can evaluate and hold. Relevant choices may include debt versus equity, maturity, seniority, payment structure, collateral, covenants, currency denomination, and issue size.
+
+These terms distribute risk and control between the issuer and investors. A longer maturity can reduce near-term refinancing pressure while increasing investors' exposure to interest-rate or credit changes. Collateral can strengthen creditor protection while limiting the issuer's use of pledged assets. Equity avoids fixed debt service but changes ownership and voting claims. Security design therefore involves trade-offs rather than a single preferred structure.
+
+The appropriate design also depends on the likely investor base. Institutional investors differ in investment horizon, liquidity needs, currency exposure, regulatory constraints, and permissible asset classes. A security may be financially sound yet difficult to place if its terms do not fit the requirements of potential buyers.
+
+Investment banks help connect these two sides of the transaction. They use investor relationships, comparable issues, current market conditions, and pre-marketing feedback to assess demand. As this information emerges, the issuer may adjust issue size, maturity, pricing terms, or other features. Security design and investor matching therefore develop together until the transaction reaches terms that can satisfy the issuer's financing objectives while attracting sufficient investor demand.
+
+\section{Underwriting and Securities Distribution}
+
+Underwriting turns a planned securities issue into an executed market transaction. Investment banks organize the offering, place securities with investors, and may assume part of the distribution risk.
+
+\subsection{Underwriting Commitments and Syndication}
+
+An underwriting agreement determines how distribution risk is allocated between the issuer and the investment bank. Under a firm-commitment arrangement, the underwriter purchases the securities from the issuer or selling shareholders and resells them to investors. It therefore bears the risk that the securities cannot be placed at the intended price. Under a best-efforts arrangement, the investment bank undertakes to market the issue without making the same purchase commitment.
+
+For a firm-commitment offering, let $P_o$ denote the public offering price and $P_u$ the price paid by the underwriters to the issuer or selling shareholders. The gross underwriting spread per security is
+
+\begin{equation}
+g=P_o-P_u,
+\label{eq:ch13-underwriting-spread}
+\end{equation}
+and for $N$ securities the total gross spread at the stated offering terms is
+
+\begin{equation}
+G=N(P_o-P_u).
+\label{eq:ch13-total-underwriting-spread}
+\end{equation}
+
+The spread provides compensation for underwriting, distribution, and related transaction services. It is not equivalent to profit. Underwriters incur operating and financing costs, and a weakening of investor demand can reduce the value realized from securities that have not yet been placed.
+
+Large offerings are often syndicated to combine distribution capacity and share underwriting exposure across institutions. Lead banks coordinate the transaction, while other syndicate members assume agreed underwriting and distribution responsibilities. Syndication can broaden investor access, although it also requires coordination over responsibilities, economics, investor coverage, and allocation.
+
+\begin{example}{A Firm-Commitment Underwriting}{firm-commitment-underwriting}
+
+A company sells 20 million new shares through a firm-commitment underwriting. The public offering price is RMB~25 per share, while the underwriting group purchases the shares from the issuer at RMB~24.25.
+
+The gross spread is
+
+\[
+25-24.25=\text{RMB }0.75
+\]
+
+per share, and the total gross spread is
+
+\[
+20{,}000{,}000\times0.75=\text{RMB }15\text{ million}.
+\]
+
+Before other offering expenses, the issuer receives
+
+\[
+20{,}000{,}000\times24.25=\text{RMB }485\text{ million}.
+\]
+
+If investor demand weakens after the underwriting commitment is made, some shares may have to be sold below the offering price or held temporarily. The contractual spread therefore does not eliminate the underwriter's exposure to distribution conditions.
+
+\end{example}
+
+
+\subsection{Initial Public Offerings and Offer Pricing}
+
+An initial public offering(IPO) brings a company's shares to public investors for the first time. The investment bank helps organize the offering, coordinate disclosure and marketing, assess investor demand, and support the setting of the offer price and the allocation of shares.
+
+An IPO may contain primary shares, secondary shares, or both. Primary shares are newly issued by the company and provide new capital to the issuer. Secondary shares are sold by existing shareholders and transfer ownership without raising new funds for the company. The composition of the offering therefore affects both its financing effect and the distribution of sale proceeds.
+
+IPO pricing is difficult because no public trading price yet exists for the shares. Valuation may draw on financial forecasts, comparable companies, prior transactions, and discounted cash-flow analysis, while investor feedback provides additional information about demand. These inputs usually support a valuation range rather than a single observable value.
+
+The offer price is set under this uncertainty. A higher price raises proceeds per primary share but may weaken demand, while a lower price can facilitate distribution but may leave a larger gain to initial investors if the shares subsequently trade at a higher price. The pricing decision therefore balances issuer proceeds against the conditions required to place the issue successfully.
+
+IPO underpricing commonly refers to a positive initial return from the offer price to the first-day market price, often measured using the closing price. Its magnitude varies across firms, periods, and markets and may reflect information frictions, uncertainty, investor participation incentives, or features of the offering process.
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{Financial Perspective: Underpricing Is an Ex Post Outcome},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+A positive first-day return is observed only after secondary-market trading begins. The offer price, by contrast, is set beforehand under uncertainty about investor demand and the price at which the shares will trade.
+
+Underpricing therefore does not by itself show that the issuer or underwriters could have known the later market price in advance. It is an ex post outcome that may reflect both pricing decisions and uncertainty resolved when trading begins.
+
+\end{tcolorbox}
+
+\subsection{Bond Issuance and Pricing}
+
+Debt underwriting centers on setting terms at which a bond can be issued to investors. Market yields, the issuer's credit characteristics, maturity, seniority, liquidity, and contractual features all affect the return investors require.
+
+Pricing therefore begins with market reference points. Government yield curves, secondary-market credit spreads, recent issues, and comparable borrowers provide benchmarks for the required yield. The issuer and underwriters use these benchmarks, together with indications of investor demand, to determine an appropriate coupon and issue price.
+
+For a fixed-rate bond, the coupon rate need not equal the required market yield. A bond can be issued above or below par when its coupon differs from the yield required by investors. In practice, the coupon and issue price are often chosen together so that the bond can be compared readily with similar securities and distributed on acceptable terms.
+
+\begin{example}{From Market Benchmarks to Final Issue Terms}{bond-issue-pricing}
+
+A company plans to issue a five-year bond. The five-year government yield is 2.8\%, and comparable corporate bonds trade at spreads of about 120 basis points over the government benchmark.
+
+Initial discussions with investors suggest limited demand at a spread of 110 basis points but stronger demand near 125 basis points. After considering these indications, the issuer and underwriters set the final spread at 125 basis points, implying an issue yield of approximately
+
+\[
+2.8\%+1.25\%=4.05\%.
+\]
+
+The coupon and issue price can then be set around this required yield. The example shows how market benchmarks and investor feedback jointly influence the final terms of a new bond issue.
+
+\end{example}
+
+Investor demand may differ across maturity, credit quality, currency, liquidity, and other characteristics. Feedback from banks, insurers, pension funds, asset managers, and other investors can therefore affect the final tenor, issue size, pricing, and allocation of the bond.
+
+The terms of a debt issue may continue to adjust until the issuer's funding objectives and investors' required returns are brought sufficiently close for the transaction to be placed.
+
+\begin{figure}[H]
+
+\centering
+
+\begin{tikzpicture}[
+  >=Latex,
+  box/.style={
+    draw,
+    rounded corners,
+    align=center,
+    minimum width=3.1cm,
+    minimum height=0.9cm,
+    inner sep=5pt
+  },
+  flow/.style={-Latex, line width=0.85pt, FinanceBlue}
+]
+
+\node[box] (bench) at (-4.6,1.25)
+{Market benchmarks\\and credit conditions};
+
+\node[box] (demand) at (-4.6,-0.75)
+{Investor demand\\and preferences};
+
+\node[box] (yield) at (0,0.25)
+{Required yield};
+
+\node[box] (terms) at (4.0,0.25)
+{Coupon and\\issue price};
+
+% Two inputs converge into a common vertical line
+\coordinate (mergeTop) at (-2.0,1.25);
+\coordinate (mergeBottom) at (-2.0,-0.75);
+\coordinate (mergeCenter) at (-2.0,0.25);
+
+\draw[line width=0.85pt, FinanceBlue] (bench.east) -- (mergeTop);
+\draw[line width=0.85pt, FinanceBlue] (demand.east) -- (mergeBottom);
+
+% Shared connection and output
+\draw[line width=0.85pt, FinanceBlue]
+  (mergeTop) -- (mergeBottom);
+
+\draw[flow] (mergeCenter) -- (yield.west);
+\draw[flow] (yield.east) -- (terms.west);
+\end{tikzpicture}
+
+\caption{Pricing a new bond issue}
+
+\label{fig:ch13-bond-issue-pricing}
+
+\end{figure}
+
+\subsection{Bookbuilding, Pricing, and Investor Allocation}
+
+Bookbuilding is a process through which underwriters collect indications of investor demand before final pricing and allocation. Investors may indicate the quantities they are willing to purchase at different prices or yields, allowing the underwriters to assess both the strength and the distribution of demand.
+
+Let $q_i(p)$ denote investor $i$'s indicated demand at price $p$. Aggregate indicated demand is
+
+\begin{equation}
+Q(p)=\sum_{i=1}^{n} q_i(p).
+\label{eq:ch13-bookbuilding-demand}
+\end{equation}
+
+The order book provides more information than aggregate demand alone. Underwriters can observe the size and price sensitivity of orders, the composition of participating investors, and how demand changes as proposed terms are revised. This information helps assess the price at which the issue can be placed and the degree of uncertainty surrounding that demand.
+
+Final pricing therefore uses the order book without following a purely mechanical rule. A more issuer-favorable price may increase proceeds per security but leave less room for changes in demand before the transaction is completed. Issuers and underwriters may also consider execution risk, investor participation, and expected secondary-market conditions when setting the final terms.
+
+Allocation determines how the securities are distributed when indicated demand differs from the amount offered. Some offerings may use largely proportional allocations, while others allow greater discretion. Allocations can reflect order size, price sensitivity, investor characteristics, and the information conveyed during bookbuilding. Such discretion can improve the placement process, but it can also create conflicts when allocation decisions are influenced by relationships or objectives unrelated to the transaction.
+
+\begin{example}{Price Sensitivity in Bond Bookbuilding}{bond-bookbuilding-sensitivity}
+
+A company plans to issue RMB~1 billion in five-year bonds. During
+bookbuilding, investors submit orders totaling RMB~1.6 billion
+at an indicative yield of 3.0\%. However, RMB~500 million of
+these orders are conditional on a yield of at least 3.2\%.
+
+If the final yield is set at 3.0\%, these price-sensitive orders
+may not participate, leaving only RMB~1.1 billion in orders
+consistent with the final pricing terms. Even these orders may
+be revised before allocation as market conditions change.
+
+The underwriter must therefore assess not only the total volume
+of submitted orders but also their price sensitivity and
+reliability. Setting a higher yield may attract additional
+demand, but it also increases the issuer's borrowing cost.
+Bookbuilding thus involves balancing investor demand against
+the financing cost faced by the issuer.
+\end{example}
+
+\section[Market Making and Secondary-Market Intermediation]{Market Making and Secondary-Market \\Intermediation}
+
+In secondary markets, dealers support trading by quoting prices, executing client orders, and temporarily holding securities when buy and sell orders do not coincide. This activity uses balance-sheet capacity to absorb short-term inventory imbalances and facilitate transactions in marketable securities.
+
+\subsection{Dealer Inventories, Balance Sheets, and Liquidity Provision}
+
+A dealer can buy a security from a client before finding another investor willing to purchase it. The position enters dealer inventory, allowing the client to trade without waiting for an offsetting order.
+
+Let $I_t$ denote the dealer's inventory at the end of period $t$, $Q_t^{B}$ purchases from clients, and $Q_t^{S}$ sales to clients. A simple inventory relation is
+
+\begin{equation}
+I_t=I_{t-1}+Q_t^{B}-Q_t^{S}.
+\label{eq:ch13-dealer-inventory}
+\end{equation}
+
+Holding inventory exposes the dealer to price movements and requires funding and balance-sheet capacity. If a dealer buys bonds from clients and market yields rise before the position is sold, the value of the inventory can decline. Capital requirements, funding costs, hedging costs, and internal risk limits can therefore affect the willingness of dealers to absorb client orders.
+
+\begin{example}{Inventory Risk in a Client Trade}{dealer-inventory-risk}
+
+A dealer purchases a bond position with a market value of RMB~50 million and plans to resell it later in the day. If the market value falls by 0.4\%  before the position is sold, the mark-to-market loss is approximately
+
+\[
+50{,}000{,}000\times 0.004=\text{RMB }200{,}000.
+\]
+
+\end{example}
+
+Dealer liquidity provision can therefore vary with market conditions. When volatility rises, funding becomes more costly, or risk limits become more restrictive, dealers may hold less inventory or quote less aggressively. Liquidity can weaken even when the contractual terms of the securities have not changed.
+
+This inventory-bearing role distinguishes dealer intermediation from simple order matching. A trading platform can connect buyers and sellers without taking positions, whereas a dealer can provide immediacy by temporarily using its own balance sheet.
+
+\subsection[Bid--Ask Spreads, Information, and Trading Costs]
+{Bid--Ask Spreads, Information, and Trading \\Costs}
+
+A dealer typically quotes a bid price at which it is willing to buy and an ask price at which it is willing to sell. The quoted spread is
+
+\begin{equation}
+s=P_{\mathrm{ask}}-P_{\mathrm{bid}}.
+\label{eq:ch13-dealer-spread}
+\end{equation}
+
+The spread reflects several sources of trading cost and risk. Order processing and market access involve direct costs, while inventory positions expose the dealer to price and funding risk. Adverse selection adds an information component when the dealer may trade with investors who possess better information about the security's value.
+
+The size of these components varies across securities and trades. A small transaction in a liquid security may require little inventory commitment, whereas a large trade in a less liquid security may be more difficult to offset and expose the dealer to greater price risk.
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{Financial Perspective: The Quoted Spread Is Not the Entire Trading Cost},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+The quoted bid--ask spread describes the prices available for a stated quantity. A larger trade may require execution at less favorable prices if the quantity available at the best quotes is limited.
+
+Trading cost can therefore include both the quoted spread and the additional price concession required to execute the desired quantity. This distinction becomes more important when trade size is large relative to available market liquidity.
+
+\end{tcolorbox}
+
+Information asymmetry can further affect dealer quotes. If incoming orders are more likely to contain information about future value, trading against those orders can generate losses for the dealer. Wider spreads, smaller quoted quantities, or less aggressive prices can reduce this exposure, although they also increase the cost of immediate execution for other investors.
+
+Bid--ask spreads therefore reflect the cost of providing immediacy under uncertainty. They tend to depend on the liquidity of the security, the size of the trade, the dealer's risk exposure, and the information environment in which the transaction occurs.
+
+\section{Advisory and Strategic Transactions}
+
+Investment banks also advise firms on transactions that alter ownership, control, or capital structure. Their role is to help evaluate alternatives, negotiate terms, arrange financing when needed, and coordinate the execution of transactions whose value depends on firm-specific information and contractual design.
+
+\subsection{Mergers and Acquisitions Advisory}
+
+Mergers and acquisitions transfer or reorganize control over corporate assets and cash flows. Investment banks may advise buyers, sellers, targets, or special committees by assessing transaction alternatives, estimating value, identifying counterparties, and supporting negotiation and execution.
+
+Transaction decisions involve more than valuation alone. A buyer may expect operating or financial benefits from combining two firms but face uncertainty about whether those gains can be realized. A seller may consider not only price but also the form of consideration, financing certainty, regulatory approval, and the probability that the transaction will be completed. Valuation therefore provides a basis for negotiation rather than a uniquely determined transaction price.
+
+A simple framework separates stand-alone value from the incremental value expected from the combination. Let $V_{acquirer}$ and $V_{target}$ denote the stand-alone values of the acquirer and target, $S$ the expected gross gains from combining them, and $C$ the present value of transaction and integration costs. The combined value is
+
+\begin{equation}
+V_{merger}=V_{acquirer}+V_{target}+S-C.
+\label{eq:ch13-combined-transaction-value}
+\end{equation}
+
+If the acquirer pays total consideration $P_{target}$ for the target, the expected NPV to the acquirer's existing shareholders in this simplified framework is
+
+\begin{equation}
+\textit{NPV}_{acquirer}=S-C-(P_{target}-V_{target}).
+\label{eq:ch13-acquirer-transaction-npv}
+\end{equation}
+
+The term $P_{target}-V_{target}$ is the acquisition premium relative to the target's estimated stand-alone value. A transaction may generate positive combined gains while allocating a substantial share of those gains to target shareholders through the negotiated premium.
+
+\begin{example}{Synergy and the Negotiated Premium}{ma-synergy-premium}
+
+A target has an estimated stand-alone value of RMB~1.0 billion. A buyer expects gross combination benefits of RMB~250 million and integration costs with a present value of RMB~50 million. The expected net incremental value is therefore RMB~200 million.
+
+If the agreed purchase price is RMB~1.15 billion, the premium over the target's estimated stand-alone value is RMB~150 million. Under these assumptions, the buyer's expected transaction NPV is
+
+\[
+200-150=\text{RMB }50\text{ million}.
+\]
+
+\end{example}
+
+The adviser helps the client evaluate these trade-offs and translate valuation estimates into transaction terms. Advisory work can improve the quality and execution of the decision, but it does not establish that the transaction will ultimately create value.
+
+\subsection{Restructuring, Recapitalization, and Distressed Transactions}
+
+Firms may alter their capital structures for strategic reasons or in response to financial pressure. A recapitalization changes the mix, maturity, or ownership structure of financial claims without necessarily altering the firm's operating assets. When payment obligations become difficult to sustain, restructuring may require more substantial changes to debt terms, priority, recovery, or control.
+
+Investment banks may advise the company, creditors, or investors in evaluating these alternatives. In a recapitalization, the analysis may focus on leverage, maturity structure, financing flexibility, and the allocation of ownership and control. Under financial distress, greater attention shifts to enterprise value, expected recovery, near-term financing needs, and the distribution of value across claimant groups. Possible transactions include debt or equity issuance, maturity extensions, exchange offers, new financing, and asset sales.
+
+A liability-management transaction illustrates the mechanism. A firm facing near-term maturities may offer longer-dated securities in exchange for existing debt. Extending maturity can reduce immediate refinancing pressure, but creditors will compare the value, priority, collateral, and expected recovery of the new claims with those of the securities they surrender. The terms must therefore provide sufficient value for enough holders to participate.
+
+Distressed transactions can also redistribute value and control among claimant classes. Senior creditors, junior creditors, and shareholders may have different preferences over recovery, risk, and future control of the firm. Advisers can support valuation, transaction design, and negotiation, while the enforceable rights of each claimant remain governed by contracts and applicable law.
+
+\subsection{Valuation, Negotiation, and Transaction Execution}
+
+Valuation provides a framework for comparing transaction alternatives, but it typically depends on assumptions rather than producing a uniquely determined value. Discounted cash-flow analysis depends on forecasts and discount rates, while comparable-company and precedent-transaction methods depend on the relevance of the selected benchmarks. Strategic value may also differ across buyers when expected synergies, financing capacity, or control benefits differ. Investment banks therefore often use valuation ranges and sensitivity analysis to show how estimated value changes with key assumptions.
+
+Negotiation converts these valuation assessments into transaction terms. Price is only one dimension. Consideration may take the form of cash, shares, debt, or a combination, while earn-outs, contingent payments, break fees, financing conditions, and closing provisions can alter the allocation of risk and value. Transactions with similar headline prices can therefore create different economic exposures for the parties involved.
+
+Execution determines whether the negotiated transaction is completed on the agreed terms. Advisers coordinate financing, documentation, timetables, and information flows across legal, accounting, regulatory, and other work streams. Changes in financing conditions, regulatory review, shareholder approval, due diligence findings, or market conditions can affect both the probability and the terms of completion.
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{Financial Perspective: Value and Price Are Not the Same},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+Valuation estimates the economic value of a transaction under stated assumptions. The negotiated price reflects not only those estimates but also bargaining conditions, competing offers, financing terms, contractual protections, and execution risk.
+
+A valuation range therefore informs negotiation without mechanically determining the final transaction price.
+
+\end{tcolorbox}
+
+%========================================================
+% Summary
+%========================================================
+
+\TailModule{summary}{Summary}
+
+Investment banks support capital-market transactions through information production, certification, security design, distribution, and execution. Their role differs from traditional balance-sheet intermediation because investors generally continue to hold claims issued directly by the financing entity.
+
+Underwriting helps move securities from issuers to investors. Firm commitments expose underwriters to placement risk, syndication shares distribution capacity and exposure, and bookbuilding provides information for pricing and allocation.
+
+In secondary markets, dealers use inventory and balance-sheet capacity to provide immediacy. Bid--ask spreads reflect transaction costs, inventory exposure, information risk, and prevailing market conditions.
+
+Investment banks also advise on mergers, acquisitions, recapitalizations, and restructurings. Across these activities, their economic role rests on information, reputation, valuation, transaction expertise, and selective use of balance-sheet capacity.
+
+%========================================================
+% Key Terms
+%========================================================
+
+\TailModule{keyterms}{Key Terms}
+
+Investment bank; capital-market intermediation; certification; due diligence; security design; underwriting; best efforts; underwriting spread; underwriting syndicate; initial public offering; primary shares; secondary shares; debt underwriting; bookbuilding; indication of interest; investor allocation; market making; dealer inventory; bid--ask spread; strategic advisory; merger; acquisition; acquisition premium; recapitalization; restructuring; liability management; transaction execution.
+
+%========================================================
+% Financial AI Lab
+%========================================================
+
+\TailModule{aiprompt}{Financial AI Lab}
+
+\textbf{Lab: Audit an AI Capital-Raising Recommendation}
+
+Select a publicly listed company that has recently raised equity or debt capital. Ask an AI system to act as an investment-bank adviser and recommend an issuance structure. The recommendation should identify the financing objective, security type, issue size, likely investor base, relevant valuation or yield benchmarks, and major execution risks.
+
+Audit the recommendation in four stages.
+
+\begin{enumerate}
+
+\item \textbf{Verify the financing need and existing capital structure.}
+
+Use financial statements and formal disclosures to confirm the firm's debt, equity, liquidity position, and stated use of proceeds. Separate verified facts from assumptions introduced by the AI.
+
+\item \textbf{Evaluate security design.}
+
+Assess whether the proposed security terms fit the issuer's financing needs and the likely investor base. For debt, consider maturity, payment structure, seniority, and collateral where relevant. For equity, consider issue size, ownership effects, and the form of the offering. Identify one alternative structure and explain the main trade-off.
+
+\item \textbf{Audit pricing evidence.}
+
+For an equity issue, compare the proposed valuation with observable market prices or suitable comparable-company evidence. For a bond issue, compare the proposed yield or spread with an appropriate benchmark curve and comparable issuers. Check that dates, currencies, maturities, and units are consistent.
+
+\item \textbf{Separate advice from underwriting commitment.}
+
+Identify which parts of the recommendation concern information, valuation, and transaction advice and which would expose the investment bank to underwriting risk. Explain how the distribution risk changes under a firm commitment relative to a placement or best-efforts arrangement.
+
+\end{enumerate}
+
+%========================================================
+% Discussion Questions
+%========================================================
+
+\TailModule{questions}{Discussion Questions}
+\begin{enumerate}
+
+\item Why does using an investment bank in a securities offering not, by itself, convert direct finance into indirect finance?
+
+\item How can investment-bank reputation reduce information frictions, and why does certification not eliminate the need for investor judgment?
+
+\item What distribution risk does a firm-commitment underwriter assume that a best-efforts intermediary generally does not?
+
+\item Why can the final offer price in a bookbuilt transaction differ from the highest price indicated by some investor orders?
+
+\item How does dealer inventory support liquidity provision, and what balance-sheet risks does the dealer assume?
+
+\item In an acquisition, why can target shareholders receive substantial gains even when little value remains for the acquirer's existing shareholders?
+
+\end{enumerate}
+
+%========================================================
+% Applied Problems
+%========================================================
+
+\TailModule{appprobs}{Applied Problems}
+
+\begin{enumerate}
+
+\item \textbf{Underwriting economics.}
+
+A company issues 30 million shares in a firm-commitment offering at a public price of RMB~18 per share. The underwriting group purchases the shares from the issuer at RMB~17.55 per share.
+
+\begin{enumerate}
+\item Calculate the gross underwriting spread per share.
+\item Calculate the total gross spread.
+\item Calculate the proceeds received by the issuer before other offering expenses.
+\item Explain why the gross spread is not the same as the underwriting group's profit.
+\end{enumerate}
+
+\item \textbf{Primary and secondary shares.}
+
+An IPO contains 80 million primary shares issued by the company and 20 million secondary shares sold by existing shareholders. The offer price is RMB~12 per share.
+
+\begin{enumerate}
+\item Calculate the gross proceeds associated with the primary shares.
+\item Calculate the gross proceeds associated with the secondary shares.
+\item Which amount enters the company before fees and expenses?
+\item Explain how the two components affect ownership and financing differently.
+\end{enumerate}
+
+\item \textbf{Bookbuilding and demand.}
+
+An issuer plans to sell 50 million shares. Indications of demand are 90 million shares at RMB~20, 65 million at RMB~21, and 42 million at RMB~22.
+
+\begin{enumerate}
+\item At which of the stated prices does indicated demand exceed the amount offered?
+\item Why is this information insufficient by itself to identify a unique offer price?
+\item Identify two qualitative features of the order book that an underwriter may examine in addition to aggregate quantity.
+\item Explain how a higher offer price can affect both issuer proceeds and execution risk.
+\end{enumerate}
+
+\item \textbf{Dealer inventory.}
+
+A dealer begins the day with a bond position with a market value of RMB~10 million. It purchases bonds with a market value of RMB~35 million from clients and sells RMB~28 million during the day.
+
+\begin{enumerate}
+
+\item Calculate the ending inventory, measured at the stated transaction values.
+
+\item If the ending inventory subsequently falls in value by 0.6\%  before it is sold, calculate the mark-to-market loss.
+
+\item Identify two additional costs that may affect the economics of providing liquidity.
+
+\item Explain how tighter internal risk limits could affect client execution even if the bond's contractual cash flows are unchanged.
+
+\end{enumerate}
+
+\item \textbf{Acquisition value and negotiation.}
+
+A target has an estimated stand-alone value of RMB~2.0 billion. A bidder estimates gross synergies of RMB~420 million and integration and transaction costs with present value of RMB~120 million.
+
+\begin{enumerate}
+\item Calculate estimated net incremental value.
+\item If the bidder offers RMB~2.24 billion, calculate the premium over stand-alone value.
+\item Using Equation~(\ref{eq:ch13-acquirer-transaction-npv}), calculate the bidder's expected transaction NPV under the stated assumptions.
+\item Recalculate the NPV if integration costs rise to RMB~220 million.
+\item Explain why the negotiated price may differ from a valuation estimate based on these assumptions.
+\end{enumerate}
+
+\item \textbf{Bond issuance and market feedback.}
+
+A company plans to issue a five-year bond. The five-year government yield is 3.0\% . Comparable corporate bonds trade at spreads of about 110 basis points over the government benchmark. Initial investor feedback suggests weak demand at a spread of 100 basis points but stronger demand near 120 basis points.
+
+\begin{enumerate}
+
+\item Calculate the benchmark yield implied by a spread of 110 basis points.
+
+\item Calculate the issue yield implied by a spread of 120 basis points.
+
+\item Explain why the issuer may accept the higher spread even though it increases borrowing cost.
+
+\item Identify two factors, other than the benchmark yield, that could cause the final issue terms to change before placement.
+
+\end{enumerate}
+
+\end{enumerate}
+
+%========================================================
+% Case Analysis
+%========================================================
+
+\TailModule{caseanalysis}{Case Analysis}
+
+\textbf{Case: Alibaba's 2014 U.S. Initial Public Offering}
+
+Alibaba Group Holding Limited priced its U.S. initial public offering in September 2014 at US\$68 per American depositary share (ADS). The base offering included 320,106,100 ADSs: Alibaba offered 123,076,931 newly issued ADSs, while existing shareholders offered 197,029,169 ADSs. At the offer price, the gross proceeds of the base offering were approximately US\$21.77 billion.
+
+Six investment banks acted as joint bookrunners. The prospectus reported underwriting discounts and commissions of US\$0.816 per ADS. Alibaba and certain selling shareholders also granted the underwriters an option to purchase up to 48,015,900 additional ADSs. The option was subsequently exercised in full, increasing total gross proceeds to approximately US\$25.03 billion.
+
+Use the transaction to examine several investment-banking functions. First, distinguish the primary ADSs sold by Alibaba from the secondary ADSs sold by existing shareholders. Which portion raised new capital for the company, and which portion transferred ownership from existing shareholders to new investors?
+
+Second, calculate the underwriting discount as a percentage of the US\$68 offer price. What services and risks does this compensation reflect, and why should it not be interpreted as pure underwriting profit?
+
+Third, consider the role of the joint bookrunners. How can a syndicate broaden investor coverage, aggregate information during bookbuilding, and share distribution exposure? What tension can arise between the issuer's interest in a higher offer price and the underwriters' concerns about execution risk and investor participation?
+
+Finally, explain how the option to purchase additional ADSs can provide flexibility beyond the base offering size and support the distribution process. Keep the analysis focused on underwriting and distribution rather than on subsequent share-price performance.
+
+\emph{Primary sources: Alibaba Group Holding Limited, final prospectus filed with the U.S. Securities and Exchange Commission, September 2014; Alibaba Group announcements on IPO pricing and the exercise of the underwriters' option, September 2014.}
+
+%========================================================
+% Further Reading
+%========================================================
+
+\TailModule{furtherread}{Further Reading}
+
+\begin{itemize}
+
+\item Beatty, Randolph P., and Jay R. Ritter (1986),
+``Investment Banking, Reputation, and the Underpricing of Initial Public Offerings,''
+\emph{Journal of Financial Economics}, 15(1--2), 213--232.
+
+\item Benveniste, Lawrence M., and Paul A. Spindt (1989),
+``How Investment Bankers Determine the Offer Price and Allocation of New Issues,''
+\emph{Journal of Financial Economics}, 24(2), 343--361.
+
+\item Chemmanur, Thomas J., and Paolo Fulghieri (1994),
+``Investment Bank Reputation, Information Production, and Financial Intermediation,''
+\emph{The Journal of Finance}, 49(1), 57--79.
+
+\item Ellis, Katrina, Roni Michaely, and Maureen O'Hara (2000),
+``When the Underwriter Is the Market Maker: An Examination of Trading in the IPO Aftermarket,''
+\emph{The Journal of Finance}, 55(3), 1039--1074.
+
+\item Servaes, Henri, and Marc Zenner (1996),
+``The Role of Investment Banks in Acquisitions,''
+\emph{The Review of Financial Studies}, 9(3), 787--815.
+
+\end{itemize}
+
+\ChapterTail{summary,keyterms,aiprompt,questions,appprobs,caseanalysis,furtherread}

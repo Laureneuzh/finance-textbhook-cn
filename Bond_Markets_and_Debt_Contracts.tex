@@ -1,0 +1,1392 @@
+\chapter{Bond Markets and Debt Contracts}
+\label{chap:Bond_Markets_and_Debt_Contracts}
+
+\begin{openingcase}{Why Does a Corporate Bond Yield More?}
+
+A large manufacturing company plans to raise RMB~3 billion by issuing seven-year bonds. At the time of issuance, seven-year government bonds yield about 2.2\%. The company has a strong credit record and stable cash flows, yet investors are unwilling to buy its bonds at the same yield. To complete the issue, the company must offer about 3.0\%.
+
+Several months later, the bonds are trading in the secondary market. The company has made all scheduled payments, and its business outlook has changed little. Even so, the market price of the bonds has fallen and their yield has risen to 3.4\%.
+
+\end{openingcase}
+
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=FinanceBlue!6,
+  colframe=FinanceBlue,
+  boxrule=0.6pt,
+  sharp corners,
+  left=8pt,
+  right=8pt,
+  top=7pt,
+  bottom=7pt,
+  before skip=1em,
+  after skip=1.6em,
+  title=\textbf{Core Questions},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  attach boxed title to top left={xshift=6pt,yshift=-2mm},
+  boxed title style={
+    boxrule=0pt,
+    sharp corners,
+    left=5pt,
+    right=5pt,
+    top=2pt,
+    bottom=2pt
+  }
+]
+\begin{enumerate}[
+  leftmargin=*,
+  label=\textcolor{FinanceBlue}{\textbf{\arabic*.}},
+  itemsep=0.55em,
+  topsep=0.2em
+]
+
+\item How do maturity, seniority, collateral, covenants, and default provisions determine the rights embedded in a debt contract?
+
+\item How do primary and secondary bond markets
+incorporate information about issuers, interest
+rates, and liquidity into bond prices and yields?
+
+\item How do changes in benchmark interest rates
+and credit spreads affect bond values, and how
+do duration and convexity measure bond price
+sensitivity to changes in required yields?
+
+\end{enumerate}
+\end{tcolorbox}
+
+\section{The Contractual Structure of Debt}
+
+Debt contracts specify promised payments together with the rights and restrictions attached to the claim. These provisions affect expected recovery, borrower incentives, and creditor control, and therefore influence the return investors require and the value of the bond.
+
+\subsection{Promised Cash Flows, Maturity, and Repayment}
+
+The most basic debt contract specifies the amount borrowed, the payments due before maturity, and the repayment required at maturity. A conventional fixed-rate coupon bond promises periodic coupon payments and repayment of face value when the bond matures.
+
+Let $F$ denote face value, $c$ the annual coupon rate, and $m$ the number of coupon payments per year. The coupon paid each period is
+
+\begin{equation*}
+C=\frac{cF}{m}.
+\label{eq:ch8-coupon-payment}
+\end{equation*}
+
+If the bond has $N$ remaining coupon periods, its promised cash-flow sequence is
+
+\begin{equation*}
+(C_t)_{t=1}^N
+=
+(\underbrace{C,\; C,\; \ldots,\; C}_{N-1\text{ periods}},\; C+F).
+\label{eq:ch8-promised-cash-flow-sequence}
+\end{equation*}
+
+Figure~\ref{fig:ch8-coupon-bond-cashflows}
+illustrates the timing of these promised payments.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  >=Latex,
+  axis/.style={-Latex, line width=0.8pt},
+  cash/.style={-Latex, line width=1.0pt, FinanceBlue},
+  tick/.style={line width=0.6pt}
+]
+
+% Time axis with a break
+\draw[line width=0.8pt] (0,0) -- (4.8,0);
+
+\draw[axis] (5.8,0) -- (10.3,0)
+  node[right]{Time};
+
+% Omitted periods
+% \node at (5.3,0) {$\cdots$};
+
+% Tick marks
+\foreach \x in {0,1.8,3.6,7.0,8.8}
+{
+  \draw[tick] (\x,0.12) -- (\x,0);
+}
+
+% Time labels
+\node[below=4pt] at (0,0) {$t=0$};
+\node[below=4pt] at (1.8,0) {$t=1$};
+\node[below=4pt] at (3.6,0) {$t=2$};
+\node[below=4pt] at (7.0,0) {$t=N-1$};
+\node[below=4pt] at (8.8,0) {$t=N$};
+
+% Dashed segment indicating omitted coupon periods
+\draw[densely dashed, line width=0.8pt]
+  (4.8,0) -- (5.8,0);
+
+
+% Coupon payments
+\draw[cash] (1.8,0) -- (1.8,0.65)
+  node[above=3pt] {$C$};
+
+\draw[cash] (3.6,0) -- (3.6,0.65)
+  node[above=3pt] {$C$};
+
+\draw[cash] (7.0,0) -- (7.0,0.65)
+  node[above=3pt] {$C$};
+
+% Final coupon and principal
+\draw[cash] (8.8,0) -- (8.8,1.25)
+  node[above=3pt] {$C+F$};
+
+\end{tikzpicture}
+
+\caption{Promised Cash Flows of a Conventional Coupon Bond}
+\label{fig:ch8-coupon-bond-cashflows}
+\end{figure}
+
+The coupon rate determines the contractual coupon payment. It is not the same as the market yield. The coupon rate is fixed by the contract for a conventional fixed-rate bond, whereas the market yield changes with the bond's price and the return investors require.
+
+Bond contracts differ in both coupon and principal-repayment structure. A zero-coupon bond makes no periodic coupon payments, whereas a coupon-bearing bond does. Principal may be repaid under a bullet or an amortizing structure. A bullet bond repays principal at maturity, whereas an amortizing bond repays principal progressively before maturity. If a balance remains outstanding at maturity, the structure is partially amortizing and the final principal payment is called a balloon payment.
+
+These repayment structures distribute the issuer's
+cash-payment obligations differently over time.
+A bullet structure preserves the full principal
+outstanding until maturity but concentrates repayment
+at that date. Amortization requires earlier principal
+payments, progressively reducing the outstanding
+balance and the amount remaining at maturity.
+
+Maturity determines the contractual horizon over which
+the debt remains outstanding. A longer maturity extends
+the period over which investors are exposed to changes
+in the issuer's credit condition. For otherwise similar
+fixed-rate bonds, it also generally increases sensitivity
+to changes in market interest rates.
+
+\begin{example}{Bullet and Amortizing Structures}{bullet-amortizing-structures}
+
+Consider two three-year bonds with face value RMB~1,000 and an annual coupon rate of 6\%.
+
+A bullet bond pays RMB~60 of interest in each of the first two years and RMB~1,060 at maturity:
+
+\[
+60,\qquad 60,\qquad 1,060.
+\]
+
+This conventional coupon bond has a bullet principal
+structure: no principal is repaid before maturity.
+Bullet repayment refers to the timing of principal
+repayment rather than the payment of coupons.
+A zero-coupon bond that repays its entire face value
+at maturity also has a bullet principal structure.
+
+\medskip
+
+Suppose instead that the principal is repaid in three equal annual installments. Interest is calculated on the principal outstanding at the beginning of each year. The payments are then approximately
+
+\[
+393.33,\qquad 373.33,\qquad 353.34.
+\]
+
+The bullet structure keeps the full principal outstanding until maturity, whereas amortization reduces the principal progressively and lowers subsequent interest payments. 
+
+\end{example}
+
+
+\subsection{Seniority and Priority of Claims}
+
+Debt claims differ in priority. Seniority specifies the order in which creditors are entitled to receive value when the issuer cannot satisfy all claims in full. Senior claims rank ahead of junior claims, subject to contractual terms and applicable insolvency law. Priority may have little visible effect when all promised payments can be made. In distress, however, it determines how shortfalls are allocated across claims.
+
+Consider an issuer with value $A$ available to senior and subordinated creditors after relevant costs and any claims ranking ahead of them. Suppose the senior claim is $D_S$ and the subordinated claim is $D_J$. In a simplified priority waterfall, the amount recovered by senior creditors $R_S$ is
+
+\begin{equation}
+R_S=\min\{D_S,A\},
+\label{eq:ch8-senior-recovery}
+\end{equation}
+while the amount recovered by subordinated creditors is
+
+\begin{equation}
+R_J
+=
+\min\left\{D_J,\max\{A-R_S,0\}\right\}
+=
+\min\left\{D_J,\max\{A-D_S,0\}\right\}.
+\label{eq:ch8-junior-recovery}
+\end{equation}
+
+The simplified waterfall abstracts from collateral rights, guarantees, intercreditor agreements, and other legal complexities.
+
+\begin{example}{A Simple Priority Waterfall}{priority-waterfall}
+
+A firm has RMB~100 million of senior debt and RMB~60 million of subordinated debt. If RMB~130 million is available to these creditors, senior creditors recover RMB~100 million and subordinated creditors receive the remaining RMB~30 million, implying a 50\% recovery rate.
+
+If only RMB~80 million is available, senior creditors recover RMB~80 million and subordinated creditors receive nothing.
+
+\end{example}
+
+Priority may also arise from corporate structure. Debt issued by a parent company may be structurally subordinated to debt issued by an operating subsidiary, since subsidiary creditors have claims on subsidiary assets before residual value can be distributed to the parent. Guarantees can reduce this subordination by giving creditors a direct claim against another entity in the group.
+
+Bonds with similar maturities may differ in expected recovery and value when their priority positions differ.
+
+\subsection{Collateral and Creditor Protection}
+
+Collateral gives creditors a security interest in specified assets that may be enforced if the borrower fails to meet its contractual obligations. A secured creditor therefore holds both a payment claim on the borrower and a claim against designated collateral, subject to the validity and enforceability of the security interest.
+
+The protection provided by collateral depends on its realizable value, liquidity, and legal enforceability. If the debt claim is $D$ and the realizable value of pledged collateral is $V_C$, a simple collateral-coverage ratio is
+
+\begin{equation}
+CC=\frac{V_C}{D}.
+\label{eq:ch8-collateral-coverage}
+\end{equation}
+
+A higher coverage ratio may improve expected recovery, but it does not ensure full repayment. Collateral values may decline before default, competing claims may reduce the value available to a creditor, and liquidation or enforcement may be costly.
+
+Collateral can also affect borrower incentives. Assets pledged to creditors are less readily transferred or re-pledged, and their loss in default can reduce the attraction of actions that increase creditor risk. The effectiveness of these protections also depends on the terms of the security agreement and the applicable legal framework.
+
+Different assets provide different degrees of protection. Marketable securities can often be realized more readily than specialized equipment, real estate, or receivables, even when their current appraised values are similar.
+
+Bondholders may also benefit from guarantees. A guarantee gives the creditor a contractual claim against a guarantor rather than a security interest in a specific asset. Collateral and guarantees strengthen creditor protection through different legal mechanisms.
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{Financial Perspective: A Secured Bond Is Not Risk Free},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+A secured bond is not a risk-free bond. Collateral can improve expected recovery if default occurs, but it does not ensure that promised payments will be made. Credit analysis therefore considers both the probability of default and the loss that creditors may bear in default.
+
+\end{tcolorbox}
+
+\subsection{Bond Indentures and Bondholder Rights}
+
+Bond indentures specify the covenants governing the
+issuer's financial policies and corporate actions.
+Common provisions restrict additional borrowing,
+asset disposals, distributions to shareholders, or
+changes in corporate control. Others require the
+issuer to provide financial information or maintain
+specified financial conditions. These provisions
+define the contractual protections available to
+bondholders.
+
+A covenant breach does not necessarily constitute
+an immediate event of default. The consequences depend
+on the terms of the indenture, including notice and
+cure provisions. If the breach qualifies as an event
+of default, bondholders may obtain rights such as
+acceleration of repayment or enforcement of security
+interests, where applicable. A breach may also lead
+to negotiations over waivers or amendments to the
+bond contract.
+
+In widely held bond issues, the exercise of these
+rights is complicated by dispersed ownership and
+collective action problems. A trustee commonly acts
+on behalf of bondholders in monitoring compliance,
+communicating with the issuer, and administering
+contractual remedies. The indenture specifies the
+trustee's authority and the voting thresholds required
+for collective decisions.
+
+\subsection{Default, Restructuring, and Recovery}
+
+Default occurs when the issuer fails to meet contractual obligations or when a specified event of default occurs under the debt agreement. Failure to pay interest or principal is the clearest case. Other events of default may include specified covenant breaches, cross-defaults, or insolvency events.
+
+Default does not by itself determine the loss on a debt claim. Creditors may recover value through continued payments, collateral realization, restructuring, or liquidation. Let $R$ denote the value recovered and $D$ the contractual claim at default. The recovery rate is
+
+\begin{equation}
+RR=\frac{R}{D}.
+\label{eq:ch8-recovery-rate}
+\end{equation}
+and loss given default is
+
+\begin{equation}
+LGD=1-RR.
+\label{eq:ch8-lgd}
+\end{equation}
+
+A simplified expected-loss measure over a specified horizon is
+
+\begin{equation}
+EL=PD\times LGD\times EAD,
+\label{eq:ch8-expected-credit-loss}
+\end{equation}
+where $PD$ is the probability of default and $EAD$ is exposure at default. This expression separates the likelihood of default from the loss conditional on default.
+
+Restructuring modifies the original debt contract. It may involve extending maturity, reducing coupon or principal payments, exchanging existing debt for new securities, or converting debt into equity. Restructuring can preserve going-concern value when liquidation would destroy value.
+
+Restructuring outcomes are influenced by priority, collateral, legal rules, and bargaining between the issuer and its creditors and among creditor classes. Dispersed bondholders may also face coordination problems. Voting and amendment provisions can reduce these problems by allowing specified majorities to approve changes that bind affected holders.
+
+Recovery reflects both the value preserved in resolution and the contractual position of the claim. Restructuring or liquidation affects the amount of value available to creditors, while seniority, collateral, guarantees, and legal rules affect how that value is allocated among claims. Debt claims issued by the same firm may have different recovery rates.
+
+\begin{example}{Same Default Probability, Different Expected Loss}{default-and-recovery}
+
+Consider two one-year debt claims, each with an exposure of 100 and a 3\% probability of default. Claim A has an expected recovery rate of 70\% in default, while Claim B has an expected recovery rate of 20\%.
+
+Using the simplified expected-loss measure,
+
+\[
+EL_A=0.03\times(1-0.70)\times100=0.9,
+\]
+
+whereas
+
+\[
+EL_B=0.03\times(1-0.20)\times100=2.4.
+\]
+
+The two claims have the same default probability but different expected losses because their expected recoveries differ.
+
+\end{example}
+
+\section{Bond Market Architecture and Price Discovery}
+
+A bond contract defines promised cash flows and creditor rights, but market prices emerge through trading among investors. The organization of issuance, trading, clearing, and settlement affects the costs of finding counterparties, executing transactions, and transferring ownership. These frictions influence market liquidity and the extent to which new information is incorporated into bond prices and yields.
+
+\subsection{Issuers, Investors, and Market Participants}
+
+Bond issuers differ in financing purpose, repayment capacity, and legal structure. Governments issue debt to finance public expenditures and manage public liabilities. Financial institutions and nonfinancial corporations use bonds to obtain term funding, refinance existing obligations, or finance investment. Differences in repayment sources and balance-sheet structure give these claims different credit characteristics.
+
+Investors also differ in liabilities, investment horizons, liquidity needs, and regulatory constraints. Banks may hold bonds for investment, liquidity, or collateral purposes. Insurance companies and pension funds often hold longer-duration assets against long-dated liabilities, while asset managers operate under portfolio mandates and redemption structures that can place greater weight on market liquidity.
+
+These differences create heterogeneous demand across maturities, credit classes, and bond types. Some securities fit the balance-sheet needs or investment constraints of particular investors better than others. The composition of the investor base can therefore influence the range of bonds that issuers are able to place in the market.
+
+Specialized institutions support the connection between issuers and investors. Underwriters and arrangers assist with new issues, rating agencies assess credit quality, dealers support secondary-market transactions, and depositories, custodians, and settlement systems support the holding and transfer of securities. Their principal roles are summarized in Table~\ref{tab:ch8-market-participants}.
+
+\begin{table}[H]
+\centering
+\caption{Selected Participants and Infrastructure in Bond Markets}
+\label{tab:ch8-market-participants}
+
+\begin{tabularx}{\textwidth}{@{}p{3.1cm}Y Y@{}}
+\toprule
+\textbf{Participant} &
+\textbf{Primary role} &
+\textbf{Relevant economic concern} \\
+\midrule
+
+Governments and public issuers
+& Raise public debt financing
+& Fiscal capacity, debt sustainability, maturity structure \\
+
+Corporations and financial institutions
+& Raise debt capital
+& Funding needs, leverage, refinancing, credit quality \\
+
+Banks, insurers, pension funds, and asset managers
+& Invest in and trade bonds
+& Return, duration, liquidity, credit exposure, regulation \\
+
+Underwriters and arrangers
+& Structure, underwrite, and distribute bond issues
+& Due diligence, pricing, investor demand, distribution risk \\
+
+Credit rating agencies
+& Assess issuer and issue credit risk
+& Rating quality, methodology, information, conflicts of interest \\
+
+Dealers
+& Make markets and support secondary-market trading
+& Trading capacity, inventory risk, funding, market liquidity \\
+
+Bond trustees
+& Represent bondholders and administer contractual rights
+& Covenant compliance, collective action, enforcement \\
+
+Depositories, custodians, and settlement systems
+& Maintain securities records, safeguard assets, and facilitate settlement
+& Safekeeping, record accuracy, settlement finality, operational risk \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Primary and Secondary Bond Markets}
+
+The primary market is where new bonds are issued and funds are raised from investors. The secondary market is where outstanding bonds are traded after issuance. The distinction separates the financing transaction from the subsequent transfer of the claim.
+
+Government bonds are often issued through auctions, while corporate and financial bonds commonly use underwriters, syndicates, or bookbuilding processes. Issuance mechanisms differ across jurisdictions and instruments, but they address a common problem: matching the amount, maturity, contractual terms, and pricing of a new issue with investor demand.
+
+Primary-market issuance also aggregates information. Auctions, order books, and investor indications reveal demand at different yields or prices. This information helps determine the terms at which the issue can be placed and how the bonds are allocated among investors. The issue price provides an initial market valuation of the new claim.
+
+Once issued, a bond can be transferred among investors in the secondary market without changing the issuer's contractual obligation. This separates the issuer's financing horizon from the holding period of an individual investor. A ten-year bond can provide ten-year funding even when particular investors hold it for much shorter periods.
+
+\begin{figure}[H]
+\centering
+
+\begin{tikzpicture}[
+  >=Latex,
+  node/.style={
+    align=center,
+    font=\normalsize
+  },
+  flow/.style={
+    Latex-Latex,
+    line width=0.8pt,
+    draw=FinanceBlue
+  },
+  info/.style={
+    Latex-Latex,
+    dashed,
+    line width=0.7pt,
+    draw=FinanceBlue
+  },
+  infra/.style={
+    draw=FinanceBlue,
+    line width=0.7pt,
+    rounded corners=2pt,
+    align=center,
+    minimum width=10.6cm,
+    minimum height=1.0cm,
+    inner sep=6pt
+  }
+]
+
+% Primary market
+\node[node] (issuer) at (0,2.0) {Issuer};
+\node[node] (primary) at (3.5,2.0) {Primary Market};
+\node[node] (investors1) at (7.0,2.0) {Investors};
+
+\draw[flow] (issuer) -- (primary);
+\draw[flow] (primary) -- (investors1);
+
+% Market information
+\node[node, text=FinanceBlue] (info) at (5.85,1.25)
+{Market information};
+
+% Secondary market
+\node[node] (investors2) at (0,0.45) {Investors};
+\node[node] (secondary) at (3.5,0.45) {Secondary Market};
+\node[node] (investors3) at (7.0,0.45) {Investors};
+
+\draw[flow] (investors2) -- (secondary);
+\draw[flow] (secondary) -- (investors3);
+
+\draw[info] (primary.south) --  (secondary.north);
+
+% Infrastructure
+\node[
+  align=center,
+  minimum width=10.6cm,
+  minimum height=1.0cm,
+  inner sep=6pt
+] (infra) at (4.0,-1.)
+{Depositories \quad Custodians \quad Clearing \quad Settlement};
+
+\draw[
+  dashed,
+  draw=FinanceBlue,
+  line width=0.7pt
+]
+([yshift=0.55cm]infra.west) -- ([yshift=0.55cm]infra.east);
+
+\draw[
+  dashed,
+  draw=FinanceBlue,
+  line width=0.7pt
+]
+([yshift=-0.55cm]infra.west) -- ([yshift=-0.55cm]infra.east);
+
+\node[
+  align=center,
+  text=FinanceBlue
+] at (4.0,-2.15)
+{Supporting both markets};
+
+\end{tikzpicture}
+
+\caption{Primary and secondary bond markets}
+\label{fig:ch8-primary-secondary-markets}
+\end{figure}
+
+Secondary-market trading generates observable prices
+and yields for outstanding bonds. These prices
+incorporate changing information about interest
+rates, credit conditions, and investor demand.
+They provide valuation references for existing bonds
+and help determine the pricing and terms of subsequent
+issuance. An increase in secondary-market yields,
+for example, may raise the financing costs faced by
+issuers returning to the market.
+
+\subsection{Dealers, Trading, and Market Liquidity}
+
+Many bond markets rely substantially on dealer intermediation. Investors may request quotations from dealers rather than submit every order to a centralized order book. A dealer can buy from one investor and later sell to another, holding the bond in inventory between the two transactions.
+
+A dealer's bid is the price at which the dealer is willing to buy, while the ask is the price at which the dealer is willing to sell. The bid--ask spread reflects transaction costs, inventory risk, adverse selection, and the use of funding and balance-sheet capacity.
+
+Market liquidity has several dimensions. Tightness refers to the cost of executing a trade and is often reflected in bid--ask spreads. Depth refers to the amount that can be traded without a substantial price change. Resiliency refers to the speed with which prices and trading conditions recover after a large trade or market disturbance.
+
+Liquidity varies across bonds. Recently issued benchmark government bonds may trade frequently and in large amounts, while older issues or small corporate bonds may trade only occasionally. Bonds issued by the same borrower can therefore differ substantially in liquidity.
+
+Dealer balance sheets influence the provision of liquidity. A dealer that acquires a bond before finding another buyer must finance the position and bear the risk of an adverse price movement. Higher funding costs, greater price volatility, or tighter balance-sheet constraints may reduce the inventory a dealer is willing to hold and make intermediation more costly.
+
+Electronic trading changes the organization of this process. Request-for-quote systems can facilitate competition among dealers, while other platforms automate parts of quotation and execution. Post-trade transparency provides information about recent transactions, although greater transparency may also affect the willingness of dealers to intermediate large or difficult trades.
+
+\begin{figure}[H]
+\centering
+
+\begin{tikzpicture}[
+  >=Latex,
+  box/.style={
+    draw=FinanceBlue,
+    line width=0.7pt,
+    rounded corners=2pt,
+    align=center,
+    text width=2.8cm,
+    minimum height=0.9cm,
+    inner sep=5pt
+  },
+  cash/.style={
+    -Latex,
+    line width=0.9pt,
+    draw=FinanceBlue
+  },
+  bond/.style={
+    -Latex,
+    dashed,
+    line width=0.9pt,
+    draw=FinanceBlue
+  },
+  label/.style={
+    font=\small,
+    fill=white,
+    inner sep=1.5pt
+  }
+]
+
+% Participants
+\node[box] (seller) at (-4.8,0)
+  {Investor\\wishing to sell};
+
+\node[box] (dealer) at (0,0)
+  {Dealer};
+
+\node[box] (buyer) at (4.8,0)
+  {Investor\\wishing to buy};
+
+% Seller to dealer: bond transfer
+\draw[bond]
+  ([yshift=6pt]seller.east) --
+  node[label, above=3pt] {Bond}
+  ([yshift=6pt]dealer.west);
+
+% Dealer to seller: cash payment
+\draw[cash]
+  ([yshift=-6pt]dealer.west) --
+  node[label, below=3pt] {Cash}
+  ([yshift=-6pt]seller.east);
+
+% Dealer to buyer: bond transfer
+\draw[bond]
+  ([yshift=6pt]dealer.east) --
+  node[label, above=3pt] {Bond}
+  ([yshift=6pt]buyer.west);
+
+% Buyer to dealer: cash payment
+\draw[cash]
+  ([yshift=-6pt]buyer.west) --
+  node[label, below=3pt] {Cash}
+  ([yshift=-6pt]dealer.east);
+
+\end{tikzpicture}
+
+\caption{Dealer Intermediation in Secondary Bond Trading}
+\label{fig:ch8-dealer-intermediation}
+\end{figure}
+
+By acting as a principal, the dealer temporarily
+holds the bond inventory and bears the associated
+inventory and funding risks. The difference between
+the buying and selling prices contributes to the
+dealer's trading revenue.
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{Financial Perspective: Low Credit Risk Does Not Imply High Liquidity},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+A bond can have low default risk and still be difficult or costly to trade. Credit risk concerns losses associated with failure to meet contractual payments, while market liquidity concerns the ability to trade the claim without substantial cost or price impact. The two can interact under stress but remain distinct dimensions of risk.
+
+\end{tcolorbox}
+
+\section{Valuation and Risk of Debt Contracts}
+
+Bond valuation links contractual cash flows to market discount rates. For an option-free bond without default risk, value is the present value of promised coupons and principal. Changes in benchmark interest rates affect the discounting of these cash flows, while credit risk affects expected payments and the spread investors require.
+
+\subsection{Bond Prices, Yields, and Contractual Cash Flows}
+
+Consider a bond with promised cash flow $CF_t$ at the end of term $t$, for $t=1,\ldots,T$. If a continuously compounded yield $y$ is used to discount all promised cash flows, the bond price is
+
+\begin{equation}
+P(y)
+=
+\sum_{t=1}^{T}
+CF_t e^{-yt}.
+\label{eq:ch8-bond-price}
+\end{equation}
+
+For a plain-vanilla bond, $CF_t=C$ for $t=1,\ldots,T-1$, and $CF_T=C+F$.
+
+The yield to maturity (YTM) is the single discount
+rate that equates the present value of a bond's
+promised cash flows to its observed market price.
+It does not necessarily equal the investor's realized
+return. The realized return depends on whether
+promised payments are made, the rates at which
+interim coupons are reinvested, and, if the bond
+is sold before maturity, the price received at sale.
+
+For a default-free bond, each cash flow can instead be discounted at the spot rate corresponding to its maturity. Let $s_t$ denote the continuously compounded spot rate for a cash flow received at date $t$. Then
+
+\begin{equation}
+P
+=
+\sum_{t=1}^{T}
+CF_t e^{-s_t t}.
+\label{eq:ch8-bond-price-spot-rates}
+\end{equation}
+
+For a plain-vanilla bond with fixed positive cash flows, price is a decreasing function of yield. Differentiating Equation~\ref{eq:ch8-bond-price} with respect to $y$ gives
+
+\begin{equation}
+\frac{dP}{dy}
+=
+-\sum_{t=1}^{T}
+tCF_t e^{-yt}
+<0.
+\label{eq:ch8-price-yield-negative}
+\end{equation}
+
+This inverse relation also determines whether a conventional fixed-rate bond trades at par, at a premium, or at a discount. When coupon and yield are expressed on the same periodic basis, the bond is priced at par if the coupon rate equals the yield to maturity, above par if the coupon rate exceeds the yield, and below par if the coupon rate is lower than the yield.
+
+\begin{example}{A Coupon Bond Priced from Its Yield}{coupon-bond-price-yield}
+
+A five-year bond has face value 100 and pays a 5\% annual coupon. At a continuously compounded yield of 4\%, its price is
+
+\[
+P
+=
+5e^{-0.04\times1}
++
+5e^{-0.04\times2}
++
+5e^{-0.04\times3}
++
+5e^{-0.04\times4}
++
+105e^{-0.04\times5}
+=
+104.08.
+\]
+
+The bond trades above par. Let $y_{\mathrm{par}}$ denote the continuously compounded yield that prices the bond at its face value. It satisfies
+
+\[
+100
+=
+5e^{-y_{\mathrm{par}}}
++
+5e^{-2y_{\mathrm{par}}}
++
+5e^{-3y_{\mathrm{par}}}
++
+5e^{-4y_{\mathrm{par}}}
++
+105e^{-5y_{\mathrm{par}}}.
+\]
+
+For this bond,
+
+\[
+y_{\mathrm{par}}
+=
+\ln(1.05)
+\approx
+4.879\%.
+\]
+
+The assumed continuously compounded yield of 4\%
+is below this par yield, which is consistent with
+a price above 100. A yield above $y_{\mathrm{par}}$
+would imply a price below par.
+
+\end{example}
+
+Figure~\ref{fig:ch8-price-yield-curve} illustrates
+the inverse relationship between bond prices and
+yields, including the two values calculated above.
+
+
+\begin{figure}[H]
+\centering
+
+\begin{tikzpicture}
+\begin{axis}[
+  width=0.82\textwidth,
+  height=6.0cm,
+  xmin=0.5,
+  xmax=10.5,
+  ymin=75,
+  ymax=125,
+  xlabel={Continuously compounded yield (\%)},
+  ylabel={Bond price},
+  axis lines=box,
+  grid=none,
+  tick align=outside
+]
+
+\addplot[
+  FinanceBlue,
+  thick,
+  domain=0.5:10.5,
+  samples=200
+]
+{
+  5*exp(-x/100)
+  +5*exp(-2*x/100)
+  +5*exp(-3*x/100)
+  +5*exp(-4*x/100)
+  +105*exp(-5*x/100)
+};
+
+\addplot[
+  only marks,
+  mark=*,
+  mark size=1.8pt
+]
+coordinates {(4,104.08) (4.879,100)};
+
+% dashed guide lines for (4, 104.08)
+\addplot[
+  dashed,
+  FinanceBlue,
+  line width=0.6pt
+]
+coordinates {(4,75) (4,104.08)};
+
+\addplot[
+  dashed,
+  FinanceBlue,
+  line width=0.6pt
+]
+coordinates {(0.5,104.08) (4,104.08)};
+
+% dashed guide lines for (4.879, 100)
+\addplot[
+  dashed,
+  FinanceBlue,
+  line width=0.6pt
+]
+coordinates {(4.879,75) (4.879,100)};
+
+\addplot[
+  dashed,
+  FinanceBlue,
+  line width=0.6pt
+]
+coordinates {(0.5,100) (4.879,100)};
+
+\node[
+  anchor=south west,
+  font=\small
+] at (axis cs:4,104.08)
+{$(4\%,\,104.08)$};
+
+\node[
+  anchor=west,
+  font=\small
+] at (axis cs:4.879,100)
+{$(4.879\%,\,100)$};
+
+\end{axis}
+\end{tikzpicture}
+
+\caption{Price--yield relation for a five-year 5\% coupon bond under continuous compounding}
+\label{fig:ch8-price-yield-curve}
+\end{figure}
+
+\subsection{Interest Rate Risk, Duration, and Convexity}
+
+Interest rate risk is the risk that changes in market yields alter the value of a fixed-income claim. For a bond with fixed contractual cash flows, a rise in yield reduces present value, while a decline in yield increases it. The magnitude of the price response depends on the timing of the bond's cash flows: sensitivity is generally greater when a larger share of present value is associated with later payments.
+
+Duration provides a first-order measure of this sensitivity. It summarizes the timing of a bond's present-valued cash flows. For a bond priced at yield $y$ with cash flow $CF_t$ at date $t$, duration is
+
+\begin{equation}
+D=\frac{1}{P(y)}
+\sum_{t=1}^{T}
+t\,CF_t e^{-yt}.
+\label{eq:ch8-macaulay-duration}
+\end{equation}
+
+The weights $w_t = CF_t e^{-yt}/P(y)$ represent the share of the bond's present value attributable to each cash flow. Duration is thus the present-value-weighted average time to receipt of the bond's cash flows.
+
+For a zero-coupon bond,  duration equals maturity, since the entire cash flow is received at maturity. For a coupon bond, earlier coupon payments place part of the present-value weight before maturity, making duration shorter than maturity. Holding maturity and yield constant, a higher coupon generally reduces duration.
+
+Duration measures the first-order sensitivity of bond price to changes in the continuously compounded yield. Differentiating Equation~(\ref{eq:ch8-bond-price}) with respect to $y$ gives
+
+\begin{equation}
+\frac{dP(y)}{dy}=-\sum_{t=1}^{T}
+tCF_t e^{-yt}.
+\label{eq:ch8-price-yield-derivative}
+\end{equation}
+
+\begin{equation}
+D=
+\frac{1}{P(y)}
+\sum_{t=1}^{T}
+tCF_t e^{-yt}
+=
+-\frac{1}{P(y)}
+\frac{dP(y)}{dy}
+.
+\label{eq:ch8-duration}
+\end{equation}
+
+Then, 
+
+\begin{equation}
+\frac{\Delta P(y)}{P(y)}
+\approx
+-D \Delta y.
+\label{eq:ch8-duration-price-change}
+\end{equation}
+
+\begin{example}{Using Duration to Approximate a Bond Price Change}{duration-price-approximation}
+
+Consider again the five-year 5\% coupon bond in Example~\ref{ex:coupon-bond-price-yield}. At a continuously compounded yield of 4\%, its price is approximately 104.08 and its duration is 4.556.
+
+Suppose the yield rises by 50 basis points, so that
+
+\[
+\Delta y=0.005.
+\]
+
+Using duration,
+
+\[
+\frac{\Delta P}{P}
+\approx
+-D\Delta y
+=
+-4.556(0.005)
+=
+-2.278\%.
+\]
+
+The approximate new bond price is
+
+\[
+P_{\mathrm{new}}
+\approx
+104.08\times(1-0.02278)
+=
+101.71.
+\]
+
+Direct repricing at a continuously compounded yield of 4.5\% gives
+
+\[
+P
+=
+5e^{-0.045\times1}
++
+5e^{-0.045\times2}
++
+5e^{-0.045\times3}
++
+5e^{-0.045\times4}
++
+105e^{-0.045\times5}
+=
+101.74.
+\]
+
+The duration-based estimate is 101.71, compared with
+the exact repriced value of 101.74.
+
+\end{example}
+
+Bond yields may also be quoted with compounding more than once a year. Suppose $y$ is a nominal annual yield compounded $n$ times per year. For cash flows received at times $t$ measured in years, the bond price is
+
+\begin{equation}
+P(y)
+=
+\sum_{t}
+\frac{CF_t}{(1+y/n)^{nt}}.
+\label{eq:ch8-bond-price-n-compounding}
+\end{equation}
+
+The corresponding modified duration is 
+\begin{equation}
+D_{\mathrm{mod}}
+=
+\frac{D}{1+y/n}.
+\label{eq:ch8-modified-duration-relation}
+\end{equation}
+
+Modified duration is thus the price sensitivity associated with a discretely compounded yield convention. Under continuous compounding, the duration defined earlier directly measures this sensitivity.
+
+Duration provides a local linear approximation to the price--yield relation. As the change in yield becomes larger, the curvature of this relation becomes more important and the duration approximation becomes less accurate. Convexity captures this second-order sensitivity. Under continuous compounding,
+
+\begin{equation}
+\mathrm{C}
+=
+\frac{1}{P(y)}
+\frac{d^2P(y)}{dy^2}
+=
+\frac{1}{P(y)}
+\sum_{t=1}^{T}
+t^2 CF_t e^{-yt}.
+\label{eq:ch8-convexity}
+\end{equation}
+
+Including convexity gives the second-order approximation
+
+\begin{equation}
+\frac{\Delta P}{P}
+\approx
+-D\,\Delta y
++
+\frac{1}{2}\mathrm{C}(\Delta y)^2.
+\label{eq:ch8-duration-convexity-approx}
+\end{equation}
+
+The convexity term improves the duration approximation as the change in yield increases.
+
+For a plain-vanilla bond with fixed positive cash flows, convexity is positive. A decline in yield produces a larger price increase than the duration-only approximation predicts, while an equal increase in yield produces a smaller price decline.
+
+\begin{example}{Duration and Convexity as Risk Measures}{duration-convexity-risk}
+
+Consider the five-year 5\% coupon bond in Example~\ref{ex:coupon-bond-price-yield}, priced at a continuously compounded yield of 4\%. Its price is approximately 104.08 and its duration is 4.556. 
+
+For a 50-basis-point increase in yield, the duration approximation gives
+
+\[
+\frac{\Delta P}{P}
+\approx
+-D\Delta y
+=
+-4.556\times 0.005
+=
+-2.278\%.
+\]
+
+The bond's convexity is approximately 21.911.
+
+Including the second-order term gives
+
+\[
+\frac{\Delta P}{P}
+\approx
+-2.278\%
++
+\frac{1}{2}\times 21.911\times (0.005)^2
+=
+-2.251\%.
+\]
+
+\[
+P_{\mathrm{new}}
+\approx
+104.08\times(1-0.02251)
+=
+101.73.
+\]
+
+Direct repricing at a continuously compounded yield
+of 4.5\% gives a price of approximately 101.74.
+The convexity-adjusted estimate is closer to this
+value than the duration-only estimate.
+
+\end{example}
+
+\begin{figure}[H]
+\centering
+
+\begin{tikzpicture}
+\begin{axis}[
+  width=0.7\textwidth,
+  height=7.0cm,
+  xmin=-2.2,
+  xmax=2.2,
+  ymin=-18,
+  ymax=22,
+  axis lines=middle,
+  xlabel={$\Delta y$},
+  ylabel={$\Delta P$},
+  xtick=\empty,
+  ytick=\empty,
+  tick align=outside,
+  enlargelimits=false,
+  clip=false,
+ legend style={
+  at={(1.5,0.97)},
+  anchor=north east,
+  draw=none,
+  fill=none,
+  font=\small
+},
+  legend cell align=left
+]
+
+% Exact price-yield relation
+\addplot[
+  FinanceBlue,
+  very thick,
+  domain=-2:2,
+  samples=200
+]
+{-8*x + 2*x^2 - 0.12*x^3};
+\addlegendentry{Exact price--yield relation}
+
+% Duration approximation
+\addplot[
+  black,
+  dashed,
+  thick,
+  domain=-2:2,
+  samples=2
+]
+{-8*x};
+\addlegendentry{Duration approximation}
+
+% Duration-convexity approximation
+\addplot[
+  black,
+  dotted,
+  thick,
+  domain=-2:2,
+  samples=200
+]
+{-8*x + 2*x^2};
+\addlegendentry{Duration--convexity approximation}
+
+% Origin
+\addplot[
+  only marks,
+  mark=*,
+  mark size=1.7pt
+]
+coordinates {(0,0)};
+
+\end{axis}
+\end{tikzpicture}
+
+\caption{A schematic illustration of duration and convexity in approximating bond price changes}
+\label{fig:ch8-duration-convexity-concept}
+\end{figure}
+
+Figure~\ref{fig:ch8-duration-convexity-concept} illustrates the local linear approximation provided by duration and the curvature adjustment captured by convexity.
+
+Duration also has an economic interpretation. A longer-duration bond places a larger share of its present value in later cash flows and is more sensitive to changes in discount rates. This is consistent with the general valuation principle that more distant cash flows are more sensitive to the rate at which they are discounted.
+
+Duration and convexity do not capture all dimensions of bond risk. Credit spreads may change independently of benchmark rates, yield-curve movements need not be parallel, and embedded options can alter cash flows as interest rates change. In practice, these measures are often supplemented by additional measures of curve, spread, and option risk.
+
+\subsection{Credit Spreads in Bond Pricing}
+
+A credit-risky bond often trades at a yield above a benchmark bond or curve of comparable maturity. When the two yields are measured on the same basis, their difference is the yield spread:
+
+\begin{equation}
+spread
+=
+y_{\mathrm{credit}}
+-
+y_{\mathrm{benchmark}}.
+\label{eq:ch8-credit-spread}
+\end{equation}
+
+An observed spread can reflect expected default losses, compensation for bearing losses in adverse states, market liquidity, uncertainty, tax treatment, embedded options, and other instrument-specific features. It should not be interpreted directly as a default probability.
+
+A spread can also be incorporated into valuation by adding it to the benchmark spot-rate curve. Let $r_t$ denote the continuously compounded benchmark spot rate for maturity $t$, and let $z$ denote a constant spread added to each maturity. The bond price is then
+
+\begin{equation}
+P(z)
+=
+\sum_{t=1}^{T}
+CF_t e^{-(r_t+z)t}.
+\label{eq:ch8-spread-price}
+\end{equation}
+
+The constant $z$ that equates the present value of the promised cash flows to the observed bond price is commonly called the \emph{Z-spread}. It summarizes the additional yield required over the benchmark spot curve under the assumption of a constant spread across maturities. Bonds with embedded options or more complex contingent cash flows require additional treatment.
+
+Credit-spread movements can change bond prices even when benchmark interest rates remain unchanged. Suppose a corporate bond yield rises from 5.0 to 6.0\% entirely as a result of a one-percentage-point increase in its spread. With the benchmark curve unchanged, the higher spread reduces the present value of the bond's promised cash flows.
+
+A bond's yield can also rise when benchmark rates increase while its credit spread remains unchanged. The resulting price decline may appear similar, but its economic source is different. Separating benchmark-rate movements from spread movements is therefore important in analyzing bond returns and risk.
+
+Contractual features also affect credit spreads. Seniority, collateral, and guarantees can improve expected recovery, while covenants can limit actions that weaken creditor protection. Maturity changes the horizon over which credit risk is borne. Bonds issued by the same firm can therefore trade at different spreads when their contractual positions differ.
+
+Liquidity can contribute to these differences. A bond that trades infrequently or requires a substantial price concession for immediate sale may carry a wider spread than a more liquid bond with similar credit characteristics. During periods of market stress, credit and liquidity effects may move together and become difficult to separate.
+
+\begin{example}{Separating Benchmark and Spread Movements}{benchmark-spread-decomposition}
+
+A five-year corporate bond initially yields 5.2\%, while the five-year benchmark yield is 3.4\%, with both yields measured on the same basis. The bond's spread is
+
+\[
+5.2\%-3.4\%=1.8\%,
+\]
+
+or 180 basis points.
+
+One month later, the corporate yield is 6.1\% and the benchmark yield is 3.6\%. The new spread is 250 basis points. The corporate yield has risen by 90 basis points, of which 20 basis points reflect the increase in the benchmark yield and 70 basis points reflect spread widening.
+
+The change in the corporate yield therefore contains two economically distinct components: a movement in the benchmark rate and a movement in the credit spread.
+
+\end{example}
+
+%========================================================
+% Summary
+%========================================================
+
+\TailModule{summary}{Summary}
+
+A bond is a debt contract that specifies promised cash flows, maturity, priority, and other creditor rights. Coupon and principal-repayment structures determine the timing of promised payments, while seniority and collateral influence how losses are allocated in distress. Covenants restrict or require specified actions, and default provisions determine when creditors can exercise additional rights. Recovery depends on contractual priority, collateral, guarantees, restructuring, and the legal and institutional environment.
+
+Bond markets connect issuers with investors through both primary and secondary markets. Primary issuance determines the terms on which new debt is sold, while secondary trading allows investors to transfer existing claims without changing the issuer's contractual obligations. Dealers support trading and liquidity by standing between buyers and sellers, while trading platforms facilitate quotation and execution. Dealer intermediation is influenced by inventory risk, funding conditions, information, and balance-sheet capacity.
+
+Bond valuation begins with contractual cash flows. Yield to maturity is the single discount rate that equates the present value of promised cash flows with the observed price, while spot-rate valuation applies maturity-specific discount rates. For bonds with fixed positive cash flows, price and yield move in opposite directions. Duration provides a first-order measure of price sensitivity to yield changes, while convexity captures the curvature of the price--yield relation and improves the approximation for larger changes.
+
+Credit spreads measure the additional yield on a credit-risky bond relative to a benchmark, but they are not pure measures of default probability. Expected default losses, compensation for bearing losses in adverse states, liquidity, contractual features, and market conditions can all contribute to the spread. Bond prices thus reflect both the rights embedded in the debt contract and the market's changing valuation of those rights.
+
+%========================================================
+% Key Terms
+%========================================================
+
+\TailModule{keyterms}{Key Terms}
+
+Bond; face value; coupon rate; coupon payment; maturity; bullet bond; amortizing bond; zero-coupon bond; seniority; subordinated debt; collateral; guarantee; covenant; control right; default; restructuring; recovery rate; loss given default; primary bond market; secondary bond market; dealer; bid--ask spread; market liquidity; yield to maturity; spot-rate valuation; premium bond; discount bond; duration; modified duration; convexity; benchmark yield; credit spread; Z-spread; liquidity premium.
+
+%========================================================
+% Financial AI Lab
+%========================================================
+
+\TailModule{aiprompt}{Financial AI Lab}
+
+\textbf{Lab: Audit a Bond Valuation and Risk Report}
+
+Choose an actively traded, option-free government or corporate bond for which the face value, coupon rate, coupon frequency, maturity date, and market price can be verified from authoritative sources. Ask an AI system to calculate the bond's yield to maturity, duration, and convexity, stating the yield and compounding conventions used.
+
+Audit the report in four stages.
+
+\begin{enumerate}
+
+\item \textbf{Verify the contract.}
+
+Check the coupon rate, payment frequency, maturity, face value, and whether the bond contains any embedded option. Confirm whether the quoted market price is clean or dirty and identify the convention used to calculate accrued interest.
+
+\item \textbf{Reproduce the valuation.}
+
+Construct the contractual cash flows independently and verify that discounting them at the reported yield reproduces the settlement price on a consistent basis. Check cash-flow timing, compounding convention, units, coupon frequency, and the treatment of accrued interest.
+
+\item \textbf{Stress the yield.}
+
+Increase and decrease the yield by 50 basis points. Calculate the exact repriced bond values and compare them first with the duration approximation and then with the duration--convexity approximation. Explain the direction and magnitude of the approximation errors.
+
+\item \textbf{Separate benchmark and spread risk.}
+
+If a credit-risky bond is selected, compare its yield with an appropriate benchmark of similar maturity. Ask the AI system to explain the observed spread. Identify which parts of the explanation are directly supported by data and which require additional evidence about default risk, expected recovery, liquidity, contractual features, or market conditions.
+
+\end{enumerate}
+
+The final report should identify at least one case in which a numerically correct calculation could still lead to a financially misleading conclusion.
+
+%========================================================
+% Discussion Questions
+%========================================================
+
+\TailModule{questions}{Discussion Questions}
+
+\begin{enumerate}
+
+\item Why can two bonds issued by the same firm and maturing on the same date have different yields? Explain using priority, collateral, covenants, and liquidity.
+
+\item Why is yield to maturity not necessarily the return an investor will actually realize on a bond?
+
+\item Why does duration provide only a local approximation to a bond's price response to changes in yield? How does convexity improve this approximation?
+
+\item A bond's yield rises by 80 basis points while the benchmark yield rises by only 20 basis points. What additional information is needed before attributing the remaining change to default risk?
+
+\end{enumerate}
+
+%========================================================
+% Applied Problems
+%========================================================
+
+\TailModule{appprobs}{Applied Problems}
+
+\begin{enumerate}
+
+\item \textbf{Contractual cash flows.}
+
+A bond has face value RMB~1,000, a 6\% annual coupon rate, semiannual coupon payments, and four years to maturity.
+
+\begin{enumerate}
+
+\item Calculate each semiannual coupon payment.
+
+\item How many coupon payments remain?
+
+\item State the final contractual payment at maturity.
+
+\item Explain which of these contractual cash flows changes if market yields rise immediately after the bond is issued.
+
+\end{enumerate}
+
+\item \textbf{Priority and recovery.}
+
+A distressed firm has RMB~150 million available for two classes of debt. Senior debt has a contractual claim of RMB~120 million and subordinated debt has a claim of RMB~80 million.
+
+\begin{enumerate}
+
+\item Calculate the amount recovered by each class under strict priority.
+
+\item Calculate the recovery rate for each class.
+
+\item Recalculate the recoveries if the value available to creditors falls to RMB~90 million.
+
+\item Explain why the two classes can have different credit spreads before default even though they are obligations of the same issuer.
+
+\end{enumerate}
+
+\item \textbf{Bond price and yield.}
+
+A five-year bond has face value 100 and pays a 4\% annual coupon.
+
+\begin{enumerate}
+
+\item Calculate its price if the continuously compounded yield to maturity is 3\%.
+
+\item Recalculate the price at a continuously compounded yield of 5\%.
+
+\item Identify whether the bond trades at a premium or discount in each case.
+
+\item Verify that the direction of the price change is consistent with the price--yield relation.
+
+\end{enumerate}
+
+\item \textbf{Spot-rate valuation.}
+
+A three-year bond has face value 100 and pays a 5\% annual coupon. The continuously compounded one-, two-, and three-year spot rates are 3.0, 3.6, and 4.1\%.
+
+\begin{enumerate}
+
+\item Price the bond using the spot-rate curve.
+
+\item Explain why discounting every cash flow at the three-year spot rate would not be equivalent.
+
+\item Find the continuously compounded yield to maturity that approximately reproduces your price.
+
+\item Explain the economic difference between the spot rates and the yield to maturity.
+
+\end{enumerate}
+
+\item \textbf{Duration and convexity.}
+
+A bond has duration of 6.2 and convexity of 48. Its current price is 102. Assume yields are continuously compounded.
+
+\begin{enumerate}
+
+\item Estimate the percentage price change for a 40-basis-point increase in yield using duration only.
+
+\item Add the convexity adjustment.
+
+\item Estimate the new price using the duration--convexity approximation.
+
+\item Explain why the convexity term has the same sign for equal increases and decreases in yield.
+
+\end{enumerate}
+
+\item \textbf{Benchmark rates and credit spreads.}
+
+A seven-year corporate bond yields 5.8\% when a comparable benchmark bond yields 3.7\%, with both yields measured on the same basis.
+
+\begin{enumerate}
+
+\item Calculate the initial spread in basis points.
+
+\item One month later, the corporate yield is 6.4\% and the benchmark yield is 3.9\%. Calculate the new spread.
+
+\item Decompose the 60-basis-point increase in the corporate yield into the benchmark-rate change and the spread change.
+
+\item Give three possible reasons for the spread change and explain what evidence would be needed to distinguish among them.
+
+\end{enumerate}
+
+\end{enumerate}
+
+%========================================================
+% Data Application
+%========================================================
+
+\TailModule{dataapp}{Data Application}
+
+\textbf{Government Curves, Credit Curves, and Bond-Market Pricing in China}
+
+Use ChinaBond yield-curve data published by China Central Depository \& Clearing Co., Ltd. Select a government bond yield curve and at least one credit-related curve, such as a high-grade corporate or commercial-bank bond curve. Use common maturities and, as far as possible, the same yield definition and observation basis.
+
+First, plot the selected curves for a common observation date and calculate the spread between the credit curve and the government curve at each common maturity. Examine whether the spread is approximately constant across maturities or varies along the curve.
+
+Second, repeat the analysis for an earlier observation date. For each maturity, decompose the change in the credit yield into the change in the government yield and the change in the spread:
+
+\[
+\Delta y_{\mathrm{credit},t}
+=
+\Delta y_{\mathrm{government},t}
++
+\Delta s_t.
+\]
+
+Identify the maturities at which the credit spread changed most and compare these changes with movements in the government curve.
+
+Third, interpret the results cautiously. A wider spread between a credit curve and the government curve can reflect expected credit losses, risk premia, market liquidity, investor demand, issuer characteristics, or differences in curve construction. A change in the observed spread should not be interpreted directly as a change in default probability.
+
+Report the observation dates, curve names, maturities, yield definitions, and data source. If the source provides different types of curves, such as yield-to-maturity and spot-rate curves, state which one is used and explain the choice. Where possible, examine whether the underlying securities differ in liquidity, issuer type, credit quality, or contractual structure before interpreting the spread economically.
+
+%========================================================
+% Further Reading
+%========================================================
+
+\TailModule{furtherread}{Further Reading}
+
+\begin{itemize}
+
+\item Macaulay, Frederick R. (1938),
+\emph{Some Theoretical Problems Suggested by the Movements of Interest Rates, Bond Yields and Stock Prices in the United States since 1856},
+National Bureau of Economic Research.
+
+\item Fisher, Lawrence, and Roman L. Weil (1971),
+``Coping with the Risk of Interest-Rate Fluctuations: Returns to Bondholders from Na\"ive and Optimal Strategies,''
+\emph{The Journal of Business}, 44(4), 408--431.
+
+\item Merton, Robert C. (1974),
+``On the Pricing of Corporate Debt: The Risk Structure of Interest Rates,''
+\emph{The Journal of Finance}, 29(2), 449--470.
+
+\item Duffie, Darrell, and Kenneth J. Singleton (1999),
+``Modeling Term Structures of Defaultable Bonds,''
+\emph{The Review of Financial Studies}, 12(4), 687--720.
+
+\item Bessembinder, Hendrik, William Maxwell, and Kumar Venkataraman (2006),
+``Market Transparency, Liquidity Externalities, and Institutional Trading Costs in Corporate Bonds,''
+\emph{Journal of Financial Economics}, 82(2), 251--288.
+
+\end{itemize}
+
+\ChapterTail{summary,keyterms,aiprompt,questions,appprobs,dataapp,furtherread}

@@ -1,0 +1,1317 @@
+\chapter{债券市场与债务契约}
+\label{chap:Bond_Markets_and_Debt_Contracts}
+
+\begin{openingcase}{为什么企业债券的收益率更高？}
+
+一家大型制造企业计划发行七年期债券，筹集人民币~30~亿元。发行时，七年期政府债券收益率约为~2.2\%。虽然该企业信用记录良好、现金流稳定，投资者却不愿按相同收益率购买其债券。为完成发行，企业必须提供约~3.0\%~的收益率。
+
+几个月后，债券在二级市场交易。企业已履行全部约定支付，经营前景也变化不大。即便如此，债券市场价格仍然下跌，收益率升至~3.4\%。
+
+\end{openingcase}
+
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=FinanceBlue!6,
+  colframe=FinanceBlue,
+  boxrule=0.6pt,
+  sharp corners,
+  left=8pt,
+  right=8pt,
+  top=7pt,
+  bottom=7pt,
+  before skip=1em,
+  after skip=1.6em,
+  title=\textbf{核心问题},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  attach boxed title to top left={xshift=6pt,yshift=-2mm},
+  boxed title style={
+    boxrule=0pt,
+    sharp corners,
+    left=5pt,
+    right=5pt,
+    top=2pt,
+    bottom=2pt
+  }
+]
+\begin{enumerate}[
+  leftmargin=*,
+  label=\textcolor{FinanceBlue}{\textbf{\arabic*.}},
+  itemsep=0.55em,
+  topsep=0.2em
+]
+
+\item 债务的清偿顺位、抵押品、契约限制条款以及违约条款如何决定债务契约中所包含的权利？
+
+\item 初级市场和次级市场是如何将有关发行者、利率以及流动性的信息纳入债券价格和收益率中的呢？
+
+\item 基准利率和信用利差的变化如何影响债券价值？而久期和凸性又如何衡量债券价格对所需收益率变化的敏感性呢？
+
+\end{enumerate}
+\end{tcolorbox}
+
+\section{债务的契约结构}
+
+债务契约规定承诺支付，以及请求权附带的权利与限制。这些条款影响预期回收、借款人激励和债权人控制，进而影响投资者要求的回报及债券价值。
+
+\subsection{承诺现金流、期限与偿还}
+
+最基本的债务契约规定借款金额、到期前应支付的款项及到期偿还额。传统固定利率附息债券承诺定期支付票息，并在债券到期时偿还面值。
+
+设 $F$ 表示面值，$c$ 表示年票面利率，$m$ 表示每年票息支付的次数。每个期间支付的票息为
+
+\begin{equation*}
+C=\frac{cF}{m}.
+\label{eq:ch8-coupon-payment}
+\end{equation*}
+
+如果债券还有 $N$ 个票息期，那么其承诺的现金流序列为
+
+\begin{equation*}
+(C_t)_{t=1}^N
+=
+(\underbrace{C,\; C,\; \ldots,\; C}_{N-1\text{ 保留LaTeX命令、公式、交叉引用和数字。}},\; C+F).
+\label{eq:ch8-promised-cash-flow-sequence}
+\end{equation*}
+
+图~\ref{fig:ch8-coupon-bond-cashflows}展示了这些承诺支付的时间安排。
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  >=Latex,
+  axis/.style={-Latex, line width=0.8pt},
+  cash/.style={-Latex, line width=1.0pt, FinanceBlue},
+  tick/.style={line width=0.6pt}
+]
+
+% Time axis with a break
+\draw[line width=0.8pt] (0,0) -- (4.8,0);
+
+\draw[axis] (5.8,0) -- (10.3,0)
+  node[right]{时间};
+
+% Omitted periods
+% \node at (5.3,0) {$\cdots$};
+
+% Tick marks
+\foreach \x in {0,1.8,3.6,7.0,8.8}
+{
+  \draw[tick] (\x,0.12) -- (\x,0);
+}
+
+% Time labels
+\node[below=4pt] at (0,0) {$t=0$};
+\node[below=4pt] at (1.8,0) {$t=1$};
+\node[below=4pt] at (3.6,0) {$t=2$};
+\node[below=4pt] at (7.0,0) {$t=N-1$};
+\node[below=4pt] at (8.8,0) {$t=N$};
+
+% Dashed segment indicating omitted coupon periods
+\draw[densely dashed, line width=0.8pt]
+  (4.8,0) -- (5.8,0);
+
+
+% Coupon payments
+\draw[cash] (1.8,0) -- (1.8,0.65)
+  node[above=3pt] {$C$};
+
+\draw[cash] (3.6,0) -- (3.6,0.65)
+  node[above=3pt] {$C$};
+
+\draw[cash] (7.0,0) -- (7.0,0.65)
+  node[above=3pt] {$C$};
+
+% Final coupon and principal
+\draw[cash] (8.8,0) -- (8.8,1.25)
+  node[above=3pt] {$C+F$};
+
+\end{tikzpicture}
+
+\caption{传统票息债券的承诺现金流}
+\label{fig:ch8-coupon-bond-cashflows}
+\end{figure}
+
+票面利率决定契约票息支付，并不等同于市场收益率。传统固定利率债券的票面利率由契约固定，而市场收益率随债券价格及投资者必要报酬率而变化。
+
+债券契约在票息和本金偿还结构上均存在差异。零息债券不定期支付票息，附息债券则定期付息。本金可以采用到期一次还本或分期还本结构。前者在到期时偿还本金，后者则在到期前逐步还本。如果到期时仍有未偿余额，就属于部分分期还本结构，最后一笔本金支付称为尾期大额还本。
+
+这些偿还结构使发行人的现金支付义务具有不同的时间分布。到期一次还本结构使全部本金在到期前保持未偿，但将偿还集中于到期日；分期还本要求更早支付本金，逐步降低未偿余额及到期剩余本金。
+
+期限决定债务存续的契约时间范围。期限越长，投资者承受发行人信用状况变化的时间越长。对其他特征相近的固定利率债券而言，较长期限通常也增加其对市场利率变化的敏感性。
+
+\begin{example}{bullet和摊销结构}{bullet-amortizing-structures}
+
+假设有两种面值为人民币~1,000的三年期债券，其票面利率为6\%。
+
+到期一次还本债券的利息在头两年分别为人民币~60元，而在到期时则达到人民币~1,060元。
+
+\[
+60,\qquad 60,\qquad 1,060.
+\]
+
+这类传统附息债券采用到期一次还本结构，到期前不偿还本金。“到期一次还本”指本金偿还时点，而非票息支付方式。到期时偿还全部面值的零息债券，同样采用这一本金结构。
+
+\medskip
+
+假设本金在每年分三次等额偿还。利息是根据每年年初的存续本金来计算的。然后进行的支付大致为
+
+\[
+393.33,\qquad 373.33,\qquad 353.34.
+\]
+
+到期一次还本结构使得本金在到期时全部偿还，而分期偿还则逐步减少本金，同时降低后续的利息支付。 
+
+\end{example}
+
+
+\subsection{清偿顺位与请求权优先次序}
+
+债务请求权具有不同的优先次序。清偿顺位规定发行人无法足额满足全部请求权时，债权人有权获得价值分配的先后顺序。在契约条款与适用破产法约束下，优先请求权排在次级请求权之前。所有承诺支付都能履行时，优先次序的影响可能并不明显；但在困境中，它决定不同请求权如何分担短缺。
+
+设发行人扣除相关成本及更高顺位请求权后，可供优先和次级债权人分配的价值为~$A$。优先请求权为~$D_S$，次级请求权为~$D_J$。在简化的优先顺序瀑布中，优先债权人的回收额~$R_S$~为
+
+\begin{equation}
+R_S=\min\{D_S,A\},
+\label{eq:ch8-senior-recovery}
+\end{equation}
+而次级债权人获得的赔偿金额则有限。
+
+\begin{equation}
+R_J
+=
+\min\left\{D_J,\max\{A-R_S,0\}\right\}
+=
+\min\left\{D_J,\max\{A-D_S,0\}\right\}.
+\label{eq:ch8-junior-recovery}
+\end{equation}
+
+简化的瀑布模型忽略了抵押品权利、担保、互信协议以及其他法律复杂性。
+
+\begin{example}{一个简单的优先级瀑布模型}{priority-waterfall}
+
+企业有人民币~1~亿元优先债务和~6000~万元次级债务。如果可供这些债权人分配的价值为~1.3~亿元，优先债权人回收~1~亿元，次级债权人获得剩余~3000~万元，次级债务回收率为~50\%。
+
+如果能够获得8000万元人民币的资金，那么高级债权人将获得8000万元人民币，而次级债权人则一无所获。
+
+\end{example}
+
+优先次序也可能来自公司结构。母公司发行的债务，可能在结构上次于经营性子公司的债务，因为子公司剩余价值分配给母公司之前，子公司债权人优先对其资产享有请求权。担保使债权人对集团内另一实体拥有直接请求权，可以减轻这种结构性次级地位。
+
+到期时间相近的债券，在优先级不同的情况下，其预期回收价值和数值可能会有所不同。
+
+\subsection{抵押品与债权人保护}
+
+抵押品赋予债权人对特定资产的担保物权，借款人未履行契约义务时可依法执行。因此，有担保债权人既拥有对借款人的支付请求权，也拥有对指定抵押品的权利，但须以担保物权有效且可执行为前提。
+
+抵押品的保护程度取决于其可变现价值、流动性以及法律强制执行力。如果债务请求权为$D$，而抵押品的可变现价值为$V_C$，那么简单的抵押品覆盖比率就是
+
+\begin{equation}
+CC=\frac{V_C}{D}.
+\label{eq:ch8-collateral-coverage}
+\end{equation}
+
+较高的抵押品覆盖率可能会提高回收的预期，但并不能确保全额偿还。在违约之前，抵押品的价值可能会下降，相互竞争的请求权可能会降低债权人可获得的价值，而清算或执行过程可能会非常昂贵。
+
+抵押品也会影响借款人的激励因素。抵押给债权人的资产不易被转让或重新抵押，而在违约时这些资产的损失会降低那些增加债权人风险的行为的吸引力。这些保护措施的有效性也取决于证券协议的条款以及适用的法律框架。
+
+不同的资产提供不同程度的保护。可交易的证券通常比专用设备、房地产或应收账款更容易变现，即使它们的当前评估价值相似。
+
+债券持有人也可以从担保中受益。担保使债权人能够对担保人享有请求权，而不是对特定资产的担保物权。抵押品和担保通过不同的法律机制加强债权人的保护。
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{财务展望：安全债券并非无风险之选},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+有担保债券并非无风险债券。违约发生时，抵押品可能改善预期回收，却不能确保承诺支付得到履行。因此，信用分析既考虑违约概率，也考虑债权人在违约时可能承担的损失。
+
+\end{tcolorbox}
+
+\subsection{债券契约与持有人权利}
+
+债券契约规定了管理发行人的财务政策及企业行为的契约限制条款。一般条款限制了额外的借款、资产处置、向股东的分配，或企业控制的变更。其他条款则要求发行人提供财务信息或维持特定的财务状况。这些条款定义了债券持有人可以获得的合同保护。
+
+契约限制条款的违反并不必然构成立即的违约事件。其后果取决于契约限制条款的条款规定，包括通知和补救条款。如果违反行为符合违约事件的构成要件，债券持有人可以获得诸如加速偿还或执行担保物权等权利（如适用）。此外，违反契约限制条款还可能导致关于放弃或部分修改债券契约的谈判。
+
+在广泛发行的债券中，由于债券持有人的分散性以及集体行动的问题，行使这些权利变得非常复杂。通常，受托人会代表债券持有人进行监控、与发行方沟通，并管理合同规定的救济措施。契约规定了受托人的权力范围，以及进行集体决策所需的投票门槛。
+
+\subsection{违约、重组与回收}
+
+发行人未履行契约义务，或发生债务协议规定的违约事件时，即构成违约。未支付利息或本金是最明确的情形。其他违约事件可能包括特定契约限制条款被违反、交叉违约或破产事件。
+
+抵押品本身并不能决定债务请求权的损失。债权人可以通过持续的支付、抵押品的变现、重组或清算来收回价值。$R$用“恢复的值”来表示这个数值。$D$违约时的合同请求权。回收率为
+
+\begin{equation}
+RR=\frac{R}{D}.
+\label{eq:ch8-recovery-rate}
+\end{equation}
+而违约损失率则是
+
+\begin{equation}
+LGD=1-RR.
+\label{eq:ch8-lgd}
+\end{equation}
+
+在指定的时间范围内，一个简化的预期损失衡量方法如下：
+
+\begin{equation}
+EL=PD\times LGD\times EAD,
+\label{eq:ch8-expected-credit-loss}
+\end{equation}
+其中，$PD$表示违约概率，$EAD$表示违约时的敞口。这个表达式将违约的可能性与违约条件下的损失区分开来。
+
+债务重组会改变原有的债务契约。它可能包括延长到期时间、减少票息或本金支付、用新证券替换现有债务，或将债务转换为权益。在清算会破坏企业价值的情况下，债务重组可以保护企业的持续经营价值。
+
+重组的结果受到优先级、抵押品、法律规则以及发行方与其债权人之间以及不同债权类别之间的协商影响。分散的债券持有人也可能面临协调问题。通过规定必须由特定多数票批准变更，可以减少这些问题。
+
+回收金额既反映了在清偿过程中保留的价值，也体现了请求权的合同地位。重组或清算会影响债权人可获得的价值，而清偿顺位、抵押品、担保以及法律规则则决定了这些价值如何在请求权之间进行分配。同一家公司发行的债务请求权可能会有不同的回收率。
+
+\begin{example}{相同默认概率，不同预期损失}{default-and-recovery}
+
+假设有两个一年的债务请求权，每个请求权的暴露度为100，违约概率为3\%。请求权A在违约时的预期回收率为70\%，而请求权B的预期回收率为20\%。
+
+使用简化的预期损失度量方法。
+
+\[
+EL_A=0.03\times(1-0.70)\times100=0.9,
+\]
+
+而
+
+\[
+EL_B=0.03\times(1-0.20)\times100=2.4.
+\]
+
+这两个请求权具有相同的默认概率，但由于它们的预期恢复金额不同，因此预期损失也有所不同。
+
+\end{example}
+
+\section{债券市场架构与价格发现}
+
+债券契约规定了承诺的现金流和债权，但市场价格是通过投资者之间的交易形成的。发行、交易、清算和结算的组织方式影响着寻找交易对手、执行交易以及转移所有权的成本。这些摩擦因素影响市场流动性，以及新信息在债券价格和收益率中的体现程度。
+
+\subsection{发行人、投资者与市场参与者}
+
+债券发行者在融资目的、偿还能力和法律结构方面存在差异。政府发行债务以资助公共支出和管理公共负债。金融机构和非金融企业则利用债券来获得期限性资金、重新融资现有债务或进行投资融资。不同的偿还来源和资产负债表结构使得这些请求权具有不同的信用特征。
+
+投资者的负债、投资期限、流动性需求以及监管限制也存在差异。银行可能会持有债券用于投资、提高市场流动性或作为抵押品。保险公司和养老基金通常会持有久期较长的资产来应对长期负债，而资产管理人在执行投资组合任务时，可能会更加重视市场流动性。
+
+这些差异导致了不同到期时间、信用等级和债券类型的多样化需求。某些证券更适合特定投资者的资产负债表需求或投资限制。因此，投资者群体的构成会影响发行者能够在市场上发行的债券种类。
+
+专业机构支持发行人与投资者之间的连接。承销商和安排人协助新证券的发行，评级机构评估信用质量，交易商支持二级市场的交易，而保管人、托管人和结算系统则负责证券的持有与转移。它们的主要职责在表~\ref{tab:ch8-market-participants}中有所总结。
+
+\begin{table}[H]
+\centering
+\caption{债券市场的精选参与者与基础设施}
+\label{tab:ch8-market-participants}
+
+\begin{tabularx}{\textwidth}{@{}p{3.1cm}Y Y@{}}
+\toprule
+\textbf{参与者} &
+\textbf{主要角色} &
+\textbf{相关的经济问题} \\
+\midrule
+
+政府和公共发行机构  
+& 增加公共债务融资  
+& 财政能力、债务可持续性、期限结构  
+\\
+
+企业和金融机构  
+& 筹集债务资金  
+& 资金需求、杠杆使用、再融资、信用质量 \\
+
+银行、保险公司、养老基金和资产管理者&投资并交易债券&久期、流动性、信用风险、监管\\
+
+承销商和安排人
+& 制定结构、承销并发行债券
+& 尽职调查、定价、投资者需求、发行风险 \\
+
+信用评级机构  
+& 评估发行机构和项目的信用风险  
+& 评估评级质量、评级方法、相关信息以及利益冲突情况  
+\\
+
+交易商
+& 进行市场交易并支持二级市场交易
+& 交易能力、库存风险、融资、市场流动性\\
+
+邦德信托人&代表债券持有人并管理合同权利&契约限制条款的遵守、集体行动、执行\\
+
+证券保管处、托管机构和结算系统
+& 负责保管证券记录，保护资产安全，并协助进行结算
+& 保管功能、记录准确性、结算的确定性，以及运营风险管理 \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{债券一级市场与二级市场}
+
+一级市场是发行新债券并向投资者筹集资金的地方。二级市场则是已发行的存续债券进行交易的地方。这种区分将融资交易与随后产生的请求权分离开来。
+
+政府债券通常通过拍卖方式发行，而企业和金融债券的发行则常采用承销商、联合承销团或簿记建档的方式。不同司法管辖区和金融工具之间的发行机制各不相同，但它们都解决了一个共同的问题：即如何使新发行的债券的数量、到期日、合同条款以及定价与投资者的需求相匹配。
+
+一级市场发行也汇集信息。拍卖、订单簿和投资者意向揭示不同收益率或价格下的需求。这些信息有助于确定发行能够完成的条款，以及债券如何在投资者之间分配。发行价格为新请求权提供初始市场估值。
+
+一旦债券发行完毕，投资者可以在二级市场上进行转让，而发行方的合同义务并不会因此发生变化。这样一来，发行方的融资期限与单个投资者的持有期限便可以分离开来。即使某些投资者只持有十年期的债券，该债券仍然可以提供十年的融资支持。
+
+\begin{figure}[H]
+\centering
+
+\begin{tikzpicture}[
+  >=Latex,
+  node/.style={
+    align=center,
+    font=\normalsize
+  },
+  flow/.style={
+    Latex-Latex,
+    line width=0.8pt,
+    draw=FinanceBlue
+  },
+  info/.style={
+    Latex-Latex,
+    dashed,
+    line width=0.7pt,
+    draw=FinanceBlue
+  },
+  infra/.style={
+    draw=FinanceBlue,
+    line width=0.7pt,
+    rounded corners=2pt,
+    align=center,
+    minimum width=10.6cm,
+    minimum height=1.0cm,
+    inner sep=6pt
+  }
+]
+
+% Primary market
+\node[node] (issuer) at (0,2.0) {发行方};
+\node[node] (primary) at (3.5,2.0) {一级市场};
+\node[node] (investors1) at (7.0,2.0) {投资者};
+
+\draw[flow] (issuer) -- (primary);
+\draw[flow] (primary) -- (investors1);
+
+% Market information
+\node[node, text=FinanceBlue] (info) at (5.85,1.25)
+{市场信息};
+
+% Secondary market
+\node[node] (investors2) at (0,0.45) {投资者};
+\node[node] (secondary) at (3.5,0.45) {二级市场};
+\node[node] (investors3) at (7.0,0.45) {投资者};
+
+\draw[flow] (investors2) -- (secondary);
+\draw[flow] (secondary) -- (investors3);
+
+\draw[info] (primary.south) --  (secondary.north);
+
+% Infrastructure
+\node[
+  align=center,
+  minimum width=10.6cm,
+  minimum height=1.0cm,
+  inner sep=6pt
+] (infra) at (4.0,-1.)
+{存储库 \quad 保管人 \quad 清算 \quad 结算};
+
+\draw[
+  dashed,
+  draw=FinanceBlue,
+  line width=0.7pt
+]
+([yshift=0.55cm]infra.west) -- ([yshift=0.55cm]infra.east);
+
+\draw[
+  dashed,
+  draw=FinanceBlue,
+  line width=0.7pt
+]
+([yshift=-0.55cm]infra.west) -- ([yshift=-0.55cm]infra.east);
+
+\node[
+  align=center,
+  text=FinanceBlue
+] at (4.0,-2.15)
+{同时支持两个市场。};
+
+\end{tikzpicture}
+
+\caption{初级和次级债券市场}
+\label{fig:ch8-primary-secondary-markets}
+\end{figure}
+
+二级市场交易为存续的债券产生了可观测的价格和收益。这些价格包含了关于利率、信用状况以及投资者需求的不断变化的信息。它们为现有债券提供了估值参考，并有助于确定后续发行的定价和条款。例如，二级市场收益率的上升可能会提高重新进入市场的发行者的融资成本。
+
+\subsection{交易商、交易与市场流动性}
+
+许多债券市场在很大程度上依赖交易商的中介服务。投资者可能会向交易商请求报价，而不是将每个订单提交给中央订单簿。交易商可以从一位投资者处购买债券，然后在另一位投资者处出售这些债券，在两次交易之间持有这些债券。
+
+交易商的买入价是指交易商愿意购买的价格，而卖出价则是指交易商愿意出售的价格。买卖价差反映了交易成本、库存风险、逆向选择问题，以及资金使用和资产负债表状况等因素的影响。
+
+市场流动性有多个维度。紧密度指的是执行交易的成本，这通常体现在买卖价差中。深度则指的是在不引起显著价格变动的情况下可以交易的金额。韧性则是指在大额交易或市场动荡之后，价格和交易条件恢复的速度。
+
+不同债券的流动性各不相同。近期发行的政府基准债券可能会经常以大额交易方式成交，而较旧或规模较小的公司债券则可能只偶尔有交易机会。因此，由同一借款人发行的债券在流动性方面也会存在显著差异。
+
+交易商的资产负债表影响着流动性的提供。如果交易商在找到其他买家之前就收购了某只债券，那么他们就必须为此承担融资风险，并承受价格下跌带来的损失。较高的融资成本、更大的价格波动性或更严格的资产负债表限制可能会降低交易商愿意持有的库存量，从而使中介活动变得更加昂贵。
+
+电子交易改变了这一过程的组织方式。询价系统可以促进交易商之间的竞争，而其他平台则能够自动化部分报价和执行流程。交易后的透明度提供了关于最近交易的信息，不过更高的透明度也可能影响交易商愿意处理大型或复杂交易的程度。
+
+\begin{figure}[H]
+\centering
+
+\begin{tikzpicture}[
+  >=Latex,
+  box/.style={
+    draw=FinanceBlue,
+    line width=0.7pt,
+    rounded corners=2pt,
+    align=center,
+    text width=2.8cm,
+    minimum height=0.9cm,
+    inner sep=5pt
+  },
+  cash/.style={
+    -Latex,
+    line width=0.9pt,
+    draw=FinanceBlue
+  },
+  bond/.style={
+    -Latex,
+    dashed,
+    line width=0.9pt,
+    draw=FinanceBlue
+  },
+  label/.style={
+    font=\small,
+    fill=white,
+    inner sep=1.5pt
+  }
+]
+
+% Participants
+\node[box] (seller) at (-4.8,0)
+  {投资者\\希望出售};
+
+\node[box] (dealer) at (0,0)
+  {交易商};
+
+\node[box] (buyer) at (4.8,0)
+  {投资者\\希望购买};
+
+% Seller to dealer: bond transfer
+\draw[bond]
+  ([yshift=6pt]seller.east) --
+  node[label, above=3pt] {债券}
+  ([yshift=6pt]dealer.west);
+
+% Dealer to seller: cash payment
+\draw[cash]
+  ([yshift=-6pt]dealer.west) --
+  node[label, below=3pt] {现金}
+  ([yshift=-6pt]seller.east);
+
+% Dealer to buyer: bond transfer
+\draw[bond]
+  ([yshift=6pt]dealer.east) --
+  node[label, above=3pt] {债券}
+  ([yshift=6pt]buyer.west);
+
+% Buyer to dealer: cash payment
+\draw[cash]
+  ([yshift=-6pt]buyer.west) --
+  node[label, below=3pt] {现金}
+  ([yshift=-6pt]dealer.east);
+
+\end{tikzpicture}
+
+\caption{交易商在次级债券交易中的中介作用}
+\label{fig:ch8-dealer-intermediation}
+\end{figure}
+
+作为本金的交易商，会暂时持有债券库存，并承担与库存和资金相关的风险。买卖价格之间的差额构成了交易商的交易收入。
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{财务前景：低信用风险并不意味着高流动性。},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+债券可能具有较低的违约风险，但交易起来仍然很困难或成本高昂。信用风险涉及因未能履行合同付款而产生的损失，而市场流动性则涉及到在不产生重大成本或价格影响的情况下交易请求权的能力。在压力之下，这两种风险可能会相互作用，但它们仍然是不同维度的风险。
+
+\end{tcolorbox}
+
+\section{债务契约的估值与风险}
+
+债券估值将合同中的现金流与市场折现率联系起来。对于没有违约风险的无期权债券而言，其价值等于承诺的票息和本金的现值。基准利率的变化会影响这些现金流的折现方式，而信用风险则会影响预期支付金额以及投资者要求的利差。
+
+\subsection{债券价格、收益率与契约现金流}
+
+考虑一种债券，其在期限$t$结束时承诺的现金流为$CF_t$，其中$t=1,\ldots,T$。如果使用连续复利的收益率$y$来折现所有承诺的现金流，那么债券的价格就是
+
+\begin{equation}
+P(y)
+=
+\sum_{t=1}^{T}
+CF_t e^{-yt}.
+\label{eq:ch8-bond-price}
+\end{equation}
+
+对于普通的债券来说，$CF_t=C$对于…$t=1,\ldots,T-1$同时保留LaTeX命令、公式表达、交叉引用以及数字格式。$CF_T=C+F$.
+
+到期收益率（YTM）是使债券承诺现金流现值等于观察到的市场价格的单一贴现率。它未必等于投资者的已实现回报。已实现回报取决于承诺支付是否履行、期间票息的再投资利率，以及在到期前出售债券时获得的售价。
+
+对于无违约风险的债券，每个现金流都可以按照其到期日对应的即期利率进行折现。用$s_t$表示在日期$t$收到的现金流的连续复利即期利率。那么
+
+\begin{equation}
+P
+=
+\sum_{t=1}^{T}
+CF_t e^{-s_t t}.
+\label{eq:ch8-bond-price-spot-rates}
+\end{equation}
+
+对于具有固定正现金流的普通债券来说，价格与收益率呈负相关关系。对方程~\ref{eq:ch8-bond-price}关于$y$求导，可以得到……
+
+\begin{equation}
+\frac{dP}{dy}
+=
+-\sum_{t=1}^{T}
+tCF_t e^{-yt}
+<0.
+\label{eq:ch8-price-yield-negative}
+\end{equation}
+
+这种反向关系还决定了传统固定利率债券是以平价交易、溢价交易还是折价交易。当票息和到期收益率采用相同的周期表示时，如果票面利率等于到期收益率，则债券以平价定价；如果票面利率高于到期收益率，则以溢价定价；如果票面利率低于到期收益率，则以折价定价。
+
+\begin{example}{以票息定价的票息债券}{coupon-bond-price-yield}
+
+一张面值为100的五年期债券的票息为5\%。在连续复利的4\%收益率下，其价格是多少？
+
+\[
+P
+=
+5e^{-0.04\times1}
++
+5e^{-0.04\times2}
++
+5e^{-0.04\times3}
++
+5e^{-0.04\times4}
++
+105e^{-0.04\times5}
+=
+104.08.
+\]
+
+该债券的交易价格高于面值。用$y_{\mathrm{par}}$表示以面值定价时该债券的连续复利收益率。它满足
+
+\[
+100
+=
+5e^{-y_{\mathrm{par}}}
++
+5e^{-2y_{\mathrm{par}}}
++
+5e^{-3y_{\mathrm{par}}}
++
+5e^{-4y_{\mathrm{par}}}
++
+105e^{-5y_{\mathrm{par}}}.
+\]
+
+对于该债券，
+
+\[
+y_{\mathrm{par}}
+=
+\ln(1.05)
+\approx
+4.879\%.
+\]
+
+假设连续复合的收益率为4\%，这一数值低于正常水平，这与价格高于100美元的情况是一致的。如果收益率高于$y_{\mathrm{par}}$水平，那么价格就会低于正常水平。
+
+\end{example}
+
+图~\ref{fig:ch8-price-yield-curve}展示了债券价格与收益率之间的反比关系，其中包含了上述计算得出的两个数值。
+
+
+\begin{figure}[H]
+\centering
+
+\begin{tikzpicture}
+\begin{axis}[
+  width=0.82\textwidth,
+  height=6.0cm,
+  xmin=0.5,
+  xmax=10.5,
+  ymin=75,
+  ymax=125,
+  xlabel={连续复合收益（\%）},
+  ylabel={债券价格},
+  axis lines=box,
+  grid=none,
+  tick align=outside
+]
+
+\addplot[
+  FinanceBlue,
+  thick,
+  domain=0.5:10.5,
+  samples=200
+]
+{
+  5*exp(-x/100)
+  +5*exp(-2*x/100)
+  +5*exp(-3*x/100)
+  +5*exp(-4*x/100)
+  +105*exp(-5*x/100)
+};
+
+\addplot[
+  only marks,
+  mark=*,
+  mark size=1.8pt
+]
+coordinates {(4,104.08) (4.879,100)};
+
+% dashed guide lines for (4, 104.08)
+\addplot[
+  dashed,
+  FinanceBlue,
+  line width=0.6pt
+]
+coordinates {(4,75) (4,104.08)};
+
+\addplot[
+  dashed,
+  FinanceBlue,
+  line width=0.6pt
+]
+coordinates {(0.5,104.08) (4,104.08)};
+
+% dashed guide lines for (4.879, 100)
+\addplot[
+  dashed,
+  FinanceBlue,
+  line width=0.6pt
+]
+coordinates {(4.879,75) (4.879,100)};
+
+\addplot[
+  dashed,
+  FinanceBlue,
+  line width=0.6pt
+]
+coordinates {(0.5,100) (4.879,100)};
+
+\node[
+  anchor=south west,
+  font=\small
+] at (axis cs:4,104.08)
+{$(4\%,\,104.08)$};
+
+\node[
+  anchor=west,
+  font=\small
+] at (axis cs:4.879,100)
+{$(4.879\%,\,100)$};
+
+\end{axis}
+\end{tikzpicture}
+
+\caption{在连续复利条件下，为期五年、票息为5\%的债券的价与收益率关系}
+\label{fig:ch8-price-yield-curve}
+\end{figure}
+
+\subsection{利率风险、久期与凸性}
+
+利率风险是指市场收益率的变化会改变固定收益请求权价值的风险。对于具有固定合同现金流的债券而言，收益率上升会降低现值，而收益率下降则会增加现值。价格反应的大小取决于债券的现金流发生的时间：当较大部分的现值与后期支付相关时，敏感度通常会更高。
+
+久期是衡量这种敏感性的一个重要指标。它概括了债券在当前时刻的现金流的时间安排。对于以收益率 $y$ 定价、且在时间 $t$ 时有现金流 $CF_t$ 的债券来说，其久期就是
+
+\begin{equation}
+D=\frac{1}{P(y)}
+\sum_{t=1}^{T}
+t\,CF_t e^{-yt}.
+\label{eq:ch8-macaulay-duration}
+\end{equation}
+
+权重~$w_t = CF_t e^{-yt}/P(y)$~表示每笔现金流在债券现值中的占比。因此，久期是以现值为权重的债券现金流收取时间的加权平均。
+
+零息债券全部现金流在到期时取得，因此久期等于期限。附息债券较早支付票息，使部分现值权重分布于到期日之前，因而久期短于期限。在期限和收益率不变时，较高票息通常会降低久期。
+
+久期衡量的是债券价格对连续复合收益率变化的第一阶敏感性。对方程~(\ref{eq:ch8-bond-price})关于$y$求导，可以得到……
+
+\begin{equation}
+\frac{dP(y)}{dy}=-\sum_{t=1}^{T}
+tCF_t e^{-yt}.
+\label{eq:ch8-price-yield-derivative}
+\end{equation}
+
+\begin{equation}
+D=
+\frac{1}{P(y)}
+\sum_{t=1}^{T}
+tCF_t e^{-yt}
+=
+-\frac{1}{P(y)}
+\frac{dP(y)}{dy}
+.
+\label{eq:ch8-duration}
+\end{equation}
+
+于是， 
+
+\begin{equation}
+\frac{\Delta P(y)}{P(y)}
+\approx
+-D \Delta y.
+\label{eq:ch8-duration-price-change}
+\end{equation}
+
+\begin{example}{利用久期来估算债券价格变动}{duration-price-approximation}
+
+再次考虑例~\ref{ex:coupon-bond-price-yield}中的5年期、票息率为5\%的债券。在连续复利的收益率率为4\%的情况下，其价格约为104.08，而其久期则约为4.556。
+
+假设收益率增加了50个基点，那么……
+
+\[
+\Delta y=0.005.
+\]
+
+使用久期进行计算。
+
+\[
+\frac{\Delta P}{P}
+\approx
+-D\Delta y
+=
+-4.556(0.005)
+=
+-2.278\%.
+\]
+
+新的债券价格约为
+
+\[
+P_{\mathrm{new}}
+\approx
+104.08\times(1-0.02278)
+=
+101.71.
+\]
+
+直接重新定价得出的连续复利收益率为4.5\%，即
+
+\[
+P
+=
+5e^{-0.045\times1}
++
+5e^{-0.045\times2}
++
+5e^{-0.045\times3}
++
+5e^{-0.045\times4}
++
+105e^{-0.045\times5}
+=
+101.74.
+\]
+
+基于久期的估计值为101.71，而精确的重新定价价值为101.74。
+
+\end{example}
+
+债券收益率也可能以每年超过一次的方式计算复利。假设$y$是名义年收益率，每年复利$n$次。对于在每年$t$时刻收到的现金流，债券的价格就是
+
+\begin{equation}
+P(y)
+=
+\sum_{t}
+\frac{CF_t}{(1+y/n)^{nt}}.
+\label{eq:ch8-bond-price-n-compounding}
+\end{equation}
+
+相应的修正久期为 
+\begin{equation}
+D_{\mathrm{mod}}
+=
+\frac{D}{1+y/n}.
+\label{eq:ch8-modified-duration-relation}
+\end{equation}
+
+因此，修正久期是指与离散复利的收益率相关的价格敏感性。在连续复利的情况下，之前定义的久期直接衡量了这种敏感性。
+
+久期提供了一种对价格-收益率关系的局部线性近似。当收益率的变化变大时，这种关系的凸性就变得更为重要，久期的近似也就不再那么准确了。凸性能够捕捉到这种二阶敏感性。在连续复利的情况下，
+
+\begin{equation}
+\mathrm{C}
+=
+\frac{1}{P(y)}
+\frac{d^2P(y)}{dy^2}
+=
+\frac{1}{P(y)}
+\sum_{t=1}^{T}
+t^2 CF_t e^{-yt}.
+\label{eq:ch8-convexity}
+\end{equation}
+
+考虑到凸性，可以得到二阶近似
+
+\begin{equation}
+\frac{\Delta P}{P}
+\approx
+-D\,\Delta y
++
+\frac{1}{2}\mathrm{C}(\Delta y)^2.
+\label{eq:ch8-duration-convexity-approx}
+\end{equation}
+
+凸性项随着收益率的变化而提高久期近似值的准确性。
+
+对于现金流固定且为正的普通债券，凸性为正。收益率下降引起的价格涨幅，高于仅用久期预测的涨幅；收益率同幅上升引起的价格跌幅，则小于仅用久期预测的跌幅。
+
+\begin{example}{久期与凸性作为风险衡量指标}{duration-convexity-risk}
+
+考虑例~\ref{ex:coupon-bond-price-yield}中的5年期、票息率为5\%的债券，其连续复利的收益率为4\%。该债券的价格约为104.08，其久期为4.556。 
+
+对于收益率增加50个基点的情况，久期近似法给出的结果如下：
+
+\[
+\frac{\Delta P}{P}
+\approx
+-D\Delta y
+=
+-4.556\times 0.005
+=
+-2.278\%.
+\]
+
+该键的凸性约为21.911。
+
+包含二阶项后，结果如下：LaTeX命令、公式、交叉引用以及数字都得到了正确的表示。
+
+\[
+\frac{\Delta P}{P}
+\approx
+-2.278\%
++
+\frac{1}{2}\times 21.911\times (0.005)^2
+=
+-2.251\%.
+\]
+
+\[
+P_{\mathrm{new}}
+\approx
+104.08\times(1-0.02251)
+=
+101.73.
+\]
+
+在连续复利收益率为4.5\%的情况下，直接久期定价得出的价格约为101.74。而经过凸性调整后的估计值则更接近这个数值，比仅基于久期的估计值更为准确。
+
+\end{example}
+
+\begin{figure}[H]
+\centering
+
+\begin{tikzpicture}
+\begin{axis}[
+  width=0.7\textwidth,
+  height=7.0cm,
+  xmin=-2.2,
+  xmax=2.2,
+  ymin=-18,
+  ymax=22,
+  axis lines=middle,
+  xlabel={$\Delta y$},
+  ylabel={$\Delta P$},
+  xtick=\empty,
+  ytick=\empty,
+  tick align=outside,
+  enlargelimits=false,
+  clip=false,
+ legend style={
+  at={(1.5,0.97)},
+  anchor=north east,
+  draw=none,
+  fill=none,
+  font=\small
+},
+  legend cell align=left
+]
+
+% Exact price-yield relation
+\addplot[
+  FinanceBlue,
+  very thick,
+  domain=-2:2,
+  samples=200
+]
+{-8*x + 2*x^2 - 0.12*x^3};
+\addlegendentry{确切的价格与收益率关系}
+
+% Duration approximation
+\addplot[
+  black,
+  dashed,
+  thick,
+  domain=-2:2,
+  samples=2
+]
+{-8*x};
+\addlegendentry{久期近似}
+
+% Duration-convexity approximation
+\addplot[
+  black,
+  dotted,
+  thick,
+  domain=-2:2,
+  samples=200
+]
+{-8*x + 2*x^2};
+\addlegendentry{久期-凸性近似}
+
+% Origin
+\addplot[
+  only marks,
+  mark=*,
+  mark size=1.7pt
+]
+coordinates {(0,0)};
+
+\end{axis}
+\end{tikzpicture}
+
+\caption{凸性在近似债券价格变动中的示意图}
+\label{fig:ch8-duration-convexity-concept}
+\end{figure}
+
+图~\ref{fig:ch8-duration-convexity-concept}展示了久期所提供的局部线性近似，以及凸性所实现的曲率调整。
+
+久期也有其经济含义。期限较长的债券会将更多的现值分配到后期的现金流中，因此对于折现率的变化更为敏感。这与一般的估值原则是一致的，即距离较远的现金流对折现率的敏感度更高。
+
+久期和凸性并不能完全反映债券风险的所有方面。信用利差可能会独立于基准利率发生变化，收益率曲线不一定呈平行趋势，而嵌入式期权可能会在利率变动时改变现金流。实际上，这些指标通常会辅以其他衡量曲线风险、利差风险和期权风险的指标。
+
+\subsection{债券定价中的信用利差}
+
+信用等级较低的债券，其收益率通常高于同类到期日债券或曲线中的基准债券。当两种债券的收益率以相同的基础进行衡量时，它们之间的差异就被称为收益率差：
+
+\begin{equation}
+spread
+=
+y_{\mathrm{credit}}
+-
+y_{\mathrm{benchmark}}.
+\label{eq:ch8-credit-spread}
+\end{equation}
+
+观察到的利差可能反映预期违约损失、在不利状态下承担损失的补偿、市场流动性、不确定性、税收待遇、嵌入式期权，以及其他工具特征。不应直接将其解释为违约概率。
+
+在估值过程中，还可以通过将某种 spread 加入到基准利率曲线中来进行处理。用 $r_t$ 表示期限为 $t$ 的连续复利基准利率，而 $z$ 则表示附加在每个期限上的固定 spread。债券的价格 accordingly 为……
+
+\begin{equation}
+P(z)
+=
+\sum_{t=1}^{T}
+CF_t e^{-(r_t+z)t}.
+\label{eq:ch8-spread-price}
+\end{equation}
+
+使承诺现金流现值等于观察到的债券价格的常数~$z$，通常称为~\emph{Z利差}。在假定各期限利差保持相同的条件下，它概括了相对于基准即期利率曲线所要求的额外收益率。包含嵌入式期权或更复杂或有现金流的债券，需要进一步处理。
+
+即使基准利率保持不变，信用利差的变化仍可能导致债券价格发生变化。假设某企业债券的收益率从5.0上升到6.0\%，这完全是由于其信用利差增加了1个百分点所导致的。在基准利率不变的情况下，较高的信用利差会降低该债券承诺的现金流的现值。
+
+当基准利率上升时，债券的收益率也可能上升，而其信用利差保持不变。虽然由此导致的价格下降看起来类似，但其经济根源却不同。因此，在分析债券回报和风险时，区分基准利率变动与信用利差变动是非常重要的。
+
+契约特征也会影响信用利差。清偿顺位、抵押品和担保措施可以提高预期回收能力，而契约限制条款则能够限制那些削弱债权人保护的行为。到期日的变化会改变承担信用风险的时间范围。因此，由同一家公司发行的债券，当其契约条款不同时，其信用利差也会有所不同。
+
+流动性也可能造成这些差异。与信用特征相近但流动性更好的债券相比，交易稀少或立即出售需作重大价格让步的债券，可能具有更宽利差。市场压力时期，信用与流动性效应可能共同变化，难以区分。
+
+\begin{example}{分离基准利率变动与利差变动}{benchmark-spread-decomposition}
+
+五年期企业债券的收益率最初为5.2\%，而五年期基准收益率则为3.4\%。这两种收益率都是基于相同的标准来计算的。该债券的利差为……
+
+\[
+5.2\%-3.4\%=1.8\%,
+\]
+
+或者180个基点。
+
+一个月后，该企业的收益率达到了6.1\%，而基准收益率则为3.6\%。新的利差为250个基点。该企业收益率上升了90个基点，其中20个基点是由于基准收益率的上升导致的，而70个基点则是因为利差扩大所致。
+
+因此，企业收益率的变化包含两个经济上不同的因素：基准利率的变动和信用利差的变动。
+
+\end{example}
+
+%========================================================
+% Summary
+%========================================================
+
+\TailModule{summary}{本章小结}
+
+债券是一种债务契约，它规定了承诺的现金流、到期日、清偿顺位以及其他债权人的权利。票息和本金偿还结构决定了承诺支付的时机，而清偿顺位和抵押品则影响在困境中损失的分配方式。契约限制条款对特定行为进行了约束或要求，而违约条款则规定了债权人可以在何时行使额外权利。回收情况则取决于合同中的清偿顺位、抵押品、担保、重组情况以及法律和制度环境。
+
+债券市场通过一级市场和二级市场将发行人与投资者联系起来。一级市场的发行决定了新债务的出售条款，而二级市场的交易则允许投资者转让现有的请求权，而不改变发行人的合同义务。交易商通过在买卖双方之间起到中介作用来支持交易和流动性，而交易平台则有助于报价和成交。交易商的介入受到库存风险、融资条件、信息以及资产负债表能力的影响。
+
+债券估值从契约现金流出发。到期收益率是使承诺现金流现值等于观察价格的单一贴即期利率，即期利率估值则对各期限采用相应贴即期利率。现金流固定且为正时，价格与收益率反向变化。久期为价格对收益率变化的敏感性提供一阶度量，凸性则刻画价格—收益率关系的曲率，改善较大变化下的近似。
+
+信用利差衡量的是与基准利率相比，信用风险较高的债券的额外收益。不过，信用利差并非纯粹用于衡量违约概率的指标。预期违约损失、对不良状况下损失的补偿、流动性、契约条款以及市场条件等因素都会对信用利差产生影响。因此，债券价格既反映了债务契约中规定的权利，也反映了市场对这些权利的重新估值。
+
+%========================================================
+% Key Terms
+%========================================================
+
+\TailModule{keyterms}{关键术语}
+
+债券（Bond）；面值（face value）；票面利率（coupon rate）；票息支付（coupon payment）；期限（maturity）；到期一次还本债券（bullet bond）；分期还本债券（amortizing bond）；零息债券（zero-coupon bond）；清偿顺位（seniority）；次级债务（subordinated debt）；抵押品（collateral）；担保（guarantee）；契约限制条款（covenant）；控制权（control right）；违约（default）；重组（restructuring）；回收率（recovery rate）；违约损失率（loss given default）；债券一级市场（primary bond market）；债券二级市场（secondary bond market）；交易商（dealer）；买卖价差（bid--ask spread）；市场流动性（market liquidity）；到期收益率（yield to maturity）；即期利率估值（spot-rate valuation）；溢价债券（premium bond）；折价债券（discount bond）；久期（duration）；修正久期（modified duration）；凸性（convexity）；基准收益率（benchmark yield）；信用利差（credit spread）；Z利差（Z-spread）；流动性溢价（liquidity premium）。
+
+%========================================================
+% Financial AI Lab
+%========================================================
+
+\TailModule{aiprompt}{金融~AI~实验室}
+
+\textbf{实验室：审核债券估值及风险报告}
+
+选择一个活跃交易、无期权的政府或企业债券，该债券的面值、票面利率、票息频率、到期日期和市场价格可以通过权威渠道获得。请一个AI系统计算该债券的到期收益率、久期和凸性，并说明所使用的收益率和复利计算方式。
+
+将报告分为四个阶段进行审核。
+
+\begin{enumerate}
+
+\item \textbf{确认合同的有效性。}
+
+请检查票面利率、支付频率、到期日、面值，以及该债券是否包含任何嵌入式期权。确认报价市场价格是干净的还是不干净的，并明确用于计算应计利息的惯例。
+
+\item \textbf{重现该估值结果。}
+
+独立构建合同中的现金流，并验证以报告中的收益率进行折现后，结算价格能够保持一致。同时检查现金流的时间安排、复利计算原则、计量单位、票息频率以及应计利息的处理方式。
+
+\item \textbf{强调屈服点的重要性。}
+
+将收益率增加或减少50个基点。计算重新定价的债券价值，并首先将它们与久期近似值进行比较，然后与久期-凸性近似值进行比较。解释近似误差的方向和大小。
+
+\item \textbf{区分基准测试和市场风险。}
+
+如果选择的是信用风险较高的债券，将其收益率与类似到期时间的适当基准进行比较。请让AI系统解释所观察到的利差。确定其中哪些部分是由数据直接支持的，而哪些部分需要更多关于违约风险、预期回收金额、流动性、合同条款或市场条件的证据来支持。
+
+\end{enumerate}
+
+最终报告中应至少提及一个例子，即尽管计算结果是准确的，但最终得出的结论却具有误导性。
+
+%========================================================
+% Discussion Questions
+%========================================================
+
+\TailModule{questions}{讨论题}
+
+\begin{enumerate}
+
+\item 为什么同一家公司发行的两种债券在到期日却可能具有不同的收益率？请结合契约限制条款、抵押品以及流动性因素进行解释。
+
+\item 为什么到期收益率并不一定是投资者在债券上实际获得的回报呢？
+
+\item 为什么久期只能提供债券价格对收益率变化反应的局部近似？凸性如何改善这种近似效果？
+
+\item 债券的收益率上升了80个基点，而基准收益率仅上升了20个基点。在将剩余的变化归因于违约风险之前，还需要哪些额外的信息呢？
+
+\end{enumerate}
+
+%========================================================
+% Applied Problems
+%========================================================
+
+\TailModule{appprobs}{应用题}
+
+\begin{enumerate}
+
+\item \textbf{合同规定的现金流。}
+
+该债券的面值为人民币~1,000元，票面利率为6\%，票息支付方式为每半年一次，到期时间为四年。
+
+\begin{enumerate}
+
+\item 计算每半年的票息支付。
+
+\item 还剩下多少票息支付？
+
+\item 在到期时支付最终的合同款项。
+
+\item 解释在债券发行后市场收益率立即上升的情况下，哪些合同现金流会发生变化。
+
+\end{enumerate}
+
+\item \textbf{优先级与回收。}
+
+一家陷入困境的公司在次级债务和优先债务上分别拥有1.5亿元人民币的资金。优先债务的请求权为1.2亿元人民币，而次级债务的请求权为8000万元人民币。
+
+\begin{enumerate}
+
+\item 计算每个类别在严格优先级下的回收量。
+
+\item 计算每类物品的回收率。
+
+\item 如果债权人手中的资产价值降至9000万人民币以下，请重新计算回收金额。
+
+\item 解释为什么这两类债券在违约前可能具有不同的信用利差，尽管它们都是由同一发行方发行的债务。
+
+\end{enumerate}
+
+\item \textbf{债券价格和收益率。}
+
+一张面值为100的五年期债券的票息为4\%。
+
+\begin{enumerate}
+
+\item 如果连续复利的到期收益率为3\%，计算其价格。
+
+\item 将价格重新计算，假设年收益率为5\%。
+
+\item 请确定在每种情况下，该债券是以溢价还是折价进行交易的。
+
+\item 请确认价格变动的方向与价格与收益率之间的关系是一致的。
+
+\end{enumerate}
+
+\item \textbf{即期定价法。}
+
+三年期债券的面值为100，年票息为5\%。连续复利的1年、2年和3年的即期利率分别为3.0、3.6和4.1\%。
+
+\begin{enumerate}
+
+\item 使用即期汇率曲线来估算该债券的价格。
+
+\item 解释为什么以三年期利率来折现每一笔现金流是不相同的。
+
+\item 找出一个能够近似再现您价格的连续复利到期收益率。
+
+\item 解释现汇利率和到期收益率之间的经济差异。
+
+\end{enumerate}
+
+\item \textbf{久期与凸性。}
+
+该债券的久期为6.2，凸性为48。其当前价格为102。假设收益率是连续复利的。
+
+\begin{enumerate}
+
+\item 仅通过久期来估算收益率增加40个基点的价格变动百分比。
+
+\item 添加凸性调整。
+
+\item 使用久期-凸性近似法来估算新的价格。
+
+\item 解释为什么在收益出现相等增减时，凸性项具有相同的符号。
+
+\end{enumerate}
+
+\item \textbf{基准利率和信用利差。}
+
+七年期的企业债券收益率为5.8\%，而同类基准债券的收益率则仅为3.7\%。这两种收益率都是基于相同的标准来计算的。
+
+\begin{enumerate}
+
+\item 计算初始的基点差距。
+
+\item 一个月后，该公司的收益率达到了6.4\%，而基准收益率则为3.9\%。请计算出新的利差。
+
+\item 将企业收益率的60个基点增长分解为基准利率变化和利差变化的影响。
+
+\item 给出导致利差发生变化的三个可能原因，并说明需要哪些证据来区分这些原因。
+
+\end{enumerate}
+
+\end{enumerate}
+
+%========================================================
+% Data Application
+%========================================================
+
+\TailModule{dataapp}{数据应用}
+
+\textbf{中国的政府曲线、信贷曲线以及债券市场定价}
+
+请使用由中国中央清算所发布的中国债券收益率曲线数据。\&清算有限公司选择一条政府债券收益率曲线，以及至少一条与信贷相关的曲线，例如高等级企业债券或商业银行债券曲线。使用常见的到期日，并尽可能采用相同的收益率定义和观测基础。
+
+首先，绘制出选定曲线的数据，这些数据对应的是某个共同的观测日期。然后，计算在每个共同到期日时，信用曲线与政府债券曲线之间的差距。观察这个差距在各个到期日之间是否保持恒定，或者是否沿着曲线发生变化。
+
+其次，对更早的观测日期进行分析。对于每一种到期时间，将信用收益率的变化分解为政府收益率的变化以及利差的变化。
+
+\[
+\Delta y_{\mathrm{credit},t}
+=
+\Delta y_{\mathrm{government},t}
++
+\Delta s_t.
+\]
+
+确定信用利差发生最大变化的到期时间，并将这些变化与政府曲线的变动进行比较。
+
+第三，谨慎解读这些结果。信用曲线与政府曲线之间的差距越大，可能反映出预期信用损失、风险溢价、市场流动性、投资者需求、发行机构特征，或是曲线构建方式的差异。观察到的差距变化不应直接被视为违约概率的变化。
+
+报告观测日期、曲线名称、到期日、收益率定义以及数据来源。如果数据源提供了不同类型的曲线，例如收益率至到期曲线和即期利率曲线，请说明使用了哪种曲线，并解释选择的原因。在对其进行经济分析之前，尽可能考察相关证券在流动性、发行方类型、信用质量或合同结构方面的差异。
+
+%========================================================
+% Further Reading
+%========================================================
+
+\TailModule{furtherread}{延伸阅读}
+
+\begin{itemize}
+
+\item Macaulay, Frederick R. (1938),
+\emph{Some Theoretical Problems Suggested by the Movements of Interest Rates, Bond Yields and Stock Prices in the United States since 1856（1856年以来美国利率、债券收益率和股票价格变动所提出的若干理论问题）},
+National Bureau of Economic Research.
+
+\item Fisher, Lawrence, and Roman L. Weil (1971),
+``Coping with the Risk of Interest-Rate Fluctuations: Returns to Bondholders from Na\"ive and Optimal Strategies（应对利率波动风险：简单策略与最优策略下债券持有人的回报）,''
+\emph{The Journal of Business}, 44(4), 408--431.
+
+\item Merton, Robert C. (1974),
+``On the Pricing of Corporate Debt: The Risk Structure of Interest Rates（公司债务定价：利率的风险结构）,''
+\emph{The Journal of Finance}, 29(2), 449--470.
+
+\item Duffie, Darrell, and Kenneth J. Singleton (1999),
+``Modeling Term Structures of Defaultable Bonds（可违约债券期限结构建模）,''
+\emph{The Review of Financial Studies}, 12(4), 687--720.
+
+\item Bessembinder, Hendrik, William Maxwell, and Kumar Venkataraman (2006),
+``Market Transparency, Liquidity Externalities, and Institutional Trading Costs in Corporate Bonds（公司债券市场透明度、流动性外部性与机构交易成本）,''
+\emph{Journal of Financial Economics}, 82(2), 251--288.
+
+\end{itemize}
+
+\ChapterTail{summary,keyterms,aiprompt,questions,appprobs,dataapp,furtherread}

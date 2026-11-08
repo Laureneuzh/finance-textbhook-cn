@@ -1,0 +1,1037 @@
+\chapter{Commercial Banks: Credit Intermediation and Liquidity Creation}
+\label{chap:Commercial_Banks_Credit_Intermediation_and_Liquidity_Creation}
+
+\begin{openingcase}{Why Can a Solvent Bank Still Run Out of Cash?}
+
+Consider a bank that has RMB~100 billion of assets. Most of its assets are loans to households and firms, together with bonds that mature over several years. On the liability side, a large share of its funding consists of deposits that customers can withdraw on demand or at short notice. The bank also has equity capital that absorbs losses.
+
+Suppose the bank's borrowers continue to repay and the bank remains solvent, with the value of its assets exceeding its liabilities. Even so, a sudden wave of deposit withdrawals can create an immediate funding need. Selling long-term assets quickly may require price concessions, while replacing deposits with market funding can become expensive or unavailable.
+
+The same balance-sheet structure that allows the bank to provide liquid deposits while financing illiquid loans can also create vulnerability when withdrawals rise sharply.
+
+\end{openingcase}
+
+
+\begin{tcolorbox}[
+  enhanced,
+  colback=FinanceBlue!6,
+  colframe=FinanceBlue,
+  boxrule=0.6pt,
+  sharp corners,
+  left=8pt,
+  right=8pt,
+  top=7pt,
+  bottom=7pt,
+  before skip=1em,
+  after skip=1.6em,
+  title=\textbf{Core Questions},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  attach boxed title to top left={xshift=6pt,yshift=-2mm},
+  boxed title style={
+    boxrule=0pt,
+    sharp corners,
+    left=5pt,
+    right=5pt,
+    top=2pt,
+    bottom=2pt
+  }
+]
+\begin{enumerate}[
+  leftmargin=*,
+  label=\textcolor{FinanceBlue}{\textbf{\arabic*.}},
+  itemsep=0.55em,
+  topsep=0.2em
+]
+
+
+\item How does a commercial bank use its balance sheet to transform funding from depositors and other providers into loans and other financial assets?
+
+\item Why can banks create value through information production and contract design, including screening, monitoring, and relationship lending?
+
+\item How do maturity transformation, liquidity creation, leverage, and funding structure create value while exposing banks to credit, interest-rate, and liquidity risk?
+
+\end{enumerate}
+\end{tcolorbox}
+
+\section{Bank Balance Sheets and Balance-Sheet Intermediation}
+
+At its core, a commercial bank is a balance-sheet intermediary. It raises funds through deposits and other liabilities, uses those funds to acquire loans and other financial assets, and holds equity capital to absorb losses.
+
+\subsection{The Bank Balance Sheet: Assets, Funding, and Transactions}
+
+A bank's balance sheet shows the assets it holds and how those assets are financed. Commercial banks typically hold loans, securities, reserves, and other liquid assets. These positions are funded through deposits, wholesale and other debt, and equity capital.
+
+The economic significance of the balance sheet lies in the composition and contractual characteristics of these positions. Loans expose the bank to borrower performance. Securities can provide income, liquidity, and collateral, while reserves and other liquid assets support payment settlement and short-term liquidity needs. On the funding side, deposits and wholesale borrowing differ in maturity, stability, repricing, and withdrawal conditions. Equity absorbs losses before creditor claims are impaired.
+
+\begin{table}[H]
+
+\centering
+
+\caption{A simplified commercial-bank balance sheet}
+
+\label{tab:ch12-simplified-bank-balance-sheet}
+
+\begin{tabularx}{0.82\textwidth}{@{}X X@{}}
+
+\toprule
+
+\textbf{Assets} & \textbf{Liabilities and Equity} \\
+
+\midrule
+
+Loans to households and firms & Transaction and savings deposits \\
+
+Government and other securities & Time deposits and certificates of deposit \\
+
+Reserves and other liquid assets & Wholesale and market funding \\
+
+& Equity capital \\
+
+\bottomrule
+
+\end{tabularx}
+
+\end{table}
+
+A commercial bank intermediates by holding claims on borrowers and other issuers while issuing its own liabilities to depositors and other fund providers. The assets and liabilities on the two sides can differ in maturity, liquidity, risk, and repricing characteristics. The two sides are managed jointly: lending decisions affect the size and composition of bank assets, while deposit flows, wholesale funding, and equity affect how those assets are financed and the bank's available liquidity and loss-absorbing capacity.
+
+These interactions can be seen directly in bank transactions. When a bank grants a loan and credits the proceeds to a deposit account at the same bank, it records a new loan asset and a corresponding deposit liability.
+
+\begin{example}{From Loan Origination to Settlement}{loan-origination-balance-sheet}
+
+Before a new loan, a bank has the following simplified balance sheet, in millions of renminbi:
+
+\begin{center}
+
+\begin{tabular}{
+@{\hspace{0.8em}}
+p{0.25\textwidth} r
+@{\hspace{2.0em}}
+p{0.24\textwidth} r
+@{\hspace{2.5em}}
+}
+
+\toprule
+
+\multicolumn{2}{c}{\textbf{Assets}} &
+\multicolumn{2}{c}{\textbf{Liabilities and Equity}} \\
+
+\cmidrule(lr){1-2}\cmidrule(lr){3-4}
+
+Loans & 70 & Deposits & 82 \\
+
+Securities & 15 & Wholesale funding & 8 \\
+
+Reserves & 15 & Equity & 10 \\
+
+\midrule
+
+\textbf{Total} & \textbf{100} &
+\textbf{Total} & \textbf{100} \\
+
+\bottomrule
+
+\end{tabular}
+
+\end{center}
+
+The bank grants a new RMB~5 million loan and credits the borrower's deposit account. At origination,
+
+\[
+\Delta L=+5,
+\qquad
+\Delta D=+5.
+\]
+
+Total assets and total liabilities plus equity both increase to RMB~105 million. Equity is unchanged at origination.
+
+Suppose the borrower then transfers the RMB~5 million deposit to an account at another bank. If the payment is settled through reserves and there are no offsetting inflows, the originating bank's deposit liability and reserves both decline by RMB~5 million. The loan remains on the asset side of the balance sheet.
+
+\end{example}
+
+Loan origination and payment settlement are distinct balance-sheet events. Creating a deposit at origination does not by itself provide the settlement assets needed if the funds subsequently leave the bank. A bank experiencing net deposit outflows may need to use liquid assets, obtain replacement funding, or adjust other positions.
+
+\subsection{Bank Capital, Leverage, and Balance-Sheet Constraints}
+
+Within this balance-sheet structure, equity capital is the residual claim on the bank's assets after liabilities have been met. Declines in asset value reduce equity before they affect creditor claims. If losses are sufficiently large to exhaust the capital buffer, creditors can become exposed to loss.
+
+A simple balance-sheet measure of leverage is the asset-to-equity ratio $A/E$. A higher leverage ratio means that a larger asset position is supported by a given amount of equity. It also makes equity more sensitive to changes in asset value. When liabilities remain unchanged, losses on assets are reflected in equity, so a relatively small percentage decline in assets can produce a much larger percentage decline in equity.
+
+\begin{example}{Leverage and Loss Absorption}{bank-leverage-loss}
+
+A bank has RMB~100 billion of assets, RMB~92 billion of liabilities, and RMB~8 billion of equity. Its asset-to-equity ratio is
+
+\[
+100\div 8=12.5.
+\]
+
+Suppose asset values fall by 2\%, or RMB~2 billion, while liabilities remain unchanged. Equity declines from RMB~8 billion to RMB~6 billion, a 25\% reduction.
+
+The example illustrates how leverage makes equity more sensitive than total assets to changes in asset value.
+
+\end{example}
+
+Capital is one of several constraints on bank balance-sheet expansion. Additional lending or other asset growth requires funding and may also increase demands on capital and liquidity. Prudential requirements can further limit leverage, risk-weighted exposures, liquidity positions, and concentrations of risk. Which constraint is most important depends on the bank's balance-sheet structure and market conditions.
+
+These constraints influence the scale and composition of the balance sheet. Expanding lending increases credit exposure and may require additional funding and capital, while holding more liquid assets strengthens liquidity capacity but can reduce expected return. Greater reliance on short-term wholesale funding can provide flexible financing while increasing refinancing exposure.
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{Financial Perspective: Capital and Liquidity Serve Different Functions},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+Capital absorbs losses when the value of bank assets declines. Liquidity provides the means to meet payments and withdrawals when they fall due.
+
+A bank can have positive equity but insufficient liquid resources to meet immediate outflows. Conversely, a bank can hold substantial liquid assets while suffering losses large enough to weaken its capital position.
+
+Capital and liquidity are related, but they address different forms of balance-sheet vulnerability.
+
+\end{tcolorbox}
+
+
+
+\section{Credit Assessment and Loan Decisions}
+
+Loans enter the bank's balance sheet through a credit process that converts borrower information into lending decisions. Commercial banks use borrower-specific information alongside publicly available information to assess credit quality, set credit limits and loan terms, and review exposures as conditions change. Credit allocation is therefore an ongoing process rather than a single decision at origination.
+
+The main information requirements and corresponding
+lending decisions at each stage of a bank credit
+relationship are summarized in
+Table~\ref{tab:ch12-credit-process}.
+
+\begin{table}[H]
+\centering
+\caption{Information and decisions over a bank credit relationship}
+\label{tab:ch12-credit-process}
+\begin{tabularx}{0.90\textwidth}{@{}p{0.22\textwidth} X X@{}}
+\toprule
+\textbf{Stage} & \textbf{Information focus} & \textbf{Bank decision} \\
+\midrule
+Initial assessment
+& Repayment capacity, financial position, cash-flow stability, collateral, and business conditions
+& Approve, reject, or limit the proposed exposure \\
+Contract design
+& Expected use of funds, repayment pattern, uncertainty, and protection available to the bank
+& Set amount, maturity, repayment terms, pricing, collateral, and covenants \\
+Monitoring and renewal
+& Payment behavior, account activity, updated financial information, and changes in business conditions
+& Maintain, expand, tighten, restructure, or discontinue the exposure \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Borrower Information and Credit Assessment}
+
+Credit assessment evaluates the borrower's capacity to meet contractual obligations and the risk associated with the proposed exposure. The assessment draws on several sources of information, each of which provides evidence about a different aspect of credit quality.
+
+Financial statements provide information about profitability, leverage, liquidity, and balance-sheet structure. Cash-flow records help assess whether operating inflows can support debt service, while repayment history and account activity provide evidence about observed payment behavior. Industry conditions, customer concentration, ownership structure, and the purpose of the loan can further affect expected repayment capacity. Collateral provides an additional source of recovery if contractual payments are not made as agreed.
+
+Banks combine these inputs through financial analysis, scoring systems, statistical models, and professional judgment. The relative importance of each method varies across borrowers and loan types. Standardized information may support more comparable assessments, while borrower-specific information can become more important when repayment capacity depends on conditions that are difficult to capture through financial ratios alone.
+
+The information is then translated into an internal credit assessment, which may take the form of a rating, risk grade, or other classification used in the bank's credit process. This assessment does not determine the lending decision mechanically. It provides a basis for decisions about the amount of credit, contractual terms, and the intensity of subsequent monitoring.
+
+\begin{example}{From Borrower Information to Credit Assessment}{borrower-information-credit-assessment}
+
+Two firms apply for comparable working-capital facilities. Both report annual sales of RMB~20 million and similar leverage ratios.
+
+Firm A generates stable operating cash flows, maintains adequate debt-service capacity, and has a consistent repayment record. Firm B faces greater cash-flow volatility, has a narrower margin for meeting its debt obligations, and has a history of late payments.
+
+The bank would generally assess Firm A as more creditworthy, assigning it a stronger internal credit grade and a lower estimated probability of default. Other things being equal, Firm A would be eligible for a larger credit limit, a lower lending spread, and less stringent collateral requirements than Firm B.
+
+\end{example}
+
+
+
+\subsection{Loan Terms, Credit Limits, and Exposure}
+
+The credit assessment is then translated into a lending decision. The bank sets a credit limit and other loan terms that determine how much exposure can be created and how that exposure evolves over time. The main contractual terms and their implications for the bank's credit exposure are summarized in Table~\ref{tab:ch12-loan-terms-exposure}. Together, these terms determine the size, duration, and conditions of the bank's exposure to the borrower.
+
+\begin{table}[htbp]
+
+\centering
+
+\caption{Selected loan terms and their effects on bank exposure}
+
+\label{tab:ch12-loan-terms-exposure}
+
+\begin{tabularx}{0.90\textwidth}{@{}p{0.26\textwidth} X@{}}
+
+\toprule
+
+\textbf{Loan term} &
+\textbf{Exposure implication} \\
+
+\midrule
+
+Loan amount or credit limit &
+Sets the maximum amount of credit available under the contract \\
+
+Maturity &
+Sets the horizon before repayment or renewal is required \\
+
+Repayment structure &
+Governs how the outstanding principal changes over time \\
+
+Interest-rate structure &
+Governs whether and how the contractual interest rate is reset \\
+
+Collateral and covenants &
+Provide contractual protection through pledged assets and restrictions or requirements on borrower actions \\
+
+Drawing and renewal conditions &
+Govern when additional funds may be drawn and whether credit continues beyond the current term \\
+
+\bottomrule
+
+\end{tabularx}
+
+\end{table}
+
+Repayment and drawing terms determine how the funded exposure evolves after credit has been granted. Let $B_t$ denote the outstanding principal at the end of period $t$, $D_t$ new drawings during the period, and $R_t$ principal repayments. A simple balance relation is
+
+\begin{equation}
+B_t=B_{t-1}+D_t-R_t.
+\label{eq:ch12-loan-balance-dynamics}
+\end{equation}
+
+For a term loan, the principal is normally advanced at origination and subsequently declines as repayments are made. A revolving credit facility operates differently: the borrower may draw, repay, and draw again within a contractual credit limit. The credit limit is therefore distinct from the amount currently outstanding.
+
+This distinction creates two related measures of exposure. \emph{Funded exposure} is the amount already advanced and still outstanding. An \emph{undrawn commitment} is the unused portion of a committed facility that may become funded if the borrower draws additional amounts in accordance with the contract. A rise in utilization can therefore increase the bank's funded exposure even when the contractual credit limit remains unchanged.
+
+\begin{example}{A Revolving Credit Facility and Bank Exposure}{revolving-credit-exposure}
+
+A firm receives a one-year revolving credit facility with a limit of RMB~10 million. At the beginning of the year, RMB~4 million is outstanding. During the next quarter, the firm draws another RMB~3 million and repays RMB~1 million. Using Equation~\ref{eq:ch12-loan-balance-dynamics},
+
+\[
+B_t=4+3-1=6
+\]
+
+million renminbi.
+
+The bank therefore has RMB~6 million of funded exposure, while RMB~4 million remains undrawn under the facility. If the borrower later draws part of this unused amount, the funded exposure increases without any change in the contractual credit limit.
+
+\end{example}
+
+Loan terms establish the initial structure of the exposure, but borrower conditions can change after credit has been extended. New information may therefore lead the bank to review the exposure, reassess further drawings, and reconsider renewal decisions.
+
+\subsection{Monitoring, Renewal, and Credit Adjustment}
+
+Monitoring allows the bank to update its assessment using repayment performance, account activity, financial information, collateral values, covenant compliance, and changes in business conditions. Covenant compliance refers to whether the borrower continues to satisfy the restrictions and requirements specified in the loan contract.
+
+Changes in these indicators can trigger a credit review. Missed payments, persistent weakness in operating cash flow, or a material covenant breach may indicate deterioration, while a stronger payment record or financial position may support the continuation of existing credit. The purpose of the review is to determine whether the bank's current exposure remains consistent with its updated assessment of the borrower.
+
+Renewal provides a further decision point. The bank can combine current information with the borrower's performance over the life of the facility when deciding whether to continue, expand, reduce, or discontinue the credit arrangement. Information accumulated through the lending relationship can therefore affect subsequent credit decisions even when no payment default has occurred.
+
+Credit adjustment depends on both the updated assessment and the rights available under the contract. During the life of a facility, the bank may, where permitted, restrict additional drawings or require specified protective actions. At renewal, it can reconsider the credit limit and other contractual terms. Monitoring and renewal therefore provide mechanisms through which changes in borrower conditions can be translated into changes in bank exposure.
+
+\begin{example}{From Monitoring to Credit Adjustment}{monitoring-credit-adjustment}
+
+A firm has a RMB~8 million revolving credit facility. Sales remain broadly stable, but operating cash inflows weaken, customer receivables rise, and utilization of the credit line increases from 40\% to 85\%. 
+
+These developments do not by themselves imply default, but together they may trigger a credit review. The bank can examine the source of the cash-flow pressure, update its assessment of the borrower, and reconsider the existing exposure.
+
+If the weakness appears temporary, the bank may maintain the facility. If the deterioration persists, it may, subject to the contract, restrict further drawings or require additional protection. At renewal, it may reduce the credit limit or decline to renew the full amount.
+
+\end{example}
+
+Credit decisions therefore affect not only the composition of bank assets but also the amount of funding that may be required to support them. This link leads to the bank's funding structure and liquidity management.
+
+\section{Bank Funding and Liquidity Creation}
+
+Commercial banks often fund longer-term and less liquid assets with liabilities that are shorter-term and more liquid. Liquidity creation depends on the bank's funding structure and its capacity to meet cash outflows as they occur.
+
+\subsection{Deposit and Wholesale Funding}
+
+The composition of bank funding matters because funding sources differ in withdrawal rights, maturity, repricing, and concentration. Commercial banks rely primarily on deposits and various forms of wholesale funding, and these sources can respond differently to changes in interest rates, market conditions, and confidence.
+
+Deposits are liabilities of commercial banks, but their funding behavior differs across products and customers. Transaction and savings deposits may be available at short notice, while time deposits generally provide funding for a more defined period. Stability also depends on depositor concentration, insurance coverage, interest-rate sensitivity, and perceived bank risk. Retail deposits are often more dispersed, whereas large corporate or institutional balances can create more concentrated funding exposures.
+
+Wholesale funding includes interbank borrowing, certificates of deposit, secured borrowing, and other market-based liabilities. It can supplement deposit funding when balance-sheet growth or payment flows create additional funding needs. Its usefulness depends not only on cost but also on maturity and rollover conditions: shorter-term funding requires more frequent refinancing and can become less available when market conditions deteriorate.
+
+\begin{table}[H]
+
+\centering
+
+\caption{Funding sources and selected liquidity characteristics}
+
+\label{tab:ch12-bank-funding-characteristics}
+
+\begin{tabularx}{0.92\textwidth}{@{}p{0.23\textwidth} X X@{}}
+
+\toprule
+
+\textbf{Funding source} &
+\textbf{Contractual feature} &
+\textbf{Implication for bank funding} \\
+
+\midrule
+
+Transaction and savings deposits &
+Generally available to customers at short notice, subject to product terms &
+Stability depends on customer mix, concentration, interest rates, and confidence \\
+
+Time deposits &
+Funds remain for a specified maturity or notice period &
+Funding is more predictable before maturity, while rollover decisions arise as maturity approaches \\
+
+Certificates of deposit &
+Tradable or nontradable bank liabilities with specified maturities &
+Funding cost and rollover depend on market conditions and investor demand \\
+
+Interbank borrowing &
+Short-term borrowing from other financial institutions &
+Provides flexible funding but can require frequent refinancing \\
+
+Secured market funding &
+Borrowing supported by pledged collateral &
+Funding capacity depends on available collateral and financing terms \\
+
+\bottomrule
+
+\end{tabularx}
+
+\end{table}
+
+Funding structure is closely related to liquidity creation. Banks can fund relatively illiquid assets with liabilities that provide greater liquidity to their holders. Sustaining this structure requires sufficient liquidity capacity to meet withdrawals, maturing liabilities, and other cash outflows as they occur.
+
+\subsection{Liquidity Capacity and Balance-Sheet Adjustment}
+
+Many bank liabilities can require payment before the bank's assets mature. A bank's liquidity capacity depends on the resources that can be converted into settlement funds within the relevant time horizon. These resources can include cash and reserves, proceeds from marketable assets, and additional borrowing capacity.
+
+A simple representation is
+
+\begin{equation}
+LC_t=C_t+M_t+F_t^{\mathrm{avail}},
+\label{eq:ch12-liquidity-capacity}
+\end{equation}
+
+where $C_t$ denotes cash and reserves immediately available, $M_t$ the cash that can reasonably be raised from marketable assets within the horizon, and $F_t^{\mathrm{avail}}$ additional funding that can reasonably be obtained. To avoid double counting, the amounts attributed to asset sales and borrowing capacity should be adjusted when they rely on the same assets or collateral. Liquidity capacity therefore depends on both the time horizon and the conditions under which funds must be raised.
+
+The amount of cash obtainable from an asset can differ from its reported market value. Transaction costs, settlement timing, price changes, and restrictions on the use of pledged assets can affect the proceeds from asset sales. Similarly, borrowing capacity can depend on the availability and value of collateral, counterparties' willingness to lend, and prevailing financing conditions.
+
+When cash outflows occur, the bank can adjust both sides of its balance sheet. It can use reserves, sell marketable securities, obtain secured borrowing by pledging eligible assets as collateral, obtain other replacement funding, or reduce the growth of new assets. These responses meet liquidity needs through different channels and leave different balance-sheet positions afterward.
+
+\begin{example}{Meeting a Deposit Outflow}{meeting-deposit-outflow}
+
+A bank has RMB~6 billion of reserves, RMB~8 billion of marketable securities that are not already pledged as collateral, and RMB~4 billion of secured borrowing capacity supported by other eligible assets. It experiences a RMB~10 billion net deposit outflow.
+
+One possible adjustment is to use RMB~6 billion of reserves and obtain RMB~4 billion of secured borrowing. Another is to use the reserves and sell RMB~4 billion of marketable securities. Both responses provide the required liquidity, but their balance-sheet effects differ.
+
+The first response increases secured liabilities and encumbers assets as collateral. The second reduces the bank's holdings of marketable securities. Liquidity management therefore concerns not only meeting the current outflow but also the liquidity resources that remain available afterward.
+
+\end{example}
+
+Liquidity capacity determines how readily the bank can meet current cash outflows. Larger or more persistent outflows may require progressively greater balance-sheet adjustment.
+
+\subsection{Funding Outflows and Liquidity Adjustment}
+
+Funding outflows occur when deposits leave the bank or when maturing liabilities are repaid without replacement. Such outflows reduce bank funding and create a cash requirement unless they are offset by asset-side cash inflows or new funding.
+
+Let $O_t$ denote funding outflows during a short horizon, $I_t$ cash received from maturing or sold assets, and $F_t$ new funding obtained during the same period. The resulting change in cash and reserves can be represented as
+
+\begin{equation}
+\Delta C_t=I_t+F_t-O_t.
+\label{eq:ch12-liquidity-adjustment}
+\end{equation}
+
+The relation shows how funding outflows are transmitted to the bank's liquidity position. When asset-side cash inflows and new funding are insufficient to offset the outflow, cash and reserves decline. When replacement resources are sufficient, the bank can meet the outflow without drawing down its existing cash position.
+
+The adjustment required depends not only on the amount of the outflow but also on its timing and concentration. The nonrenewal of a large wholesale liability may create a more immediate replacement need than a similar amount of withdrawals distributed across many depositors. The relevant issue is how much funding must be replaced within the available time horizon.
+
+Anticipated funding needs can also affect balance-sheet decisions before an outflow occurs. A bank may lengthen funding maturities, preserve liquid assets, arrange additional borrowing capacity, or moderate new asset growth. These actions can reduce short-term liquidity pressure, although they may alter funding costs, expected returns, or balance-sheet flexibility.
+
+Funding outflows can therefore change both the level of liquid resources and the composition of the balance sheet. Larger or more persistent adjustments can also affect funding costs, asset holdings, and other dimensions of bank risk.
+
+\section{Integrated Bank Risk Management}
+
+Bank risks interact through a common balance sheet. A shock to credit quality, interest rates, or funding can affect earnings, capital, and liquidity, while the resulting balance-sheet adjustments can create further exposures.
+
+\subsection{Loan Losses, Earnings, and Capital}
+
+Deterioration in the loan portfolio can reduce a bank's earnings and, through retained earnings, weaken its capital position. The transmission runs from the recognition of credit losses to current income and then to book equity.
+
+A loan-loss provision is an expense that recognizes credit losses under the applicable accounting framework. Provision expense reduces current earnings, while the associated allowance reduces the net carrying amount of loans. If a loan is later written off against an existing allowance, both the gross loan balance and the allowance decline; the loss has already affected earnings through the earlier provision.
+
+A simplified bank income statement can be written as
+
+\begin{equation}
+\textit{NI}=\textit{NII}+\textit{NIR}-\textit{OE}-P_L-T,
+\label{eq:ch12-bank-net-income}
+\end{equation}
+
+where $\textit{NI}$ is net income, $\textit{NII}$ net interest income, $\textit{NIR}$ non-interest income, $\textit{OE}$ operating expense, $P_L$ loan-loss provision expense, and $T$ taxes. The equation highlights the direct effect of provision expense on bank earnings.
+
+If dividends and other distributions are denoted by $D$ and new equity issued during the period by $\textit{NE}$, book equity evolves approximately as
+
+\begin{equation}
+E_1=E_0+\textit{NI}-D+\textit{NE},
+\label{eq:ch12-equity-evolution}
+\end{equation}
+apart from other direct adjustments to equity. The two relations show the transmission mechanism:
+
+\[
+\begin{array}{c}
+\text{\emph{Income statement}} \\[2pt]
+\text{Loan deterioration}
+\rightarrow
+\text{Provision expense}
+\rightarrow
+\text{Lower net income}
+\\[5pt]
+\Downarrow
+\\[-1pt]
+\text{\emph{Balance sheet}} \\[2pt]
+\text{Lower retained earnings}
+\rightarrow
+\text{Weaker equity position}
+\end{array}
+\]
+
+\begin{example}{Provisioning, Earnings, and Capital}{provisioning-earnings-capital}
+
+A bank begins the year with RMB~600 million of equity. Before provisions and taxes, it earns RMB~120 million. It records RMB~70 million of loan-loss provision expense and pays RMB~20 million in dividends. Ignore taxes and other equity adjustments.
+
+Net income is RMB~50 million, and end-of-year equity is
+
+\[
+600+50-20=630
+\]
+
+million renminbi.
+
+If provision expense rises to RMB~130 million under the same assumptions, net income becomes negative RMB~10 million and end-of-year equity falls to RMB~570 million. A larger recognized loan loss therefore reduces earnings and, other things equal, leaves the bank with less equity to absorb subsequent losses.
+
+\end{example}
+
+\subsection{Repricing and Asset--Liability Mismatch}
+
+Interest-rate changes affect a bank through both an income channel and a valuation channel. The effects depend on when asset and liability rates are reset and on how sensitive their economic values are to changes in market yields.
+
+Let $\textit{RSA}$ and $\textit{RSL}$ denote the amounts of interest-rate-sensitive
+assets and liabilities, respectively, that are scheduled to reprice
+within a given period. For a given balance-sheet position, the
+approximate change in net interest income is
+
+\begin{equation}
+\Delta \textit{NII}\approx \textit{RSA}\cdot\Delta r_A
+-RSL\cdot\Delta r_L,
+\end{equation}
+where $\Delta r_A$ and $\Delta r_L$ represent the changes in the
+corresponding asset and liability rates. If these rates move by
+approximately the same amount, so that
+$\Delta r_A\approx\Delta r_L\approx\Delta r$, the expression
+simplifies to
+
+\begin{equation}
+\Delta \textit{NII}\approx (\textit{RSA}-\textit{RSL})\Delta r
+=G\Delta r.
+\label{eq:ch12-net-interest-income-gap}
+\end{equation}
+
+The repricing gap, $G$, measures the difference between
+rate-sensitive assets and liabilities. A positive gap implies
+that an increase in interest rates tends to raise net interest
+income, whereas a negative gap implies the opposite.
+
+The approximation is intentionally simple. Deposit rates may adjust less than one-for-one with market rates, loans may reset only at specified dates or against different benchmark rates, and customer behavior can change outstanding balances. The repricing gap provides a first approximation to short-horizon income sensitivity rather than a complete measure of interest-rate exposure.
+
+Economic-value analysis considers a different dimension of the mismatch. Fixed-rate assets and liabilities can differ in their sensitivity to changes in market yields even when their near-term cash flows do not change. Let $D_A$ and $D_L$ denote the effective durations of assets and liabilities, and let $A$ and $L$ denote their current economic values. The duration gap is
+
+\begin{equation}
+D_{GAP}=D_A-\frac{L}{A}D_L.
+\label{eq:ch12-duration-gap}
+\end{equation}
+
+Effective duration measures the approximate percentage sensitivity of value to a small change in yield. For a small parallel change in market yields,
+
+\begin{equation}
+\Delta E\approx -A\,D_{GAP}\,\Delta y,
+\label{eq:ch12-duration-gap-equity}
+\end{equation}
+
+where $\Delta E$ is the resulting change in the economic value of equity. A positive duration gap therefore implies that a rise in yields can reduce economic equity value under the stated approximation.
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=FinanceBlue,
+  boxrule=0.7pt,
+  sharp corners,
+  borderline west={2.2pt}{0pt}{FinanceBlue},
+  title=\textbf{Financial Perspective: Income and Economic-Value Effects Can Differ},
+  coltitle=white,
+  colbacktitle=FinanceBlue,
+  fonttitle=\bfseries,
+  before skip=1.2em,
+  after skip=1.2em
+]
+
+The same interest-rate movement can affect bank income and economic value in different directions. For example, a rise in rates may increase near-term net interest income while reducing the economic value of equity.
+
+\end{tcolorbox}
+
+\subsection{Risk Interactions through the Balance Sheet}
+
+Bank risks interact because credit losses, interest-rate movements, and funding shocks affect the same balance sheet.
+
+A shock in one area can alter exposures in another. Loan losses can weaken earnings and capital; interest-rate movements can change both asset values and funding costs; and funding outflows can require asset sales or replacement borrowing. These responses can then affect collateral availability, realized gains or losses, funding costs, and the bank's capacity to absorb further shocks.
+
+The strength of these interactions depends on the composition of assets and liabilities, funding maturity, collateral availability, hedging, and the bank's initial capital and liquidity position.
+
+\begin{figure}[H]
+\centering
+
+\begin{tikzpicture}[
+  >=Latex,
+  box/.style={
+    draw,
+    rounded corners,
+    align=center,
+    text width=8cm,
+    minimum height=0.95cm,
+    inner sep=5pt
+  },
+  main/.style={
+    draw=FinanceBlue,
+    fill=FinanceBlue!8,
+    rounded corners,
+    align=center,
+    text width=9.6cm,
+    minimum height=1.0cm,
+    inner sep=5pt
+  },
+  flow/.style={
+    -Latex,
+    line width=0.8pt,
+    FinanceBlue
+  }
+]
+
+\node[box] (shock) at (0,3.0)
+{Credit, interest-rate, or funding shock};
+
+\node[main] (bs) at (0,1.3)
+{Balance-sheet effects on cash flows and values};
+
+\node[box] (capacity) at (0,-0.4)
+{Earnings, liquidity, and capital};
+
+\node[box] (adjustment) at (0,-2.1)
+{Balance-sheet response};
+
+\draw[flow] (shock) -- (bs);
+\draw[flow] (bs) -- (capacity);
+\draw[flow] (capacity) -- (adjustment);
+
+\draw[flow]
+(adjustment.east)
+.. controls +(2.0,0) and +(2.0,0) ..
+(bs.east);
+
+\end{tikzpicture}
+
+\caption{Risk transmission and balance-sheet adjustment within a commercial bank}
+\label{fig:ch12-integrated-risk-interactions}
+\end{figure}
+Balance-sheet adjustments can therefore change the bank's subsequent exposure to credit, interest-rate, and funding risk.
+
+\subsection[Capital Response and Balance-Sheet Adjustment]
+{Capital Response and Balance-Sheet Adjustment}
+
+Credit losses reduce book equity, while rapid asset growth
+can lower the equity-to-assets ratio if equity does not grow
+proportionately. A bank may strengthen its capital position
+by retaining earnings or issuing new equity, reducing its
+asset base, or combining these measures. A simple,
+unweighted measure of capitalization is
+
+\begin{equation}
+k=\frac{E}{A},
+\end{equation}
+where $E$ denotes book equity and $A$ total assets.
+Holding assets constant, an increase in equity raises the
+ratio; holding equity constant, a reduction in assets has
+the same effect.
+
+Equity can be strengthened by retaining earnings, reducing distributions, or issuing new shares. Asset adjustment can include slowing new lending, allowing assets to mature without replacement, or selling loans and securities. These choices differ in timing and economic cost and can also change future earnings and the composition of the balance sheet.
+
+Suppose a bank with initial equity $E_0$ and assets $A_0$ recognizes an asset loss $L_s$. If liabilities are unchanged when the loss is recognized,
+
+\begin{equation}
+E_1=E_0-L_s,
+\label{eq:ch12-capital-after-loss}
+\end{equation}
+and post-loss assets are
+
+\begin{equation}
+A_1=A_0-L_s.
+\end{equation}
+
+If no new equity is raised and the bank seeks a target ratio $k^{*}$, the asset level consistent with that target is
+
+\begin{equation}
+A^{*}=\frac{E_1}{k^{*}}.
+\label{eq:ch12-assets-consistent-capital-ratio}
+\end{equation}
+
+When $A_1>A^{*}$, the difference $A_1-A^{*}$ gives the asset reduction required under these simplified assumptions.
+
+\begin{example}{Two Paths to Restore a Capital Ratio}{capital-response-paths}
+
+A bank has RMB~100 billion of assets and RMB~8 billion of equity. It recognizes an RMB~2 billion asset loss, leaving RMB~98 billion of assets and RMB~6 billion of equity. Its equity-to-assets ratio falls from 8\% to approximately 6.12\%.
+
+Suppose management seeks to restore an 8\% ratio.
+
+One path is to issue new equity. If the proceeds remain on the balance sheet, an equity issue of RMB~2 billion raises assets to RMB~100 billion and equity to RMB~8 billion:
+
+\[
+\frac{8}{100}=8\%.
+\]
+
+A second path is to raise no new equity and reduce assets. With equity remaining at RMB~6 billion, the asset level consistent with an 8\% ratio is
+
+\[
+\frac{6}{0.08}=75
+\]
+
+billion renminbi.
+
+The bank would therefore need to reduce assets by RMB~23 billion from their post-loss level. The two responses restore the same ratio but leave different balance-sheet positions.
+
+\end{example}
+
+Capital adjustment can therefore affect not only the capital ratio but also the bank's future earnings, liquidity, funding needs, and risk exposures.
+
+%========================================================
+% Summary
+%========================================================
+
+\TailModule{summary}{Summary}
+
+A commercial bank is a balance-sheet intermediary. It holds loans, securities, reserves, and other assets while funding them with deposits, wholesale liabilities, and equity. Loan origination can create a loan asset and a deposit liability simultaneously, while subsequent payments can shift deposits and reserves across banks. Equity absorbs asset losses before creditor claims are impaired, and leverage increases the sensitivity of equity to changes in asset value.
+
+Bank credit decisions evolve over time. Borrower information supports credit assessment, while loan terms and limits determine the size and structure of exposure. Monitoring provides updated information after origination, and renewal or contractual adjustment can change the bank's exposure as borrower conditions change.
+
+Bank funding combines deposits with wholesale liabilities that differ in maturity, concentration, repricing, and withdrawal conditions. Liquidity creation arises when relatively liquid liabilities fund assets that are less liquid or longer dated. Liquidity management therefore depends on the resources available to meet cash outflows and on the balance-sheet adjustments used when funding conditions change.
+
+Bank risks interact through the common balance sheet. Loan deterioration can reduce earnings and capital, interest-rate movements can affect both net interest income and economic value, and funding outflows can use liquidity resources or require replacement funding. Responses to one pressure can alter exposure to another. Capital can be rebuilt through retained earnings or new equity, while asset adjustment can change the size and composition of the balance sheet, with consequences for future earnings, liquidity, and risk.
+
+%========================================================
+% Mind Map
+%========================================================
+
+\TailModule{mindmap}{Mind Map}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  >=Latex,
+  center/.style={
+    draw=FinanceBlue,
+    fill=FinanceBlue!8,
+    rounded corners,
+    align=center,
+    text width=3.2cm,
+    minimum height=1.0cm
+  },
+  box/.style={
+    draw,
+    rounded corners,
+    align=center,
+    text width=3.3cm,
+    minimum height=0.95cm
+  },
+  flow/.style={-Latex, line width=0.8pt, FinanceBlue}
+]
+
+\node[center] (bank) at (0,0) {Commercial-bank\\balance sheet};
+
+\node[box] (balance) at (0,3.0)
+{Balance-sheet intermediation,\\capital, and leverage};
+
+\node[box] (credit) at (-5.0,0.9)
+{Credit assessment,\\loan terms, and monitoring};
+
+\node[box] (funding) at (5.0,0.9)
+{Deposits, funding, and\\liquidity management};
+
+\node[box] (risk) at (0,-3.0)
+{Risk interactions and\\balance-sheet adjustment};
+
+\draw[flow] (balance) -- (bank);
+\draw[flow] (credit) -- (bank);
+\draw[flow] (funding) -- (bank);
+\draw[flow] (bank) -- (risk);
+
+\end{tikzpicture}
+\caption*{Commercial banking links credit decisions, funding, liquidity, and capital through a common balance sheet.}
+\end{figure}
+
+%========================================================
+% Key Terms
+%========================================================
+
+\TailModule{keyterms}{Key Terms}
+
+Commercial bank; balance-sheet intermediation; deposits; wholesale funding;
+equity capital; leverage; credit assessment; credit limit; funded exposure;
+undrawn commitment; loan monitoring; loan renewal; funding maturity;
+liquidity creation; liquidity capacity; funding outflows; net interest income;
+repricing gap; asset--liability mismatch; duration gap; economic value of equity;
+capital ratio; balance-sheet adjustment.
+
+%========================================================
+% Financial AI Lab
+%========================================================
+
+\TailModule{aiprompt}{Financial AI Lab}
+
+\textbf{Lab: Audit an Integrated Bank Balance-Sheet Analysis}
+
+Ask an AI system to analyze a simplified commercial bank with loans, securities,
+reserves, deposits, wholesale funding, and equity. Provide information on a
+borrower credit review, a deposit outflow, and a change in market interest rates.
+
+Evaluate the analysis in four stages.
+
+\begin{enumerate}
+
+\item \textbf{Check the balance-sheet identity.}
+Verify that assets equal liabilities plus equity after loan origination,
+payment settlement, funding outflows, and recognized losses. For each change,
+identify the corresponding balance-sheet entry.
+
+\item \textbf{Evaluate the credit decision.}
+Introduce weaker borrower cash-flow information and ask whether the existing
+credit limit should be maintained. Assess the reasoning about repayment
+capacity, contractual terms, and exposure rather than accepting an unsupported
+default probability.
+
+\item \textbf{Separate liquidity from capital.}
+Apply a deposit outflow and identify the resources that can provide cash within
+the specified horizon. Check whether the analysis distinguishes liquidity
+capacity from the economic value of the bank's assets and from its capital
+position.
+
+\item \textbf{Trace risk interactions.}
+Apply an interest-rate change and a loan-loss provision. Examine the effects on
+net interest income, economic value, earnings, and capital, and verify that any
+proposed balance-sheet adjustment remains internally consistent.
+
+\end{enumerate}
+
+%========================================================
+% Discussion Questions
+%========================================================
+
+\TailModule{questions}{Discussion Questions}
+
+\begin{enumerate}
+
+\item Why does a commercial bank operate as a balance-sheet intermediary rather than simply transferring existing deposits from savers to borrowers?
+
+\item How can borrower-specific information affect both the amount of credit a bank is willing to provide and the contractual terms attached to that credit?
+
+\item Why can a committed credit limit differ from the bank's current funded exposure?
+
+\item How do funding concentration, maturity, and interest-rate sensitivity affect a bank's liquidity management?
+
+\item How can the same interest-rate increase raise near-term net interest income while reducing the economic value of equity?
+
+\item Why can an asset sale undertaken to raise liquidity also affect earnings or capital through realized gains or losses?
+
+\end{enumerate}
+
+%========================================================
+% Applied Problems
+%========================================================
+
+\TailModule{appprobs}{Applied Problems}
+
+\begin{enumerate}
+
+\item \textbf{Loan origination and payment settlement.}
+
+A bank initially has RMB~80 million of loans, RMB~15 million of securities, and RMB~5 million of reserves. It is funded with RMB~82 million of deposits, RMB~8 million of wholesale funding, and RMB~10 million of equity.
+
+\begin{enumerate}
+
+\item The bank grants a new RMB~4 million loan and credits the borrower's
+deposit account. Show the immediate balance-sheet effect.
+
+\item The borrower transfers the RMB~4 million deposit to another bank.
+If settlement reduces reserves by RMB~4 million, show the resulting balance sheet.
+
+\item If the bank wants to restore reserves to RMB~3 million, identify two
+balance-sheet adjustments that could provide the required cash.
+
+\end{enumerate}
+
+\item \textbf{Credit limits and exposure.}
+
+A firm has a RMB~12 million revolving facility. The beginning balance is RMB~5 million. During the quarter the firm draws RMB~4 million and repays RMB~2 million.
+
+\begin{enumerate}
+\item Calculate the ending funded exposure.
+\item Calculate the undrawn amount under the credit limit.
+\item Suppose operating cash flow weakens and receivables rise. Explain two ways the bank could adjust the exposure without requiring immediate repayment of the full outstanding balance.
+\item Explain why raising the loan rate is not the only possible response to a weaker credit assessment.
+\end{enumerate}
+
+\item \textbf{Funding outflow and liquidity capacity.}
+
+A bank has RMB~7 billion of reserves, RMB~9 billion of securities that can be converted into RMB~8.5 billion of cash within the day, and RMB~3 billion of available secured borrowing capacity supported by other collateral. It experiences a RMB~14 billion net deposit outflow.
+
+\begin{enumerate}
+\item Calculate liquidity capacity under Equation~(\ref{eq:ch12-liquidity-capacity}).
+\item Is the stated capacity sufficient to meet the outflow?
+\item If the bank uses all reserves and RMB~7 billion of cash from securities sales, what liquid resources remain under the stated assumptions?
+\item Explain how the answer would change if part of the securities portfolio were already pledged as collateral.
+\end{enumerate}
+
+
+\item \textbf{Repricing and economic-value exposure.}
+
+
+Over the next year, a bank has RMB~85 billion of rate-sensitive assets and RMB~70 billion of rate-sensitive liabilities.
+
+\begin{enumerate}
+\item Calculate the repricing gap.
+\item Estimate the change in annual net interest income if relevant rates rise by 80 basis points using Equation~(\ref{eq:ch12-net-interest-income-gap}).
+\item The same bank has assets of RMB~100 billion, liabilities of RMB~92 billion, asset duration of 4.2, and liability duration of 1.8. Calculate the duration gap.
+\item Estimate the first-order change in economic value of equity for a 50-basis-point increase in yields.
+\item Explain why the income and economic-value measures need not move in the same direction over the same horizon.
+\end{enumerate}
+
+\item \textbf{Capital response and balance-sheet adjustment.}
+
+A bank has RMB~120 billion of assets and RMB~9.6 billion of equity. It recognizes a RMB~2.4 billion loss.
+
+\begin{enumerate}
+\item Calculate the initial and post-loss equity-to-assets ratios, assuming the loss reduces assets and equity by the same amount.
+\item If the bank seeks an 8\% simple equity-to-assets ratio and raises no new equity, calculate the asset level consistent with that ratio.
+\item Calculate the implied asset reduction from the post-loss balance sheet.
+\item Identify two alternatives to balance-sheet contraction and explain one limitation of each.
+\end{enumerate}
+
+\end{enumerate}
+
+%========================================================
+% Data Application
+%========================================================
+
+\TailModule{dataapp}{Data Application}
+
+\textbf{Commercial-Bank Balance Sheets, Funding, and Capital in China}
+
+Use an authoritative Chinese source such as the People's Bank of China,
+the National Financial Regulatory Administration, or the published financial
+statements of a listed commercial bank. Select one bank or a consistent
+banking-sector series and collect at least five years of data on major assets,
+deposits, other funding, liquid assets where separately reported, and equity.
+
+Construct ratios that address three questions: How are bank assets allocated?
+How is the balance sheet funded? How much book equity supports the asset base?
+Useful measures may include loans to total assets, deposits to total liabilities,
+liquid assets to total assets, and book equity to total assets. Use consistent
+accounting definitions across the sample period and distinguish accounting
+equity from regulatory capital measures.
+
+Identify one period in which asset growth, deposit growth, funding composition,
+or equity changed materially. Trace the change through the balance-sheet
+identity rather than interpreting a single ratio in isolation. If loans grew
+faster than deposits, identify which other liabilities or equity financed the
+difference. If equity grew more slowly than assets, calculate the resulting
+change in simple leverage.
+
+If comparable data are available for two banks, compare their asset mix,
+deposit structure, reliance on nondeposit funding, and liquid-asset positions.
+Discuss how these differences could affect their balance-sheet responses to a
+hypothetical funding outflow or interest-rate change. Do not treat reported
+liquid assets alone as a complete measure of liquidity capacity.
+
+Report the institution, sample period, accounting definitions, source documents,
+and any transformations used in the analysis.
+
+%========================================================
+% Case Analysis
+%========================================================
+
+\TailModule{caseanalysis}{Case Analysis}
+
+\textbf{Case: Silicon Valley Bank---An Individual-Bank Balance-Sheet Analysis}
+
+Silicon Valley Bank was closed by the California Department of Financial
+Protection and Innovation on March 10, 2023, and the Federal Deposit Insurance
+Corporation was appointed receiver. The Federal Reserve's subsequent review
+identified rapid balance-sheet growth, a concentrated business model, heavy
+reliance on uninsured deposits, and weaknesses in liquidity and interest-rate
+risk management.
+
+As market interest rates rose during 2022, the market value of SVB's
+long-duration fixed-rate securities declined. At the same time, weaker
+venture-capital activity reduced deposit inflows, while some technology and
+venture-backed clients drew down deposits to finance their operations. On
+March 8, 2023, SVB Financial Group announced a balance-sheet restructuring
+that included the sale of a large available-for-sale securities portfolio,
+recognition of an after-tax loss, and a planned capital raise.
+
+Analyze the episode at the level of the bank's balance sheet. Separate four
+questions: How did the securities portfolio respond to higher market interest
+rates? How did the composition of deposits affect the stability of funding?
+Which assets or funding sources could provide liquidity within the required
+time horizon? How did the realized loss affect the bank's capital position,
+and how was the planned capital raise intended to respond?
+
+Then trace one interaction among these dimensions. For example, an asset sale
+undertaken to raise liquidity can convert an unrealized decline in market value
+into a realized loss that reduces earnings and capital. The episode therefore
+illustrates how interest-rate exposure, funding outflows, liquidity adjustment,
+and capital can interact through the same balance sheet.
+
+The analysis here remains at the level of the individual bank. System-wide
+contagion, emergency liquidity support, and prudential regulation are examined
+in later chapters.
+
+\emph{Primary sources: Board of Governors of the Federal Reserve System,
+Review of the Federal Reserve's Supervision and Regulation of Silicon Valley
+Bank, April 2023; Federal Deposit Insurance Corporation, Failed Bank Information
+for Silicon Valley Bank, 2023; SVB Financial Group, SEC filings, March 2023.}
+
+%========================================================
+% Further Reading
+%========================================================
+
+\TailModule{furtherread}{Further Reading}
+
+\begin{itemize}
+
+\item Berger, Allen N., and Gregory F. Udell (1995),
+``Relationship Lending and Lines of Credit in Small Firm Finance,''
+\emph{The Journal of Business}, 68(3), 351--381.
+
+\item Kashyap, Anil K., Raghuram Rajan, and Jeremy C. Stein (2002),
+``Banks as Liquidity Providers: An Explanation for the Coexistence of Lending and Deposit-Taking,''
+\emph{The Journal of Finance}, 57(1), 33--73.
+
+\item Drechsler, Itamar, Alexi Savov, and Philipp Schnabl (2021),
+``Banking on Deposits: Maturity Transformation without Interest Rate Risk,''
+\emph{The Journal of Finance}, 76(3), 1091--1143.
+
+\end{itemize}
+
+\ChapterTail{summary,mindmap,keyterms,aiprompt,questions,appprobs,dataapp,caseanalysis,furtherread}
